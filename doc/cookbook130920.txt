@@ -1,0 +1,39 @@
+
+Cliente:
+    Irma () y Ruben (98)
+    Manejo basico de PC e Internet.
+
+Sistema actual:
+
+    Datos notables:
+        - 400 clientes, publico variado.
+        - 300 libros de cocina (pertenecen a multiples categorias).
+        - 50 autores.
+        - Semanalmente entre 16 y 28 pedidos.
+
+    Procedimiento de venta:
+        - Anuncio en diarios.
+        - Pagos por contrareembolso.
+        - Planilla excel de clientes
+        - Planilla excel de pedidos.
+
+    Datos utiles:
+        - Pico de ventas a fin de año.
+        - Publico variado.
+
+Sistema nuevo:
+
+    Objetivo:
+        - Aumentar ventas
+
+    Procedimiento de venta:
+        - Tarjeta de credito, un solo pago.
+        - Envios a nivel nacional.
+
+	Vistas:
+        - Primeras paginas.
+        - Indice.
+        - Recetas.
+
+    Datos utiles:
+        - Alcance: por ahora no amplia, solo cocina.
