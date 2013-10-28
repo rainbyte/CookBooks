@@ -1,0 +1,12 @@
+•+2	Interfaz principal del producto.
+•	Interfaz de gestión de productos.
+•	Interfaz de gestión de pedidos.
+•+2	Interfaz de registro de usuarios.
+•	Interfaz de gestión de la cuenta del usuario.
+•	Interfaz de administración de pedidos.
+•	Interfaz de catalogo de libros.
+•	Interfaz de administración de usuarios.
+•+2	Interfaz de contacto.
+•	Interfaz de ayuda.
+•	Interfaz de gestión de compras.(Para cancelar ventas,ver compras hechas,etc)
+
