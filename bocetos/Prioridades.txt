@@ -1,12 +1,12 @@
-�+2	    Interfaz principal del producto.
-�	      Interfaz de gesti�n de productos.
-�	      Interfaz de gesti�n de pedidos.
-�+2	    Interfaz de registro de usuarios.
-�	      Interfaz de gesti�n de la cuenta del usuario.
-�	      Interfaz de administraci�n de pedidos.
-�	      Interfaz de catalogo de libros.
-�	      Interfaz de administraci�n de usuarios.
-�+2	    Interfaz de contacto.
-�	       Interfaz de ayuda.
-�	      Interfaz de gesti�n de compras.(Para cancelar ventas,ver compras hechas,etc)
+*+2	    Interfaz principal del producto.
+*	      Interfaz de gestión de productos.
+*+2	    Interfaz de registro de usuarios.
+*	      Interfaz de gestión de pedidos.
+*	      Interfaz de gestión de la cuenta del usuario.
+*	      Interfaz de administración de pedidos.
+*	      Interfaz de catalogo de libros.
+*	      Interfaz de administración de usuarios.
+*+2	    Interfaz de contacto.
+*	       Interfaz de ayuda.
+*	      Interfaz de gestión de compras.(Para cancelar ventas,ver compras hechas,etc)
 
