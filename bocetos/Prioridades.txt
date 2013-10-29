@@ -7,6 +7,6 @@
 *	      Interfaz de catalogo de libros.
 *	      Interfaz de administración de usuarios.
 *+2	    Interfaz de contacto.
-*	       Interfaz de ayuda.
+*	      Interfaz de ayuda.
 *	      Interfaz de gestión de compras.(Para cancelar ventas,ver compras hechas,etc)
 
