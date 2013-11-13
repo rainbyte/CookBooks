@@ -1,16 +1,15 @@
 package com.t3g.cookbooks.db.entities;
 
+import java.sql.SQLException;
 import java.util.Date;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.t3g.cookbooks.db.Database;
 
 @DatabaseTable(tableName = "authors")
 public class Author {
-	public static enum Gender {
-		FEMALE, MALE
-	}
-	
 	@DatabaseField(generatedId = true)
 	private long id;
 	
@@ -20,14 +19,14 @@ public class Author {
 	@DatabaseField(canBeNull = false)
 	private String surname;
 	
-	@DatabaseField(canBeNull = false, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true)
 	private Country country;
 	
-	@DatabaseField(canBeNull = false)
+	@DatabaseField()
 	private Date birthdate;
 	
-	@DatabaseField(canBeNull = false)
-	private Gender gender;
+	@DatabaseField()
+	private char gender;
 	
 	@DatabaseField()
 	private String about;
@@ -42,14 +41,11 @@ public class Author {
 		this.id = id;
 	}
 	
-	public Author(String name, String surname, Country country, Date birthdate, Gender gender, String about) {
+	public Author(String name, String surname, Country country) {
 		super();
 		this.name = name;
 		this.surname = surname;
 		this.country = country;
-		this.birthdate = birthdate;
-		this.gender = gender;
-		this.about = about;
 	}
 	
 	public long getId() {
@@ -92,11 +88,11 @@ public class Author {
 		this.birthdate = birthdate;
 	}
 	
-	public Gender getGender() {
+	public char getGender() {
 		return gender;
 	}
 	
-	public void setGender(Gender gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 	
@@ -106,5 +102,18 @@ public class Author {
 	
 	public void setAbout(String about) {
 		this.about = about;
-	}	
+	}
+	
+	public static void main(String[] args) {
+		Author author = new Author();
+		author.setName("Andrew");
+		author.setSurname("Tanenbaum");
+		author.setCountry(new Country("Finland"));
+		try {
+			Database.getAuthorDao().create(author);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

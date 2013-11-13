@@ -1,9 +1,11 @@
 package com.t3g.cookbooks.db.entities;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.t3g.cookbooks.db.Database;
 
 @DatabaseTable(tableName = "books")
 public class Book {
@@ -22,8 +24,8 @@ public class Book {
 	@DatabaseField(canBeNull = false)
 	private float price;
 	
-	@DatabaseField(canBeNull = false)
-	private Date publishdate;
+	@DatabaseField()
+	private Date publish_date;
 	
 	@DatabaseField()
 	private String summary;
@@ -31,10 +33,10 @@ public class Book {
 	@DatabaseField()
 	private String sample; //first pages
 	
-	@DatabaseField(foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true)
 	private Author author;
 	
-	@DatabaseField(foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true)
 	private Language language;
 	
 	public Book() {
@@ -47,16 +49,13 @@ public class Book {
 	}
 		
 	public Book(String isbn, String title, int pages, float price,
-			Date publishdate, String summary, String sample, Author author,
+			Author author,
 			Language language) {
 		super();
 		this.isbn = isbn;
 		this.title = title;
 		this.pages = pages;
 		this.price = price;
-		this.publishdate = publishdate;
-		this.summary = summary;
-		this.sample = sample;
 		this.author = author;
 		this.language = language;
 	}
@@ -102,11 +101,11 @@ public class Book {
 	}
 	
 	public Date getPublishDate() {
-		return publishdate;
+		return publish_date;
 	}
 	
 	public void setPublishDate(Date publishdate) {
-		this.publishdate = publishdate;
+		this.publish_date = publishdate;
 	}
 	
 	public String getSummary() {
@@ -139,5 +138,18 @@ public class Book {
 	
 	public void setLanguage(Language language) {
 		this.language = language;
+	}
+	
+	public static void main(String[] args) {
+		Book book = new Book("9dh329rn3dbu", "Ingenieria de Software 9ed", 700, 500,
+				new Author("???", "Sommervile", new Country("USA")),
+				new Language("Español"));
+		
+		try {
+			Database.getBookDao().create(book);
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
 	}
 }
