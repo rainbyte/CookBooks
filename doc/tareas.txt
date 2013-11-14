@@ -1,0 +1,14 @@
+Tareas unicamente de Interfaz
+------------------------------------------
+
+* Martin --> Interfaz para quitar del carrito
+
+* Martin --> Interfaz para agregar al carrito
+
+* ? --> Interfaz para hojear libro
+
+* ? --> Interfaz para consultar datos de un libro
+
+* ? --> Interfaz para generar pedido
+
+* ? --> Interfaz para registro
