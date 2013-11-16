@@ -20,6 +20,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
      * Creates new form Register
      */
     public CatalogueBooks() {
+    	getContentPane().setPreferredSize(new Dimension(657, 687));
         initComponents();
     }
 
@@ -31,6 +32,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jInternalFrame1.setResizable(true);
         jPanel1 = new javax.swing.JPanel();
         lblPrincipalpicture = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -207,7 +209,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
         jPanel2.setAutoscrolls(true);
         jPanel2.setName(""); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(674, 500));
+        jPanel2.setPreferredSize(new Dimension(674, 500));
         
         JScrollPane spanelBooks = new JScrollPane();
         
@@ -245,24 +247,25 @@ public class CatalogueBooks extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2Layout.setHorizontalGroup(
         	jPanel2Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-        			.addGap(19)
-        			.addComponent(btnAddBook)
-        			.addPreferredGap(ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
-        			.addComponent(btnEdit)
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addComponent(btnDelete)
-        			.addGap(22))
         		.addGroup(jPanel2Layout.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(spanelBooks, GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
-        			.addContainerGap())
-        		.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-        			.addContainerGap(295, Short.MAX_VALUE)
-        			.addComponent(btnBack)
-        			.addGap(136)
-        			.addComponent(lblT3G)
-        			.addContainerGap())
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        					.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        						.addComponent(btnAddBook)
+        						.addPreferredGap(ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
+        						.addComponent(btnEdit)
+        						.addPreferredGap(ComponentPlacement.RELATED)
+        						.addComponent(btnDelete)
+        						.addGap(14))
+        					.addGroup(jPanel2Layout.createSequentialGroup()
+        						.addComponent(spanelBooks, GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+        						.addContainerGap()))
+        				.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        					.addComponent(btnBack)
+        					.addGap(115)
+        					.addComponent(lblT3G)
+        					.addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
         	jPanel2Layout.createParallelGroup(Alignment.TRAILING)
@@ -270,15 +273,15 @@ public class CatalogueBooks extends javax.swing.JFrame {
         			.addContainerGap()
         			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(btnAddBook)
-        				.addComponent(btnEdit)
-        				.addComponent(btnDelete))
+        				.addComponent(btnDelete)
+        				.addComponent(btnEdit))
         			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addComponent(spanelBooks, GroupLayout.PREFERRED_SIZE, 453, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(spanelBooks, GroupLayout.PREFERRED_SIZE, 385, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(lblT3G)
-        				.addComponent(btnBack))
-        			.addGap(4))
+        				.addComponent(btnBack)
+        				.addComponent(lblT3G))
+        			.addGap(62))
         );
         
         tableBooks = new JTable();
@@ -286,30 +289,33 @@ public class CatalogueBooks extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+        		.addComponent(jPanel2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE))
+        	jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jInternalFrame1Layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(55, Short.MAX_VALUE))
         );
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jInternalFrame1, GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jInternalFrame1, GroupLayout.PREFERRED_SIZE, 686, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(60, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
