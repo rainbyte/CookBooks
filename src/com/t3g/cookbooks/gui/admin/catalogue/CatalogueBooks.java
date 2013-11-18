@@ -1,25 +1,34 @@
 package com.t3g.cookbooks.gui.admin.catalogue;
+import java.awt.Color;
 import java.awt.Dimension;
 
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.t3g.cookbooks.resources.Resources;
-
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 /**
  *
- * @author Fabrizio
+ * @author T3G
  */
 public class CatalogueBooks extends javax.swing.JFrame {
 
+    private JButton btnLogin, btnSearch, btnBack;
+    private JInternalFrame jInternalFrame1;
+    private JPanel jPanel1, jPanel2;
+    private JLabel lblForgotPass, lblPrincipalpicture, lblContac, lblHelp, lblHome, lblOrder, lblRegister;
+    private JPasswordField txtPassword;
+    private JTextField txtSearch, txtUser;
+    private JTable tableBooks;
+	
     /**
      * Creates new form Register
      */
@@ -45,11 +54,11 @@ public class CatalogueBooks extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        txtHome = new javax.swing.JLabel();
-        txtOrder = new javax.swing.JLabel();
-        txtHelp = new javax.swing.JLabel();
-        txtContac = new javax.swing.JLabel();
-        txtRegister = new javax.swing.JLabel();
+        lblHome = new javax.swing.JLabel();
+        lblOrder = new javax.swing.JLabel();
+        lblHelp = new javax.swing.JLabel();
+        lblContac = new javax.swing.JLabel();
+        lblRegister = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,9 +83,6 @@ public class CatalogueBooks extends javax.swing.JFrame {
 
         btnLogin.setText("Ingresar");
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLoginMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnLoginMousePressed(evt);
             }
@@ -84,29 +90,16 @@ public class CatalogueBooks extends javax.swing.JFrame {
 
         lblForgotPass.setBackground(new java.awt.Color(51, 51, 255));
         lblForgotPass.setForeground(new java.awt.Color(51, 51, 255));
-        lblForgotPass.setText("Olvide mi contrase�a");
+        lblForgotPass.setText("Olvide mi contraseña");
         lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblForgotPassMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblForgotPassMousePressed(evt);
             }
         });
 
-        txtPassword.setText("Contrase�a");
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
+        txtPassword.setText("Contraseña");
 
         txtSearch.setText("Buscar libro, autor, ISBN...");
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
 
         btnSearch.setText("Buscar");
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -115,35 +108,35 @@ public class CatalogueBooks extends javax.swing.JFrame {
             }
         });
 
-        txtHome.setText("Principal");
+        lblHome.setText("Principal");
 
-        txtOrder.setForeground(new java.awt.Color(51, 51, 255));
-        txtOrder.setText("Pedidos");
-        txtOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblOrder.setForeground(new java.awt.Color(51, 51, 255));
+        lblOrder.setText("Pedidos");
+        lblOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtOrderMousePressed(evt);
             }
         });
 
-        txtHelp.setForeground(new java.awt.Color(51, 51, 255));
-        txtHelp.setText("Ayuda");
-        txtHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblHelp.setForeground(new java.awt.Color(51, 51, 255));
+        lblHelp.setText("Ayuda");
+        lblHelp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtHelpMousePressed(evt);
             }
         });
 
-        txtContac.setForeground(new java.awt.Color(51, 51, 255));
-        txtContac.setText("Contacto");
-        txtContac.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblContac.setForeground(new java.awt.Color(51, 51, 255));
+        lblContac.setText("Contacto");
+        lblContac.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtContacMousePressed(evt);
             }
         });
 
-        txtRegister.setForeground(new java.awt.Color(51, 51, 255));
-        txtRegister.setText("Registrarse");
-        txtRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblRegister.setForeground(new java.awt.Color(51, 51, 255));
+        lblRegister.setText("Registrarse");
+        lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtRegisterMousePressed(evt);
             }
@@ -161,15 +154,15 @@ public class CatalogueBooks extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtHome)
+                        .addComponent(lblHome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtOrder)
+                        .addComponent(lblOrder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtHelp)
+                        .addComponent(lblHelp)
                         .addGap(10, 10, 10)
-                        .addComponent(txtContac)
+                        .addComponent(lblContac)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtRegister))
+                        .addComponent(lblRegister))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblPrincipalpicture)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -202,11 +195,11 @@ public class CatalogueBooks extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
-                    .addComponent(txtHome)
-                    .addComponent(txtOrder)
-                    .addComponent(txtHelp)
-                    .addComponent(txtContac)
-                    .addComponent(txtRegister))
+                    .addComponent(lblHome)
+                    .addComponent(lblOrder)
+                    .addComponent(lblHelp)
+                    .addComponent(lblContac)
+                    .addComponent(lblRegister))
                 .addGap(31, 31, 31))
         );
 
@@ -322,79 +315,60 @@ public class CatalogueBooks extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
     
-    private void btnAddBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        // TODO Al presionarse debe abrise la ventana de "alta de libro"
-    }//GEN-LAST:event_btnLoginMouseClicked
-    
-    private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        // TODO Al presionarse debe abrise la ventana de "Editar libro" para modificar los datos del libro seleccionado
-    }//GEN-LAST:event_btnLoginMouseClicked
-    
-    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        // TODO Al presionarse debe eliminar el libro seleccionado en la tabla
-    }//GEN-LAST:event_btnLoginMouseClicked
-    
-    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        // TODO Al presionase debe volver a la pagina anterior
-    }//GEN-LAST:event_btnLoginMouseClicked
+	private void btnAddBookMouseClicked(java.awt.event.MouseEvent evt) {
+		// TODO Al presionarse debe abrise la ventana de "alta de libro"
+	}
 
-    private void lblForgotPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblForgotPassMouseClicked
+	private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {
+		// TODO Al presionarse debe abrise la ventana de "Editar libro" para
+		// modificar los datos del libro seleccionado
+	}
 
-    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLoginMouseClicked
+	private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {
+		// TODO Al presionarse debe eliminar el libro seleccionado en la tabla
+	}
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+	private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {
+		// TODO Al presionase debe volver a la pagina anterior
+	}
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
+	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ingresar a la pagina, y loguearse. Abre pantalla
+		// home pero ya logueado.
+	}
 
-    private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ingresar a la p�gina, y loguearse. Abre pantalla home pero ya logueado.
-    }//GEN-LAST:event_btnLoginMousePressed
+	private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para recuperar contraseña, abre pantalla de
+		// "olvide contraseña"
+	}
 
-    private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para recuperar contrase�a, abre pantalla de "olvide contrase�a"
-    }//GEN-LAST:event_lblForgotPassMousePressed
+	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para realizar una busqueda, en txtSearch esta lo que
+		// buscamos
+	}
 
-    private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para realizar una b�squeda, en txtSearch esta lo que buscamos
-    }//GEN-LAST:event_btnSearchMousePressed
+	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz principal. Al hacer click en la
+		// imagen "cookbook" voy al inicio.
+	}
 
-    private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrincipalpictureMousePressed
-        // TODO add your handling code here:
-       // TODO Evento para ir a la interfaz principal. Al hacer click en la im�gen "cookbook" voy al inicio.
-    }//GEN-LAST:event_lblPrincipalpictureMousePressed
+	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz de registro
+	}
 
-    private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegisterMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ir a la interfaz de registro
-    }//GEN-LAST:event_txtRegisterMousePressed
+	private void txtContacMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz de contacto
+	}
 
-    private void txtContacMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContacMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ir a la interfaz de contacto
-    }//GEN-LAST:event_txtContacMousePressed
+	private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz de ayuda
+	}
 
-    private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHelpMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ir a la interfaz de ayuda
-    }//GEN-LAST:event_txtHelpMousePressed
-
-    private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOrderMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ir a la interfaz de pedidos
-    }//GEN-LAST:event_txtOrderMousePressed
+	private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz de pedidos
+	}
 
     /**
      * @param args the command line arguments
@@ -421,8 +395,6 @@ public class CatalogueBooks extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CatalogueBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
 
 
 
@@ -433,22 +405,5 @@ public class CatalogueBooks extends javax.swing.JFrame {
             }
         });
     }
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblForgotPass;
-    private javax.swing.JLabel lblPrincipalpicture;
-    private javax.swing.JLabel txtContac;
-    private javax.swing.JLabel txtHelp;
-    private javax.swing.JLabel txtHome;
-    private javax.swing.JLabel txtOrder;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JLabel txtRegister;
-    private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtUser;
-    private JTable tableBooks;
-    private JButton btnBack;
 }
 
