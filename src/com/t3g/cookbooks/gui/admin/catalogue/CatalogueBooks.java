@@ -1,5 +1,6 @@
 package com.t3g.cookbooks.gui.admin.catalogue;
 import java.awt.Dimension;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -7,6 +8,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import com.t3g.cookbooks.resources.Resources;
+
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -59,7 +63,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        lblPrincipalpicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cookbookLogoReducido.png"))); // NOI18N
+        lblPrincipalpicture.setIcon(Resources.getLogo());
         lblPrincipalpicture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblPrincipalpictureMousePressed(evt);
@@ -80,7 +84,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
 
         lblForgotPass.setBackground(new java.awt.Color(51, 51, 255));
         lblForgotPass.setForeground(new java.awt.Color(51, 51, 255));
-        lblForgotPass.setText("Olvide mi contraseña");
+        lblForgotPass.setText("Olvide mi contraseï¿½a");
         lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblForgotPassMouseClicked(evt);
@@ -90,7 +94,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setText("Contraseña");
+        txtPassword.setText("Contraseï¿½a");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -354,22 +358,22 @@ public class CatalogueBooks extends javax.swing.JFrame {
 
     private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMousePressed
         // TODO add your handling code here:
-        // TODO Evento para ingresar a la página, y loguearse. Abre pantalla home pero ya logueado.
+        // TODO Evento para ingresar a la pï¿½gina, y loguearse. Abre pantalla home pero ya logueado.
     }//GEN-LAST:event_btnLoginMousePressed
 
     private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMousePressed
         // TODO add your handling code here:
-        // TODO Evento para recuperar contraseña, abre pantalla de "olvide contraseña"
+        // TODO Evento para recuperar contraseï¿½a, abre pantalla de "olvide contraseï¿½a"
     }//GEN-LAST:event_lblForgotPassMousePressed
 
     private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMousePressed
         // TODO add your handling code here:
-        // TODO Evento para realizar una búsqueda, en txtSearch esta lo que buscamos
+        // TODO Evento para realizar una bï¿½squeda, en txtSearch esta lo que buscamos
     }//GEN-LAST:event_btnSearchMousePressed
 
     private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrincipalpictureMousePressed
         // TODO add your handling code here:
-       // TODO Evento para ir a la interfaz principal. Al hacer click en la imágen "cookbook" voy al inicio.
+       // TODO Evento para ir a la interfaz principal. Al hacer click en la imï¿½gen "cookbook" voy al inicio.
     }//GEN-LAST:event_lblPrincipalpictureMousePressed
 
     private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegisterMousePressed

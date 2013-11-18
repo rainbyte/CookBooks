@@ -1,5 +1,7 @@
 package com.t3g.cookbooks.gui.admin;
 
+import com.t3g.cookbooks.resources.Resources;
+
 /**
  *
  * @author Fabrizio
@@ -101,7 +103,7 @@ public class Register extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        lblPrincipalpicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cookbookLogoReducido.png"))); // NOI18N
+        lblPrincipalpicture.setIcon(Resources.getLogo());
         lblPrincipalpicture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblPrincipalpictureMousePressed(evt);
