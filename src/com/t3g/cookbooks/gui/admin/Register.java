@@ -1,10 +1,19 @@
 package com.t3g.cookbooks.gui.admin;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+
 import com.t3g.cookbooks.resources.Resources;
 
 /**
  *
- * @author Fabrizio
+ * @author T3G
  */
 public class Register extends javax.swing.JFrame {
 
@@ -19,77 +28,76 @@ public class Register extends javax.swing.JFrame {
      * This method is called from within the constructor to initialize the form.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jPanel1 = new javax.swing.JPanel();
-        lblPrincipalpicture = new javax.swing.JLabel();
-        txtUser = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
-        lblForgotPass = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JPasswordField();
-        txtSearch = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
-        txtHome = new javax.swing.JLabel();
-        txtOrder = new javax.swing.JLabel();
-        txtHelp = new javax.swing.JLabel();
-        txtContac = new javax.swing.JLabel();
-        txtRegister = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        lblSurname = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JLabel();
-        lblPass = new javax.swing.JLabel();
-        lblConfirmPass = new javax.swing.JLabel();
-        lblStates = new javax.swing.JLabel();
-        lblTown = new javax.swing.JLabel();
-        lblStreet = new javax.swing.JLabel();
-        lblNumber = new javax.swing.JLabel();
-        lblFloor = new javax.swing.JLabel();
-        lblDepto = new javax.swing.JLabel();
-        lblCP = new javax.swing.JLabel();
-        lblPhone = new javax.swing.JLabel();
-        lblCard = new javax.swing.JLabel();
-        lblSecureCode = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtSurname = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtPass = new javax.swing.JTextField();
-        txtConfirmPass = new javax.swing.JTextField();
-        txtTown = new javax.swing.JTextField();
-        txtStreet = new javax.swing.JTextField();
-        txtNumber = new javax.swing.JTextField();
-        txtFloor = new javax.swing.JTextField();
-        txtDepto = new javax.swing.JTextField();
-        txtCP = new javax.swing.JTextField();
-        txtPhone = new javax.swing.JTextField();
-        txtCard1 = new javax.swing.JTextField();
-        txtSecureCode = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
-        btnConfirm = new javax.swing.JButton();
-        lblFirmat3g = new javax.swing.JLabel();
-        txtCard2 = new javax.swing.JTextField();
-        txtCard3 = new javax.swing.JTextField();
-        txtCard4 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        cbxStates = new javax.swing.JComboBox();
-        jLabel33 = new javax.swing.JLabel();
+        jInternalFrame1 = new JInternalFrame();
+        jPanel1 = new JPanel();
+        lblPrincipalpicture = new JLabel();
+        txtUser = new JTextField();
+        btnLogin = new JButton();
+        lblForgotPass = new JLabel();
+        txtPassword = new JPasswordField();
+        txtSearch = new JTextField();
+        btnSearch = new JButton();
+        txtHome = new JLabel();
+        txtOrder = new JLabel();
+        txtHelp = new JLabel();
+        txtContac = new JLabel();
+        txtRegister = new JLabel();
+        jPanel2 = new JPanel();
+        jLabel2 = new JLabel();
+        jSeparator1 = new JSeparator();
+        jLabel3 = new JLabel();
+        jLabel4 = new JLabel();
+        lblName = new JLabel();
+        lblSurname = new JLabel();
+        lblEmail = new JLabel();
+        lblPass = new JLabel();
+        lblConfirmPass = new JLabel();
+        lblStates = new JLabel();
+        lblTown = new JLabel();
+        lblStreet = new JLabel();
+        lblNumber = new JLabel();
+        lblFloor = new JLabel();
+        lblDepto = new JLabel();
+        lblCP = new JLabel();
+        lblPhone = new JLabel();
+        lblCard = new JLabel();
+        lblSecureCode = new JLabel();
+        txtName = new JTextField();
+        txtSurname = new JTextField();
+        txtEmail = new JTextField();
+        txtPass = new JTextField();
+        txtConfirmPass = new JTextField();
+        txtTown = new JTextField();
+        txtStreet = new JTextField();
+        txtNumber = new JTextField();
+        txtFloor = new JTextField();
+        txtDepto = new JTextField();
+        txtCP = new JTextField();
+        txtPhone = new JTextField();
+        txtCard1 = new JTextField();
+        txtSecureCode = new JTextField();
+        btnBack = new JButton();
+        btnConfirm = new JButton();
+        lblFirmat3g = new JLabel();
+        txtCard2 = new JTextField();
+        txtCard3 = new JTextField();
+        txtCard4 = new JTextField();
+        jLabel20 = new JLabel();
+        jLabel21 = new JLabel();
+        jLabel22 = new JLabel();
+        jLabel23 = new JLabel();
+        jLabel24 = new JLabel();
+        jLabel25 = new JLabel();
+        jLabel26 = new JLabel();
+        jLabel27 = new JLabel();
+        jLabel29 = new JLabel();
+        jLabel30 = new JLabel();
+        jLabel31 = new JLabel();
+        jLabel32 = new JLabel();
+        cbxStates = new JComboBox();
+        jLabel33 = new JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CookBook Software");
@@ -114,9 +122,6 @@ public class Register extends javax.swing.JFrame {
 
         btnLogin.setText("Ingresar");
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLoginMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnLoginMousePressed(evt);
             }
@@ -126,27 +131,14 @@ public class Register extends javax.swing.JFrame {
         lblForgotPass.setForeground(new java.awt.Color(51, 51, 255));
         lblForgotPass.setText("Olvide mi contraseña");
         lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblForgotPassMouseClicked(evt);
-            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblForgotPassMousePressed(evt);
             }
         });
 
         txtPassword.setText("Contraseña");
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
 
         txtSearch.setText("Buscar libro, autor, ISBN...");
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
 
         btnSearch.setText("Buscar");
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,21 +285,10 @@ public class Register extends javax.swing.JFrame {
         lblSecureCode.setText("Código de seguridad");
 
         txtName.setText("Alejandro");
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
 
         txtSurname.setText("Martínez");
 
         txtEmail.setText("Ale.Martinez@dominio.com");
-
-        txtConfirmPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtConfirmPassActionPerformed(evt);
-            }
-        });
 
         txtTown.setText("Domselaar");
 
@@ -326,21 +307,11 @@ public class Register extends javax.swing.JFrame {
                 btnBackMousePressed(evt);
             }
         });
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         btnConfirm.setText("CONFIRMAR");
         btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnConfirmMousePressed(evt);
-            }
-        });
-        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmActionPerformed(evt);
             }
         });
 
@@ -607,92 +578,49 @@ public class Register extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void lblForgotPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblForgotPassMouseClicked
-
-    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLoginMouseClicked
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
-
-    private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ingresar a la página, y loguearse. Abre pantalla home pero ya logueado.
-    }//GEN-LAST:event_btnLoginMousePressed
-
-    private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para recuperar contraseña, abre pantalla de "olvide contraseña"
-    }//GEN-LAST:event_lblForgotPassMousePressed
-
-    private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para realizar una búsqueda, en txtSearch esta lo que buscamos
-    }//GEN-LAST:event_btnSearchMousePressed
-
-    private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPrincipalpictureMousePressed
-        // TODO add your handling code here:
-       // TODO Evento para ir a la interfaz principal. Al hacer click en la imágen "cookbook" voy al inicio.
-    }//GEN-LAST:event_lblPrincipalpictureMousePressed
-
-    private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegisterMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ir a la interfaz de registro
-    }//GEN-LAST:event_txtRegisterMousePressed
-
-    private void txtContacMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContacMousePressed
-        // TODO add your handling code here:
-        // TODO Evento para ir a la interfaz de contacto
-    }//GEN-LAST:event_txtContacMousePressed
-
-    private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHelpMousePressed
-        // TODO add your handling code here:
+    private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
+    	// TODO Evento para ingresar a la página, y loguearse. Abre pantalla home pero ya logueado.
+    }
+    
+    private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {
+    	// TODO Evento para recuperar contraseña, abre pantalla de "olvide contraseña"
+    }
+    private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
+    	// TODO Evento para realizar una búsqueda, en txtSearch esta lo que buscamos
+    }
+    
+    private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
+    	// TODO Evento para ir a la interfaz principal. Al hacer click en la imágen "cookbook" voy al inicio.
+    }
+    
+    private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
+    	// TODO Evento para ir a la interfaz de registro
+    }
+    
+    private void txtContacMousePressed(java.awt.event.MouseEvent evt) {
+    	// TODO Evento para ir a la interfaz de contacto
+    }
+    
+    private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {
         // TODO Evento para ir a la interfaz de ayuda
-    }//GEN-LAST:event_txtHelpMousePressed
-
-    private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOrderMousePressed
-        // TODO add your handling code here:
+    }
+    
+    private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {
         // TODO Evento para ir a la interfaz de pedidos
-    }//GEN-LAST:event_txtOrderMousePressed
+    }
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConfirmActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void txtConfirmPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConfirmPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtConfirmPassActionPerformed
-
-    private void btnConfirmMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMousePressed
-        // TODO add your handling code here:
+    private void btnConfirmMousePressed(java.awt.event.MouseEvent evt) {
         // TODO Evento que confirma el registro de un usuario, aca también habría que validar que todos
         // los campos fueron correctos...
-    }//GEN-LAST:event_btnConfirmMousePressed
+    }
 
     private void btnBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMousePressed
-        // TODO add your handling code here:
         // TODO Evento para ir a la interfaz anterios (Principal?) Quizás lo mejor es hacer
         // que vaya a la principal... para simplificar pero no sé
         // Es el evento del botón "VOLVER ATRÁS"
-    }//GEN-LAST:event_btnBackMousePressed
+    }
 
     /**
      * @param args the command line arguments
@@ -719,7 +647,6 @@ public class Register extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
 
 
@@ -732,7 +659,6 @@ public class Register extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnLogin;
@@ -801,5 +727,4 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtSurname;
     private javax.swing.JTextField txtTown;
     private javax.swing.JTextField txtUser;
-    // End of variables declaration//GEN-END:variables
 }
