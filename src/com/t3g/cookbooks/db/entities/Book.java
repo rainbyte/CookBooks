@@ -148,7 +148,6 @@ public class Book {
 		try {
 			Database.getBookDao().create(book);
 		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
 	}

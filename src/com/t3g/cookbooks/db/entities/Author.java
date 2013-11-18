@@ -112,7 +112,6 @@ public class Author {
 		try {
 			Database.getAuthorDao().create(author);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
