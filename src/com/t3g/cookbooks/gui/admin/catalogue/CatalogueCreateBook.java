@@ -9,25 +9,20 @@ import java.sql.SQLException;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
-
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Color;
-import java.awt.Font;
 
 public class CatalogueCreateBook extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -36,10 +31,10 @@ public class CatalogueCreateBook extends JFrame {
 	private JInternalFrame internalFrame;
 	private JLabel lblTitle, lblAuthor, lblIsbn, lblPrice, lblTags, lblImage,
 			lblPages, lblSummary, lblSample;
-	private JTextField txtTitle, txtIsbn, txtPrice, txtTags,
+	private JTextField txtTitle, txtAuthor, txtIsbn, txtPrice, txtTags,
 			txtImage, txtPages;
 	private JTextArea txtSummary, txtAditional;
-	private JButton btnSave, btnCancel, btnCreateAuthor;
+	private JButton btnSave, btnCancel;
 
 	public CatalogueCreateBook() {
 		getContentPane().setBackground(new Color(153, 153, 255));
@@ -56,57 +51,25 @@ public class CatalogueCreateBook extends JFrame {
 		internalFrame.setBounds(0, 0, 518, 578);
 		
 		lblTitle = new javax.swing.JLabel("Titulo");
-		lblTitle.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTitle.setBounds(84, 14, 80, 14);
 		lblAuthor = new javax.swing.JLabel("Autor");
-		lblAuthor.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblAuthor.setBounds(85, 42, 80, 14);
 		lblIsbn = new javax.swing.JLabel("ISBN");
-		lblIsbn.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblIsbn.setBounds(85, 72, 80, 14);
 		lblPrice = new javax.swing.JLabel("Precio");
-		lblPrice.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPrice.setBounds(50, 101, 115, 14);
 		lblTags = new javax.swing.JLabel("Categorias");
-		lblTags.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTags.setBounds(36, 132, 130, 14);
 		lblImage = new javax.swing.JLabel("Imagen de Portada");
-		lblImage.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblImage.setBounds(8, 163, 157, 14);
 		lblPages = new javax.swing.JLabel("Cantidad de Paginas");
-		lblPages.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPages.setBounds(20, 194, 147, 14);
 		lblSummary = new javax.swing.JLabel("Resumen");
-		lblSummary.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSummary.setBounds(37, 259, 130, 14);
-		lblSample = new javax.swing.JLabel("Primeras p\u00E1ginas");
-		lblSample.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSample.setBounds(22, 386, 142, 14);
+		lblSample = new javax.swing.JLabel("Paginas de muestra");
 		
 		txtTitle = new javax.swing.JTextField("La Cocina Japonesa de Harumi");
-		txtTitle.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-		txtTitle.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		txtTitle.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtTitle.setBounds(171, 9, 242, 25);
+		txtAuthor = new javax.swing.JTextField("Harumi Kurihara");
 		txtIsbn = new javax.swing.JTextField("84-253-3882-4");
-		txtIsbn.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtIsbn.setBounds(171, 66, 92, 25);
 		txtPrice = new javax.swing.JTextField("300");
-		txtPrice.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtPrice.setBounds(171, 96, 40, 25);
 		txtImage = new javax.swing.JTextField("");
-		txtImage.setBounds(171, 158, 253, 25);
 		txtPages = new javax.swing.JTextField("165");
-		txtPages.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtPages.setBounds(171, 189, 40, 25);
 		txtTags = new JTextField("Categorias");
-		txtTags.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		txtTags.setBounds(171, 127, 253, 25);
 
 		txtSummary = new JTextArea();
-		txtSummary.setBounds(172, 254, 280, 109);
 		txtAditional = new JTextArea();
-		txtAditional.setBounds(172, 381, 280, 116);
 		
 		btnSave = new javax.swing.JButton("Confirmar");
 		btnSave.setBounds(269, 515, 89, 23);
@@ -126,10 +89,6 @@ public class CatalogueCreateBook extends JFrame {
 			}
 		});
 		
-		btnCreateAuthor = new JButton("Nuevo Autor");
-		btnCreateAuthor.setBounds(368, 37, 105, 25);
-		internalFrame.getContentPane().add(btnCreateAuthor);
-		
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
@@ -139,42 +98,98 @@ public class CatalogueCreateBook extends JFrame {
 		internalFrame.setName("Alta"); // NOI18N
 		internalFrame.setVisible(true);
 		getContentPane().setLayout(null);
-		internalFrame.getContentPane().setLayout(null);
-		internalFrame.getContentPane().add(lblSample);
-		internalFrame.getContentPane().add(lblPages);
-		internalFrame.getContentPane().add(lblTitle);
-		internalFrame.getContentPane().add(lblImage);
-		internalFrame.getContentPane().add(lblSummary);
-		internalFrame.getContentPane().add(lblTags);
-		internalFrame.getContentPane().add(lblPrice);
-		internalFrame.getContentPane().add(lblIsbn);
-		internalFrame.getContentPane().add(lblAuthor);
-		internalFrame.getContentPane().add(txtPages);
-		internalFrame.getContentPane().add(txtTitle);
-		internalFrame.getContentPane().add(txtIsbn);
-		internalFrame.getContentPane().add(txtPrice);
-		internalFrame.getContentPane().add(txtImage);
-		internalFrame.getContentPane().add(txtTags);
-		internalFrame.getContentPane().add(txtAditional);
-		internalFrame.getContentPane().add(txtSummary);
-		internalFrame.getContentPane().add(btnCancel);
-		internalFrame.getContentPane().add(btnSave);
+
+		javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(
+				internalFrame.getContentPane());
+		jInternalFrame1Layout.setHorizontalGroup(
+			jInternalFrame1Layout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addGap(26)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblSample)
+						.addComponent(lblPages)
+						.addComponent(lblTitle)
+						.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+							.addGroup(jInternalFrame1Layout.createSequentialGroup()
+								.addGap(43)
+								.addComponent(lblImage))
+							.addComponent(lblSummary, Alignment.TRAILING)
+							.addComponent(lblTags, Alignment.TRAILING)
+							.addComponent(lblPrice, Alignment.TRAILING)
+							.addComponent(lblIsbn, Alignment.TRAILING))
+						.addComponent(lblAuthor))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtPages, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtTitle, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+						.addComponent(txtAuthor, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtIsbn, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtPrice, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtImage, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtTags, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtAditional, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+						.addComponent(txtSummary, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+					.addGap(55))
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnCancel)
+					.addContainerGap(407, Short.MAX_VALUE))
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addContainerGap(255, Short.MAX_VALUE)
+					.addComponent(btnSave)
+					.addGap(168))
+		);
+		jInternalFrame1Layout.setVerticalGroup(
+			jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addGap(13)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTitle)
+						.addComponent(txtTitle, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAuthor)
+						.addComponent(txtAuthor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblIsbn)
+						.addComponent(txtIsbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblPrice)
+						.addComponent(txtPrice, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jInternalFrame1Layout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblTags))
+						.addGroup(jInternalFrame1Layout.createSequentialGroup()
+							.addGap(11)
+							.addComponent(txtTags, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblImage)
+						.addComponent(txtImage, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPages)
+						.addComponent(txtPages, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblSummary)
+						.addComponent(txtSummary, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblSample)
+						.addComponent(txtAditional, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
+					.addGap(25)
+					.addComponent(btnSave)
+					.addGap(14)
+					.addComponent(btnCancel)
+					.addGap(88))
+		);
+		internalFrame.getContentPane().setLayout(jInternalFrame1Layout);
 		getContentPane().add(internalFrame);
 
-		JLabel lblLanguage = new JLabel("Idioma");
-		lblLanguage.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblLanguage.setBounds(30, 223, 137, 14);
-		internalFrame.getContentPane().add(lblLanguage);
-		
-		JComboBox comboBoxLanguage = new JComboBox();
-		comboBoxLanguage.setBounds(172, 219, 150, 25);
-		comboBoxLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Idioma", "Alemán","Arabe","Chino", "Español","Frances","Ingles",  "Italiano",  "Japones","Portugues", "Ruso", "Sueco", "Suizo","Turco", "Otro"}));
-		internalFrame.getContentPane().add(comboBoxLanguage);
-		
-		JComboBox comboBoxAuthor = new JComboBox();
-		comboBoxAuthor.setBounds(171, 37, 187, 25);
-		comboBoxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor", }));
-		internalFrame.getContentPane().add(comboBoxAuthor);
 		pack();
 	}
 
@@ -225,12 +240,13 @@ public class CatalogueCreateBook extends JFrame {
 			}
 		});
 	}
+	
 	private void actionSave() {
 		// TODO: add country label and textfield
 		Book book = new Book(txtIsbn.getText(), txtTitle.getText(),
 				Integer.parseInt(txtPages.getText()),
 				Float.parseFloat(txtPrice.getText()),
-				new Author("Carlos", "??", new Country("???")),
+				new Author(txtAuthor.getText(), "??", new Country("???")),
 				new Language("EspaÃ±ol"));
 
 		book.setSummary(txtSummary.getText());
