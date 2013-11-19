@@ -22,6 +22,7 @@ import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
 import java.awt.Dimension;
+import java.awt.Color;
 
 public class CatalogueCreateBook extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -36,6 +37,8 @@ public class CatalogueCreateBook extends JFrame {
 	private JButton btnSave, btnCancel;
 
 	public CatalogueCreateBook() {
+		getContentPane().setBackground(new Color(153, 153, 255));
+		setBackground(new Color(153, 153, 255));
 		getContentPane().setPreferredSize(new Dimension(518, 578));
 		setTitle("Catalogo");
 		initComponents();
@@ -44,6 +47,7 @@ public class CatalogueCreateBook extends JFrame {
 	private void initComponents() {
 
 		internalFrame = new javax.swing.JInternalFrame();
+		internalFrame.getContentPane().setBackground(new Color(153, 153, 255));
 		internalFrame.setBounds(0, 0, 518, 578);
 		
 		lblTitle = new javax.swing.JLabel("Titulo");
@@ -67,7 +71,8 @@ public class CatalogueCreateBook extends JFrame {
 		txtSummary = new JTextArea();
 		txtAditional = new JTextArea();
 		
-		btnSave = new javax.swing.JButton("Aceptar");
+		btnSave = new javax.swing.JButton("Confirmar");
+		btnSave.setBounds(269, 515, 89, 23);
 		btnSave.setBackground(new java.awt.Color(255, 255, 255));
 		btnSave.addMouseListener(new MouseAdapter() {
 			@Override
@@ -75,8 +80,9 @@ public class CatalogueCreateBook extends JFrame {
 				actionSave();
 			}
 		});
-		btnCancel = new javax.swing.JButton("Cancelar");
-		btnCancel.setBackground(new java.awt.Color(255, 255, 255));
+		btnCancel = new javax.swing.JButton("CANCELAR");
+		btnCancel.setBackground(Color.RED);
+		btnCancel.setBounds(10, 515, 105, 23);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				actionCancel();
@@ -85,7 +91,7 @@ public class CatalogueCreateBook extends JFrame {
 		
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-		internalFrame.setBackground(new java.awt.Color(153, 102, 255));
+		internalFrame.setBackground(new Color(153, 153, 255));
 		internalFrame.setTitle("Cargar libro");
 		internalFrame.setCursor(new java.awt.Cursor(
 				java.awt.Cursor.DEFAULT_CURSOR));
@@ -95,212 +101,92 @@ public class CatalogueCreateBook extends JFrame {
 
 		javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(
 				internalFrame.getContentPane());
-		jInternalFrame1Layout
-				.setHorizontalGroup(jInternalFrame1Layout
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(
-								jInternalFrame1Layout
-										.createSequentialGroup()
-										.addGap(26)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.TRAILING)
-														.addComponent(
-																lblSample)
-														.addComponent(lblPages)
-														.addComponent(lblTitle)
-														.addGroup(
-																jInternalFrame1Layout
-																		.createParallelGroup(
-																				Alignment.LEADING)
-																		.addGroup(
-																				jInternalFrame1Layout
-																						.createSequentialGroup()
-																						.addGap(43)
-																						.addComponent(
-																								lblImage))
-																		.addComponent(
-																				lblSummary,
-																				Alignment.TRAILING)
-																		.addComponent(
-																				lblTags,
-																				Alignment.TRAILING)
-																		.addComponent(
-																				lblPrice,
-																				Alignment.TRAILING)
-																		.addComponent(
-																				lblIsbn,
-																				Alignment.TRAILING))
-														.addComponent(lblAuthor))
-										.addPreferredGap(
-												ComponentPlacement.UNRELATED)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.LEADING,
-																false)
-														.addGroup(
-																jInternalFrame1Layout
-																		.createSequentialGroup()
-																		.addComponent(
-																				btnCancel)
-																		.addPreferredGap(
-																				ComponentPlacement.RELATED,
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				btnSave))
-														.addComponent(
-																txtAditional)
-														.addComponent(
-																txtPages,
-																Alignment.TRAILING)
-														.addComponent(
-																txtTitle,
-																GroupLayout.DEFAULT_SIZE,
-																280,
-																Short.MAX_VALUE)
-														.addComponent(txtAuthor)
-														.addComponent(txtIsbn)
-														.addComponent(txtPrice)
-														.addComponent(txtImage)
-														.addComponent(txtTags)
-														.addComponent(
-																txtSummary,
-																Alignment.TRAILING))
-										.addGap(55)));
-		jInternalFrame1Layout
-				.setVerticalGroup(jInternalFrame1Layout
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(
-								jInternalFrame1Layout
-										.createSequentialGroup()
-										.addGap(13)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(lblTitle)
-														.addComponent(
-																txtTitle,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												ComponentPlacement.UNRELATED)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addComponent(lblAuthor)
-														.addComponent(
-																txtAuthor,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												ComponentPlacement.RELATED)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addComponent(lblIsbn)
-														.addComponent(
-																txtIsbn,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												ComponentPlacement.RELATED)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addComponent(lblPrice)
-														.addComponent(
-																txtPrice,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addGroup(
-																jInternalFrame1Layout
-																		.createSequentialGroup()
-																		.addPreferredGap(
-																				ComponentPlacement.RELATED)
-																		.addComponent(
-																				lblTags))
-														.addGroup(
-																jInternalFrame1Layout
-																		.createSequentialGroup()
-																		.addGap(11)
-																		.addComponent(
-																				txtTags,
-																				GroupLayout.PREFERRED_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.PREFERRED_SIZE)))
-										.addPreferredGap(
-												ComponentPlacement.UNRELATED)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(lblImage)
-														.addComponent(
-																txtImage,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												ComponentPlacement.UNRELATED)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(lblPages)
-														.addComponent(
-																txtPages,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												ComponentPlacement.RELATED, 17,
-												Short.MAX_VALUE)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(
-																lblSummary)
-														.addComponent(
-																txtSummary,
-																GroupLayout.PREFERRED_SIZE,
-																109,
-																GroupLayout.PREFERRED_SIZE))
-										.addGap(18)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(
-																lblSample)
-														.addComponent(
-																txtAditional,
-																GroupLayout.PREFERRED_SIZE,
-																116,
-																GroupLayout.PREFERRED_SIZE))
-										.addGap(18)
-										.addGroup(
-												jInternalFrame1Layout
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(btnCancel)
-														.addComponent(btnSave))
-										.addGap(132)));
+		jInternalFrame1Layout.setHorizontalGroup(
+			jInternalFrame1Layout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addGap(26)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblSample)
+						.addComponent(lblPages)
+						.addComponent(lblTitle)
+						.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+							.addGroup(jInternalFrame1Layout.createSequentialGroup()
+								.addGap(43)
+								.addComponent(lblImage))
+							.addComponent(lblSummary, Alignment.TRAILING)
+							.addComponent(lblTags, Alignment.TRAILING)
+							.addComponent(lblPrice, Alignment.TRAILING)
+							.addComponent(lblIsbn, Alignment.TRAILING))
+						.addComponent(lblAuthor))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(txtPages, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtTitle, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+						.addComponent(txtAuthor, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtIsbn, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtPrice, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtImage, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtTags, 276, 276, Short.MAX_VALUE)
+						.addComponent(txtAditional, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+						.addComponent(txtSummary, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+					.addGap(55))
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(btnCancel)
+					.addContainerGap(407, Short.MAX_VALUE))
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addContainerGap(255, Short.MAX_VALUE)
+					.addComponent(btnSave)
+					.addGap(168))
+		);
+		jInternalFrame1Layout.setVerticalGroup(
+			jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(jInternalFrame1Layout.createSequentialGroup()
+					.addGap(13)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTitle)
+						.addComponent(txtTitle, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAuthor)
+						.addComponent(txtAuthor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblIsbn)
+						.addComponent(txtIsbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblPrice)
+						.addComponent(txtPrice, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jInternalFrame1Layout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblTags))
+						.addGroup(jInternalFrame1Layout.createSequentialGroup()
+							.addGap(11)
+							.addComponent(txtTags, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblImage)
+						.addComponent(txtImage, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPages)
+						.addComponent(txtPages, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblSummary)
+						.addComponent(txtSummary, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addGroup(jInternalFrame1Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblSample)
+						.addComponent(txtAditional, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
+					.addGap(25)
+					.addComponent(btnSave)
+					.addGap(14)
+					.addComponent(btnCancel)
+					.addGap(88))
+		);
 		internalFrame.getContentPane().setLayout(jInternalFrame1Layout);
 		getContentPane().add(internalFrame);
 
