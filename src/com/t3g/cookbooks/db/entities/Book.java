@@ -33,10 +33,10 @@ public class Book {
 	@DatabaseField()
 	private String sample; //first pages
 	
-	@DatabaseField(foreign = true, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Author author;
 	
-	@DatabaseField(foreign = true, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Language language;
 	
 	public Book() {
