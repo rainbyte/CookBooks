@@ -13,28 +13,34 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.table.DefaultTableModel;
 
+import com.t3g.cookbooks.db.Database;
+import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.resources.Resources;
 /**
  *
  * @author T3G
  */
 public class CatalogueBooks extends javax.swing.JFrame {
-
-    private JButton btnLogin, btnSearch, btnBack;
+	private JButton btnLogin, btnSearch, btnBack;
     private JInternalFrame jInternalFrame1;
     private JPanel jPanel1, jPanel2;
     private JLabel lblForgotPass, lblPrincipalpicture, lblContac, lblHelp, lblHome, lblOrder, lblRegister;
     private JPasswordField txtPassword;
     private JTextField txtSearch, txtUser;
     private JTable tableBooks;
-	
-    /**
+	private DefaultTableModel tableBooksModel;
+    
+	/**
      * Creates new form Register
      */
-    public CatalogueBooks() {
-    	getContentPane().setPreferredSize(new Dimension(657, 687));
-        initComponents();
+	public CatalogueBooks() {
+		getContentPane().setPreferredSize(new Dimension(657, 687));
+		initComponents();
+		
+		createTableModel();
+		tableBooks.setModel(tableBooksModel);
     }
 
     /**
@@ -370,6 +376,27 @@ public class CatalogueBooks extends javax.swing.JFrame {
 		// TODO Evento para ir a la interfaz de pedidos
 	}
 
+	private void createTableModel() {
+		tableBooksModel = new DefaultTableModel();
+		tableBooksModel.addColumn("Titulo");
+		tableBooksModel.addColumn("Autor");
+		tableBooksModel.addColumn("Precio");
+		tableBooksModel.addColumn("Categorias");
+		tableBooksModel.addColumn("ISBN");
+		
+		for (Book book : Database.getBookDao()) {
+			Object[] rowData = new Object[] {
+				book.getTitle(),
+				String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()),
+				book.getPrice(),
+				"???",	// TODO add categories support
+				book.getIsbn()
+			};
+			
+			tableBooksModel.addRow(rowData);
+		}
+	}
+	
     /**
      * @param args the command line arguments
      */
