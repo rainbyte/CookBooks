@@ -21,6 +21,7 @@ import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
+import java.awt.Dimension;
 
 public class CatalogueCreateBook extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -35,6 +36,7 @@ public class CatalogueCreateBook extends JFrame {
 	private JButton btnSave, btnCancel;
 
 	public CatalogueCreateBook() {
+		getContentPane().setPreferredSize(new Dimension(518, 578));
 		setTitle("Catalogo");
 		initComponents();
 	}
@@ -42,6 +44,7 @@ public class CatalogueCreateBook extends JFrame {
 	private void initComponents() {
 
 		internalFrame = new javax.swing.JInternalFrame();
+		internalFrame.setBounds(0, 0, 518, 578);
 		
 		lblTitle = new javax.swing.JLabel("Titulo");
 		lblAuthor = new javax.swing.JLabel("Autor");
@@ -88,6 +91,7 @@ public class CatalogueCreateBook extends JFrame {
 				java.awt.Cursor.DEFAULT_CURSOR));
 		internalFrame.setName("Alta"); // NOI18N
 		internalFrame.setVisible(true);
+		getContentPane().setLayout(null);
 
 		javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(
 				internalFrame.getContentPane());
@@ -298,16 +302,7 @@ public class CatalogueCreateBook extends JFrame {
 														.addComponent(btnSave))
 										.addGap(132)));
 		internalFrame.getContentPane().setLayout(jInternalFrame1Layout);
-
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				internalFrame));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				internalFrame));
+		getContentPane().add(internalFrame);
 
 		pack();
 	}
