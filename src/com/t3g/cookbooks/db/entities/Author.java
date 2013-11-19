@@ -19,7 +19,7 @@ public class Author {
 	@DatabaseField(canBeNull = false)
 	private String surname;
 	
-	@DatabaseField(foreign = true, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Country country;
 	
 	@DatabaseField()

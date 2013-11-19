@@ -8,10 +8,10 @@ public class Purchase {
 	@DatabaseField(generatedId = true)
 	long id;
 	
-	@DatabaseField(foreign = true)
+	@DatabaseField(foreign = true, foreignAutoRefresh = true)
 	User user;
 	
-	@DatabaseField(foreign = true)
+	@DatabaseField(foreign = true, foreignAutoRefresh = true)
 	Book book;
 	
 	@DatabaseField(canBeNull = false)
