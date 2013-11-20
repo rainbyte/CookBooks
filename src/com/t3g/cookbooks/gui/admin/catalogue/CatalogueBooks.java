@@ -1,10 +1,14 @@
 package com.t3g.cookbooks.gui.admin.catalogue;
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Dimension;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,16 +17,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
+import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.resources.Resources;
 /**
  *
  * @author T3G
  */
-public class CatalogueBooks extends javax.swing.JFrame {
+public class CatalogueBooks extends javax.swing.JFrame implements ParentWindow {
 	private JButton btnLogin, btnSearch, btnBack;
     private JInternalFrame jInternalFrame1;
     private JPanel jPanel1, jPanel2;
@@ -39,8 +45,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
 		getContentPane().setPreferredSize(new Dimension(657, 687));
 		initComponents();
 		
-		createTableModel();
-		tableBooks.setModel(tableBooksModel);
+		update();
     }
 
     /**
@@ -67,7 +72,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
         lblRegister = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("CookBook Software");
         setBackground(new java.awt.Color(153, 153, 255));
 
@@ -324,7 +329,11 @@ public class CatalogueBooks extends javax.swing.JFrame {
     }
     
 	private void btnAddBookMouseClicked(java.awt.event.MouseEvent evt) {
-		// TODO Al presionarse debe abrise la ventana de "alta de libro"
+		JDialog dialog = new CatalogueCreateBook(this);
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
+		
+		updateTableModel();
 	}
 
 	private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {
@@ -376,7 +385,7 @@ public class CatalogueBooks extends javax.swing.JFrame {
 		// TODO Evento para ir a la interfaz de pedidos
 	}
 
-	private void createTableModel() {
+	private void updateTableModel() {
 		tableBooksModel = new DefaultTableModel();
 		tableBooksModel.addColumn("Titulo");
 		tableBooksModel.addColumn("Autor");
@@ -432,5 +441,10 @@ public class CatalogueBooks extends javax.swing.JFrame {
             }
         });
     }
+
+	public void update() {
+		updateTableModel();
+		tableBooks.setModel(tableBooksModel);
+	}
 }
 

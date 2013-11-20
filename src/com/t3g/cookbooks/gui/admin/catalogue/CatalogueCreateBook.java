@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -20,15 +20,19 @@ import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
+import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.ParentWindowDummy;
 
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.Font;
 
-public class CatalogueCreateBook extends JFrame {
+public class CatalogueCreateBook extends JDialog {
 	private static final long serialVersionUID = 1L;
 
+	private ParentWindow parent;
+	
 	// Variables declaration
 	private JInternalFrame internalFrame;
 	private JLabel lblTitle, lblAuthor, lblIsbn, lblPrice, lblTags, lblImage,
@@ -39,7 +43,9 @@ public class CatalogueCreateBook extends JFrame {
 	private JButton btnSave, btnCancel, btnCreateAuthor;
 	private JComboBox cbxAuthor, cbxLanguage;
 	
-	public CatalogueCreateBook() {
+	public CatalogueCreateBook(ParentWindow parent) {
+		this.parent = parent;
+		
 		getContentPane().setBackground(new Color(153, 153, 255));
 		setBackground(new Color(153, 153, 255));
 		getContentPane().setPreferredSize(new Dimension(518, 578));
@@ -128,7 +134,7 @@ public class CatalogueCreateBook extends JFrame {
 		btnCreateAuthor.setBounds(368, 37, 105, 25);
 		internalFrame.getContentPane().add(btnCreateAuthor);
 		
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
 		internalFrame.setTitle("Cargar libro");
@@ -219,7 +225,7 @@ public class CatalogueCreateBook extends JFrame {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new CatalogueCreateBook().setVisible(true);
+				new CatalogueCreateBook(new ParentWindowDummy()).setVisible(true);
 			}
 		});
 	}
@@ -242,10 +248,15 @@ public class CatalogueCreateBook extends JFrame {
 			ex.printStackTrace();
 		}
 
-		System.out.printf("Save pressed, title is %s\n", txtTitle.getText());
+		close();
 	}
 
 	private void actionCancel() {
-		System.out.printf("Cancel pressed\n");
+		close();
+	}
+	
+	private void close() {
+		this.dispose();
+		parent.update();
 	}
 }
