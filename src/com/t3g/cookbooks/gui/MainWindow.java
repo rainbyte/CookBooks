@@ -8,6 +8,7 @@ import com.t3g.cookbooks.gui.panel.body.BodyRegister;
 import com.t3g.cookbooks.gui.panel.header.HeaderUnregistered;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 public class MainWindow extends JFrame {
 
@@ -15,7 +16,8 @@ public class MainWindow extends JFrame {
 
 	public MainWindow() {
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-
+		this.setMinimumSize(new Dimension(800, 768)); 
+		
 		panelHeader = new HeaderUnregistered();
 		getContentPane().add(panelHeader);
 
