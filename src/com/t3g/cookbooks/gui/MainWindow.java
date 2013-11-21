@@ -15,13 +15,15 @@ public class MainWindow extends JFrame {
 	JPanel panelHeader, panelBody;
 
 	public MainWindow() {
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		this.setMinimumSize(new Dimension(800, 768)); 
+		getContentPane().setLayout(null);
 		
 		panelHeader = new HeaderUnregistered();
+		panelHeader.setBounds(0, 0, 784, 165);
 		getContentPane().add(panelHeader);
 
 		panelBody = new BodyRegister();
+		panelBody.setBounds(0, 160, 784, 569);
 		getContentPane().add(panelBody);
 		
 	}
