@@ -37,51 +37,6 @@ public class HeaderUnregistered extends JPanel {
 		panelMainBar.setBackground(new Color(153, 153, 255));
 		panelMainBar.setBounds(0, 186, 778, 44);
 		panelMainBar.setLayout(new BoxLayout(panelMainBar, BoxLayout.X_AXIS));
-
-		panelSearchBar = new JPanel();
-		panelSearchBar.setBorder(null);
-		panelSearchBar.setBackground(new Color(153, 153, 255));
-		panelMainBar.add(panelSearchBar);
-		FlowLayout fl_panelSearchBar = (FlowLayout) panelSearchBar.getLayout();
-		txtSearch = new JTextField();
-		txtSearch.setHorizontalAlignment(SwingConstants.CENTER);
-		panelSearchBar.add(txtSearch);
-
-		txtSearch.setText("Buscar libro, autor, ISBN...");
-		btnSearch = new JButton();
-		panelSearchBar.add(btnSearch);
-
-		btnSearch.setText("Buscar");
-
-		JPanel panelToolBar = new JPanel();
-		panelToolBar.setBorder(null);
-		panelToolBar.setBackground(new Color(153, 153, 255));
-		panelMainBar.add(panelToolBar);
-		panelToolBar.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		txtHome = new JLabel();
-		panelToolBar.add(txtHome);
-
-		txtHome.setText("Principal");
-		txtOrder = new JLabel();
-		panelToolBar.add(txtOrder);
-
-		txtOrder.setForeground(new java.awt.Color(51, 51, 255));
-		txtOrder.setText("Pedidos");
-		txtHelp = new JLabel();
-		panelToolBar.add(txtHelp);
-
-		txtHelp.setForeground(new java.awt.Color(51, 51, 255));
-		txtHelp.setText("Ayuda");
-		txtContac = new JLabel();
-		panelToolBar.add(txtContac);
-
-		txtContac.setForeground(new java.awt.Color(51, 51, 255));
-		txtContac.setText("Contacto");
-		txtRegister = new JLabel();
-		panelToolBar.add(txtRegister);
-
-		txtRegister.setForeground(new java.awt.Color(51, 51, 255));
-		txtRegister.setText("Registrarse");
 		setLayout(null);
 		add(panelMainBar);
 		lblPrincipalpicture = new JLabel();
@@ -125,6 +80,80 @@ public class HeaderUnregistered extends JPanel {
 		txtPassword.setColumns(10);
 
 		txtPassword.setText("Contraseña");
+		
+				panelSearchBar = new JPanel();
+				panelSearchBar.setBounds(0, 131, 364, 44);
+				add(panelSearchBar);
+				panelSearchBar.setBorder(null);
+				panelSearchBar.setBackground(new Color(153, 153, 255));
+				panelSearchBar.setLayout(null);
+				txtSearch = new JTextField();
+				txtSearch.setBounds(10, 6, 260, 20);
+				txtSearch.setHorizontalAlignment(SwingConstants.CENTER);
+				panelSearchBar.add(txtSearch);
+				
+						txtSearch.setText("Buscar libro, autor, ISBN...");
+						btnSearch = new JButton();
+						btnSearch.setBounds(275, 4, 90, 25);
+						panelSearchBar.add(btnSearch);
+
+								btnSearch.setText("Buscar");
+								
+										JPanel panelToolBar = new JPanel();
+										panelToolBar.setBounds(364, 129, 413, 44);
+										add(panelToolBar);
+										panelToolBar.setBorder(null);
+										panelToolBar.setBackground(new Color(153, 153, 255));
+										panelToolBar.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+										txtHome = new JLabel();
+										panelToolBar.add(txtHome);
+										
+												txtHome.setText("Principal");
+												txtOrder = new JLabel();
+												panelToolBar.add(txtOrder);
+												
+														txtOrder.setForeground(new java.awt.Color(51, 51, 255));
+														txtOrder.setText("Pedidos");
+														txtHelp = new JLabel();
+														panelToolBar.add(txtHelp);
+														
+																txtHelp.setForeground(new java.awt.Color(51, 51, 255));
+																txtHelp.setText("Ayuda");
+																txtContac = new JLabel();
+																panelToolBar.add(txtContac);
+																
+																		txtContac.setForeground(new java.awt.Color(51, 51, 255));
+																		txtContac.setText("Contacto");
+																		txtRegister = new JLabel();
+																		panelToolBar.add(txtRegister);
+																		
+																				txtRegister.setForeground(new java.awt.Color(51, 51, 255));
+																				txtRegister.setText("Registrarse");
+																				txtRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+																					public void mousePressed(java.awt.event.MouseEvent evt) {
+																						txtRegisterMousePressed(evt);
+																					}
+																				});
+																				txtContac.addMouseListener(new java.awt.event.MouseAdapter() {
+																					public void mousePressed(java.awt.event.MouseEvent evt) {
+																						txtContacMousePressed(evt);
+																					}
+																				});
+																				txtHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+																					public void mousePressed(java.awt.event.MouseEvent evt) {
+																						txtHelpMousePressed(evt);
+																					}
+																				});
+																				txtOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+																					public void mousePressed(java.awt.event.MouseEvent evt) {
+																						txtOrderMousePressed(evt);
+																					}
+																				});
+								btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+									public void mousePressed(java.awt.event.MouseEvent evt) {
+										btnSearchMousePressed(evt);
+									}
+								});
 		btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
 				btnLoginMousePressed(evt);
@@ -138,31 +167,6 @@ public class HeaderUnregistered extends JPanel {
 		lblPrincipalpicture.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
 				lblPrincipalpictureMousePressed(evt);
-			}
-		});
-		txtRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				txtRegisterMousePressed(evt);
-			}
-		});
-		txtContac.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				txtContacMousePressed(evt);
-			}
-		});
-		txtHelp.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				txtHelpMousePressed(evt);
-			}
-		});
-		txtOrder.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				txtOrderMousePressed(evt);
-			}
-		});
-		btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mousePressed(java.awt.event.MouseEvent evt) {
-				btnSearchMousePressed(evt);
 			}
 		});
 	}
