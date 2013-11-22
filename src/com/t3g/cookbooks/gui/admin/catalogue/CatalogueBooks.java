@@ -78,7 +78,7 @@ public class CatalogueBooks extends javax.swing.JFrame implements ParentWindow {
 
         jInternalFrame1.setBackground(new java.awt.Color(153, 153, 255));
         jInternalFrame1.setForeground(new java.awt.Color(153, 153, 255));
-        jInternalFrame1.setTitle("Registro");
+        jInternalFrame1.setTitle("Catalogo");
         jInternalFrame1.setVisible(true);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
