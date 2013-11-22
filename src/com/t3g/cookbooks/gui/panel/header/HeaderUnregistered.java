@@ -107,8 +107,9 @@ public class HeaderUnregistered extends JPanel {
 										panelToolBar.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 										txtHome = new JLabel();
 										panelToolBar.add(txtHome);
-										
-												txtHome.setText("Principal");
+												
+												txtHome.setForeground(new java.awt.Color(51, 51, 255));
+												txtHome.setText("Libros");
 												txtOrder = new JLabel();
 												panelToolBar.add(txtOrder);
 												
