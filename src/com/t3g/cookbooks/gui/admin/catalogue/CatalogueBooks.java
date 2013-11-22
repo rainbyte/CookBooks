@@ -119,7 +119,7 @@ public class CatalogueBooks extends javax.swing.JFrame implements ParentWindow {
             }
         });
 
-        lblHome.setText("Principal");
+        lblHome.setText("Libros");
 
         lblOrder.setForeground(new java.awt.Color(51, 51, 255));
         lblOrder.setText("Pedidos");
