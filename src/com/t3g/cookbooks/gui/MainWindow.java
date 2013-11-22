@@ -9,12 +9,14 @@ import com.t3g.cookbooks.gui.panel.header.HeaderUnregistered;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Color;
 
 public class MainWindow extends JFrame {
 
 	JPanel panelHeader, panelBody;
 
 	public MainWindow() {
+		getContentPane().setBackground(new Color(153, 153, 255));
 		this.setMinimumSize(new Dimension(800, 768)); 
 		getContentPane().setLayout(null);
 		
