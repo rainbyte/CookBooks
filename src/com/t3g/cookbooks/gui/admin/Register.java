@@ -147,7 +147,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setText("ContraseÃ±a");
+        txtPassword.setText("Contraseña");
 
         txtSearch.setText("Buscar libro, autor, ISBN...");
 
@@ -271,7 +271,7 @@ public class Register extends javax.swing.JFrame {
 
         lblEmail.setText("Email");
 
-        lblPass.setText("Contraseña");
+        lblPass.setText("ContraseÃ±a");
 
         lblConfirmPass.setText("Confirme contraseña");
 
@@ -312,7 +312,7 @@ public class Register extends javax.swing.JFrame {
         txtPhone.setText("02225491066");
 
         btnBack.setBackground(new java.awt.Color(255, 0, 0));
-        btnBack.setText("VOLVER ATRÁS");
+        btnBack.setText("VOLVER AL INICIO");
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnBackMousePressed(evt);
@@ -364,7 +364,7 @@ public class Register extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(255, 0, 0));
         jLabel32.setText("*");
 
-        cbxStates.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Provincia", "Ciudad de Buenos Aires", "Buenos Aires", "Catamarca", "Chaco", "Chubut", "CÃ³rdoba", "Corrientes", "Entre RÃ­os", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "NeuquÃ©n", "RÃ­o Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego, AntÃ¡rtida e Islas del AtlÃ¡ntico Sur", "TucumÃ¡n" }));
+        cbxStates.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Provincia", "Ciudad de Buenos Aires", "Buenos Aires", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego, Antártida e Islas del Atlántico Sur", "Tucumán" }));
 
         jLabel33.setForeground(Color.RED);
         jLabel33.setText("*");
@@ -576,18 +576,18 @@ public class Register extends javax.swing.JFrame {
     }
 
     private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
-    	// TODO Evento para ingresar a la pÃ¡gina, y loguearse. Abre pantalla home pero ya logueado.
+    	// TODO Evento para ingresar a la pÃƒÂ¡gina, y loguearse. Abre pantalla home pero ya logueado.
     }
     
     private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {
-    	// TODO Evento para recuperar contraseÃ±a, abre pantalla de "olvide contraseÃ±a"
+    	// TODO Evento para recuperar contraseÃƒÂ±a, abre pantalla de "olvide contraseÃƒÂ±a"
     }
     private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
-    	// TODO Evento para realizar una bÃºsqueda, en txtSearch esta lo que buscamos
+    	// TODO Evento para realizar una bÃƒÂºsqueda, en txtSearch esta lo que buscamos
     }
     
     private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
-    	// TODO Evento para ir a la interfaz principal. Al hacer click en la imÃ¡gen "cookbook" voy al inicio.
+    	// TODO Evento para ir a la interfaz principal. Al hacer click en la imÃƒÂ¡gen "cookbook" voy al inicio.
     }
     
     private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
@@ -607,14 +607,14 @@ public class Register extends javax.swing.JFrame {
     }
 
     private void btnConfirmMousePressed(java.awt.event.MouseEvent evt) {
-        // TODO Evento que confirma el registro de un usuario, aca tambiÃ©n habrÃ­a que validar que todos
+        // TODO Evento que confirma el registro de un usuario, aca tambiÃƒÂ©n habrÃƒÂ­a que validar que todos
         // los campos fueron correctos...
     }
 
     private void btnBackMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMousePressed
-        // TODO Evento para ir a la interfaz anterios (Principal?) QuizÃ¡s lo mejor es hacer
-        // que vaya a la principal... para simplificar pero no sÃ©
-        // Es el evento del botÃ³n "VOLVER ATRÃ�S"
+        // TODO Evento para ir a la interfaz anterios (Principal?) QuizÃƒÂ¡s lo mejor es hacer
+        // que vaya a la principal... para simplificar pero no sÃƒÂ©
+        // Es el evento del botÃƒÂ³n "VOLVER ATRÃƒï¿½S"
     }
 
     /**
