@@ -45,7 +45,7 @@ public class BodyHelp extends JPanel {
 		jLabel2.setText("PREGUNTAS FRECUENTES");
 
 		btnBack.setBackground(new java.awt.Color(255, 0, 0));
-		btnBack.setText("VOLVER ATRÃ?S");
+		btnBack.setText("VOLVER AL INICIO");
 		btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
 				btnBackMousePressed(evt);
