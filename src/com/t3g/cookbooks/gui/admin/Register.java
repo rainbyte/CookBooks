@@ -28,7 +28,7 @@ public class Register extends javax.swing.JFrame {
      * Creates new form Register
      */
     public Register() {
-    	getContentPane().setPreferredSize(new Dimension(880, 980));
+    	getContentPane().setPreferredSize(new Dimension(657, 687));
     	getContentPane().setBackground(new Color(153, 153, 255));
         initComponents();
     }
@@ -41,7 +41,7 @@ public class Register extends javax.swing.JFrame {
 
         jInternalFrame1 = new JInternalFrame();
         jInternalFrame1.setResizable(true);
-        jInternalFrame1.getContentPane().setBackground(new Color(204, 153, 0));
+        jInternalFrame1.getContentPane().setBackground(new Color(153, 153, 255));
         jPanel1 = new JPanel();
         lblPrincipalpicture = new JLabel();
         txtUser = new JTextField();
@@ -56,6 +56,7 @@ public class Register extends javax.swing.JFrame {
         txtContac = new JLabel();
         txtRegister = new JLabel();
         jPanel2 = new JPanel();
+        jPanel2.setMinimumSize(new Dimension(701, 470));
         jLabel2 = new JLabel();
         jSeparator1 = new JSeparator();
         jLabel3 = new JLabel();
@@ -113,7 +114,6 @@ public class Register extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CookBook Software");
         setBackground(new java.awt.Color(153, 153, 255));
-        setPreferredSize(new java.awt.Dimension(680, 730));
 
         jInternalFrame1.setBackground(new java.awt.Color(153, 153, 255));
         jInternalFrame1.setForeground(new java.awt.Color(153, 153, 255));
@@ -140,7 +140,7 @@ public class Register extends javax.swing.JFrame {
 
         lblForgotPass.setBackground(new java.awt.Color(51, 51, 255));
         lblForgotPass.setForeground(new java.awt.Color(51, 51, 255));
-        lblForgotPass.setText("Olvide mi contraseÃ±a");
+        lblForgotPass.setText("Olvide mi contraseña");
         lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblForgotPassMousePressed(evt);
@@ -256,7 +256,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
         jPanel2.setAutoscrolls(true);
         jPanel2.setName(""); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(674, 500));
+        jPanel2.setPreferredSize(new Dimension(674, 450));
 
         jLabel2.setText("REGISTRO");
 
@@ -373,102 +373,95 @@ public class Register extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
         	jPanel2Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addGap(12)
+        			.addComponent(jLabel2)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addGap(21)
+        			.addComponent(btnBack))
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addGap(80)
+        			.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(lblCP, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(lblConfirmPass)
+        						.addComponent(lblPass)
+        						.addComponent(lblSurname)
+        						.addComponent(lblName)
+        						.addComponent(lblEmail)
+        						.addComponent(lblStates)
+        						.addComponent(lblTown))
+        					.addComponent(lblStreet, Alignment.TRAILING)
+        					.addComponent(lblFloor, Alignment.TRAILING)
+        					.addComponent(lblPhone, Alignment.TRAILING)
+        					.addComponent(lblCard, Alignment.TRAILING)
+        					.addComponent(lblSecureCode, Alignment.TRAILING)))
+        			.addPreferredGap(ComponentPlacement.RELATED)
         			.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel2Layout.createSequentialGroup()
-        					.addGap(12)
-        					.addComponent(jLabel2)
+        					.addComponent(txtCard1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addComponent(txtCard2, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(txtCard3, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(txtCard4, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jLabel31))
         				.addGroup(jPanel2Layout.createSequentialGroup()
-        					.addGap(21)
-        					.addComponent(btnBack))
-        				.addGroup(jPanel2Layout.createSequentialGroup()
-        					.addGap(80)
-        					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+        					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
+        						.addComponent(txtPhone, Alignment.LEADING)
+        						.addComponent(txtCP, Alignment.LEADING)
+        						.addComponent(txtFloor)
+        						.addComponent(txtStreet)
+        						.addComponent(txtTown, Alignment.LEADING)
+        						.addComponent(txtConfirmPass, Alignment.LEADING)
+        						.addComponent(txtName, Alignment.LEADING)
+        						.addComponent(txtSurname, Alignment.LEADING)
+        						.addComponent(txtEmail, Alignment.LEADING)
+        						.addComponent(txtPass, Alignment.LEADING)
+        						.addComponent(txtSecureCode)
+        						.addComponent(cbxStates, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jLabel20)
+        						.addComponent(jLabel21)
+        						.addComponent(jLabel22)
+        						.addComponent(jLabel23)
+        						.addComponent(jLabel24)
+        						.addComponent(jLabel26)
+        						.addComponent(jLabel29)
+        						.addComponent(jLabel30)
+        						.addComponent(jLabel32)
+        						.addComponent(jLabel25, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
         						.addGroup(jPanel2Layout.createSequentialGroup()
-        							.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-        								.addComponent(lblCP, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
-        								.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-        									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-        										.addComponent(lblConfirmPass)
-        										.addComponent(lblPass)
-        										.addComponent(lblSurname)
-        										.addComponent(lblName)
-        										.addComponent(lblEmail)
-        										.addComponent(lblStates)
-        										.addComponent(lblTown))
-        									.addComponent(lblStreet, Alignment.TRAILING)
-        									.addComponent(lblFloor, Alignment.TRAILING)
-        									.addComponent(lblPhone, Alignment.TRAILING)
-        									.addComponent(lblCard, Alignment.TRAILING)
-        									.addComponent(lblSecureCode, Alignment.TRAILING)))
-        							.addPreferredGap(ComponentPlacement.RELATED)
         							.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
         								.addGroup(jPanel2Layout.createSequentialGroup()
-        									.addComponent(txtCard1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-        									.addPreferredGap(ComponentPlacement.RELATED)
-        									.addComponent(txtCard2, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-        									.addPreferredGap(ComponentPlacement.RELATED)
-        									.addComponent(txtCard3, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-        									.addPreferredGap(ComponentPlacement.RELATED)
-        									.addComponent(txtCard4, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-        									.addPreferredGap(ComponentPlacement.RELATED)
-        									.addComponent(jLabel31))
-        								.addGroup(jPanel2Layout.createSequentialGroup()
-        									.addGap(93)
-        									.addComponent(btnConfirm))
-        								.addGroup(jPanel2Layout.createSequentialGroup()
-        									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
-        										.addComponent(txtPhone, Alignment.LEADING)
-        										.addComponent(txtCP, Alignment.LEADING)
-        										.addComponent(txtFloor)
-        										.addComponent(txtStreet)
-        										.addComponent(txtTown, Alignment.LEADING)
-        										.addComponent(txtConfirmPass, Alignment.LEADING)
-        										.addComponent(txtName, Alignment.LEADING)
-        										.addComponent(txtSurname, Alignment.LEADING)
-        										.addComponent(txtEmail, Alignment.LEADING)
-        										.addComponent(txtPass, Alignment.LEADING)
-        										.addComponent(txtSecureCode)
-        										.addComponent(cbxStates, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addGap(40)
         									.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(jLabel20)
-        										.addComponent(jLabel21)
-        										.addComponent(jLabel22)
-        										.addComponent(jLabel23)
-        										.addComponent(jLabel24)
-        										.addComponent(jLabel26)
-        										.addComponent(jLabel29)
-        										.addComponent(jLabel30)
-        										.addComponent(jLabel32)
-        										.addComponent(jLabel25, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(lblFirmat3g)
         										.addGroup(jPanel2Layout.createSequentialGroup()
-        											.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-        												.addGroup(jPanel2Layout.createSequentialGroup()
-        													.addGap(40)
-        													.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-        														.addComponent(lblFirmat3g)
-        														.addGroup(jPanel2Layout.createSequentialGroup()
-        															.addGap(2)
-        															.addComponent(lblDepto)
-        															.addPreferredGap(ComponentPlacement.UNRELATED)
-        															.addComponent(txtDepto, GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))))
-        												.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-        													.addComponent(jLabel27, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-        													.addGap(4)
-        													.addComponent(lblNumber)
-        													.addPreferredGap(ComponentPlacement.RELATED)
-        													.addComponent(txtNumber, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)))
-        											.addPreferredGap(ComponentPlacement.RELATED)
-        											.addComponent(jLabel33, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE)))))
-        							.addGap(44))
-        						.addGroup(jPanel2Layout.createSequentialGroup()
-        							.addComponent(jLabel3)
+        											.addGap(2)
+        											.addComponent(lblDepto)
+        											.addPreferredGap(ComponentPlacement.UNRELATED)
+        											.addComponent(txtDepto, GroupLayout.DEFAULT_SIZE, 70, GroupLayout.PREFERRED_SIZE))))
+        								.addGroup(jPanel2Layout.createSequentialGroup()
+        									.addComponent(jLabel27, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+        									.addGap(4)
+        									.addComponent(lblNumber)
+        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addComponent(txtNumber, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)))
         							.addPreferredGap(ComponentPlacement.RELATED)
-        							.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
-        							.addGap(65)))))
-        			.addContainerGap())
+        							.addComponent(jLabel33, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE))))
+        				.addGroup(jPanel2Layout.createSequentialGroup()
+        					.addComponent(jLabel3)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE))))
+        		.addGroup(jPanel2Layout.createSequentialGroup()
+        			.addGap(277)
+        			.addComponent(btnConfirm))
         );
         jPanel2Layout.setVerticalGroup(
         	jPanel2Layout.createParallelGroup(Alignment.LEADING)
@@ -555,9 +548,9 @@ public class Register extends javax.swing.JFrame {
         				.addComponent(lblSecureCode)
         				.addComponent(txtSecureCode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
         				.addComponent(jLabel32))
-        			.addGap(18)
+        			.addPreferredGap(ComponentPlacement.RELATED)
         			.addComponent(btnConfirm)
-        			.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
         			.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(btnBack)
         				.addComponent(lblFirmat3g))
