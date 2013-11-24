@@ -1,22 +1,13 @@
 Tareas con prioridad:
--Rutinas de validación de datos: (Alvaro)
-	+Sólo letras (Nombre, Localidad, Apellido) 
-	+Validación de mail alfanuricos@letras.letras
-	+Numeros enteros (Numero de calle, piso, cantidad de paginas,CP,etc)
-	+Numeros decimales (Precio)
-	+Telefono sólo numeros (hasta 13)
-	+Alfanumericos (Dirección)
-	+Número de tarjeta sólo número (formato)
-	+Código de seguridad alfanumericos (Sólo 4)
--Agregar ejemplos a la base de datos: (Martín)
+-Agregar ejemplos a la base de datos: (Martï¿½n)
 -Panel superior para usuario registrado: (Alvaro)
 -Panel superior para usuario no registrado: (Alvaro)
 -Interfaz de ayuda: (Alan)
--Interfaz de contacto: (Martín)
+-Interfaz de contacto: (Martï¿½n)
 -Interfaz de modificar datos personales: (Fabrizio)
 -Interfaz de pedido administrador (Purchase) : (Fabrizio)
 -Interfaz de pedido usuario (Purchase) : (Fabrizio)
--Interfaz de recuperación de contraseña: (Martín)
+-Interfaz de recuperaciï¿½n de contraseï¿½a: (Martï¿½n)
 
 Tareas sin prioridad:
 -Interfaz de alta de Autor: (...)
