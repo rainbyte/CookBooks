@@ -4,7 +4,6 @@ Tareas con prioridad:
 -Panel superior para usuario no registrado: (Alvaro)
 -Interfaz de ayuda: (Alan)
 -Interfaz de contacto: (Mart�n)
--Interfaz de modificar datos personales: (Fabrizio)
 -Interfaz de pedido administrador (Purchase) : (Fabrizio)
 -Interfaz de pedido usuario (Purchase) : (Fabrizio)
 -Interfaz de recuperaci�n de contrase�a: (Mart�n)
