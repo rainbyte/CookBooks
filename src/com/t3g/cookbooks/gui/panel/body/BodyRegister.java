@@ -109,9 +109,9 @@ public class BodyRegister extends JPanel {
 
 		lblEmail.setText("Email");
 
-		lblPass.setText("Contrase√±a");
+		lblPass.setText("ContraseÒa");
 
-		lblConfirmPass.setText("Confirme contrase√±a");
+		lblConfirmPass.setText("Confirme contraseÒa");
 
 		lblStates.setText("Provincia");
 
@@ -119,29 +119,29 @@ public class BodyRegister extends JPanel {
 
 		lblStreet.setText("Calle");
 
-		lblNumber.setText("N√∫mero");
+		lblNumber.setText("N˙mero");
 
 		lblFloor.setText("Piso");
 
 		lblDepto.setText("Dpto");
 
-		lblCP.setText("C√≥digo postal");
+		lblCP.setText("CÛdigo postal");
 
-		lblPhone.setText("Tel√©fono");
+		lblPhone.setText("TelÈfono");
 
-		lblCard.setText("N√∫mero de tarjeta");
+		lblCard.setText("N˙mero de tarjeta");
 
-		lblSecureCode.setText("C√≥digo de seguridad");
+		lblSecureCode.setText("CÛdigo de seguridad");
 
 		txtName.setText("Alejandro");
 
-		txtSurname.setText("Mart√≠nez");
+		txtSurname.setText("MartÌnez");
 
 		txtEmail.setText("Ale.Martinez@dominio.com");
 
 		txtTown.setText("Domselaar");
 
-		txtStreet.setText("San Mart√≠n");
+		txtStreet.setText("San MartÌn");
 
 		txtNumber.setText("302");
 
@@ -150,7 +150,7 @@ public class BodyRegister extends JPanel {
 		txtPhone.setText("02225491066");
 
 		btnBack.setBackground(new java.awt.Color(255, 0, 0));
-		btnBack.setText("VOLVER ATR√ÅS");
+		btnBack.setText("VOLVER AL INICIO");
 		btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
 				btnBackMousePressed(evt);
