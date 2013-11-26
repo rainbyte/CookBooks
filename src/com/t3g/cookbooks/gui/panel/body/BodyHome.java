@@ -27,6 +27,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Dimension;
+import javax.swing.UIManager;
 
 public class BodyHome extends JPanel {
 	private JPanel panel, panel_1, panel_5;
@@ -44,7 +46,7 @@ public class BodyHome extends JPanel {
 		setBackground(new java.awt.Color(153, 153, 255));
 		setAutoscrolls(true);
 		setName(""); // NOI18N
-		setPreferredSize(new java.awt.Dimension(674, 500));
+		setPreferredSize(new Dimension(732, 541));
 		
 		comboBoxSelectTheme = new JComboBox();
 		comboBoxSelectTheme.setBounds(172, 219, 150, 25);
@@ -101,7 +103,7 @@ public class BodyHome extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnInfo.setBackground(new Color(153, 153, 255));
+		btnInfo.setBackground(UIManager.getColor("Button.background"));
 		
 		JButton btnPreView = new JButton("Hojear");
 		btnPreView.addMouseListener(new MouseAdapter() {
@@ -110,7 +112,7 @@ public class BodyHome extends JPanel {
 				// TODO Muestra las primas "imagenes" del libro, hojeado
 			}
 		});
-		btnPreView.setBackground(new Color(153, 153, 255));
+		btnPreView.setBackground(UIManager.getColor("Button.background"));
 		
 		JButton btnAdd = new JButton("Agregar al carrito");
 		btnAdd.addMouseListener(new MouseAdapter() {
@@ -119,14 +121,14 @@ public class BodyHome extends JPanel {
 				//TODO Agregar a la lista del carrito, el libro seleccionado en la tabla
 			}
 		});
-		btnAdd.setBackground(new Color(153, 153, 255));
+		btnAdd.setBackground(UIManager.getColor("Button.background"));
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addComponent(comboBoxSelectTheme, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
@@ -135,30 +137,27 @@ public class BodyHome extends JPanel {
 							.addComponent(btnPreView)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnAdd))
-						.addComponent(scrollPanelBookList, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(scrollPanelBookList))
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-						.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-							.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(7)
+							.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(scrollPanelBuyList, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
 								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-									.addComponent(label, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
-									.addGap(79))
+									.addComponent(scrollPanelPurchaces, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+									.addPreferredGap(ComponentPlacement.RELATED))
 								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addGap(7)
-									.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(scrollPanelPurchaces, Alignment.TRAILING)
-										.addComponent(scrollPanelBuyList, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
-									.addGap(98)))
-							.addGroup(jPanel2Layout.createSequentialGroup()
-								.addGap(31)
-								.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-									.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-									.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE))
-								.addContainerGap()))
+									.addGap(10)
+									.addComponent(label, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(31)
+							.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addGap(18)
-							.addComponent(lblCarrito)
-							.addContainerGap())))
+							.addComponent(lblCarrito)))
+					.addGap(88))
 		);
 		jPanel2Layout.setVerticalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
@@ -174,7 +173,10 @@ public class BodyHome extends JPanel {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(scrollPanelPurchaces, 0, 0, Short.MAX_VALUE))
+							.addComponent(scrollPanelPurchaces, 0, 0, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(label)
+							.addGap(24))
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(comboBoxSelectTheme, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -182,10 +184,7 @@ public class BodyHome extends JPanel {
 								.addComponent(btnPreView)
 								.addComponent(btnAdd))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(scrollPanelBookList, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(label)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addComponent(scrollPanelBookList, GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE))))
 		);
 		
 		tablePurchaces = new JTable();
@@ -226,7 +225,7 @@ public class BodyHome extends JPanel {
         	new Object[][] { //TODO Rellenar con los libros de la db
         	},
         	new String[] {
-        		"Nombre", "ISBN", "Autor", "Precio", "Categoria", "Informacion"
+        		"Nombre", "ISBN", "Autor", "Precio", "Categoria"
         	}
         ) {
         	Class[] columnTypes = new Class[] {
