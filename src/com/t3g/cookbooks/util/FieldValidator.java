@@ -34,6 +34,10 @@ public class FieldValidator {
 		return input.matches("^[0-9]{10,13}$");
 	}
 	
+	public static boolean isIsbn(String input) {
+		return input.matches("^[0-9-]{10,13}$");
+	}
+	
 	public static void main(String[] args) {
 		String alpha = "aiueo";
 		String alphanumeric = "aiueo12345";
