@@ -28,6 +28,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class BodyRecoverPass extends JPanel {
 	private JPanel panel, panel_1, panel_5;
@@ -44,18 +45,20 @@ public class BodyRecoverPass extends JPanel {
 		setName(""); // NOI18N
 		setPreferredSize(new java.awt.Dimension(674, 500));
 		
-		JLabel lblRecoverPass = new JLabel("Recuperar Contrase\u00F1a");
-		lblRecoverPass.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JLabel lblRecoverPass = new JLabel("RECUPERAR CONTRASE\u00D1A");
+		lblRecoverPass.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.GRAY);
 		separator.setBackground(Color.BLACK);
 		
-		JLabel lblForgotPass = new JLabel("\u00BFOlvistaste la contrase\u00F1a?");
-		lblForgotPass.setForeground(new Color(102, 0, 153));
-		lblForgotPass.setFont(new Font("Tahoma", Font.PLAIN, 28));
+		JLabel lblForgotPass = new JLabel("\u00BFOlvidaste la contrase\u00F1a?");
+		lblForgotPass.setHorizontalAlignment(SwingConstants.CENTER);
+		lblForgotPass.setForeground(new Color(0, 0, 153));
+		lblForgotPass.setFont(new Font("Tahoma", Font.BOLD, 24));
 		
 		JLabel lblMailRequest = new JLabel("Ingrese su mail para recibir en su bandeja de entrada su contrase\u00F1a");
+		lblMailRequest.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton btnBack = new JButton();
 		btnBack.setText("VOLVER AL INICIO");
@@ -83,31 +86,33 @@ public class BodyRecoverPass extends JPanel {
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 						.addGroup(jPanel2Layout.createSequentialGroup()
-							.addGap(159)
-							.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblMailRequest)
-								.addComponent(lblForgotPass)))
-						.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+							.addGap(261)
+							.addComponent(btnBack)
+							.addGap(146)
+							.addComponent(lblFirmat3g, GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+						.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(jPanel2Layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(lblRecoverPass)
 								.addGap(18)
 								.addComponent(separator, GroupLayout.PREFERRED_SIZE, 483, GroupLayout.PREFERRED_SIZE))
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-								.addGap(178)
-								.addComponent(lblMail)
+							.addGroup(jPanel2Layout.createSequentialGroup()
+								.addContainerGap()
 								.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 									.addGroup(jPanel2Layout.createSequentialGroup()
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(textMail, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE))
-									.addGroup(jPanel2Layout.createSequentialGroup()
-										.addGap(45)
-										.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-											.addComponent(btnConfirm)
-											.addComponent(btnBack, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(lblFirmat3g, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))))))
-					.addContainerGap(18, Short.MAX_VALUE))
+										.addGap(10)
+										.addComponent(lblMailRequest, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
+									.addComponent(lblForgotPass, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+							.addGroup(jPanel2Layout.createSequentialGroup()
+								.addGap(166)
+								.addComponent(lblMail)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(textMail, GroupLayout.PREFERRED_SIZE, 271, GroupLayout.PREFERRED_SIZE)
+								.addGap(28)))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(270)
+							.addComponent(btnConfirm, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
 		);
 		jPanel2Layout.setVerticalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
@@ -120,21 +125,23 @@ public class BodyRecoverPass extends JPanel {
 							.addGap(20)
 							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblForgotPass)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblMailRequest)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(jPanel2Layout.createSequentialGroup()
-							.addComponent(lblForgotPass)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(lblMailRequest)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGap(11)
 							.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textMail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblMail))
-							.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(lblMail)
+								.addComponent(textMail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(btnConfirm)
-							.addPreferredGap(ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
 							.addComponent(btnBack))
-						.addComponent(lblFirmat3g))
-					.addGap(26))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(lblFirmat3g)))
+					.addGap(20))
 		);
 		setLayout(jPanel2Layout);
 	}
