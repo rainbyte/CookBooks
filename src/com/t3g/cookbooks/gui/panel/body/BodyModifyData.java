@@ -50,9 +50,11 @@ public class BodyModifyData extends JPanel {
 
 	public void initialize() {
 		jLabel2 = new JLabel();
+		jLabel2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		jSeparator1 = new JSeparator();
 		jLabel3 = new JLabel();
-		jLabel3.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		jLabel3.setForeground(new Color(0, 0, 153));
+		jLabel3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		jLabel4 = new JLabel();
 		lblActualPass = new JLabel();
 		lblNewPass = new JLabel();
@@ -209,7 +211,8 @@ public class BodyModifyData extends JPanel {
 		JLabel jlabel34 = new JLabel("");
 		
 		jlabel35 = new JLabel("MODIFICAR DATOS PERSONALES");
-		jlabel35.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		jlabel35.setForeground(new Color(0, 0, 153));
+		jlabel35.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		
 		txtEmail = new JTextField();
 		txtEmail.setColumns(10);
@@ -244,9 +247,7 @@ public class BodyModifyData extends JPanel {
 							.addGap(12)
 							.addComponent(jLabel2)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE))
+							.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addGap(108)
 							.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
@@ -341,18 +342,21 @@ public class BodyModifyData extends JPanel {
 								.addComponent(jLabel25, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
 								.addComponent(jLabel27, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))))
 					.addGap(97))
-				.addGroup(jPanel2Layout.createSequentialGroup()
-					.addGap(21)
-					.addComponent(btnBack)
-					.addGap(133)
-					.addComponent(btnConfirm)
-					.addPreferredGap(ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-					.addComponent(lblFirmat3g)
+				.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(jLabel3)
+							.addPreferredGap(ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+							.addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(21)
+							.addComponent(btnBack)
+							.addGap(133)
+							.addComponent(btnConfirm)
+							.addPreferredGap(ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+							.addComponent(lblFirmat3g)))
 					.addGap(26))
-				.addGroup(jPanel2Layout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(jLabel3)
-					.addContainerGap(547, Short.MAX_VALUE))
 		);
 		jPanel2Layout.setVerticalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
@@ -360,10 +364,11 @@ public class BodyModifyData extends JPanel {
 					.addContainerGap()
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
 						.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel2)
-						.addComponent(jLabel4))
+						.addComponent(jLabel2))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jLabel4))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(txtActualPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -382,7 +387,7 @@ public class BodyModifyData extends JPanel {
 						.addComponent(jlabel33))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(jlabel34)
-					.addPreferredGap(ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblName)
 						.addComponent(txtName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
