@@ -23,10 +23,10 @@ public class BodyContact extends JPanel {
 
 	private JButton btnBack;
 	private JLabel jLabel2;
-	private JSeparator jSeparator1;
 	private JLabel lblFirmat3g;
 	private JLabel lblContacto2;
 	private JLabel lblContacto3;
+	private JSeparator separator;
 
 	public BodyContact() {
 		initialize();
@@ -34,7 +34,7 @@ public class BodyContact extends JPanel {
 
 	public void initialize() {
 		jLabel2 = new JLabel();
-		jSeparator1 = new JSeparator();
+		jLabel2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnBack = new JButton();
 		lblFirmat3g = new JLabel();
 
@@ -84,6 +84,10 @@ public class BodyContact extends JPanel {
 		JLabel lblContacto7 = new JLabel("Lunes a Viernes de 9:00hs a 17:00hs (Hora Argentina)");
 		lblContacto7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto7.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		separator = new JSeparator();
+		separator.setBackground(new Color(0, 0, 0));
+		separator.setAlignmentY(0.0f);
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
@@ -96,22 +100,22 @@ public class BodyContact extends JPanel {
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(lblContacto5, GroupLayout.PREFERRED_SIZE, 683, GroupLayout.PREFERRED_SIZE))
-						.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+						.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+							.addGroup(jPanel2Layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(lblContacto3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+							.addGroup(jPanel2Layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(lblContacto2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+							.addGroup(jPanel2Layout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(lblContacto1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+							.addGroup(jPanel2Layout.createSequentialGroup()
 								.addGap(12)
 								.addComponent(jLabel2)
 								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 611, GroupLayout.PREFERRED_SIZE))
-							.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE))
+							.addGroup(jPanel2Layout.createSequentialGroup()
 								.addGap(276)
 								.addComponent(btnBack)
 								.addGap(151)
@@ -122,16 +126,19 @@ public class BodyContact extends JPanel {
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(lblContacto7, GroupLayout.PREFERRED_SIZE, 683, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(19, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		jPanel2Layout.setVerticalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(jLabel2)
-						.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(46)
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addComponent(jLabel2)
+							.addGap(46))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)))
 					.addComponent(lblContacto1)
 					.addGap(18)
 					.addComponent(lblContacto2)
