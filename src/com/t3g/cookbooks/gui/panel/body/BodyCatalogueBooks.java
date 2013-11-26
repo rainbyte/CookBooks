@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -42,7 +43,7 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 		setBackground(new Color(153, 153, 255));
 		initComponents();
 		
-		update();
+		updateTableModel();
     }
 
     /**
@@ -145,6 +146,19 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 
 	private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {
 		// TODO Al presionarse debe eliminar el libro seleccionado en la tabla
+		// Obtain Id from selected row
+		int selectedRow = tableBooks.getSelectedRow();
+		long id = (Long) tableBooks.getModel().getValueAt(selectedRow, 0);
+		
+		// Remove from db
+		try {
+			Database.getBookDao().deleteById(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// Update JTable and Model
+		updateTableModel();
 	}
 
 	private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {
@@ -153,14 +167,16 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 
 	private void updateTableModel() {
 		tableBooksModel = new DefaultTableModel();
+		tableBooksModel.addColumn("Id");
 		tableBooksModel.addColumn("Titulo");
 		tableBooksModel.addColumn("Autor");
 		tableBooksModel.addColumn("Precio");
 		tableBooksModel.addColumn("Categorias");
 		tableBooksModel.addColumn("ISBN");
-		
+			
 		for (Book book : Database.getBookDao()) {
 			Object[] rowData = new Object[] {
+				book.getId(),
 				book.getTitle(),
 				String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()),
 				book.getPrice(),
@@ -170,14 +186,14 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 			
 			tableBooksModel.addRow(rowData);
 		}
+
+		tableBooks.setModel(tableBooksModel);
+
+		// Hide Id column
+		tableBooks.removeColumn(tableBooks.getColumnModel().getColumn(0));
 	}
 	
-    /**
-     * @param args the command line arguments
-     */
-
 	public void update() {
 		updateTableModel();
-		tableBooks.setModel(tableBooksModel);
 	}
 }
