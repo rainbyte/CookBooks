@@ -33,6 +33,7 @@ public class BodyHelp extends JPanel {
 
 	public void initialize() {
 		jLabel2 = new JLabel();
+		jLabel2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		jSeparator1 = new JSeparator();
 		btnBack = new JButton();
 		lblFirmat3g = new JLabel();
@@ -148,17 +149,15 @@ public class BodyHelp extends JPanel {
 		JLabel lblAnswer6_4 = new JLabel("cookbook.com ha seleccionado el sistema de Pago Seguro de Decidir para la validaci\u00F3n de las tarjetas de cr\u00E9dito en l\u00EDnea.");
 		lblAnswer6_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer6_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		JSeparator separator6 = new JSeparator();
+		separator6.setBackground(Color.BLACK);
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-						.addGroup(jPanel2Layout.createSequentialGroup()
-							.addGap(12)
-							.addComponent(jLabel2)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addGap(226)
 							.addComponent(lblQuestion1))
@@ -214,7 +213,14 @@ public class BodyHelp extends JPanel {
 						.addComponent(lblAnswer6_3, GroupLayout.PREFERRED_SIZE, 674, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblAnswer6_4, GroupLayout.PREFERRED_SIZE, 690, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblAnswer6_2, GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
-						.addComponent(lblAnswer6, GroupLayout.PREFERRED_SIZE, 693, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblAnswer6, GroupLayout.PREFERRED_SIZE, 693, GroupLayout.PREFERRED_SIZE)
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(12)
+							.addComponent(jLabel2)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(separator6, GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)))
 					.addContainerGap())
 		);
 		jPanel2Layout.setVerticalGroup(
@@ -222,8 +228,12 @@ public class BodyHelp extends JPanel {
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel2))
+						.addComponent(jLabel2)
+						.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+							.addGroup(jPanel2Layout.createSequentialGroup()
+								.addComponent(separator6, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+								.addGap(8))
+							.addComponent(jSeparator1, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)))
 					.addGap(19)
 					.addComponent(lblQuestion1)
 					.addPreferredGap(ComponentPlacement.RELATED)
