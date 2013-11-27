@@ -26,6 +26,7 @@ import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.admin.catalogue.CatalogueCreateBook;
+import com.t3g.cookbooks.gui.admin.catalogue.CatalogueEditBook;
 import com.t3g.cookbooks.resources.Resources;
 /**
  *
@@ -142,6 +143,13 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 	private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {
 		// TODO Al presionarse debe abrise la ventana de "Editar libro" para
 		// modificar los datos del libro seleccionado
+		if (!(tableBooks.getSelectedRow() == -1)){
+			JDialog dialog = new CatalogueEditBook(this, tableBooks.getSelectedRow());
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
+		
+			updateTableModel();
+		}
 	}
 
 	private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {
