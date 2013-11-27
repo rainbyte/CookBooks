@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -28,6 +29,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.File;
 
 public class CatalogueCreateBook extends JDialog {
 	private static final long serialVersionUID = 1L;
@@ -38,11 +40,12 @@ public class CatalogueCreateBook extends JDialog {
 	private JInternalFrame internalFrame;
 	private JLabel lblTitle, lblAuthor, lblIsbn, lblPrice, lblTags, lblImage,
 			lblPages, lblSummary, lblSample, lblLanguage;
-	private JTextField txtTitle, txtIsbn, txtPrice, txtTags,
-			txtImage, txtPages;
+	private JTextField txtTitle, txtIsbn, txtPrice, txtTags, txtPages;
 	private JTextArea txtSummary, txtAditional;
-	private JButton btnSave, btnCancel, btnCreateAuthor;
+	private JButton btnSave, btnCancel, btnCreateAuthor, btnImagePath;
 	private JComboBox cbxAuthor, cbxLanguage;
+	
+	private String imagePath = "";
 	
 	public CatalogueCreateBook(ParentWindow parent) {
 		this.parent = parent;
@@ -99,8 +102,6 @@ public class CatalogueCreateBook extends JDialog {
 		txtPrice = new javax.swing.JTextField("300");
 		txtPrice.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtPrice.setBounds(171, 96, 40, 25);
-		txtImage = new javax.swing.JTextField("");
-		txtImage.setBounds(171, 158, 253, 25);
 		txtPages = new javax.swing.JTextField("165");
 		txtPages.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtPages.setBounds(171, 189, 40, 25);
@@ -158,7 +159,6 @@ public class CatalogueCreateBook extends JDialog {
 		internalFrame.getContentPane().add(txtTitle);
 		internalFrame.getContentPane().add(txtIsbn);
 		internalFrame.getContentPane().add(txtPrice);
-		internalFrame.getContentPane().add(txtImage);
 		internalFrame.getContentPane().add(txtTags);
 		internalFrame.getContentPane().add(txtAditional);
 		internalFrame.getContentPane().add(txtSummary);
@@ -182,6 +182,16 @@ public class CatalogueCreateBook extends JDialog {
 		cbxAuthor.setBounds(171, 37, 187, 25);
 		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor"}));
 		internalFrame.getContentPane().add(cbxAuthor);
+		
+		btnImagePath = new JButton("Seleccionar imagen ...");
+		btnImagePath.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				loadImagePath();
+			}
+		});
+		btnImagePath.setBounds(171, 158, 253, 25);
+		internalFrame.getContentPane().add(btnImagePath);
 		addAuthors();
 		pack();
 	}
@@ -241,6 +251,7 @@ public class CatalogueCreateBook extends JDialog {
 		boolean correctTitle = !txtTitle.getText().isEmpty();
 		boolean correctTags = !txtTags.getText().isEmpty();
 		boolean correctIsbn = new FieldValidator().isIsbn(txtIsbn.getText());
+		boolean correctImagePath = FieldValidator.isImagePath(imagePath);
 		Author selectAuthor = null;
 		Language selectLanguage = null;
 		//-------------------------------------------
@@ -308,7 +319,13 @@ public class CatalogueCreateBook extends JDialog {
 			txtIsbn.setBackground(Color.WHITE);
 		}
 		//--------------------------------------------
-		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) && (correctIsbn) && (correctAuthor) && (correctLanguage)){
+		if (!correctImagePath){
+			btnImagePath.setBackground(Color.RED);
+		} else {
+			btnImagePath.setBackground(Color.WHITE);
+		}		
+		//--------------------------------------------
+		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) && (correctIsbn) && (correctAuthor) && (correctLanguage) && (correctImagePath)){
 			String data;
 			for (Author author : Database.getAuthorDao()) {
 				data = String.format("%s, %s", author.getSurname(), author.getName());
@@ -330,7 +347,7 @@ public class CatalogueCreateBook extends JDialog {
 				Float.parseFloat(txtPrice.getText()),
 				selectAuthor,
 				selectLanguage,
-				"???");
+				imagePath);
 
 			book.setSummary(txtSummary.getText());
 			book.setSample(txtAditional.getText());
@@ -363,6 +380,20 @@ public class CatalogueCreateBook extends JDialog {
 			data = String.format("%s",language.getName());
 			cbxLanguage.addItem(data);
 		}
+	}
+	
+	private void loadImagePath() {
+		JFileChooser fc = new JFileChooser();
+		int returnVal = fc.showOpenDialog(this);
+		
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			File file = fc.getSelectedFile();
+			imagePath = file.getAbsolutePath();
+		} else {
+			System.out.println("File error");
+		}
+		
+		System.out.println(imagePath);
 	}
 	
 	private void close() {
