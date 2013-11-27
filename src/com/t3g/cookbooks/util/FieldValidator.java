@@ -38,6 +38,10 @@ public class FieldValidator {
 		return input.matches("^[0-9-]{10,13}$");
 	}
 	
+	public static boolean isImagePath(String input) {
+		return input.matches("^[a-zA-Z0-9áíúéóü/\\.,_-ñ@?¿·%= ]+(.jpg|.jpeg|.png|.gif|.bpm)$");
+	}
+	
 	public static void main(String[] args) {
 		String alpha = "aiueo";
 		String alphanumeric = "aiueo12345";
