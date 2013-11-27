@@ -1,11 +1,14 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.FlowLayout;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -21,6 +24,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
 
+import com.t3g.cookbooks.db.Database;
+import com.t3g.cookbooks.db.entities.Book;
+import com.t3g.cookbooks.gui.CancelPurchase;
+import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.admin.catalogue.CatalogueEditBook;
 import com.t3g.cookbooks.resources.Resources;
 
 import java.awt.event.ActionListener;
@@ -31,15 +39,18 @@ import java.awt.Dimension;
 
 import javax.swing.UIManager;
 
-public class BodyHome extends JPanel {
+public class BodyHome extends JPanel implements ParentWindow  {
 	private JPanel panel, panel_1, panel_5;
 	private JComboBox comboBoxSelectTheme;
 	private JTable tableBookList;
 	private JTable tableBuyList;
 	private JTable tablePurchaces;
+	public static JFrame cancelarCompra;
+	private DefaultTableModel tableBooksModel;
 
 	public BodyHome() {
 		initialize();
+		updateTableModel();
 	}
 
 	public void initialize() {
@@ -80,6 +91,8 @@ public class BodyHome extends JPanel {
         	@Override
         	public void mousePressed(MouseEvent e) {
         		//TODO Accion del boton No comprar, cancelar lo a�adido al carrito
+        		cancelarCompra = new CancelPurchase();
+        		cancelarCompra.setVisible(true);
         	}
         });
         btnNotBuy.addActionListener(new ActionListener() {
@@ -222,7 +235,7 @@ public class BodyHome extends JPanel {
 		
         tableBookList = new JTable();
         tableBookList.setToolTipText("");
-        tableBookList.setModel(new DefaultTableModel(
+        /*tableBookList.setModel(new DefaultTableModel(
         	new Object[][] { //TODO Rellenar con los libros de la db
         	},
         	new String[] {
@@ -236,8 +249,41 @@ public class BodyHome extends JPanel {
         		return columnTypes[columnIndex];
         	}
         });
+        */
         
         scrollPanelBookList.setViewportView(tableBookList);
 		setLayout(jPanel2Layout);
+	}
+
+	private void updateTableModel() {
+		tableBooksModel = new DefaultTableModel();
+		tableBooksModel.addColumn("Id");
+		tableBooksModel.addColumn("Titulo");
+		tableBooksModel.addColumn("Autor");
+		tableBooksModel.addColumn("Precio");
+		tableBooksModel.addColumn("Categorias");
+		tableBooksModel.addColumn("ISBN");
+			
+		for (Book book : Database.getBookDao()) {
+			Object[] rowData = new Object[] {
+				book.getId(),
+				book.getTitle(),
+				String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()),
+				book.getPrice(),
+				"???",	// TODO add categories support
+				book.getIsbn()
+			};
+			
+			tableBooksModel.addRow(rowData);
+		}
+
+		tableBookList.setModel(tableBooksModel);
+
+		// Hide Id column
+		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
+	}
+	
+	public void update() {
+		updateTableModel();
 	}
 }
