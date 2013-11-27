@@ -3,23 +3,23 @@ package com.t3g.cookbooks.util;
 public class FieldValidator {
 
 	public static boolean isAlpha(String input) {
-		return input.matches("^[A-Za-z]+$");
+		return input.matches("^[a-zA-Záíúéóü ]+$");
 	}
 
 	public static boolean isAlphanumeric(String input) {
-		return input.matches("^([0-9]|[A-Za-z])+$");
+		return input.matches("^[a-zA-Z0-9áíúéóü ]+$");
 	}
 
 	public static boolean isCreditCardCode(String input) {
-		return input.matches("^([0-9]|[A-Za-z]){4}$");
+		return input.matches("^[a-zA-Z0-9]{4}$");
 	}
 	
 	public static boolean isCreditCardNumber(String input) {
-		return input.matches("^[0-9]{4}$");
+		return input.matches("^[0-9]{16}$");
 	}
 	
 	public static boolean isEmail(String input) {
-		return input.matches("^([0-9]|[A-Za-z])+@[A-Za-z]([0-9]|[A-Za-z])+\\.[A-Za-z]{3,4}(\\.[A-Za-z]{2}|)$");
+		return input.matches("^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z][a-zA-Z0-9]+\\.[a-zA-Z]{3,4}(\\.[a-zA-Z]{2}|)$");
 	}
 
 	public static boolean isNumberFloat(String input) {
@@ -34,15 +34,11 @@ public class FieldValidator {
 		return input.matches("^[0-9]{10,13}$");
 	}
 	
-	public static boolean isIsbn(String input) {
-		return input.matches("^[0-9-]{10,13}$");
-	}
-	
 	public static void main(String[] args) {
 		String alpha = "aiueo";
 		String alphanumeric = "aiueo12345";
 		String creditCardCode = "a1i2";
-		String creditCardNumber = "1234";
+		String creditCardNumber = "1234123412341234";
 		String email = "aiueo12345@dominio.com.ar";
 		String numberFloat = "12345.12345";
 		String numberInteger = "12345";
