@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -21,17 +22,24 @@ import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
-import java.awt.Color;
-import javax.swing.JComboBox;
-import java.awt.Dimension;
+import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.ParentWindowDummy;
+import com.t3g.cookbooks.util.FieldValidator;
+
+
 import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+
+import java.awt.Dimension;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Component;
 import java.awt.Rectangle;
 
-public class CatalogueEditBook extends JFrame {
+public class CatalogueEditBook extends JDialog {
 	private static final long serialVersionUID = 1L;
 
+	private ParentWindow parent;
 	// Variables declaration
 	private JInternalFrame internalFrame;
 	private JLabel lblTitle, lblAuthor, lblIsbn, lblPrice, lblTags, lblImage,
@@ -42,8 +50,22 @@ public class CatalogueEditBook extends JFrame {
 	private JButton btnCancelar;
 	private JButton btnConfirmar;
 	private JButton btnCreateAuthor;
+	private JComboBox cbxAuthor, cbxLanguage;
+	private int selectBook,i;
+	private long id;
 
-	public CatalogueEditBook() {
+	public CatalogueEditBook(ParentWindow parent, int numBook) {
+		this.parent = parent;
+		selectBook = numBook;
+		getContentPane().setPreferredSize(new Dimension(518, 578));
+		getContentPane().setBackground(new Color(153, 153, 255));
+		setBackground(new Color(153, 153, 255));
+		setTitle("Catalogo");
+		initComponents();
+	}
+	
+	public CatalogueEditBook(ParentWindow parent) {
+		this.parent = parent;
 		getContentPane().setPreferredSize(new Dimension(518, 578));
 		getContentPane().setBackground(new Color(153, 153, 255));
 		setBackground(new Color(153, 153, 255));
@@ -109,7 +131,7 @@ public class CatalogueEditBook extends JFrame {
 		txtAditional = new JTextArea();
 		txtAditional.setBounds(172, 381, 280, 116);
 		
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
 		internalFrame.setTitle("Editar libro");
@@ -141,15 +163,17 @@ public class CatalogueEditBook extends JFrame {
 		lblLanguage.setBounds(30, 223, 137, 14);
 		internalFrame.getContentPane().add(lblLanguage);
 		
-		JComboBox comboBoxLanguage = new JComboBox();
-		comboBoxLanguage.setBounds(172, 219, 150, 25);
-		comboBoxLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Idioma", "Alemán","Arabe","Chino", "Español","Frances","Ingles",  "Italiano",  "Japones","Portugues", "Ruso", "Sueco", "Suizo","Turco", "Otro"}));
-		internalFrame.getContentPane().add(comboBoxLanguage);
+		cbxLanguage = new JComboBox();
+		cbxLanguage.setBounds(172, 219, 150, 25);
+		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Idioma"}));
+		internalFrame.getContentPane().add(cbxLanguage);
+		addLanguage();
 		
-		JComboBox comboBoxAuthor = new JComboBox();
-		comboBoxAuthor.setBounds(171, 37, 187, 25);
-		comboBoxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor"}));
-		internalFrame.getContentPane().add(comboBoxAuthor);
+		cbxAuthor = new JComboBox();
+		cbxAuthor.setBounds(171, 37, 187, 25);
+		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor"}));
+		internalFrame.getContentPane().add(cbxAuthor);
+		addAuthors();
 		
 		btnCancelar = new JButton("CANCELAR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -159,13 +183,18 @@ public class CatalogueEditBook extends JFrame {
 		});
 		btnCancelar.setBackground(Color.RED);
 		btnCancelar.setBounds(10, 515, 105, 23);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				actionCancel();
+			}
+		});
 		internalFrame.getContentPane().add(btnCancelar);
 		
 		btnConfirmar = new JButton("Confirmar");
-        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarMousePressed(evt);
-            }
+		btnConfirmar.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				actionSave();
+			}
 		});
 		btnConfirmar.setBounds(269, 515, 89, 23);
 		internalFrame.getContentPane().add(btnConfirmar);
@@ -192,7 +221,23 @@ public class CatalogueEditBook extends JFrame {
 					.addContainerGap(97, Short.MAX_VALUE))
 		);
 		getContentPane().setLayout(layout);
-
+		//---------------------------------------------------
+		i = 0;
+		for (Book book : Database.getBookDao()) {
+			if (selectBook == i ){
+					txtTitle.setText(book.getTitle());
+					txtPrice.setText(String.format("%s", book.getPrice()));
+					cbxLanguage.setSelectedItem(String.format("%s",book.getLanguage().getName()));
+					cbxAuthor.setSelectedItem(String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()));
+					txtPages.setText(String.format("%s",book.getPages()));
+					txtSummary.setText(book.getSummary());
+					txtAditional.setText(book.getSample());	
+					txtIsbn.setText(book.getIsbn());
+					id = book.getId();
+				}
+				i++;
+		}
+		//txtPages.setText(String.format("%s", selectBook));
 		pack();
 	}
 	
@@ -252,8 +297,146 @@ public class CatalogueEditBook extends JFrame {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new CatalogueEditBook().setVisible(true);
+				new CatalogueEditBook(new ParentWindowDummy()).setVisible(true);
 			}
 		});
+	}
+	
+	private void actionSave() {
+		// TODO: Faltaria implementar la forma en que almacena las categorias almacenadas
+		boolean correctPrice = new FieldValidator().isNumberFloat(txtPrice.getText());
+		boolean correctPages = new FieldValidator().isNumberInteger(txtPages.getText());
+		boolean correctTitle = !txtTitle.getText().isEmpty();
+		boolean correctTags = !txtTags.getText().isEmpty();
+		boolean correctIsbn = new FieldValidator().isIsbn(txtIsbn.getText());
+		Author selectAuthor = null;
+		Language selectLanguage = null;
+		//-------------------------------------------
+		boolean correctLanguage;
+		String selectLanguage_s = (String) cbxLanguage.getSelectedItem();
+		if (selectLanguage_s == "Seleccionar Idioma") {
+			correctLanguage =false;
+			cbxLanguage.setBackground(Color.RED);
+			} 
+		else 
+			{	
+			correctLanguage =true;
+			cbxLanguage.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		boolean correctAuthor;
+		String selectAuthor_s = (String) cbxAuthor.getSelectedItem();
+		if (selectAuthor_s == "Seleccionar Autor") {
+			correctAuthor =false;
+			cbxAuthor.setBackground(Color.RED);
+			} 
+		else 
+			{	
+			correctAuthor =true;
+			cbxAuthor.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		if (!correctPages){
+			txtPages.setBackground(Color.RED);
+			}
+		else
+			{
+			txtPages.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		if (!correctPrice){
+			txtPrice.setBackground(Color.RED);
+			}
+		else
+			{
+			txtPrice.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		if (!correctTitle){
+			txtTitle.setBackground(Color.RED);
+			}
+		else
+			{
+			txtTitle.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		if (!correctTags){
+			txtTags.setBackground(Color.RED);
+			}
+		else
+			{
+			txtTags.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		if (!correctIsbn){
+			txtIsbn.setBackground(Color.RED);
+			}
+		else
+			{
+			txtIsbn.setBackground(Color.WHITE);
+		}
+		//--------------------------------------------
+		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) && (correctIsbn) && (correctAuthor) && (correctLanguage)){
+			String data;
+			for (Author author : Database.getAuthorDao()) {
+				data = String.format("%s, %s", author.getSurname(), author.getName());
+				if (data.equals(selectAuthor_s)){
+					selectAuthor = author;
+				}
+			}
+			//---------------------------------------------------
+			for (Language language : Database.getLanguageDao()) {
+				data = String.format("%s", language.getName());
+				if (data.equals(selectLanguage_s)){
+					selectLanguage = language;
+				}
+			}
+			//---------------------------------------------------
+			try {
+				Database.getBookDao().deleteById(id);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+			Book book = new Book(txtIsbn.getText(), txtTitle.getText(),
+				Integer.parseInt(txtPages.getText()),
+				Float.parseFloat(txtPrice.getText()),
+				selectAuthor,
+				selectLanguage, "...");
+
+			book.setSummary(txtSummary.getText());
+			book.setSample(txtAditional.getText());
+			//---------------------------------------------------
+			try {
+				Database.getBookDao().create(book);
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+
+			close();
+		}
+	}
+	private void actionCancel() {
+		close();
+	}
+	
+	private void addAuthors(){
+		String data;
+		for (Author author : Database.getAuthorDao()) {
+			data = String.format("%s, %s", author.getSurname(), author.getName());
+			cbxAuthor.addItem(data);
+		}
+	}
+	
+	private void addLanguage(){
+		String data;
+		for (Language language : Database.getLanguageDao()) {
+			data = String.format("%s",language.getName());
+			cbxLanguage.addItem(data);
+		}
+	}
+	
+	private void close() {
+		this.dispose();
+		parent.update();
 	}
 }
