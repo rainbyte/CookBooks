@@ -1,12 +1,18 @@
 Tareas con prioridad:
--Agregar ejemplos a la base de datos: (Martï¿½n)
--Panel superior para usuario registrado: (Alvaro)
--Panel superior para usuario no registrado: (Alvaro)
--Interfaz de ayuda: (Alan)
--Interfaz de contacto: (Martï¿½n)
 -Interfaz de pedido administrador (Purchase) : (Fabrizio)
 -Interfaz de pedido usuario (Purchase) : (Fabrizio)
--Interfaz de recuperaciï¿½n de contraseï¿½a: (Martï¿½n)
-
-Tareas sin prioridad:
--Interfaz de alta de Autor: (...)
+-Interfaz de alta de autor: (Martin)
+-Logica de MainWindow: (Alvaro)
+-Agregar event MousePressed a los Header: (Fabrizio)
+-Revisar modality: (Alvaro)
+-Interfaz de modificación de estado de pedido y conexión con Interfa de pedido: (Fabrizio)
+-Manejo de estado de usuario: (Alvaro)
+-Agregar al carrito (lógica): 
+-Refactoring branch panels y merge: (Alvaro)
+-Agregar acción a la cesta de compra: (Alan)
+-Armar conexiones entre la home y las ventanas emergentes: (Alan)
+-Editar CatalogueEditBook: (Martin)
+-Agregar asteriscos a la alta libro: (Alan)
+-Mover decimales a la derecha: (Martin)
+-Marcar en rojo campos invalidos, en interfaz de registro: (Martin)
+-Gestionar categorias con un for: (Alvaro)  
