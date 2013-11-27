@@ -10,6 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.t3g.cookbooks.gui.panel.body.BodyHome;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
 *
 * @author T3G
@@ -57,13 +62,19 @@ public class CancelPurchase extends JFrame {
 		contentPane.add(label_1);
 		
 		JButton button = new JButton("Volver Atras");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				BodyHome.cancelarCompra.setVisible(false);
+			}
+		});
 		button.setBackground(new Color(153, 153, 255));
 		button.setBounds(51, 175, 137, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("Confirmar cancelacion");
 		button_1.setBackground(new Color(153, 153, 255));
-		button_1.setBounds(239, 175, 137, 23);
+		button_1.setBounds(217, 175, 159, 23);
 		contentPane.add(button_1);
 	}
 }
