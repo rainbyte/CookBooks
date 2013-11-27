@@ -17,7 +17,7 @@ public class User {
 	private String surname;
 
 	@DatabaseField()
-	private Date birthdate;
+	private Date birth_date;
 
 	@DatabaseField(canBeNull = false)
 	private String password;
@@ -44,16 +44,16 @@ public class User {
 	private char dept;
 
 	@DatabaseField(canBeNull = false)
-	private int postalCode;
+	private int postal_code;
 
 	@DatabaseField(canBeNull = false)
-	private int phone;
+	private String phone;
 
 	@DatabaseField(canBeNull = false)
-	private int cardNumber;
+	private String card_number;
 
 	@DatabaseField(canBeNull = false)
-	private String cardCode;
+	private String card_code;
 
 	public User() {
 		super();
@@ -66,7 +66,7 @@ public class User {
 
 	public User(String name, String surname, String email, String password,
 			String province, String city, String street, int nro,
-			int postalCode, int phone, int cardNumber, String cardCode) {
+			int postalCode, String phone, String card_number, String cardCode) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -76,10 +76,10 @@ public class User {
 		this.city = city;
 		this.street = street;
 		this.nro = nro;
-		this.postalCode = postalCode;
+		this.postal_code = postalCode;
 		this.phone = phone;
-		this.cardNumber = cardNumber;
-		this.cardCode = cardCode;
+		this.card_number = card_number;
+		this.card_code = cardCode;
 	}
 
 	public long getId() {
@@ -107,11 +107,11 @@ public class User {
 	}
 
 	public Date getBirthdate() {
-		return birthdate;
+		return birth_date;
 	}
 
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthdate(Date birth_date) {
+		this.birth_date = birth_date;
 	}
 
 	public String getPassword() {
@@ -179,34 +179,34 @@ public class User {
 	}
 
 	public int getPostalCode() {
-		return postalCode;
+		return postal_code;
 	}
 
 	public void setPostalCode(int postalCode) {
-		this.postalCode = postalCode;
+		this.postal_code = postalCode;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public int getCardNumber() {
-		return cardNumber;
+	public String getCardNumber() {
+		return card_number;
 	}
 
-	public void setCardNumber(int cardNumber) {
-		this.cardNumber = cardNumber;
+	public void setCardNumber(String cardNumber) {
+		this.card_number = cardNumber;
 	}
 
 	public String getCardCode() {
-		return cardCode;
+		return card_code;
 	}
 
 	public void setCardCode(String cardCode) {
-		this.cardCode = cardCode;
+		this.card_code = cardCode;
 	}	
 }
