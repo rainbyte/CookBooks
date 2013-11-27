@@ -21,13 +21,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
 
-import com.t3g.cookbooks.gui.admin.catalogue.Home;
+import com.t3g.cookbooks.resources.Resources;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Dimension;
+
 import javax.swing.UIManager;
 
 public class BodyHome extends JPanel {
@@ -50,13 +51,13 @@ public class BodyHome extends JPanel {
 		
 		comboBoxSelectTheme = new JComboBox();
 		comboBoxSelectTheme.setBounds(172, 219, 150, 25);
-		comboBoxSelectTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Tema: (click aqui)", "Comida Arabe","Comida Judia","Comida Oriental", "Comida Española","Comida Peruana","Vegetariano",  "Parilladas","Postres","Otro"}));
+		comboBoxSelectTheme.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Tema: (click aqui)", "Comida Arabe","Comida Judia","Comida Oriental", "Comida Espaï¿½ola","Comida Peruana","Vegetariano",  "Parilladas","Postres","Otro"}));
         comboBoxSelectTheme.setEditable(true);
 		
 		JScrollPane scrollPanelBookList = new JScrollPane();
 		
 		JLabel lblCarrito = new JLabel("");
-		lblCarrito.setIcon(new ImageIcon(BodyHome.class.getResource("/com/t3g/cookbooks/resources/Carrito.png")));
+		lblCarrito.setIcon(Resources.getIconCarrito());
 		
 		JScrollPane scrollPanelBuyList = new JScrollPane(); // Lista de libros agregados al carrito
 		
@@ -68,17 +69,17 @@ public class BodyHome extends JPanel {
         btnBuy.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mousePressed(MouseEvent arg0) {
-        		//TODO Accion del boton comprar, para confirmar lo añadido al carrito
+        		//TODO Accion del boton comprar, para confirmar lo aï¿½adido al carrito
         	}
         });
         btnBuy.setBackground(new Color(153, 153, 255));
-        btnBuy.setIcon(new ImageIcon(Home.class.getResource("/com/t3g/cookbooks/resources/IconBtnBuy.png")));
+        btnBuy.setIcon(Resources.getIconBuy());
         
         JButton btnNotBuy = new JButton("");
         btnNotBuy.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mousePressed(MouseEvent e) {
-        		//TODO Accion del boton No comprar, cancelar lo añadido al carrito
+        		//TODO Accion del boton No comprar, cancelar lo aï¿½adido al carrito
         	}
         });
         btnNotBuy.addActionListener(new ActionListener() {
@@ -86,7 +87,7 @@ public class BodyHome extends JPanel {
         	}
         });
         btnNotBuy.setBackground(new Color(153, 153, 255));
-        btnNotBuy.setIcon(new ImageIcon(Home.class.getResource("/com/t3g/cookbooks/resources/IconBtnNotBuy.png")));
+        btnNotBuy.setIcon(Resources.getIconNotBuy());
 		
 		JScrollPane scrollPanelPurchaces = new JScrollPane();
 		
