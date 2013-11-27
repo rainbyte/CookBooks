@@ -1,20 +1,21 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.sql.SQLException;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.BoxLayout;
 
-import java.awt.GridLayout;
+import com.t3g.cookbooks.db.Database;
+import com.t3g.cookbooks.db.entities.User;
+import com.t3g.cookbooks.util.FieldValidator;
 
 public class BodyRegister extends JPanel {
 
@@ -30,7 +31,6 @@ public class BodyRegister extends JPanel {
 	private JTextField txtCP, txtCard1, txtCard2, txtCard3, txtCard4,
 			txtConfirmPass, txtDepto, txtEmail, txtFloor, txtName, txtNumber,
 			txtPass, txtPhone, txtSecureCode, txtStreet, txtSurname, txtTown;
-	private JPanel panel, panel_1, panel_5;
 
 	public BodyRegister() {
 		initialize();
@@ -109,9 +109,9 @@ public class BodyRegister extends JPanel {
 
 		lblEmail.setText("Email");
 
-		lblPass.setText("Contrase�a");
+		lblPass.setText("Contraseña");
 
-		lblConfirmPass.setText("Confirme contrase�a");
+		lblConfirmPass.setText("Confirme contraseña");
 
 		lblStates.setText("Provincia");
 
@@ -119,29 +119,29 @@ public class BodyRegister extends JPanel {
 
 		lblStreet.setText("Calle");
 
-		lblNumber.setText("N�mero");
+		lblNumber.setText("Número");
 
 		lblFloor.setText("Piso");
 
 		lblDepto.setText("Dpto");
 
-		lblCP.setText("C�digo postal");
+		lblCP.setText("Código postal");
 
-		lblPhone.setText("Tel�fono");
+		lblPhone.setText("Teléfono");
 
-		lblCard.setText("N�mero de tarjeta");
+		lblCard.setText("Número de tarjeta");
 
-		lblSecureCode.setText("C�digo de seguridad");
+		lblSecureCode.setText("Código de seguridad");
 
 		txtName.setText("Alejandro");
 
-		txtSurname.setText("Mart�nez");
+		txtSurname.setText("Martínez");
 
-		txtEmail.setText("Ale.Martinez@dominio.com");
+		txtEmail.setText("usuario@dominio.com");
 
 		txtTown.setText("Domselaar");
 
-		txtStreet.setText("San Mart�n");
+		txtStreet.setText("San Martín");
 
 		txtNumber.setText("302");
 
@@ -204,13 +204,13 @@ public class BodyRegister extends JPanel {
 
 		cbxStates.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
 				"Seleccionar Provincia", "Ciudad de Buenos Aires",
-				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "CÃ³rdoba",
+				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba",
 				"Corrientes", "Entre RÃ­os", "Formosa", "Jujuy", "La Pampa",
-				"La Rioja", "Mendoza", "Misiones", "NeuquÃ©n", "RÃ­o Negro",
+				"La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro",
 				"Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe",
 				"Santiago del Estero",
-				"Tierra del Fuego, AntÃ¡rtida e Islas del AtlÃ¡ntico Sur",
-				"TucumÃ¡n" }));
+				"Tierra del Fuego, AntÃ¡rtida e Islas del Atlantico Sur",
+				"Tucuman" }));
 
 		jLabel33.setForeground(Color.RED);
 		jLabel33.setText("*");
@@ -419,15 +419,141 @@ public class BodyRegister extends JPanel {
 	}
 
 	private void btnConfirmMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento que confirma el registro de un usuario, aca tambiÃ©n
-		// habrÃ­a que validar que todos
+		// TODO Evento que confirma el registro de un usuario, aca tambien
+		// habri­a que validar que todos
 		// los campos fueron correctos...
+		
+		boolean ready = validateInput();
+		if (!ready) {
+			return;
+		}
+		
+		User user = new User(
+			txtName.getText(),
+			txtSurname.getText(),
+			txtEmail.getText(),
+			txtPass.getText(),
+			cbxStates.getSelectedItem().toString(),
+			txtTown.getText(),
+			txtStreet.getText(),
+			Integer.parseInt(txtNumber.getText()),
+			Integer.parseInt(txtCP.getText()),
+			txtPhone.getText(),
+			String.format(
+					"%s%s%s%s",
+					txtCard1.getText(),
+					txtCard2.getText(),
+					txtCard3.getText(),
+					txtCard4.getText()),
+			txtSecureCode.getText()
+		);
+		
+		try {
+			Database.getUserDao().createIfNotExists(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		close();
 	}
 
-	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnBackMousePressed
-		// TODO Evento para ir a la interfaz anterios (Principal?) QuizÃ¡s lo
-		// mejor es hacer
-		// que vaya a la principal... para simplificar pero no sÃ©
-		// Es el evento del botÃ³n "VOLVER ATRÃ�S"
+	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz anterios (Principal?)
+		// Es el evento del boton "VOLVER ATRAS"
+	}
+	
+	private boolean validateInput() {
+		// TODO: send validation msg
+		
+		if (!FieldValidator.isAlpha(txtName.getText())) {
+			/* send validation msg */
+			System.out.println("txtName failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isAlpha(txtSurname.getText())) {
+			/* send validation msg */
+			System.out.println("txtSurname failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isEmail(txtEmail.getText())) {
+			/* send validation msg */
+			System.out.println("txtEmail failed validation");
+			return false;
+		} else {
+			for (User user : Database.getUserDao()) {
+				if (user.getEmail().equals(txtEmail.getText())) {
+					System.out.println("email exist!");
+					return false;
+				}
+			}			
+		}
+		
+		if (!txtPass.getText().equals(txtConfirmPass.getText()) ) {
+			/* send validation msg */
+			System.out.println("txtPass failed validation");
+			return false;
+		}		
+		
+		if (!FieldValidator.isAlpha(cbxStates.getSelectedItem().toString())) {
+			/* send validation msg */
+			System.out.println("cbxStates failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isAlpha(txtTown.getText())) {
+			/* send validation msg */
+			System.out.println("txtTown failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isAlpha(txtStreet.getText())) {
+			/* send validation msg */
+			System.out.println("txtStreet failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isNumberInteger(txtNumber.getText())) {
+			/* send validation msg */
+			System.out.println("txtNumber failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isNumberInteger(txtCP.getText())) {
+			/* send validation msg */
+			System.out.println("txtCP failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isPhone(txtPhone.getText())) {
+			/* send validation msg */
+			System.out.println("txtPhone failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isCreditCardNumber(String.format("%s%s%s%s",
+				txtCard1.getText(), txtCard2.getText(), txtCard3.getText(),
+				txtCard4.getText()))) {
+			/* send validation msg */
+			System.out.println("txtCard# failed validation");
+			return false;
+		}
+		
+		if (!FieldValidator.isCreditCardCode(txtSecureCode.getText())) {
+			/* send validation msg */
+			System.out.println("txtSecureCore failed validation");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private void actionCancel() {
+		close();
+	}
+	
+	private void close() {
+		// TODO: implement close method
 	}
 }
