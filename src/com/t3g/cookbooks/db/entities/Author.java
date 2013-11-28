@@ -3,7 +3,6 @@ package com.t3g.cookbooks.db.entities;
 import java.sql.SQLException;
 import java.util.Date;
 
-import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import com.t3g.cookbooks.db.Database;
