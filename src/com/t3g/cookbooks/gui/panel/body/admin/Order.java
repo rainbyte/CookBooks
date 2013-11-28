@@ -18,7 +18,7 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.gui.ParentWindow;
-import com.t3g.cookbooks.gui.admin.dialog.ModifyState;
+import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
 
 public class Order extends JPanel implements ParentWindow  {
 	private static final long serialVersionUID = 1L;

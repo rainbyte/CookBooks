@@ -1,4 +1,4 @@
-package com.t3g.cookbooks.gui.admin.dialog;
+package com.t3g.cookbooks.gui.admin.dialog.admin;
 
 import java.awt.Color;
 import java.awt.EventQueue;

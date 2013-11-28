@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
-import com.t3g.cookbooks.gui.admin.dialog.CancelPurchase;
+import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
 public class Home extends JPanel implements ParentWindow  {
