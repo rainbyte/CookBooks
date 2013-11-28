@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.resources.Resources;
 
-public class HeaderRegistered extends JPanel {
+public class Registered extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	JButton btnLogin, btnSearch;
@@ -26,7 +26,7 @@ public class HeaderRegistered extends JPanel {
 	private JPanel panelMainBar;
 	private JLabel lblUsuario;
 
-	public HeaderRegistered() {
+	public Registered() {
 		initialize();
 	}
 

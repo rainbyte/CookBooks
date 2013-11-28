@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.t3g.cookbooks.gui.panel.body.AdminOrder;
+import com.t3g.cookbooks.gui.panel.body.admin.Order;
 /**
 *
 * @author T3G
@@ -54,7 +54,7 @@ public class ModifyState extends JDialog {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				AdminOrder.modificarEstado.setVisible(false);
+				Order.modificarEstado.setVisible(false);
 			}
 		});
 		button.setBackground(new Color(153, 153, 255));

@@ -1,4 +1,4 @@
-package com.t3g.cookbooks.gui.panel.body;
+package com.t3g.cookbooks.gui.panel.body.admin;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ import com.t3g.cookbooks.gui.admin.dialog.AdminCatalogueEditBook;
  *
  * @author T3G
  */
-public class BodyCatalogueBooks extends JPanel implements ParentWindow {
+public class Catalogue extends JPanel implements ParentWindow {
 	private static final long serialVersionUID = 1L;
 	
 	private JButton btnBack;
@@ -33,7 +33,7 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 	/**
      * Creates new form Register
      */
-	public BodyCatalogueBooks() {
+	public Catalogue() {
 		setBackground(new Color(153, 153, 255));
 		initComponents();
 		

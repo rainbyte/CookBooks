@@ -13,7 +13,7 @@ import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
-public class BodyHelp extends JPanel {
+public class Help extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JButton btnBack;
@@ -21,7 +21,7 @@ public class BodyHelp extends JPanel {
 	private JSeparator jSeparator1;
 	private JLabel lblFirmat3g;
 	
-	public BodyHelp() {
+	public Help() {
 		initialize();
 	}
 

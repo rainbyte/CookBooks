@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.resources.Resources;
 
-public class HeaderUnregistered extends JPanel {
+public class Unregistered extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	JButton btnLogin, btnSearch;
@@ -26,7 +26,7 @@ public class HeaderUnregistered extends JPanel {
 	private JPanel panelLogin2;
 	private JPanel panelMainBar;
 
-	public HeaderUnregistered() {
+	public Unregistered() {
 		initialize();
 	}
 

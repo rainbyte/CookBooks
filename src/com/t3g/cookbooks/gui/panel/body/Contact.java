@@ -13,7 +13,7 @@ import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
-public class BodyContact extends JPanel {
+public class Contact extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JButton btnBack;
@@ -23,7 +23,7 @@ public class BodyContact extends JPanel {
 	private JLabel lblContacto3;
 	private JSeparator separator;
 
-	public BodyContact() {
+	public Contact() {
 		initialize();
 	}
 

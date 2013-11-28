@@ -15,12 +15,12 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
-public class BodyRecoverPass extends JPanel {
+public class RecoverPass extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTextField textMail;
 
-	public BodyRecoverPass() {
+	public RecoverPass() {
 		initialize();
 	}
 

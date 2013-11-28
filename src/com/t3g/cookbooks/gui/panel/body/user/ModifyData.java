@@ -1,4 +1,4 @@
-package com.t3g.cookbooks.gui.panel.body;
+package com.t3g.cookbooks.gui.panel.body.user;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class BodyModifyData extends JPanel {
+public class ModifyData extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JButton btnBack, btnConfirm;
@@ -40,7 +40,7 @@ public class BodyModifyData extends JPanel {
 	private JLabel jlabel37;
 	private JLabel jlabel38;
 
-	public BodyModifyData() {
+	public ModifyData() {
 		initialize();
 	}
 

@@ -26,7 +26,7 @@ import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.admin.dialog.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
-public class BodyHome extends JPanel implements ParentWindow  {
+public class Home extends JPanel implements ParentWindow  {
 	private static final long serialVersionUID = 1L;
 	
 	private JComboBox<String> comboBoxSelectTheme;
@@ -36,7 +36,7 @@ public class BodyHome extends JPanel implements ParentWindow  {
 	public static JDialog cancelarCompra;
 	private DefaultTableModel tableBooksModel;
 
-	public BodyHome() {
+	public Home() {
 		initialize();
 		updateTableModel();
 	}

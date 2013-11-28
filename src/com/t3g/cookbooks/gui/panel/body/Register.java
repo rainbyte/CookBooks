@@ -17,7 +17,7 @@ import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.User;
 import com.t3g.cookbooks.util.FieldValidator;
 
-public class BodyRegister extends JPanel {
+public class Register extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JButton btnBack, btnConfirm;
@@ -33,7 +33,7 @@ public class BodyRegister extends JPanel {
 			txtConfirmPass, txtDepto, txtEmail, txtFloor, txtName, txtNumber,
 			txtPass, txtPhone, txtSecureCode, txtStreet, txtSurname, txtTown;
 
-	public BodyRegister() {
+	public Register() {
 		initialize();
 	}
 

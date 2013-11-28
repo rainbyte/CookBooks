@@ -1,29 +1,33 @@
-package com.t3g.cookbooks.gui.panel.body;
+package com.t3g.cookbooks.gui.panel.body.admin;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.admin.dialog.ModifyState;
 
-public class UserOrder extends JPanel implements ParentWindow  {
+public class Order extends JPanel implements ParentWindow  {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable tableBookList;
-	public static JFrame cancelarCompra;
+	public static JDialog cancelarCompra, modificarEstado;
 	private DefaultTableModel tableBooksModel;
-
-	public UserOrder() {
+	
+	public Order() {
 		initialize();
 		updateTableModel();
 	}
@@ -39,20 +43,33 @@ public class UserOrder extends JPanel implements ParentWindow  {
 		
 		JLabel label = new JLabel("DESARROLLADO POR T3G");
 		
+		JButton btnModifyState = new JButton("Modificar estado");
+		btnModifyState.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				modificarEstado = new ModifyState();
+        		modificarEstado.setVisible(true);
+			}
+		});
+		btnModifyState.setBackground(UIManager.getColor("Button.background"));
+		
 		JButton btnBack = new JButton("Volver al inicio");
 		btnBack.setBackground(new Color(255, 0, 0));
-		btnBack.setForeground(new Color(0, 0, 0));
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
-			jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+			jPanel2Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addGap(342)
 					.addComponent(btnBack)
 					.addGap(151)
 					.addComponent(label)
-					.addContainerGap(12, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+					.addContainerGap(142, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+					.addContainerGap(603, Short.MAX_VALUE)
+					.addComponent(btnModifyState)
+					.addContainerGap())
+				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(scrollPanelBookList, GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE))
 		);
@@ -60,7 +77,9 @@ public class UserOrder extends JPanel implements ParentWindow  {
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(scrollPanelBookList, GroupLayout.PREFERRED_SIZE, 489, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnModifyState)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(scrollPanelBookList, GroupLayout.PREFERRED_SIZE, 460, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label)
@@ -71,7 +90,23 @@ public class UserOrder extends JPanel implements ParentWindow  {
 		
 		
         tableBookList = new JTable();
-        tableBookList.setToolTipText("");     
+        tableBookList.setToolTipText("");
+        /*tableBookList.setModel(new DefaultTableModel(
+        	new Object[][] { //TODO Rellenar con los libros de la db
+        	},
+        	new String[] {
+        		"Nombre", "ISBN", "Autor", "Precio", "Categoria"
+        	}
+        ) {
+        	Class[] columnTypes = new Class[] {
+        		String.class, Integer.class, String.class, Float.class, String.class, Object.class
+        	};
+        	public Class getColumnClass(int columnIndex) {
+        		return columnTypes[columnIndex];
+        	}
+        });
+        */
+        
         scrollPanelBookList.setViewportView(tableBookList);
 		setLayout(jPanel2Layout);
 	}

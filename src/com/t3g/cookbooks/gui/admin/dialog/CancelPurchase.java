@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.t3g.cookbooks.gui.panel.body.BodyHome;
+import com.t3g.cookbooks.gui.panel.body.Home;
 /**
 *
 * @author T3G
@@ -65,7 +65,7 @@ public class CancelPurchase extends JDialog {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				BodyHome.cancelarCompra.setVisible(false);
+				Home.cancelarCompra.setVisible(false);
 			}
 		});
 		button.setBackground(new Color(153, 153, 255));
