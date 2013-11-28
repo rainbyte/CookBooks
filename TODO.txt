@@ -1,11 +1,11 @@
 Tareas con prioridad:
--Interfaz de pedido administrador (Purchase) : (Fabrizio)
--Interfaz de pedido usuario (Purchase) : (Fabrizio)
+-Conexión de la base de datos de interfaz de pedido administrador (Purchase): (Fabrizio)
+-Conexión de la base de datos de interfaz de pedido usuario (Purchase): (Fabrizio)
 -Interfaz de alta de autor: (Martin)
 -Logica de MainWindow: (Alvaro)
 -Agregar event MousePressed a los Header: (Fabrizio)
 -Revisar modality: (Alvaro)
--Interfaz de modificación de estado de pedido y conexión con Interfa de pedido: (Fabrizio)
+-Lógica de interfaz de modificación de estado de pedido y conexión con Interfa de pedido : (Fabrizio)
 -Manejo de estado de usuario: (Alvaro)
 -Agregar al carrito (lógica): 
 -Refactoring branch panels y merge: (Alvaro)
