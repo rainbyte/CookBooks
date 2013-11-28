@@ -48,7 +48,6 @@ public class Country {
 		try {
 			Database.getCountryDao().create(country1);
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -56,7 +55,6 @@ public class Country {
 		try {
 			Database.getCountryDao().create(country2);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			

@@ -33,11 +33,14 @@ public class Book {
 	@DatabaseField()
 	private String sample; //first pages
 	
-	@DatabaseField(foreign = true, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Author author;
 	
-	@DatabaseField(foreign = true, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Language language;
+	
+	@DatabaseField(canBeNull = false)
+	private String image_path;
 	
 	public Book() {
 		super();
@@ -50,7 +53,8 @@ public class Book {
 		
 	public Book(String isbn, String title, int pages, float price,
 			Author author,
-			Language language) {
+			Language language,
+			String image_path) {
 		super();
 		this.isbn = isbn;
 		this.title = title;
@@ -58,6 +62,7 @@ public class Book {
 		this.price = price;
 		this.author = author;
 		this.language = language;
+		this.image_path = image_path;
 	}
 
 	public long getId() {
@@ -140,15 +145,23 @@ public class Book {
 		this.language = language;
 	}
 	
+	public String getImagePath() {
+		return image_path;
+	}
+	
+	public void setImagePath(String image_path) {
+		this.image_path = image_path;
+	}	
+	
 	public static void main(String[] args) {
 		Book book = new Book("9dh329rn3dbu", "Ingenieria de Software 9ed", 700, 500,
 				new Author("???", "Sommervile", new Country("USA")),
-				new Language("Español"));
+				new Language("Español"),
+				"");
 		
 		try {
 			Database.getBookDao().create(book);
 		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
 	}

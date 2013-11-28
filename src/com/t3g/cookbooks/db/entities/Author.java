@@ -19,7 +19,7 @@ public class Author {
 	@DatabaseField(canBeNull = false)
 	private String surname;
 	
-	@DatabaseField(foreign = true, foreignAutoCreate = true)
+	@DatabaseField(foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
 	private Country country;
 	
 	@DatabaseField()
@@ -112,7 +112,6 @@ public class Author {
 		try {
 			Database.getAuthorDao().create(author);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

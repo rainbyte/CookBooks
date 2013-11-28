@@ -27,7 +27,6 @@ public class Database {
 				connection = new JdbcConnectionSource(DB_PATH);
 				connectionReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -46,7 +45,6 @@ public class Database {
 				authorDao = DaoManager.createDao(getConnection(), Author.class);
 				authorDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -65,7 +63,6 @@ public class Database {
 				bookDao = DaoManager.createDao(getConnection(), Book.class);
 				bookDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -84,7 +81,6 @@ public class Database {
 				countryDao = DaoManager.createDao(getConnection(), Country.class);
 				countryDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -103,7 +99,6 @@ public class Database {
 				languageDao = DaoManager.createDao(getConnection(), Language.class);
 				languageDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -122,7 +117,6 @@ public class Database {
 				purchaseDao = DaoManager.createDao(getConnection(), Purchase.class);
 				purchaseDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -141,7 +135,6 @@ public class Database {
 				tagDao = DaoManager.createDao(getConnection(), Tag.class);
 				tagDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -160,7 +153,6 @@ public class Database {
 				userDao = DaoManager.createDao(getConnection(), User.class);
 				userDaoReady = true;
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
