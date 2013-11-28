@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -17,17 +17,16 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-import com.t3g.cookbooks.gui.ModifyState;
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.admin.dialog.ModifyState;
 
 public class AdminOrder extends JPanel implements ParentWindow  {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable tableBookList;
-	public static JFrame cancelarCompra;
+	public static JDialog cancelarCompra, modificarEstado;
 	private DefaultTableModel tableBooksModel;
-	public static JFrame modificarEstado;
-
+	
 	public AdminOrder() {
 		initialize();
 		updateTableModel();

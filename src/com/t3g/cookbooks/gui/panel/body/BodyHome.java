@@ -11,7 +11,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -22,8 +22,8 @@ import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
-import com.t3g.cookbooks.gui.CancelPurchase;
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.admin.dialog.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
 public class BodyHome extends JPanel implements ParentWindow  {
@@ -33,7 +33,7 @@ public class BodyHome extends JPanel implements ParentWindow  {
 	private JTable tableBookList;
 	private JTable tableBuyList;
 	private JTable tablePurchaces;
-	public static JFrame cancelarCompra;
+	public static JDialog cancelarCompra;
 	private DefaultTableModel tableBooksModel;
 
 	public BodyHome() {

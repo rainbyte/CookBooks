@@ -1,4 +1,4 @@
-package com.t3g.cookbooks.gui;
+package com.t3g.cookbooks.gui.admin.dialog;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 *
 * @author T3G
 */
-public class ConfirmPurchase extends JFrame {
+public class ConfirmPurchase extends JDialog {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane;
