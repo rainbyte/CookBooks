@@ -1,92 +1,212 @@
 package com.t3g.cookbooks.db.entities;
 
+import java.util.Date;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "users")
 public class User {
 	@DatabaseField(generatedId = true)
-	long id;
-	
+	private long id;
+
 	@DatabaseField(canBeNull = false)
-	String name;
-	
+	private String name;
+
 	@DatabaseField(canBeNull = false)
-	String surname;
-	
+	private String surname;
+
+	@DatabaseField()
+	private Date birth_date;
+
 	@DatabaseField(canBeNull = false)
-	String birthdate;
-	
+	private String password;
+
 	@DatabaseField(canBeNull = false)
-	String user;
-	
+	private String email;
+
 	@DatabaseField(canBeNull = false)
-	String password;
-	
+	private String province;
+
+	@DatabaseField(canBeNull = false)
+	private String city;
+
+	@DatabaseField(canBeNull = false)
+	private String street;
+
+	@DatabaseField(canBeNull = false)
+	private int nro;
+
+	@DatabaseField()
+	private int floor;
+
+	@DatabaseField()
+	private char dept;
+
+	@DatabaseField(canBeNull = false)
+	private int postal_code;
+
+	@DatabaseField(canBeNull = false)
+	private String phone;
+
+	@DatabaseField(canBeNull = false)
+	private String card_number;
+
+	@DatabaseField(canBeNull = false)
+	private String card_code;
+
 	public User() {
 		super();
 	}
-	
+
 	public User(long id) {
 		super();
 		this.id = id;
 	}
-	
-	public User(String name, String surname, String birthdate, String user,
-			String password) {
+
+	public User(String name, String surname, String email, String password,
+			String province, String city, String street, int nro,
+			int postalCode, String phone, String card_number, String cardCode) {
 		super();
 		this.name = name;
 		this.surname = surname;
-		this.birthdate = birthdate;
-		this.user = user;
+		this.email = email;
 		this.password = password;
+		this.province = province;
+		this.city = city;
+		this.street = street;
+		this.nro = nro;
+		this.postal_code = postalCode;
+		this.phone = phone;
+		this.card_number = card_number;
+		this.card_code = cardCode;
 	}
 
 	public long getId() {
 		return id;
 	}
-	
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getSurname() {
 		return surname;
 	}
-	
+
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
-	public String getBirthdate() {
-		return birthdate;
+
+	public Date getBirthdate() {
+		return birth_date;
 	}
-	
-	public void setBirthDate(String birthdate) {
-		this.birthdate = birthdate;
+
+	public void setBirthdate(Date birth_date) {
+		this.birth_date = birth_date;
 	}
-	
-	public String getUser() {
-		return user;
-	}
-	
-	public void setUser(String user) {
-		this.user = user;
-	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public int getNro() {
+		return nro;
+	}
+
+	public void setNro(int nro) {
+		this.nro = nro;
+	}
+
+	public int getFloor() {
+		return floor;
+	}
+
+	public void setFloor(int floor) {
+		this.floor = floor;
+	}
+
+	public char getDept() {
+		return dept;
+	}
+
+	public void setDept(char dept) {
+		this.dept = dept;
+	}
+
+	public int getPostalCode() {
+		return postal_code;
+	}
+
+	public void setPostalCode(int postalCode) {
+		this.postal_code = postalCode;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCardNumber() {
+		return card_number;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.card_number = cardNumber;
+	}
+
+	public String getCardCode() {
+		return card_code;
+	}
+
+	public void setCardCode(String cardCode) {
+		this.card_code = cardCode;
 	}	
 }
