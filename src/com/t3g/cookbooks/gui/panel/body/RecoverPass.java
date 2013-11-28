@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 
 public class RecoverPass extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JTextField textMail;
 
 	public RecoverPass() {
@@ -30,39 +30,41 @@ public class RecoverPass extends JPanel {
 		setAutoscrolls(true);
 		setName(""); // NOI18N
 		setPreferredSize(new java.awt.Dimension(674, 500));
-		
+
 		JLabel lblRecoverPass = new JLabel("RECUPERAR CONTRASE\u00D1A");
 		lblRecoverPass.setFont(new Font("Tahoma", Font.BOLD, 11));
-		
+
 		JSeparator separator = new JSeparator();
 		separator.setForeground(Color.GRAY);
 		separator.setBackground(Color.BLACK);
-		
+
 		JLabel lblForgotPass = new JLabel("\u00BFOlvidaste la contrase\u00F1a?");
 		lblForgotPass.setHorizontalAlignment(SwingConstants.CENTER);
 		lblForgotPass.setForeground(new Color(0, 0, 153));
 		lblForgotPass.setFont(new Font("Tahoma", Font.BOLD, 24));
-		
-		JLabel lblMailRequest = new JLabel("Ingrese su mail para recibir en su bandeja de entrada su contrase\u00F1a");
+
+		JLabel lblMailRequest = new JLabel(
+				"Ingrese su mail para recibir en su bandeja de entrada su contrase\u00F1a");
 		lblMailRequest.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		JButton btnBack = new JButton();
 		btnBack.setText("VOLVER AL INICIO");
 		btnBack.setBackground(Color.RED);
-		
+
 		JLabel lblFirmat3g = new JLabel();
 		lblFirmat3g.setText("DESARROLLADO POR T3G");
-		
+
 		textMail = new JTextField();
 		textMail.setColumns(10);
-		
+
 		JLabel lblMail = new JLabel("Mail:");
-		
+
 		JButton btnConfirm = new JButton("Confirmar");
 		btnConfirm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO "Enviar" un mail a la bandeja de entrada del mail ingresado verificando que sea valido
+				// TODO "Enviar" un mail a la bandeja de entrada del mail
+				// ingresado verificando que sea valido
 			}
 		});
 

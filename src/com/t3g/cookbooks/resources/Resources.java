@@ -11,11 +11,11 @@ public class Resources {
 	private Resources() {
 		// This class should not be instantiated.
 	}
-	
+
 	public static ImageIcon getLogo() {
 		return logo;
 	}
-	
+
 	public static ImageIcon getIconCarrito() {
 		return iconCarrito;
 	}

@@ -15,19 +15,18 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class ModifyData extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JButton btnBack, btnConfirm;
 	private JComboBox<String> cbxStates;
-	private JLabel jLabel2, jLabel23, jLabel24,
-			jLabel25, jLabel26, jLabel27, jLabel29, jLabel3, jLabel30,
-			jLabel31, jLabel32, jLabel33, jLabel4;
+	private JLabel jLabel2, jLabel23, jLabel24, jLabel25, jLabel26, jLabel27,
+			jLabel29, jLabel3, jLabel30, jLabel31, jLabel32, jLabel33, jLabel4;
 	private JSeparator jSeparator1;
-	private JLabel lblCP, lblCard, lblNewPass, lblDepto,
-			lblFirmat3g, lblFloor, lblNumber, lblActualPass, lblPhone,
-			lblSecureCode, lblStates, lblStreet, lblTown;
+	private JLabel lblCP, lblCard, lblNewPass, lblDepto, lblFirmat3g, lblFloor,
+			lblNumber, lblActualPass, lblPhone, lblSecureCode, lblStates,
+			lblStreet, lblTown;
 	private JTextField txtCP, txtCard1, txtCard2, txtCard3, txtCard4,
-			txtNewPass, txtDepto, txtFloor, txtNumber,
-			txtActualPass, txtPhone, txtSecureCode, txtStreet, txtTown;
+			txtNewPass, txtDepto, txtFloor, txtNumber, txtActualPass, txtPhone,
+			txtSecureCode, txtStreet, txtTown;
 	private JTextField txtConfirmPass;
 	private JLabel jlabel35;
 	private JTextField txtEmail;
@@ -153,7 +152,7 @@ public class ModifyData extends JPanel {
 				btnConfirmMousePressed(evt);
 			}
 		});
-		
+
 		lblFirmat3g.setText("DESARROLLADO POR T3G");
 
 		jLabel23.setForeground(new java.awt.Color(255, 0, 0));
@@ -183,54 +182,73 @@ public class ModifyData extends JPanel {
 		jLabel32.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel32.setText("*");
 
-		cbxStates.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] {
-				"Seleccionar Provincia", "Ciudad de Buenos Aires",
-				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba",
-				"Corrientes", "Entre Rios", "Formosa", "Jujuy", "La Pampa",
-				"La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro",
-				"Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe",
-				"Santiago del Estero",
-				"Tierra del Fuego, Antartida e Islas del Atlantico Sur",
-				"Tucuman" }));
+		cbxStates.setModel(
+			new javax.swing.DefaultComboBoxModel<String>(
+				new String[] {
+					"Seleccionar Provincia",
+					"Ciudad de Buenos Aires",
+					"Buenos Aires",
+					"Catamarca",
+					"Chaco",
+					"Chubut",
+					"Cordoba",
+					"Corrientes",
+					"Entre Rios",
+					"Formosa",
+					"Jujuy",
+					"La Pampa",
+					"La Rioja",
+					"Mendoza",
+					"Misiones",
+					"Neuquen",
+					"Rio Negro",
+					"Salta",
+					"San Juan",
+					"San Luis",
+					"Santa Cruz",
+					"Santa Fe",
+					"Santiago del Estero",
+					"Tierra del Fuego, Antartida e Islas del Atlantico Sur",
+					"Tucuman" }));
 
 		jLabel33.setForeground(Color.RED);
 		jLabel33.setText("*");
-		
+
 		txtConfirmPass = new JTextField();
 		txtConfirmPass.setColumns(10);
-		
+
 		JLabel lblConfirmPass = new JLabel("Confirma");
-		
+
 		JLabel jlabel33 = new JLabel("*");
 		jlabel33.setForeground(new Color(255, 0, 0));
-		
+
 		JLabel jlabel34 = new JLabel("");
-		
+
 		jlabel35 = new JLabel("MODIFICAR DATOS PERSONALES");
 		jlabel35.setForeground(new Color(0, 0, 153));
 		jlabel35.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
-		
+
 		txtEmail = new JTextField();
 		txtEmail.setColumns(10);
-		
+
 		txtName = new JTextField();
 		txtName.setColumns(10);
-		
+
 		lblName = new JLabel("Nombre");
-		
+
 		lblEmail = new JLabel("Email");
-		
+
 		jlabel36 = new JLabel("*");
 		jlabel36.setForeground(new Color(255, 0, 0));
-		
+
 		lblSurname = new JLabel("Apellido");
-		
+
 		txtSurname = new JTextField();
 		txtSurname.setColumns(10);
-		
+
 		jlabel37 = new JLabel("*");
 		jlabel37.setForeground(new Color(255, 0, 0));
-		
+
 		jlabel38 = new JLabel("*");
 		jlabel38.setForeground(new Color(255, 0, 0));
 

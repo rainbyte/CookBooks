@@ -12,13 +12,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 /**
-*
-* @author T3G
-*/
+ * 
+ * @author T3G
+ */
 public class ConfirmPurchase extends JDialog {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JPanel contentPane;
 
 	/**
@@ -48,44 +49,46 @@ public class ConfirmPurchase extends JDialog {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblConfirm1 = new JLabel("Esta a punto de comprar los art\u00EDculos que estan");
+
+		JLabel lblConfirm1 = new JLabel(
+				"Esta a punto de comprar los art\u00EDculos que estan");
 		lblConfirm1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblConfirm1.setBounds(88, 60, 273, 14);
 		contentPane.add(lblConfirm1);
-		
+
 		JLabel lblConfirm2 = new JLabel("en su carrito de compra");
 		lblConfirm2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblConfirm2.setBounds(152, 85, 137, 14);
 		contentPane.add(lblConfirm2);
-		
+
 		JButton btnBack = new JButton("Volver Atras");
 		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				//TODO Volver a la interfaz principal
+				// TODO Volver a la interfaz principal
 			}
 		});
 		btnBack.setBackground(new Color(153, 153, 255));
 		btnBack.setBounds(51, 175, 137, 23);
 		contentPane.add(btnBack);
-		
+
 		JButton btnConfirm = new JButton("Confirmar compra");
 		btnConfirm.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				//TODO Confirmar pedido y guardarlo en la datebase
+				// TODO Confirmar pedido y guardarlo en la datebase
 			}
 		});
 		btnConfirm.setBackground(new Color(153, 153, 255));
 		btnConfirm.setBounds(239, 175, 137, 23);
 		contentPane.add(btnConfirm);
-		
+
 		JLabel lblPrice = new JLabel("Costo Total: $");
 		lblPrice.setBounds(161, 125, 68, 14);
 		contentPane.add(lblPrice);
-		
-		JLabel lblTotal = new JLabel(""); //TODO Completar con el precio total de la compra del carrito
+
+		JLabel lblTotal = new JLabel(""); // TODO Completar con el precio total
+											// de la compra del carrito
 		lblTotal.setBounds(239, 125, 46, 14);
 		contentPane.add(lblTotal);
 	}

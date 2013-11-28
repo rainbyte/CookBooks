@@ -15,12 +15,12 @@ import javax.swing.SwingConstants;
 
 public class Help extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JButton btnBack;
 	private JLabel jLabel2;
 	private JSeparator jSeparator1;
 	private JLabel lblFirmat3g;
-	
+
 	public Help() {
 		initialize();
 	}
@@ -46,104 +46,122 @@ public class Help extends JPanel {
 				btnBackMousePressed(evt);
 			}
 		});
-		
+
 		lblFirmat3g.setText("DESARROLLADO POR T3G");
-		
-		JLabel lblQuestion1 = new JLabel("\u00BFComo busco un libro espec\u00EDfico?");
+
+		JLabel lblQuestion1 = new JLabel(
+				"\u00BFComo busco un libro espec\u00EDfico?");
 		lblQuestion1.setForeground(new Color(0, 0, 153));
 		lblQuestion1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblAnswer1 = new JLabel("La b\u00FAsqueda se encuentra en la mayoria de las pantallas, ubicada en la parte superior izquierda, debajo del logo de CookBooks.");
+
+		JLabel lblAnswer1 = new JLabel(
+				"La b\u00FAsqueda se encuentra en la mayoria de las pantallas, ubicada en la parte superior izquierda, debajo del logo de CookBooks.");
 		lblAnswer1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblAnswer1.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		JLabel lblAnswer1_2 = new JLabel("Ingrese el texto en el casillero, y luego presione el boton BUSCAR.");
+
+		JLabel lblAnswer1_2 = new JLabel(
+				"Ingrese el texto en el casillero, y luego presione el boton BUSCAR.");
 		lblAnswer1_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblAnswer1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		JSeparator separator1 = new JSeparator();
-		
+
 		JLabel lblQuestion2 = new JLabel("\u00BFComo compro un libro?");
 		lblQuestion2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion2.setForeground(new Color(0, 0, 153));
 		lblQuestion2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblAnswer2 = new JLabel("Usa el sistema de \"Carro de Compras\" que opera similarmente al de una librer\u00EDa real, puede sumar libros al carrito ");
+
+		JLabel lblAnswer2 = new JLabel(
+				"Usa el sistema de \"Carro de Compras\" que opera similarmente al de una librer\u00EDa real, puede sumar libros al carrito ");
 		lblAnswer2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer2_2 = new JLabel("o quitar libros del carrito en cualquier momento. Puede ordenar un libro haciendo click en el bot\u00F3n \"Agregar libro\".");
+
+		JLabel lblAnswer2_2 = new JLabel(
+				"o quitar libros del carrito en cualquier momento. Puede ordenar un libro haciendo click en el bot\u00F3n \"Agregar libro\".");
 		lblAnswer2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer2_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer2_3 = new JLabel("Sobre el margen superior derecho el recuadro del carrito de compras le informa los libros y el valor de los mismos.");
+
+		JLabel lblAnswer2_3 = new JLabel(
+				"Sobre el margen superior derecho el recuadro del carrito de compras le informa los libros y el valor de los mismos.");
 		lblAnswer2_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer2_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer2_4 = new JLabel("Acceda al carrito de compras (Cesto rojo) haciendo click en el mismo, y dentro de este modifique la cantidad");
+
+		JLabel lblAnswer2_4 = new JLabel(
+				"Acceda al carrito de compras (Cesto rojo) haciendo click en el mismo, y dentro de este modifique la cantidad");
 		lblAnswer2_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer2_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer2_5 = new JLabel("de cada libro, adecuandola a la compra que quiera realizar.");
+
+		JLabel lblAnswer2_5 = new JLabel(
+				"de cada libro, adecuandola a la compra que quiera realizar.");
 		lblAnswer2_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer2_5.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
+
 		JSeparator separator2 = new JSeparator();
-		
-		JLabel lblQuestion3 = new JLabel("\u00BFPuedo cancelar una compra luego de emitida?");
+
+		JLabel lblQuestion3 = new JLabel(
+				"\u00BFPuedo cancelar una compra luego de emitida?");
 		lblQuestion3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion3.setForeground(new Color(0, 0, 153));
 		lblQuestion3.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblAnswer3 = new JLabel("No. Una vez que confirmo su compra, no puede cancelarse la misma.");
+
+		JLabel lblAnswer3 = new JLabel(
+				"No. Una vez que confirmo su compra, no puede cancelarse la misma.");
 		lblAnswer3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
+
 		JSeparator separator3 = new JSeparator();
-		
+
 		JLabel lblQuestion4 = new JLabel("\u00BFQue formas de pago hay?");
 		lblQuestion4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion4.setForeground(new Color(0, 0, 153));
 		lblQuestion4.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblAnswer4 = new JLabel("Los pagos online, son s\u00F3lo con tarjeta de cr\u00E9dito y en un s\u00F3lo pago.");
+
+		JLabel lblAnswer4 = new JLabel(
+				"Los pagos online, son s\u00F3lo con tarjeta de cr\u00E9dito y en un s\u00F3lo pago.");
 		lblAnswer4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer4.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
+
 		JSeparator separator4 = new JSeparator();
-		
-		JLabel lblQuestion5 = new JLabel("\u00BFEnv\u00EDan libros a mi provincia? \u00BFY a otros pa\u00EDses?");
+
+		JLabel lblQuestion5 = new JLabel(
+				"\u00BFEnv\u00EDan libros a mi provincia? \u00BFY a otros pa\u00EDses?");
 		lblQuestion5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion5.setForeground(new Color(0, 0, 153));
 		lblQuestion5.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblAnswer5 = new JLabel("Enviamos solamente a todo el territorio de la Rep\u00FAblica Argentina. Todas las provincias correspondientes.");
+
+		JLabel lblAnswer5 = new JLabel(
+				"Enviamos solamente a todo el territorio de la Rep\u00FAblica Argentina. Todas las provincias correspondientes.");
 		lblAnswer5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer5.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
+
 		JSeparator separator5 = new JSeparator();
-		
-		JLabel lblQuestion6 = new JLabel("\u00BFEs seguro usar tarjeta de cr\u00E9dito?");
+
+		JLabel lblQuestion6 = new JLabel(
+				"\u00BFEs seguro usar tarjeta de cr\u00E9dito?");
 		lblQuestion6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion6.setForeground(new Color(0, 0, 153));
 		lblQuestion6.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblAnswer6 = new JLabel("Para resguardar la seguridad de los datos en Internet se han desarrollado un n\u00FAmero de protocolos y aplicaciones ");
+
+		JLabel lblAnswer6 = new JLabel(
+				"Para resguardar la seguridad de los datos en Internet se han desarrollado un n\u00FAmero de protocolos y aplicaciones ");
 		lblAnswer6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer6.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer6_2 = new JLabel("usando t\u00E9cnicas de encriptaci\u00F3n. En cookbook.com la seguridad esta garantizada por el uso de los protocolos Secure HTTP");
+
+		JLabel lblAnswer6_2 = new JLabel(
+				"usando t\u00E9cnicas de encriptaci\u00F3n. En cookbook.com la seguridad esta garantizada por el uso de los protocolos Secure HTTP");
 		lblAnswer6_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer6_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer6_3 = new JLabel("y Secure Sockets Layer (SSL) que proveen de autenticaci\u00F3n para servidores y navegadores.");
+
+		JLabel lblAnswer6_3 = new JLabel(
+				"y Secure Sockets Layer (SSL) que proveen de autenticaci\u00F3n para servidores y navegadores.");
 		lblAnswer6_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer6_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
-		JLabel lblAnswer6_4 = new JLabel("cookbook.com ha seleccionado el sistema de Pago Seguro de Decidir para la validaci\u00F3n de las tarjetas de cr\u00E9dito en l\u00EDnea.");
+
+		JLabel lblAnswer6_4 = new JLabel(
+				"cookbook.com ha seleccionado el sistema de Pago Seguro de Decidir para la validaci\u00F3n de las tarjetas de cr\u00E9dito en l\u00EDnea.");
 		lblAnswer6_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer6_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		
+
 		JSeparator separator6 = new JSeparator();
 		separator6.setBackground(Color.BLACK);
 

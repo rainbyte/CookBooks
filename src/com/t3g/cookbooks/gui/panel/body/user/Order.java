@@ -16,9 +16,9 @@ import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.gui.ParentWindow;
 
-public class Order extends JPanel implements ParentWindow  {
+public class Order extends JPanel implements ParentWindow {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JTable tableBookList;
 	public static JFrame cancelarCompra;
 	private DefaultTableModel tableBooksModel;
@@ -34,45 +34,53 @@ public class Order extends JPanel implements ParentWindow  {
 		setAutoscrolls(true);
 		setName(""); // NOI18N
 		setPreferredSize(new Dimension(732, 541));
-		
+
 		JScrollPane scrollPanelBookList = new JScrollPane();
-		
+
 		JLabel label = new JLabel("DESARROLLADO POR T3G");
-		
+
 		JButton btnBack = new JButton("Volver al inicio");
 		btnBack.setBackground(new Color(255, 0, 0));
 		btnBack.setForeground(new Color(0, 0, 0));
 
-		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
-		jPanel2Layout.setHorizontalGroup(
-			jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(jPanel2Layout.createSequentialGroup()
-					.addGap(342)
-					.addComponent(btnBack)
-					.addGap(151)
-					.addComponent(label)
-					.addContainerGap(12, Short.MAX_VALUE))
-				.addGroup(Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPanelBookList, GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE))
-		);
-		jPanel2Layout.setVerticalGroup(
-			jPanel2Layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(jPanel2Layout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPanelBookList, GroupLayout.PREFERRED_SIZE, 489, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label)
-						.addComponent(btnBack))
-					.addGap(21))
-		);
-		
-		
-		
-        tableBookList = new JTable();
-        tableBookList.setToolTipText("");     
-        scrollPanelBookList.setViewportView(tableBookList);
+		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(
+				this);
+		jPanel2Layout.setHorizontalGroup(jPanel2Layout
+				.createParallelGroup(Alignment.TRAILING)
+				.addGroup(
+						jPanel2Layout.createSequentialGroup().addGap(342)
+								.addComponent(btnBack).addGap(151)
+								.addComponent(label)
+								.addContainerGap(12, Short.MAX_VALUE))
+				.addGroup(
+						Alignment.LEADING,
+						jPanel2Layout
+								.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(scrollPanelBookList,
+										GroupLayout.DEFAULT_SIZE, 722,
+										Short.MAX_VALUE)));
+		jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(
+				Alignment.LEADING)
+				.addGroup(
+						jPanel2Layout
+								.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(scrollPanelBookList,
+										GroupLayout.PREFERRED_SIZE, 489,
+										GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addGroup(
+										jPanel2Layout
+												.createParallelGroup(
+														Alignment.BASELINE)
+												.addComponent(label)
+												.addComponent(btnBack))
+								.addGap(21)));
+
+		tableBookList = new JTable();
+		tableBookList.setToolTipText("");
+		scrollPanelBookList.setViewportView(tableBookList);
 		setLayout(jPanel2Layout);
 	}
 
@@ -106,7 +114,7 @@ public class Order extends JPanel implements ParentWindow  {
 		// Hide Id column
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
-	
+
 	public void update() {
 		updateTableModel();
 	}

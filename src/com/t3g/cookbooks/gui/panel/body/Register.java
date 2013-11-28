@@ -19,7 +19,7 @@ import com.t3g.cookbooks.util.FieldValidator;
 
 public class Register extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JButton btnBack, btnConfirm;
 	private JComboBox<String> cbxStates;
 	private JLabel jLabel2, jLabel20, jLabel21, jLabel22, jLabel23, jLabel24,
@@ -164,7 +164,7 @@ public class Register extends JPanel {
 				btnConfirmMousePressed(evt);
 			}
 		});
-		
+
 		lblFirmat3g.setText("DESARROLLADO POR T3G");
 
 		jLabel20.setForeground(new java.awt.Color(255, 0, 51));
@@ -203,15 +203,34 @@ public class Register extends JPanel {
 		jLabel32.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel32.setText("*");
 
-		cbxStates.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] {
-				"Seleccionar Provincia", "Ciudad de Buenos Aires",
-				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba",
-				"Corrientes", "Entre RÃ­os", "Formosa", "Jujuy", "La Pampa",
-				"La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro",
-				"Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe",
-				"Santiago del Estero",
-				"Tierra del Fuego, AntÃ¡rtida e Islas del Atlantico Sur",
-				"Tucuman" }));
+		cbxStates.setModel(
+			new javax.swing.DefaultComboBoxModel<String>(
+				new String[] {
+					"Seleccionar Provincia",
+					"Ciudad de Buenos Aires",
+					"Buenos Aires",
+					"Catamarca",
+					"Chaco",
+					"Chubut",
+					"Cordoba",
+					"Corrientes",
+					"Entre RÃ­os",
+					"Formosa",
+					"Jujuy",
+					"La Pampa",
+					"La Rioja",
+					"Mendoza",
+					"Misiones",
+					"Neuquen",
+					"Rio Negro",
+					"Salta",
+					"San Juan",
+					"San Luis",
+					"Santa Cruz",
+					"Santa Fe",
+					"Santiago del Estero",
+					"Tierra del Fuego, AntÃ¡rtida e Islas del Atlantico Sur",
+					"Tucuman" }));
 
 		jLabel33.setForeground(Color.RED);
 		jLabel33.setText("*");
@@ -423,7 +442,7 @@ public class Register extends JPanel {
 		// TODO Evento que confirma el registro de un usuario, aca tambien
 		// habri­a que validar que todos
 		// los campos fueron correctos...
-		
+
 		boolean ready = validateInput();
 		if (!ready) {
 			return;
@@ -441,11 +460,11 @@ public class Register extends JPanel {
 			Integer.parseInt(txtCP.getText()),
 			txtPhone.getText(),
 			String.format(
-					"%s%s%s%s",
-					txtCard1.getText(),
-					txtCard2.getText(),
-					txtCard3.getText(),
-					txtCard4.getText()),
+				"%s%s%s%s",
+				txtCard1.getText(),
+				txtCard2.getText(),
+				txtCard3.getText(),
+				txtCard4.getText()),
 			txtSecureCode.getText()
 		);
 		
@@ -454,7 +473,7 @@ public class Register extends JPanel {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		close();
 	}
 
@@ -462,22 +481,22 @@ public class Register extends JPanel {
 		// TODO Evento para ir a la interfaz anterios (Principal?)
 		// Es el evento del boton "VOLVER ATRAS"
 	}
-	
+
 	private boolean validateInput() {
 		// TODO: send validation msg
-		
+
 		if (!FieldValidator.isAlpha(txtName.getText())) {
 			/* send validation msg */
 			System.out.println("txtName failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isAlpha(txtSurname.getText())) {
 			/* send validation msg */
 			System.out.println("txtSurname failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isEmail(txtEmail.getText())) {
 			/* send validation msg */
 			System.out.println("txtEmail failed validation");
@@ -488,51 +507,51 @@ public class Register extends JPanel {
 					System.out.println("email exist!");
 					return false;
 				}
-			}			
+			}
 		}
-		
-		if (!txtPass.getText().equals(txtConfirmPass.getText()) ) {
+
+		if (!txtPass.getText().equals(txtConfirmPass.getText())) {
 			/* send validation msg */
 			System.out.println("txtPass failed validation");
 			return false;
-		}		
-		
+		}
+
 		if (!FieldValidator.isAlpha(cbxStates.getSelectedItem().toString())) {
 			/* send validation msg */
 			System.out.println("cbxStates failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isAlpha(txtTown.getText())) {
 			/* send validation msg */
 			System.out.println("txtTown failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isAlpha(txtStreet.getText())) {
 			/* send validation msg */
 			System.out.println("txtStreet failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isNumberInteger(txtNumber.getText())) {
 			/* send validation msg */
 			System.out.println("txtNumber failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isNumberInteger(txtCP.getText())) {
 			/* send validation msg */
 			System.out.println("txtCP failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isPhone(txtPhone.getText())) {
 			/* send validation msg */
 			System.out.println("txtPhone failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isCreditCardNumber(String.format("%s%s%s%s",
 				txtCard1.getText(), txtCard2.getText(), txtCard3.getText(),
 				txtCard4.getText()))) {
@@ -540,16 +559,16 @@ public class Register extends JPanel {
 			System.out.println("txtCard# failed validation");
 			return false;
 		}
-		
+
 		if (!FieldValidator.isCreditCardCode(txtSecureCode.getText())) {
 			/* send validation msg */
 			System.out.println("txtSecureCore failed validation");
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	private void close() {
 		// TODO: implement close method
 	}

@@ -16,9 +16,9 @@ public class MainWindow extends JFrame {
 
 	public MainWindow() {
 		getContentPane().setBackground(new Color(153, 153, 255));
-		this.setMinimumSize(new Dimension(800, 768)); 
+		this.setMinimumSize(new Dimension(800, 768));
 		getContentPane().setLayout(null);
-		
+
 		panelHeader = new Unregistered();
 		panelHeader.setBounds(0, 0, 784, 165);
 		getContentPane().add(panelHeader);
@@ -26,7 +26,7 @@ public class MainWindow extends JFrame {
 		panelBody = new Register();
 		panelBody.setBounds(0, 160, 784, 569);
 		getContentPane().add(panelBody);
-		
+
 	}
 
 	public static void main(String[] args) {

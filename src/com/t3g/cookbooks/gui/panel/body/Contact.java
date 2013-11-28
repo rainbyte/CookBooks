@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 
 public class Contact extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JButton btnBack;
 	private JLabel jLabel2;
 	private JLabel lblFirmat3g;
@@ -47,39 +47,43 @@ public class Contact extends JPanel {
 				btnBackMousePressed(evt);
 			}
 		});
-		
+
 		lblFirmat3g.setText("DESARROLLADO POR T3G");
-		
+
 		JLabel lblContacto1 = new JLabel("Atencion al Cliente");
 		lblContacto1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto1.setForeground(new Color(0, 0, 153));
 		lblContacto1.setFont(new Font("Tahoma", Font.BOLD, 30));
-		
-		lblContacto2 = new JLabel("Puede contactar nuestro servicio al cliente enviando un mail a:");
+
+		lblContacto2 = new JLabel(
+				"Puede contactar nuestro servicio al cliente enviando un mail a:");
 		lblContacto2.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblContacto2.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		lblContacto3 = new JLabel("contacto@cookbooks.com");
 		lblContacto3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto3.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JLabel lblContacto4 = new JLabel("Si tenes dudas sobre alg\u00FAn producto, para ordenes ya en proceso, cont\u00E1ctese al:");
+
+		JLabel lblContacto4 = new JLabel(
+				"Si tenes dudas sobre alg\u00FAn producto, para ordenes ya en proceso, cont\u00E1ctese al:");
 		lblContacto4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto4.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		
-		JLabel lblContacto5 = new JLabel("Tel\u00E9fono (54) 221 - 489 - 5858 o por fax (54) 221 - 489 - 5855");
+
+		JLabel lblContacto5 = new JLabel(
+				"Tel\u00E9fono (54) 221 - 489 - 5858 o por fax (54) 221 - 489 - 5855");
 		lblContacto5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto5.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
+
 		JLabel lblContacto6 = new JLabel("Horario de Atenci\u00F3n");
 		lblContacto6.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto6.setForeground(new Color(0, 0, 0));
 		lblContacto6.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 17));
-		
-		JLabel lblContacto7 = new JLabel("Lunes a Viernes de 9:00hs a 17:00hs (Hora Argentina)");
+
+		JLabel lblContacto7 = new JLabel(
+				"Lunes a Viernes de 9:00hs a 17:00hs (Hora Argentina)");
 		lblContacto7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContacto7.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
+
 		separator = new JSeparator();
 		separator.setBackground(new Color(0, 0, 0));
 		separator.setAlignmentY(0.0f);

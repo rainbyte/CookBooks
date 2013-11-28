@@ -26,9 +26,9 @@ import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
-public class Home extends JPanel implements ParentWindow  {
+public class Home extends JPanel implements ParentWindow {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JComboBox<String> comboBoxSelectTheme;
 	private JTable tableBookList;
 	private JTable tableBuyList;
@@ -47,58 +47,69 @@ public class Home extends JPanel implements ParentWindow  {
 		setAutoscrolls(true);
 		setName(""); // NOI18N
 		setPreferredSize(new Dimension(732, 541));
-		
+
 		comboBoxSelectTheme = new JComboBox<String>();
 		comboBoxSelectTheme.setBounds(172, 219, 150, 25);
-		comboBoxSelectTheme.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Tema: (click aqui)", "Comida Arabe","Comida Judia","Comida Oriental", "Comida Espa�ola","Comida Peruana","Vegetariano",  "Parilladas","Postres","Otro"}));
-        comboBoxSelectTheme.setEditable(true);
-		
+		comboBoxSelectTheme
+				.setModel(new javax.swing.DefaultComboBoxModel<String>(
+						new String[] { "Seleccionar Tema: (click aqui)",
+								"Comida Arabe", "Comida Judia",
+								"Comida Oriental", "Comida Espa�ola",
+								"Comida Peruana", "Vegetariano", "Parilladas",
+								"Postres", "Otro" }));
+		comboBoxSelectTheme.setEditable(true);
+
 		JScrollPane scrollPanelBookList = new JScrollPane();
-		
+
 		JLabel lblCarrito = new JLabel("");
 		lblCarrito.setIcon(Resources.getIconCarrito());
-		
-		JScrollPane scrollPanelBuyList = new JScrollPane(); // Lista de libros agregados al carrito
-		
+
+		JScrollPane scrollPanelBuyList = new JScrollPane(); // Lista de libros
+															// agregados al
+															// carrito
+
 		JButton btnBuy = new JButton("");
-        btnBuy.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
-        btnBuy.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mousePressed(MouseEvent arg0) {
-        		//TODO Accion del boton comprar, para confirmar lo a�adido al carrito
-        	}
-        });
-        btnBuy.setBackground(new Color(153, 153, 255));
-        btnBuy.setIcon(Resources.getIconBuy());
-        
-        JButton btnNotBuy = new JButton("");
-        btnNotBuy.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mousePressed(MouseEvent e) {
-        		//TODO Accion del boton No comprar, cancelar lo a�adido al carrito
-        		cancelarCompra = new CancelPurchase();
-        		cancelarCompra.setVisible(true);
-        	}
-        });
-        btnNotBuy.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
-        btnNotBuy.setBackground(new Color(153, 153, 255));
-        btnNotBuy.setIcon(Resources.getIconNotBuy());
-		
+		btnBuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnBuy.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Accion del boton comprar, para confirmar lo a�adido al
+				// carrito
+			}
+		});
+		btnBuy.setBackground(new Color(153, 153, 255));
+		btnBuy.setIcon(Resources.getIconBuy());
+
+		JButton btnNotBuy = new JButton("");
+		btnNotBuy.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Accion del boton No comprar, cancelar lo a�adido al
+				// carrito
+				cancelarCompra = new CancelPurchase();
+				cancelarCompra.setVisible(true);
+			}
+		});
+		btnNotBuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNotBuy.setBackground(new Color(153, 153, 255));
+		btnNotBuy.setIcon(Resources.getIconNotBuy());
+
 		JScrollPane scrollPanelPurchaces = new JScrollPane();
-		
+
 		JLabel label = new JLabel("DESARROLLADO POR T3G");
-		
+
 		JButton btnInfo = new JButton("Ver Info");
 		btnInfo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Muestra la informacion del libro seleccionado de la tabla
+				// TODO Muestra la informacion del libro seleccionado de la
+				// tabla
 			}
 		});
 		btnInfo.addActionListener(new ActionListener() {
@@ -106,7 +117,7 @@ public class Home extends JPanel implements ParentWindow  {
 			}
 		});
 		btnInfo.setBackground(UIManager.getColor("Button.background"));
-		
+
 		JButton btnPreView = new JButton("Hojear");
 		btnPreView.addMouseListener(new MouseAdapter() {
 			@Override
@@ -115,12 +126,13 @@ public class Home extends JPanel implements ParentWindow  {
 			}
 		});
 		btnPreView.setBackground(UIManager.getColor("Button.background"));
-		
+
 		JButton btnAdd = new JButton("Agregar al carrito");
 		btnAdd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				//TODO Agregar a la lista del carrito, el libro seleccionado en la tabla
+				// TODO Agregar a la lista del carrito, el libro seleccionado en
+				// la tabla
 			}
 		});
 		btnAdd.setBackground(UIManager.getColor("Button.background"));
@@ -190,28 +202,25 @@ public class Home extends JPanel implements ParentWindow  {
 		);
 		
 		tablePurchaces = new JTable();
-		tablePurchaces.setModel(new DefaultTableModel(
-				new Object[][] {
-		        		{"Compra 5", null},
-		        		{null, null}, // TODO  Precio y nombre de la ultima compra
-		        		{"Compra 4", null},
-		        		{null, null}, // TODO  Precio y nombre de la compra 4
-		        		{"Compra 3", null},
-		        		{null, null}, // TODO  Precio y nombre de la compra 3
-		        		{"Compra 2", null},
-		        		{null, null}, // TODO Precio y nombre de la compra 2
-		        		{"Compra 1", null},
-		        		{null, null}, // TODO Precio y nombre de la compra 1
-		        	},
-			new String[] {
-				"Nombre", "Precio"
-			}
-		));
+		tablePurchaces.setModel(new DefaultTableModel(new Object[][] {
+				{ "Compra 5", null }, { null, null }, // TODO Precio y nombre de
+														// la ultima compra
+				{ "Compra 4", null }, { null, null }, // TODO Precio y nombre de
+														// la compra 4
+				{ "Compra 3", null }, { null, null }, // TODO Precio y nombre de
+														// la compra 3
+				{ "Compra 2", null }, { null, null }, // TODO Precio y nombre de
+														// la compra 2
+				{ "Compra 1", null }, { null, null }, // TODO Precio y nombre de
+														// la compra 1
+		}, new String[] { "Nombre", "Precio" }));
 		scrollPanelPurchaces.setColumnHeaderView(tablePurchaces);
-		
+
+		//TODO las compras en el carrito, tienen que ser una estructura dinamica,
+			// y no estar guardadas en memoria
 		tableBuyList = new JTable();
 		tableBuyList.setModel(new DefaultTableModel(
-			new Object[][] { //TODO las compras hechas en el carrito. Tiene que ser una estructura dinamica, no estar guardado en memoria
+			new Object[][] { 
 			},
 			new String[] {
 				"Mi compra actual (nombre)", "Valor ($)"
@@ -251,7 +260,7 @@ public class Home extends JPanel implements ParentWindow  {
 		tableBooksModel.addColumn("Precio");
 		tableBooksModel.addColumn("Categorias");
 		tableBooksModel.addColumn("ISBN");
-			
+
 		for (Book book : Database.getBookDao()) {
 			Object[] rowData = new Object[] {
 				book.getId(),
@@ -270,7 +279,7 @@ public class Home extends JPanel implements ParentWindow  {
 		// Hide Id column
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
-	
+
 	public void update() {
 		updateTableModel();
 	}

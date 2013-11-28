@@ -13,10 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.t3g.cookbooks.gui.panel.body.admin.Order;
+
 /**
-*
-* @author T3G
-*/
+ * 
+ * @author T3G
+ */
 public class ModifyState extends JDialog {
 	private static final long serialVersionUID = 1L;
 
@@ -49,7 +50,7 @@ public class ModifyState extends JDialog {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton button = new JButton("Volver Atras");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
@@ -60,30 +61,32 @@ public class ModifyState extends JDialog {
 		button.setBackground(new Color(153, 153, 255));
 		button.setBounds(51, 175, 137, 23);
 		contentPane.add(button);
-		
+
 		JButton btnAply = new JButton("Aplicar");
 		btnAply.setBackground(new Color(153, 153, 255));
 		btnAply.setBounds(217, 175, 159, 23);
 		contentPane.add(btnAply);
-		
+
 		JCheckBox cbxDispatched = new JCheckBox("ENVIADO");
 		cbxDispatched.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				//TODO: Enviado seleccionado... si aplican... cambiar estado del pedido
-				//Adem�s l�gica que si esta uno apretado el otro no
+				// TODO: Enviado seleccionado... si aplican... cambiar estado
+				// del pedido
+				// Adem�s l�gica que si esta uno apretado el otro no
 			}
 		});
 		cbxDispatched.setBackground(new Color(0, 255, 0));
 		cbxDispatched.setBounds(159, 37, 97, 23);
 		contentPane.add(cbxDispatched);
-		
+
 		JCheckBox cbxCanceled = new JCheckBox("CANCELADO");
 		cbxCanceled.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				//TODO: Enviado seleccionado... si aplican... cambiar estado del pedido
-				//Adem�s l�gica que si esta apretado uno, el otro no
+				// TODO: Enviado seleccionado... si aplican... cambiar estado
+				// del pedido
+				// Adem�s l�gica que si esta apretado uno, el otro no
 			}
 		});
 		cbxCanceled.setBackground(new Color(255, 0, 0));

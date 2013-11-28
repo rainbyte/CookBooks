@@ -33,7 +33,7 @@ public class CatalogueCreateBook extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private ParentWindow parent;
-	
+
 	// Variables declaration
 	private JInternalFrame internalFrame;
 	private JLabel lblTitle, lblAuthor, lblIsbn, lblPrice, lblTags, lblImage,
@@ -42,12 +42,12 @@ public class CatalogueCreateBook extends JDialog {
 	private JTextArea txtSummary, txtAditional;
 	private JButton btnSave, btnCancel, btnCreateAuthor, btnImagePath;
 	private JComboBox<String> cbxAuthor, cbxLanguage;
-	
+
 	private String imagePath = "";
-	
+
 	public CatalogueCreateBook(ParentWindow parent) {
 		this.parent = parent;
-		
+
 		getContentPane().setBackground(new Color(153, 153, 255));
 		setBackground(new Color(153, 153, 255));
 		getContentPane().setPreferredSize(new Dimension(518, 578));
@@ -60,7 +60,7 @@ public class CatalogueCreateBook extends JDialog {
 		internalFrame = new javax.swing.JInternalFrame();
 		internalFrame.getContentPane().setBackground(new Color(153, 153, 255));
 		internalFrame.setBounds(0, 0, 518, 578);
-		
+
 		lblTitle = new javax.swing.JLabel("Titulo");
 		lblTitle.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTitle.setBounds(84, 14, 80, 14);
@@ -88,7 +88,7 @@ public class CatalogueCreateBook extends JDialog {
 		lblSample = new javax.swing.JLabel("Primeras páginas");
 		lblSample.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSample.setBounds(22, 386, 142, 14);
-		
+
 		txtTitle = new javax.swing.JTextField("La Cocina Japonesa de Harumi");
 		txtTitle.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		txtTitle.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -111,7 +111,7 @@ public class CatalogueCreateBook extends JDialog {
 		txtSummary.setBounds(172, 254, 280, 109);
 		txtAditional = new JTextArea();
 		txtAditional.setBounds(172, 381, 280, 116);
-		
+
 		btnSave = new javax.swing.JButton("Confirmar");
 		btnSave.setBounds(269, 515, 89, 23);
 		btnSave.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,11 +129,11 @@ public class CatalogueCreateBook extends JDialog {
 				actionCancel();
 			}
 		});
-		
+
 		btnCreateAuthor = new JButton("Nuevo Autor");
 		btnCreateAuthor.setBounds(368, 37, 105, 25);
 		internalFrame.getContentPane().add(btnCreateAuthor);
-		
+
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
@@ -169,18 +169,19 @@ public class CatalogueCreateBook extends JDialog {
 		lblLanguage.setBounds(30, 223, 137, 14);
 		internalFrame.getContentPane().add(lblLanguage);
 
-		
 		cbxLanguage = new JComboBox<String>();
 		cbxLanguage.setBounds(172, 219, 150, 25);
-		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Idioma"}));
+		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(
+				new String[] { "Seleccionar Idioma" }));
 		addLanguage();
 		internalFrame.getContentPane().add(cbxLanguage);
-		
+
 		cbxAuthor = new JComboBox<String>();
 		cbxAuthor.setBounds(171, 37, 187, 25);
-		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Autor"}));
+		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(
+				new String[] { "Seleccionar Autor" }));
 		internalFrame.getContentPane().add(cbxAuthor);
-		
+
 		btnImagePath = new JButton("Seleccionar imagen ...");
 		btnImagePath.addMouseListener(new MouseAdapter() {
 			@Override
@@ -237,119 +238,113 @@ public class CatalogueCreateBook extends JDialog {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new CatalogueCreateBook(new ParentWindowDummy()).setVisible(true);
+				new CatalogueCreateBook(new ParentWindowDummy())
+						.setVisible(true);
 			}
 		});
 	}
-	
+
 	private void actionSave() {
-		// TODO: Faltaria implementar la forma en que almacena las categorias almacenadas
+		// TODO: Faltaria implementar la forma en que almacena las categorias
+		// almacenadas
 		boolean correctPrice = FieldValidator.isNumberFloat(txtPrice.getText());
-		boolean correctPages = FieldValidator.isNumberInteger(txtPages.getText());
+		boolean correctPages = FieldValidator.isNumberInteger(txtPages
+				.getText());
 		boolean correctTitle = !txtTitle.getText().isEmpty();
 		boolean correctTags = !txtTags.getText().isEmpty();
 		boolean correctIsbn = FieldValidator.isIsbn(txtIsbn.getText());
 		boolean correctImagePath = FieldValidator.isImagePath(imagePath);
 		Author selectAuthor = null;
 		Language selectLanguage = null;
-		//-------------------------------------------
+		// -------------------------------------------
 		boolean correctLanguage;
 		String selectLanguage_s = (String) cbxLanguage.getSelectedItem();
 		if (selectLanguage_s == "Seleccionar Idioma") {
-			correctLanguage =false;
+			correctLanguage = false;
 			cbxLanguage.setBackground(Color.RED);
-			} 
-		else 
-			{	
-			correctLanguage =true;
+		} else {
+			correctLanguage = true;
 			cbxLanguage.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
+		// --------------------------------------------
 		boolean correctAuthor;
 		String selectAuthor_s = (String) cbxAuthor.getSelectedItem();
 		if (selectAuthor_s == "Seleccionar Autor") {
-			correctAuthor =false;
+			correctAuthor = false;
 			cbxAuthor.setBackground(Color.RED);
-			} 
-		else 
-			{	
-			correctAuthor =true;
+		} else {
+			correctAuthor = true;
 			cbxAuthor.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctPages){
+		// --------------------------------------------
+		if (!correctPages) {
 			txtPages.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtPages.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctPrice){
+		// --------------------------------------------
+		if (!correctPrice) {
 			txtPrice.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtPrice.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctTitle){
+		// --------------------------------------------
+		if (!correctTitle) {
 			txtTitle.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtTitle.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctTags){
+		// --------------------------------------------
+		if (!correctTags) {
 			txtTags.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtTags.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctIsbn){
+		// --------------------------------------------
+		if (!correctIsbn) {
 			txtIsbn.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtIsbn.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctImagePath){
+		// --------------------------------------------
+		if (!correctImagePath) {
 			btnImagePath.setBackground(Color.RED);
 		} else {
 			btnImagePath.setBackground(Color.WHITE);
-		}		
-		//--------------------------------------------
-		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) && (correctIsbn) && (correctAuthor) && (correctLanguage) && (correctImagePath)){
+		}
+		// --------------------------------------------
+		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags)
+				&& (correctIsbn) && (correctAuthor) && (correctLanguage)
+				&& (correctImagePath)) {
 			String data;
 			for (Author author : Database.getAuthorDao()) {
-				data = String.format("%s, %s", author.getSurname(), author.getName());
-				if (data.equals(selectAuthor_s)){
+				data = String.format("%s, %s", author.getSurname(),
+						author.getName());
+				if (data.equals(selectAuthor_s)) {
 					selectAuthor = author;
 				}
 			}
-			//---------------------------------------------------
+			// ---------------------------------------------------
 			for (Language language : Database.getLanguageDao()) {
 				data = String.format("%s", language.getName());
-				if (data.equals(selectLanguage_s)){
+				if (data.equals(selectLanguage_s)) {
 					selectLanguage = language;
 				}
 			}
-			//---------------------------------------------------
+			// ---------------------------------------------------
 			// TODO: implement support for image_path.
-			Book book = new Book(txtIsbn.getText(), txtTitle.getText(),
-				Integer.parseInt(txtPages.getText()),
-				Float.parseFloat(txtPrice.getText()),
-				selectAuthor,
-				selectLanguage,
-				imagePath);
+			Book book = new Book(
+					txtIsbn.getText(),
+					txtTitle.getText(),
+					Integer.parseInt(txtPages.getText()),
+					Float.parseFloat(txtPrice.getText()),
+					selectAuthor,
+					selectLanguage,
+					imagePath);
 
 			book.setSummary(txtSummary.getText());
 			book.setSample(txtAditional.getText());
-			//---------------------------------------------------
+			// ---------------------------------------------------
 			try {
 				Database.getBookDao().create(book);
 			} catch (SQLException ex) {
@@ -363,37 +358,38 @@ public class CatalogueCreateBook extends JDialog {
 	private void actionCancel() {
 		close();
 	}
-	
-	private void addAuthors(){
+
+	private void addAuthors() {
 		String data;
 		for (Author author : Database.getAuthorDao()) {
-			data = String.format("%s, %s", author.getSurname(), author.getName());
+			data = String.format("%s, %s", author.getSurname(),
+					author.getName());
 			cbxAuthor.addItem(data);
 		}
 	}
-	
-	private void addLanguage(){
+
+	private void addLanguage() {
 		String data;
 		for (Language language : Database.getLanguageDao()) {
-			data = String.format("%s",language.getName());
+			data = String.format("%s", language.getName());
 			cbxLanguage.addItem(data);
 		}
 	}
-	
+
 	private void loadImagePath() {
 		JFileChooser fc = new JFileChooser();
 		int returnVal = fc.showOpenDialog(this);
-		
+
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			File file = fc.getSelectedFile();
 			imagePath = file.getAbsolutePath();
 		} else {
 			System.out.println("File error");
 		}
-		
+
 		System.out.println(imagePath);
 	}
-	
+
 	private void close() {
 		this.dispose();
 		parent.update();

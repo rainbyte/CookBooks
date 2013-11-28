@@ -14,13 +14,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.t3g.cookbooks.gui.panel.body.Home;
+
 /**
-*
-* @author T3G
-*/
+ * 
+ * @author T3G
+ */
 public class CancelPurchase extends JDialog {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JPanel contentPane;
 
 	/**
@@ -50,17 +51,18 @@ public class CancelPurchase extends JDialog {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel label = new JLabel("Esta a punto de cancelar la compra de los art\u00EDculos");
+
+		JLabel label = new JLabel(
+				"Esta a punto de cancelar la compra de los art\u00EDculos");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		label.setBounds(79, 60, 297, 14);
 		contentPane.add(label);
-		
+
 		JLabel label_1 = new JLabel("que estan en su carrito de compra");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		label_1.setBounds(117, 85, 197, 14);
 		contentPane.add(label_1);
-		
+
 		JButton button = new JButton("Volver Atras");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
@@ -71,7 +73,7 @@ public class CancelPurchase extends JDialog {
 		button.setBackground(new Color(153, 153, 255));
 		button.setBounds(51, 175, 137, 23);
 		contentPane.add(button);
-		
+
 		JButton button_1 = new JButton("Confirmar cancelacion");
 		button_1.setBackground(new Color(153, 153, 255));
 		button_1.setBounds(217, 175, 159, 23);

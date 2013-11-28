@@ -5,7 +5,7 @@ public class FieldValidator {
 	private FieldValidator() {
 		// This class should not be instantiated.
 	}
-	
+
 	public static boolean isAlpha(String input) {
 		return input.matches("^[a-zA-Záíúéóü ]+$");
 	}
@@ -17,11 +17,11 @@ public class FieldValidator {
 	public static boolean isCreditCardCode(String input) {
 		return input.matches("^[a-zA-Z0-9]{4}$");
 	}
-	
+
 	public static boolean isCreditCardNumber(String input) {
 		return input.matches("^[0-9]{16}$");
 	}
-	
+
 	public static boolean isEmail(String input) {
 		return input.matches("^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z][a-zA-Z0-9]+\\.[a-zA-Z]{3,4}(\\.[a-zA-Z]{2}|)$");
 	}
@@ -33,19 +33,19 @@ public class FieldValidator {
 	public static boolean isNumberInteger(String input) {
 		return input.matches("^[0-9]+$");
 	}
-	
+
 	public static boolean isPhone(String input) {
 		return input.matches("^[0-9]{10,13}$");
 	}
-	
+
 	public static boolean isIsbn(String input) {
 		return input.matches("^[0-9-]{10,13}$");
 	}
-	
+
 	public static boolean isImagePath(String input) {
 		return input.matches("^[a-zA-Z0-9áíúéóü/\\.,_-ñ@?¿·%= ]+(.jpg|.jpeg|.png|.gif|.bpm)$");
 	}
-	
+
 	public static void main(String[] args) {
 		String alpha = "aiueo";
 		String alphanumeric = "aiueo12345";
@@ -55,7 +55,7 @@ public class FieldValidator {
 		String numberFloat = "12345.12345";
 		String numberInteger = "12345";
 		String phone = "2216123123";
-		
+
 		System.out.printf("'%s' is alpha? %s\n", alpha, isAlpha(alpha));
 		System.out.printf("'%s' is alpha? %s\n", alphanumeric, isAlpha(alphanumeric));
 		System.out.printf("'%s' is alpha? %s\n", creditCardCode, isAlpha(creditCardCode));
@@ -100,7 +100,7 @@ public class FieldValidator {
 		System.out.printf("'%s' is email? %s\n", numberFloat, isEmail(numberFloat));
 		System.out.printf("'%s' is email? %s\n", numberInteger, isEmail(numberInteger));
 		System.out.printf("'%s' is email? %s\n\n", phone, isEmail(phone));
-		
+
 		System.out.printf("'%s' is float? %s\n", alpha, isNumberFloat(alpha));
 		System.out.printf("'%s' is float? %s\n", alphanumeric, isNumberFloat(alphanumeric));
 		System.out.printf("'%s' is float? %s\n", creditCardCode, isNumberFloat(creditCardCode));

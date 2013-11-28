@@ -1,4 +1,5 @@
 package com.t3g.cookbooks.gui.panel.body.admin;
+
 import java.awt.Color;
 import java.awt.Dialog;
 import java.sql.SQLException;
@@ -19,26 +20,27 @@ import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueCreateBook;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueEditBook;
+
 /**
- *
+ * 
  * @author T3G
  */
 public class Catalogue extends JPanel implements ParentWindow {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JButton btnBack;
-    private JTable tableBooks;
+	private JTable tableBooks;
 	private DefaultTableModel tableBooksModel;
-    
+
 	/**
-     * Creates new form Register
-     */
+	 * Creates new form Register
+	 */
 	public Catalogue() {
 		setBackground(new Color(153, 153, 255));
 		initComponents();
-		
+
 		updateTableModel();
-    }
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,18 +129,19 @@ public class Catalogue extends JPanel implements ParentWindow {
 		JDialog dialog = new CatalogueCreateBook(this);
 		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setVisible(true);
-		
+
 		updateTableModel();
 	}
 
 	private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {
 		// TODO Al presionarse debe abrise la ventana de "Editar libro" para
 		// modificar los datos del libro seleccionado
-		if (!(tableBooks.getSelectedRow() == -1)){
-			JDialog dialog = new CatalogueEditBook(this, tableBooks.getSelectedRow());
+		if (!(tableBooks.getSelectedRow() == -1)) {
+			JDialog dialog = new CatalogueEditBook(this,
+					tableBooks.getSelectedRow());
 			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 			dialog.setVisible(true);
-		
+
 			updateTableModel();
 		}
 	}
@@ -148,14 +151,14 @@ public class Catalogue extends JPanel implements ParentWindow {
 		// Obtain Id from selected row
 		int selectedRow = tableBooks.getSelectedRow();
 		long id = (Long) tableBooks.getModel().getValueAt(selectedRow, 0);
-		
+
 		// Remove from db
 		try {
 			Database.getBookDao().deleteById(id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		// Update JTable and Model
 		updateTableModel();
 	}
@@ -172,7 +175,7 @@ public class Catalogue extends JPanel implements ParentWindow {
 		tableBooksModel.addColumn("Precio");
 		tableBooksModel.addColumn("Categorias");
 		tableBooksModel.addColumn("ISBN");
-			
+
 		for (Book book : Database.getBookDao()) {
 			Object[] rowData = new Object[] {
 				book.getId(),
@@ -191,7 +194,7 @@ public class Catalogue extends JPanel implements ParentWindow {
 		// Hide Id column
 		tableBooks.removeColumn(tableBooks.getColumnModel().getColumn(0));
 	}
-	
+
 	public void update() {
 		updateTableModel();
 	}

@@ -20,13 +20,13 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
 
-public class Order extends JPanel implements ParentWindow  {
+public class Order extends JPanel implements ParentWindow {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JTable tableBookList;
 	public static JDialog cancelarCompra, modificarEstado;
 	private DefaultTableModel tableBooksModel;
-	
+
 	public Order() {
 		initialize();
 		updateTableModel();
@@ -38,21 +38,21 @@ public class Order extends JPanel implements ParentWindow  {
 		setAutoscrolls(true);
 		setName(""); // NOI18N
 		setPreferredSize(new Dimension(732, 541));
-		
+
 		JScrollPane scrollPanelBookList = new JScrollPane();
-		
+
 		JLabel label = new JLabel("DESARROLLADO POR T3G");
-		
+
 		JButton btnModifyState = new JButton("Modificar estado");
 		btnModifyState.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				modificarEstado = new ModifyState();
-        		modificarEstado.setVisible(true);
+				modificarEstado.setVisible(true);
 			}
 		});
 		btnModifyState.setBackground(UIManager.getColor("Button.background"));
-		
+
 		JButton btnBack = new JButton("Volver al inicio");
 		btnBack.setBackground(new Color(255, 0, 0));
 
@@ -141,7 +141,7 @@ public class Order extends JPanel implements ParentWindow  {
 		// Hide Id column
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
-	
+
 	public void update() {
 		updateTableModel();
 	}

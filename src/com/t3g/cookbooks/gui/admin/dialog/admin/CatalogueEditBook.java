@@ -37,14 +37,14 @@ public class CatalogueEditBook extends JDialog {
 	private JInternalFrame internalFrame;
 	private JLabel lblTitle, lblAuthor, lblIsbn, lblPrice, lblTags, lblImage,
 			lblPages, lblSummary, lblFirstPages;
-	private JTextField txtTitle, txtIsbn, txtPrice, txtTags,
-			txtImage, txtPages;
+	private JTextField txtTitle, txtIsbn, txtPrice, txtTags, txtImage,
+			txtPages;
 	private JTextArea txtSummary, txtAditional;
 	private JButton btnCancelar;
 	private JButton btnConfirmar;
 	private JButton btnCreateAuthor;
 	private JComboBox<String> cbxAuthor, cbxLanguage;
-	private int selectBook,i;
+	private int selectBook, i;
 	private long id;
 
 	public CatalogueEditBook(ParentWindow parent, int numBook) {
@@ -56,7 +56,7 @@ public class CatalogueEditBook extends JDialog {
 		setTitle("Catalogo");
 		initComponents();
 	}
-	
+
 	public CatalogueEditBook(ParentWindow parent) {
 		this.parent = parent;
 		getContentPane().setPreferredSize(new Dimension(518, 578));
@@ -98,7 +98,7 @@ public class CatalogueEditBook extends JDialog {
 		lblFirstPages = new javax.swing.JLabel("Primeras p\u00E1ginas");
 		lblFirstPages.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblFirstPages.setBounds(22, 386, 142, 14);
-		
+
 		txtTitle = new javax.swing.JTextField("");
 		txtTitle.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		txtTitle.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -123,7 +123,7 @@ public class CatalogueEditBook extends JDialog {
 		txtSummary.setBounds(172, 254, 280, 109);
 		txtAditional = new JTextArea();
 		txtAditional.setBounds(172, 381, 280, 116);
-		
+
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
@@ -150,29 +150,31 @@ public class CatalogueEditBook extends JDialog {
 		internalFrame.getContentPane().add(txtImage);
 		internalFrame.getContentPane().add(txtTags);
 		internalFrame.getContentPane().add(txtSummary);
-		
+
 		JLabel lblLanguage = new JLabel("Idioma");
 		lblLanguage.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblLanguage.setBounds(30, 223, 137, 14);
 		internalFrame.getContentPane().add(lblLanguage);
-		
+
 		cbxLanguage = new JComboBox<String>();
 		cbxLanguage.setBounds(172, 219, 150, 25);
-		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Idioma"}));
+		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(
+				new String[] { "Seleccionar Idioma" }));
 		internalFrame.getContentPane().add(cbxLanguage);
 		addLanguage();
-		
+
 		cbxAuthor = new JComboBox<String>();
 		cbxAuthor.setBounds(171, 37, 187, 25);
-		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Autor"}));
+		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(
+				new String[] { "Seleccionar Autor" }));
 		internalFrame.getContentPane().add(cbxAuthor);
 		addAuthors();
-		
+
 		btnCancelar = new JButton("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarMousePressed(evt);
-            }
+		btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnCancelarMousePressed(evt);
+			}
 		});
 		btnCancelar.setBackground(Color.RED);
 		btnCancelar.setBounds(10, 515, 105, 23);
@@ -182,7 +184,7 @@ public class CatalogueEditBook extends JDialog {
 			}
 		});
 		internalFrame.getContentPane().add(btnCancelar);
-		
+
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -191,60 +193,64 @@ public class CatalogueEditBook extends JDialog {
 		});
 		btnConfirmar.setBounds(269, 515, 89, 23);
 		internalFrame.getContentPane().add(btnConfirmar);
-		
+
 		btnCreateAuthor = new JButton("Nuevo Autor");
-        btnCreateAuthor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAuthorMousePressed(evt);
-            }
+		btnCreateAuthor.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnCreateAuthorMousePressed(evt);
+			}
 		});
 		btnCreateAuthor.setBounds(368, 37, 105, 25);
 		internalFrame.getContentPane().add(btnCreateAuthor);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(Alignment.LEADING)
-				.addComponent(internalFrame, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
-		);
-		layout.setVerticalGroup(
-			layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addComponent(internalFrame, GroupLayout.PREFERRED_SIZE, 578, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(97, Short.MAX_VALUE))
-		);
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addComponent(internalFrame, GroupLayout.DEFAULT_SIZE, 532,
+						Short.MAX_VALUE));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(
+						layout.createSequentialGroup()
+								.addComponent(internalFrame,
+										GroupLayout.PREFERRED_SIZE, 578,
+										GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(97, Short.MAX_VALUE)));
 		getContentPane().setLayout(layout);
-		//---------------------------------------------------
+		// ---------------------------------------------------
 		i = 0;
 		for (Book book : Database.getBookDao()) {
-			if (selectBook == i ){
-					txtTitle.setText(book.getTitle());
-					txtPrice.setText(String.format("%s", book.getPrice()));
-					cbxLanguage.setSelectedItem(String.format("%s",book.getLanguage().getName()));
-					cbxAuthor.setSelectedItem(String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()));
-					txtPages.setText(String.format("%s",book.getPages()));
-					txtSummary.setText(book.getSummary());
-					txtAditional.setText(book.getSample());	
-					txtIsbn.setText(book.getIsbn());
-					id = book.getId();
-				}
-				i++;
+			if (selectBook == i) {
+				txtTitle.setText(book.getTitle());
+				txtPrice.setText(String.format("%s", book.getPrice()));
+				cbxLanguage.setSelectedItem(String.format("%s", book
+						.getLanguage().getName()));
+				cbxAuthor.setSelectedItem(String.format("%s, %s", book
+						.getAuthor().getSurname(), book.getAuthor().getName()));
+				txtPages.setText(String.format("%s", book.getPages()));
+				txtSummary.setText(book.getSummary());
+				txtAditional.setText(book.getSample());
+				txtIsbn.setText(book.getIsbn());
+				id = book.getId();
+			}
+			i++;
 		}
-		//txtPages.setText(String.format("%s", selectBook));
+		// txtPages.setText(String.format("%s", selectBook));
 		pack();
 	}
-	
-    private void btnCancelarMousePressed(ActionEvent evt) {
-        // TODO Al presionar se debe cerrar la ventana de "Editar libro" y descartar los cambios
-    }
-    
-    private void btnConfirmarMousePressed(ActionEvent evt) {
-        // TODO Al presionar se deben validar los campos y, si son todos correctos, guardar la modificacion en la base de datos
-    }
-    
-    private void btnCreateAuthorMousePressed(ActionEvent evt) {
-        // TODO Al presionar se debe abrir la ventana de "Agregar Autor"
-    }
+
+	private void btnCancelarMousePressed(ActionEvent evt) {
+		// TODO Al presionar se debe cerrar la ventana de "Editar libro" y
+		// descartar los cambios
+	}
+
+	private void btnConfirmarMousePressed(ActionEvent evt) {
+		// TODO Al presionar se deben validar los campos y, si son todos
+		// correctos, guardar la modificacion en la base de datos
+	}
+
+	private void btnCreateAuthorMousePressed(ActionEvent evt) {
+		// TODO Al presionar se debe abrir la ventana de "Agregar Autor"
+	}
 
 	/**
 	 * @param args
@@ -294,111 +300,104 @@ public class CatalogueEditBook extends JDialog {
 			}
 		});
 	}
-	
+
 	private void actionSave() {
-		// TODO: Faltaria implementar la forma en que almacena las categorias almacenadas
+		// TODO: Faltaria implementar la forma en que almacena las categorias
+		// almacenadas
 		boolean correctPrice = FieldValidator.isNumberFloat(txtPrice.getText());
-		boolean correctPages = FieldValidator.isNumberInteger(txtPages.getText());
+		boolean correctPages = FieldValidator.isNumberInteger(txtPages
+				.getText());
 		boolean correctTitle = !txtTitle.getText().isEmpty();
 		boolean correctTags = !txtTags.getText().isEmpty();
 		boolean correctIsbn = FieldValidator.isIsbn(txtIsbn.getText());
 		Author selectAuthor = null;
 		Language selectLanguage = null;
-		//-------------------------------------------
+		// -------------------------------------------
 		boolean correctLanguage;
 		String selectLanguage_s = (String) cbxLanguage.getSelectedItem();
 		if (selectLanguage_s == "Seleccionar Idioma") {
-			correctLanguage =false;
+			correctLanguage = false;
 			cbxLanguage.setBackground(Color.RED);
-			} 
-		else 
-			{	
-			correctLanguage =true;
+		} else {
+			correctLanguage = true;
 			cbxLanguage.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
+		// --------------------------------------------
 		boolean correctAuthor;
 		String selectAuthor_s = (String) cbxAuthor.getSelectedItem();
 		if (selectAuthor_s == "Seleccionar Autor") {
-			correctAuthor =false;
+			correctAuthor = false;
 			cbxAuthor.setBackground(Color.RED);
-			} 
-		else 
-			{	
-			correctAuthor =true;
+		} else {
+			correctAuthor = true;
 			cbxAuthor.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctPages){
+		// --------------------------------------------
+		if (!correctPages) {
 			txtPages.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtPages.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctPrice){
+		// --------------------------------------------
+		if (!correctPrice) {
 			txtPrice.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtPrice.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctTitle){
+		// --------------------------------------------
+		if (!correctTitle) {
 			txtTitle.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtTitle.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctTags){
+		// --------------------------------------------
+		if (!correctTags) {
 			txtTags.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtTags.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if (!correctIsbn){
+		// --------------------------------------------
+		if (!correctIsbn) {
 			txtIsbn.setBackground(Color.RED);
-			}
-		else
-			{
+		} else {
 			txtIsbn.setBackground(Color.WHITE);
 		}
-		//--------------------------------------------
-		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) && (correctIsbn) && (correctAuthor) && (correctLanguage)){
+		// --------------------------------------------
+		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags)
+				&& (correctIsbn) && (correctAuthor) && (correctLanguage)) {
 			String data;
 			for (Author author : Database.getAuthorDao()) {
-				data = String.format("%s, %s", author.getSurname(), author.getName());
-				if (data.equals(selectAuthor_s)){
+				data = String.format("%s, %s", author.getSurname(),
+						author.getName());
+				if (data.equals(selectAuthor_s)) {
 					selectAuthor = author;
 				}
 			}
-			//---------------------------------------------------
+			// ---------------------------------------------------
 			for (Language language : Database.getLanguageDao()) {
 				data = String.format("%s", language.getName());
-				if (data.equals(selectLanguage_s)){
+				if (data.equals(selectLanguage_s)) {
 					selectLanguage = language;
 				}
 			}
-			//---------------------------------------------------
+			// ---------------------------------------------------
 			try {
 				Database.getBookDao().deleteById(id);
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}	
-			Book book = new Book(txtIsbn.getText(), txtTitle.getText(),
-				Integer.parseInt(txtPages.getText()),
-				Float.parseFloat(txtPrice.getText()),
-				selectAuthor,
-				selectLanguage, "...");
+			}
+			Book book = new Book(
+					txtIsbn.getText(),
+					txtTitle.getText(),
+					Integer.parseInt(txtPages.getText()),
+					Float.parseFloat(txtPrice.getText()),
+					selectAuthor,
+					selectLanguage,
+					"...");
 
 			book.setSummary(txtSummary.getText());
 			book.setSample(txtAditional.getText());
-			//---------------------------------------------------
+			// ---------------------------------------------------
 			try {
 				Database.getBookDao().create(book);
 			} catch (SQLException ex) {
@@ -408,26 +407,28 @@ public class CatalogueEditBook extends JDialog {
 			close();
 		}
 	}
+
 	private void actionCancel() {
 		close();
 	}
-	
-	private void addAuthors(){
+
+	private void addAuthors() {
 		String data;
 		for (Author author : Database.getAuthorDao()) {
-			data = String.format("%s, %s", author.getSurname(), author.getName());
+			data = String.format("%s, %s", author.getSurname(),
+					author.getName());
 			cbxAuthor.addItem(data);
 		}
 	}
-	
-	private void addLanguage(){
+
+	private void addLanguage() {
 		String data;
 		for (Language language : Database.getLanguageDao()) {
-			data = String.format("%s",language.getName());
+			data = String.format("%s", language.getName());
 			cbxLanguage.addItem(data);
 		}
 	}
-	
+
 	private void close() {
 		this.dispose();
 		parent.update();
