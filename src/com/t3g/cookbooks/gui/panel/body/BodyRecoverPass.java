@@ -1,35 +1,23 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.BoxLayout;
-
-import java.awt.GridLayout;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.ImageIcon;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class BodyRecoverPass extends JPanel {
-	private JPanel panel, panel_1, panel_5;
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField textMail;
 
 	public BodyRecoverPass() {

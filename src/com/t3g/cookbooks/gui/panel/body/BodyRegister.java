@@ -18,9 +18,10 @@ import com.t3g.cookbooks.db.entities.User;
 import com.t3g.cookbooks.util.FieldValidator;
 
 public class BodyRegister extends JPanel {
-
+	private static final long serialVersionUID = 1L;
+	
 	private JButton btnBack, btnConfirm;
-	private JComboBox cbxStates;
+	private JComboBox<String> cbxStates;
 	private JLabel jLabel2, jLabel20, jLabel21, jLabel22, jLabel23, jLabel24,
 			jLabel25, jLabel26, jLabel27, jLabel29, jLabel3, jLabel30,
 			jLabel31, jLabel32, jLabel33, jLabel4;
@@ -88,7 +89,7 @@ public class BodyRegister extends JPanel {
 		jLabel30 = new JLabel();
 		jLabel31 = new JLabel();
 		jLabel32 = new JLabel();
-		cbxStates = new JComboBox();
+		cbxStates = new JComboBox<String>();
 		jLabel33 = new JLabel();
 
 		setBackground(new java.awt.Color(153, 153, 255));
@@ -202,7 +203,7 @@ public class BodyRegister extends JPanel {
 		jLabel32.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel32.setText("*");
 
-		cbxStates.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+		cbxStates.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] {
 				"Seleccionar Provincia", "Ciudad de Buenos Aires",
 				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba",
 				"Corrientes", "Entre RÃ­os", "Formosa", "Jujuy", "La Pampa",
@@ -547,10 +548,6 @@ public class BodyRegister extends JPanel {
 		}
 		
 		return true;
-	}
-	
-	private void actionCancel() {
-		close();
 	}
 	
 	private void close() {

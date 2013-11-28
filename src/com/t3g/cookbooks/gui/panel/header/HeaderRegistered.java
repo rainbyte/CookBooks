@@ -8,13 +8,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.resources.Resources;
 
 public class HeaderRegistered extends JPanel {
+	private static final long serialVersionUID = 1L;
+	
 	JButton btnLogin, btnSearch;
 	JLabel lblPrincipalpicture, txtContac, txtHelp, txtHome,
 			txtOrder, txtRegister;

@@ -1,17 +1,16 @@
 package com.t3g.cookbooks.gui;
 
+import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
 
 import com.t3g.cookbooks.gui.panel.body.BodyRegister;
 import com.t3g.cookbooks.gui.panel.header.HeaderUnregistered;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Color;
-
 public class MainWindow extends JFrame {
+	private static final long serialVersionUID = 1L;
 
 	JPanel panelHeader, panelBody;
 

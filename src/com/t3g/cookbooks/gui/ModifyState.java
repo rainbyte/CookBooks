@@ -1,27 +1,23 @@
 package com.t3g.cookbooks.gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.t3g.cookbooks.gui.panel.body.AdminOrder;
-import com.t3g.cookbooks.gui.panel.body.BodyHome;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JCheckBox;
 /**
 *
 * @author T3G
 */
 public class ModifyState extends JFrame {
+	private static final long serialVersionUID = 1L;
 
 	private JPanel contentPane;
 
@@ -74,7 +70,7 @@ public class ModifyState extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				//TODO: Enviado seleccionado... si aplican... cambiar estado del pedido
-				//Además lógica que si esta uno apretado el otro no
+				//Ademï¿½s lï¿½gica que si esta uno apretado el otro no
 			}
 		});
 		cbxDispatched.setBackground(new Color(0, 255, 0));
@@ -86,7 +82,7 @@ public class ModifyState extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				//TODO: Enviado seleccionado... si aplican... cambiar estado del pedido
-				//Además lógica que si esta apretado uno, el otro no
+				//Ademï¿½s lï¿½gica que si esta apretado uno, el otro no
 			}
 		});
 		cbxCanceled.setBackground(new Color(255, 0, 0));

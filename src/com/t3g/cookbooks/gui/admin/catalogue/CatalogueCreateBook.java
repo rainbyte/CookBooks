@@ -1,9 +1,14 @@
 package com.t3g.cookbooks.gui.admin.catalogue;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -19,17 +24,10 @@ import javax.swing.SwingConstants;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
-import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
-
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Color;
-import java.awt.Font;
-import java.io.File;
 
 public class CatalogueCreateBook extends JDialog {
 	private static final long serialVersionUID = 1L;
@@ -43,7 +41,7 @@ public class CatalogueCreateBook extends JDialog {
 	private JTextField txtTitle, txtIsbn, txtPrice, txtTags, txtPages;
 	private JTextArea txtSummary, txtAditional;
 	private JButton btnSave, btnCancel, btnCreateAuthor, btnImagePath;
-	private JComboBox cbxAuthor, cbxLanguage;
+	private JComboBox<String> cbxAuthor, cbxLanguage;
 	
 	private String imagePath = "";
 	
@@ -172,15 +170,15 @@ public class CatalogueCreateBook extends JDialog {
 		internalFrame.getContentPane().add(lblLanguage);
 
 		
-		cbxLanguage = new JComboBox();
+		cbxLanguage = new JComboBox<String>();
 		cbxLanguage.setBounds(172, 219, 150, 25);
-		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Idioma"}));
+		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Idioma"}));
 		addLanguage();
 		internalFrame.getContentPane().add(cbxLanguage);
 		
-		cbxAuthor = new JComboBox();
+		cbxAuthor = new JComboBox<String>();
 		cbxAuthor.setBounds(171, 37, 187, 25);
-		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor"}));
+		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Autor"}));
 		internalFrame.getContentPane().add(cbxAuthor);
 		
 		btnImagePath = new JButton("Seleccionar imagen ...");

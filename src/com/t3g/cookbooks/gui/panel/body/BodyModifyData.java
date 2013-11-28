@@ -1,26 +1,23 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.BoxLayout;
-
-import java.awt.GridLayout;
-import java.awt.Font;
 
 public class BodyModifyData extends JPanel {
-
+	private static final long serialVersionUID = 1L;
+	
 	private JButton btnBack, btnConfirm;
-	private JComboBox cbxStates;
+	private JComboBox<String> cbxStates;
 	private JLabel jLabel2, jLabel23, jLabel24,
 			jLabel25, jLabel26, jLabel27, jLabel29, jLabel3, jLabel30,
 			jLabel31, jLabel32, jLabel33, jLabel4;
@@ -31,7 +28,6 @@ public class BodyModifyData extends JPanel {
 	private JTextField txtCP, txtCard1, txtCard2, txtCard3, txtCard4,
 			txtNewPass, txtDepto, txtFloor, txtNumber,
 			txtActualPass, txtPhone, txtSecureCode, txtStreet, txtTown;
-	private JPanel panel, panel_1, panel_5;
 	private JTextField txtConfirmPass;
 	private JLabel jlabel35;
 	private JTextField txtEmail;
@@ -94,7 +90,7 @@ public class BodyModifyData extends JPanel {
 		jLabel30 = new JLabel();
 		jLabel31 = new JLabel();
 		jLabel32 = new JLabel();
-		cbxStates = new JComboBox();
+		cbxStates = new JComboBox<String>();
 		jLabel33 = new JLabel();
 
 		setBackground(new java.awt.Color(153, 153, 255));
@@ -187,15 +183,15 @@ public class BodyModifyData extends JPanel {
 		jLabel32.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel32.setText("*");
 
-		cbxStates.setModel(new javax.swing.DefaultComboBoxModel(new String[] {
+		cbxStates.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] {
 				"Seleccionar Provincia", "Ciudad de Buenos Aires",
-				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "Córdoba",
-				"Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa",
-				"La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro",
+				"Buenos Aires", "Catamarca", "Chaco", "Chubut", "Cordoba",
+				"Corrientes", "Entre Rios", "Formosa", "Jujuy", "La Pampa",
+				"La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro",
 				"Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe",
 				"Santiago del Estero",
-				"Tierra del Fuego, Antártida e Islas del Atlántico Sur",
-				"Tucumán" }));
+				"Tierra del Fuego, Antartida e Islas del Atlantico Sur",
+				"Tucuman" }));
 
 		jLabel33.setForeground(Color.RED);
 		jLabel33.setText("*");

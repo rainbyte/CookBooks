@@ -1,46 +1,24 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
-import java.awt.Dialog;
-import java.awt.FlowLayout;
+import java.awt.Dimension;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.BoxLayout;
-
-import java.awt.GridLayout;
-
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.ImageIcon;
 
-import com.t3g.cookbooks.db.Database;
-import com.t3g.cookbooks.db.entities.Book;
-import com.t3g.cookbooks.gui.CancelPurchase;
 import com.t3g.cookbooks.gui.ParentWindow;
-import com.t3g.cookbooks.gui.admin.catalogue.CatalogueEditBook;
-import com.t3g.cookbooks.resources.Resources;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Dimension;
-
-import javax.swing.UIManager;
 
 public class UserOrder extends JPanel implements ParentWindow  {
-	private JPanel panel, panel_1, panel_5;
+	private static final long serialVersionUID = 1L;
+	
 	private JTable tableBookList;
 	public static JFrame cancelarCompra;
 	private DefaultTableModel tableBooksModel;
@@ -108,7 +86,7 @@ public class UserOrder extends JPanel implements ParentWindow  {
 		tableBooksModel.addColumn("Precio");
 		tableBooksModel.addColumn("Estado");
 		
-		//Lógica para la base de datos de pedidos 
+		//Lï¿½gica para la base de datos de pedidos 
 		/*for (Book book : Database.getBookDao()) {
 			Object[] rowData = new Object[] {
 				book.getId(),

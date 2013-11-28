@@ -1,5 +1,9 @@
 package com.t3g.cookbooks.gui.admin.catalogue;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -9,31 +13,22 @@ import java.sql.SQLException;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
-import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
 
-
-import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
-
-import java.awt.Dimension;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Component;
 import java.awt.Rectangle;
 
 public class CatalogueEditBook extends JDialog {
@@ -50,7 +45,7 @@ public class CatalogueEditBook extends JDialog {
 	private JButton btnCancelar;
 	private JButton btnConfirmar;
 	private JButton btnCreateAuthor;
-	private JComboBox cbxAuthor, cbxLanguage;
+	private JComboBox<String> cbxAuthor, cbxLanguage;
 	private int selectBook,i;
 	private long id;
 
@@ -163,15 +158,15 @@ public class CatalogueEditBook extends JDialog {
 		lblLanguage.setBounds(30, 223, 137, 14);
 		internalFrame.getContentPane().add(lblLanguage);
 		
-		cbxLanguage = new JComboBox();
+		cbxLanguage = new JComboBox<String>();
 		cbxLanguage.setBounds(172, 219, 150, 25);
-		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Idioma"}));
+		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Idioma"}));
 		internalFrame.getContentPane().add(cbxLanguage);
 		addLanguage();
 		
-		cbxAuthor = new JComboBox();
+		cbxAuthor = new JComboBox<String>();
 		cbxAuthor.setBounds(171, 37, 187, 25);
-		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor"}));
+		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Seleccionar Autor"}));
 		internalFrame.getContentPane().add(cbxAuthor);
 		addAuthors();
 		

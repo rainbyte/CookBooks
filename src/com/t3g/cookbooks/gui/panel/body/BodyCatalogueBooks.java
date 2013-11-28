@@ -1,25 +1,17 @@
 package com.t3g.cookbooks.gui.panel.body;
 import java.awt.Color;
-import java.awt.Color;
 import java.awt.Dialog;
-import java.awt.Dimension;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
@@ -27,12 +19,13 @@ import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.admin.catalogue.CatalogueCreateBook;
 import com.t3g.cookbooks.gui.admin.catalogue.CatalogueEditBook;
-import com.t3g.cookbooks.resources.Resources;
 /**
  *
  * @author T3G
  */
 public class BodyCatalogueBooks extends JPanel implements ParentWindow {
+	private static final long serialVersionUID = 1L;
+	
 	private JButton btnBack;
     private JTable tableBooks;
 	private DefaultTableModel tableBooksModel;
@@ -50,8 +43,6 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
     /**
      * This method is called from within the constructor to initialize the form.
      */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
     
         JScrollPane spanelBooks = new JScrollPane();

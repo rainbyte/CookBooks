@@ -1,32 +1,26 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextField;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.BoxLayout;
-
-import java.awt.GridLayout;
-import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.Dimension;
 
 public class BodyHelp extends JPanel {
-
+	private static final long serialVersionUID = 1L;
+	
 	private JButton btnBack;
 	private JLabel jLabel2;
 	private JSeparator jSeparator1;
 	private JLabel lblFirmat3g;
-	private JPanel panel, panel_1, panel_5;
-
+	
 	public BodyHelp() {
 		initialize();
 	}
