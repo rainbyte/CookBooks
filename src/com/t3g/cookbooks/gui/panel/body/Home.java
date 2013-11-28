@@ -76,7 +76,7 @@ public class Home extends JPanel implements ParentWindow {
 		btnBuy.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Accion del boton comprar, para confirmar lo a�adido al
+				// TODO Accion del boton comprar, para confirmar lo añadido al
 				// carrito
 			}
 		});
@@ -87,7 +87,7 @@ public class Home extends JPanel implements ParentWindow {
 		btnNotBuy.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Accion del boton No comprar, cancelar lo a�adido al
+				// TODO Accion del boton No comprar, cancelar lo añadido al
 				// carrito
 				cancelarCompra = new CancelPurchase();
 				cancelarCompra.setVisible(true);
@@ -203,16 +203,16 @@ public class Home extends JPanel implements ParentWindow {
 		
 		tablePurchaces = new JTable();
 		tablePurchaces.setModel(new DefaultTableModel(new Object[][] {
-				{ "Compra 5", null }, { null, null }, // TODO Precio y nombre de
-														// la ultima compra
-				{ "Compra 4", null }, { null, null }, // TODO Precio y nombre de
-														// la compra 4
-				{ "Compra 3", null }, { null, null }, // TODO Precio y nombre de
-														// la compra 3
-				{ "Compra 2", null }, { null, null }, // TODO Precio y nombre de
-														// la compra 2
-				{ "Compra 1", null }, { null, null }, // TODO Precio y nombre de
-														// la compra 1
+			// TODO Precio y nombre de la ultima compra
+			{ "Compra 5", null }, { null, null },
+			// TODO Precio y nombre de la compra 4
+			{ "Compra 4", null }, { null, null },
+			// TODO Precio y nombre de la compra 3
+			{ "Compra 3", null }, { null, null },
+			// TODO Precio y nombre de la compra 2
+			{ "Compra 2", null }, { null, null },
+			// TODO Precio y nombre de la compra 1
+			{ "Compra 1", null }, { null, null },
 		}, new String[] { "Nombre", "Precio" }));
 		scrollPanelPurchaces.setColumnHeaderView(tablePurchaces);
 

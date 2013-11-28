@@ -73,7 +73,7 @@ public class ModifyState extends JDialog {
 			public void mousePressed(MouseEvent arg0) {
 				// TODO: Enviado seleccionado... si aplican... cambiar estado
 				// del pedido
-				// Adem�s l�gica que si esta uno apretado el otro no
+				// Ademas logica que si esta uno apretado el otro no
 			}
 		});
 		cbxDispatched.setBackground(new Color(0, 255, 0));
@@ -86,7 +86,7 @@ public class ModifyState extends JDialog {
 			public void mousePressed(MouseEvent e) {
 				// TODO: Enviado seleccionado... si aplican... cambiar estado
 				// del pedido
-				// Adem�s l�gica que si esta apretado uno, el otro no
+				// Ademas logica que si esta apretado uno, el otro no
 			}
 		});
 		cbxCanceled.setBackground(new Color(255, 0, 0));

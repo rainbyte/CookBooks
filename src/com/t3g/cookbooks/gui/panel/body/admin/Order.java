@@ -121,7 +121,7 @@ public class Order extends JPanel implements ParentWindow {
 		tableBooksModel.addColumn("Precio");
 		tableBooksModel.addColumn("Estado");
 		
-		//L�gica para la base de datos de pedidos 
+		//Logica para la base de datos de pedidos 
 		/*for (Book book : Database.getBookDao()) {
 			Object[] rowData = new Object[] {
 				book.getId(),

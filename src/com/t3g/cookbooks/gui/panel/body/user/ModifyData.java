@@ -478,15 +478,12 @@ public class ModifyData extends JPanel {
 	}
 
 	private void btnConfirmMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento que confirma el registro de un usuario, aca tambiÃ©n
-		// habrÃ­a que validar que todos
-		// los campos fueron correctos...
+		// TODO Evento que confirma el registro de un usuario, aca tambien
+		// habri­a que validar que todos los campos fueron correctos...
 	}
 
-	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnBackMousePressed
-		// TODO Evento para ir a la interfaz anterios (Principal?) QuizÃ¡s lo
-		// mejor es hacer
-		// que vaya a la principal... para simplificar pero no sÃ©
-		// Es el evento del botÃ³n "VOLVER ATRÃ�S"
+	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz anterios (Principal?)
+		// Es el evento del boton "VOLVER ATRAS"
 	}
 }

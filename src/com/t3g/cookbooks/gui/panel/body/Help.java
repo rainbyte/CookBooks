@@ -305,10 +305,8 @@ public class Help extends JPanel {
 		setLayout(jPanel2Layout);
 	}
 
-	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btnBackMousePressed
-		// TODO Evento para ir a la interfaz anterios (Principal?) QuizÃ¡s lo
-		// mejor es hacer
-		// que vaya a la principal... para simplificar pero no sÃ©
-		// Es el evento del botÃ³n "VOLVER ATRÃ�S"
+	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO Evento para ir a la interfaz anterios (Principal?)
+		// Es el evento del boton "VOLVER ATRAS"
 	}
 }

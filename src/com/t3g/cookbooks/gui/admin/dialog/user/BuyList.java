@@ -81,16 +81,14 @@ public class BuyList extends JDialog {
 		scrollPanelBuyList.setBounds(26, 36, 321, 186);
 		contentPane.add(scrollPanelBuyList);
 
+		// TODO Agregar los libros del carrito en la lista
 		tableBuyList = new JTable();
-		tableBuyList.setModel(new DefaultTableModel(new Object[][] { // TODO
-																		// Agregar
-																		// los
-																		// libros
-																		// del
-																		// carrito
-																		// en la
-																		// lista
-				}, new String[] { "Mi compra actual (nombre)" }));
+		tableBuyList.setModel(
+			new DefaultTableModel(
+				new Object[][] {},
+				new String[] { "Mi compra actual (nombre)" }
+			)
+		);
 		scrollPanelBuyList.setViewportView(tableBuyList);
 
 		JButton btnBack = new JButton("Volver atras");

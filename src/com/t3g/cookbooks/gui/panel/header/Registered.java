@@ -157,12 +157,12 @@ public class Registered extends JPanel {
 	}
 
 	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ingresar a la pÃ¡gina, y loguearse. Abre pantalla
+		// TODO Evento para ingresar a la pagina, y loguearse. Abre pantalla
 		// home pero ya logueado.
 	}
 
 	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para realizar una bÃºsqueda, en txtSearch esta lo que
+		// TODO Evento para realizar una busqueda, en txtSearch esta lo que
 		// buscamos
 	}
 

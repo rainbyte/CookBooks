@@ -87,8 +87,8 @@ public class ConfirmPurchase extends JDialog {
 		lblPrice.setBounds(161, 125, 68, 14);
 		contentPane.add(lblPrice);
 
-		JLabel lblTotal = new JLabel(""); // TODO Completar con el precio total
-											// de la compra del carrito
+		// TODO Completar con el precio total de la compra del carrito
+		JLabel lblTotal = new JLabel(""); 
 		lblTotal.setBounds(239, 125, 46, 14);
 		contentPane.add(lblTotal);
 	}

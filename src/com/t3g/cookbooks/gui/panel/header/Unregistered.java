@@ -175,23 +175,23 @@ public class Unregistered extends JPanel {
 	}
 
 	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ingresar a la pÃ¡gina, y loguearse. Abre pantalla
+		// TODO Evento para ingresar a la pagina, y loguearse. Abre pantalla
 		// home pero ya logueado.
 	}
 
 	private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para recuperar contraseÃ±a, abre pantalla de
-		// "olvide contraseÃ±a"
+		// TODO Evento para recuperar contraseña, abre pantalla de
+		// "olvide contraseña"
 	}
 
 	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para realizar una bÃºsqueda, en txtSearch esta lo que
+		// TODO Evento para realizar una busqueda, en txtSearch esta lo que
 		// buscamos
 	}
 
 	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
 		// TODO Evento para ir a la interfaz principal. Al hacer click en la
-		// imÃ¡gen "cookbook" voy al inicio.
+		// imagen "cookbook" voy al inicio.
 	}
 
 	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
