@@ -17,8 +17,8 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
-import com.t3g.cookbooks.gui.admin.catalogue.CatalogueCreateBook;
-import com.t3g.cookbooks.gui.admin.catalogue.CatalogueEditBook;
+import com.t3g.cookbooks.gui.admin.dialog.AdminCatalogueCreateBook;
+import com.t3g.cookbooks.gui.admin.dialog.AdminCatalogueEditBook;
 /**
  *
  * @author T3G
@@ -124,7 +124,7 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
     }
     
 	private void btnAddBookMouseClicked(java.awt.event.MouseEvent evt) {
-		JDialog dialog = new CatalogueCreateBook(this);
+		JDialog dialog = new AdminCatalogueCreateBook(this);
 		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setVisible(true);
 		
@@ -135,7 +135,7 @@ public class BodyCatalogueBooks extends JPanel implements ParentWindow {
 		// TODO Al presionarse debe abrise la ventana de "Editar libro" para
 		// modificar los datos del libro seleccionado
 		if (!(tableBooks.getSelectedRow() == -1)){
-			JDialog dialog = new CatalogueEditBook(this, tableBooks.getSelectedRow());
+			JDialog dialog = new AdminCatalogueEditBook(this, tableBooks.getSelectedRow());
 			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 			dialog.setVisible(true);
 		

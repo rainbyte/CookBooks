@@ -1,4 +1,4 @@
-package com.t3g.cookbooks.gui.admin.catalogue;
+package com.t3g.cookbooks.gui.admin.dialog;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -31,7 +31,7 @@ import com.t3g.cookbooks.util.FieldValidator;
 
 import java.awt.Rectangle;
 
-public class CatalogueEditBook extends JDialog {
+public class AdminCatalogueEditBook extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private ParentWindow parent;
@@ -49,7 +49,7 @@ public class CatalogueEditBook extends JDialog {
 	private int selectBook,i;
 	private long id;
 
-	public CatalogueEditBook(ParentWindow parent, int numBook) {
+	public AdminCatalogueEditBook(ParentWindow parent, int numBook) {
 		this.parent = parent;
 		selectBook = numBook;
 		getContentPane().setPreferredSize(new Dimension(518, 578));
@@ -59,7 +59,7 @@ public class CatalogueEditBook extends JDialog {
 		initComponents();
 	}
 	
-	public CatalogueEditBook(ParentWindow parent) {
+	public AdminCatalogueEditBook(ParentWindow parent) {
 		this.parent = parent;
 		getContentPane().setPreferredSize(new Dimension(518, 578));
 		getContentPane().setBackground(new Color(153, 153, 255));
@@ -272,19 +272,19 @@ public class CatalogueEditBook extends JDialog {
 			}
 		} catch (ClassNotFoundException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueEditBook.class.getName()).log(
+					AdminCatalogueEditBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueEditBook.class.getName()).log(
+					AdminCatalogueEditBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueEditBook.class.getName()).log(
+					AdminCatalogueEditBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueEditBook.class.getName()).log(
+					AdminCatalogueEditBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		}
 		// </editor-fold>
@@ -292,7 +292,7 @@ public class CatalogueEditBook extends JDialog {
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new CatalogueEditBook(new ParentWindowDummy()).setVisible(true);
+				new AdminCatalogueEditBook(new ParentWindowDummy()).setVisible(true);
 			}
 		});
 	}

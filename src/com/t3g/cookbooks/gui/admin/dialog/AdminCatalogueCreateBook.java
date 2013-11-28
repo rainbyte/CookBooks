@@ -1,4 +1,4 @@
-package com.t3g.cookbooks.gui.admin.catalogue;
+package com.t3g.cookbooks.gui.admin.dialog;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -29,7 +29,7 @@ import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
 
-public class CatalogueCreateBook extends JDialog {
+public class AdminCatalogueCreateBook extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private ParentWindow parent;
@@ -45,7 +45,7 @@ public class CatalogueCreateBook extends JDialog {
 	
 	private String imagePath = "";
 	
-	public CatalogueCreateBook(ParentWindow parent) {
+	public AdminCatalogueCreateBook(ParentWindow parent) {
 		this.parent = parent;
 		
 		getContentPane().setBackground(new Color(153, 153, 255));
@@ -218,26 +218,26 @@ public class CatalogueCreateBook extends JDialog {
 			}
 		} catch (ClassNotFoundException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
+					AdminCatalogueCreateBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
+					AdminCatalogueCreateBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
+					AdminCatalogueCreateBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
 			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
+					AdminCatalogueCreateBook.class.getName()).log(
 					java.util.logging.Level.SEVERE, null, ex);
 		}
 
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new CatalogueCreateBook(new ParentWindowDummy()).setVisible(true);
+				new AdminCatalogueCreateBook(new ParentWindowDummy()).setVisible(true);
 			}
 		});
 	}
