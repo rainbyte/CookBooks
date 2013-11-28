@@ -2,6 +2,10 @@ package com.t3g.cookbooks.util;
 
 public class FieldValidator {
 
+	private FieldValidator() {
+		// This class should not be instantiated.
+	}
+	
 	public static boolean isAlpha(String input) {
 		return input.matches("^[a-zA-Záíúéóü ]+$");
 	}

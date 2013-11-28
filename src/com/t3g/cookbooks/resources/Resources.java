@@ -8,6 +8,10 @@ public class Resources {
 	private final static ImageIcon iconBuy = new ImageIcon(Resources.class.getResource("/com/t3g/cookbooks/resources/IconBtnBuy.png"));
 	private final static ImageIcon iconNotBuy = new ImageIcon(Resources.class.getResource("/com/t3g/cookbooks/resources/IconBtnNotBuy.png"));
 	
+	private Resources() {
+		// This class should not be instantiated.
+	}
+	
 	public static ImageIcon getLogo() {
 		return logo;
 	}

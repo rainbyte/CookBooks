@@ -246,11 +246,11 @@ public class CatalogueCreateBook extends JDialog {
 	
 	private void actionSave() {
 		// TODO: Faltaria implementar la forma en que almacena las categorias almacenadas
-		boolean correctPrice = new FieldValidator().isNumberFloat(txtPrice.getText());
-		boolean correctPages = new FieldValidator().isNumberInteger(txtPages.getText());
+		boolean correctPrice = FieldValidator.isNumberFloat(txtPrice.getText());
+		boolean correctPages = FieldValidator.isNumberInteger(txtPages.getText());
 		boolean correctTitle = !txtTitle.getText().isEmpty();
 		boolean correctTags = !txtTags.getText().isEmpty();
-		boolean correctIsbn = new FieldValidator().isIsbn(txtIsbn.getText());
+		boolean correctIsbn = FieldValidator.isIsbn(txtIsbn.getText());
 		boolean correctImagePath = FieldValidator.isImagePath(imagePath);
 		Author selectAuthor = null;
 		Language selectLanguage = null;
