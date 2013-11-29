@@ -3,7 +3,6 @@ Tareas con prioridad:
 -Conexion de la base de datos de interfaz de pedido usuario (Purchase): (Fabrizio)
 -Interfaz de alta de autor: (Martin)
 -Logica de MainWindow: (Alvaro)
--Revisar modality: (Alvaro)
 -Asignar estado de un pedido en la base de datos de pedidos, luego de que se modifica: ...
 -Manejo de estado de usuario: (Alvaro)
 -Agregar al carrito (logica): 
