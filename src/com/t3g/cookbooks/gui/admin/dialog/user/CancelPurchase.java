@@ -23,22 +23,6 @@ public class CancelPurchase extends JDialog {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CancelPurchase frame = new CancelPurchase();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public CancelPurchase() {
@@ -81,5 +65,17 @@ public class CancelPurchase extends JDialog {
 	
 	private void close() {
 		this.dispose();
+	}
+	
+	/**
+	 * Launch the dialog standalone.
+	 */
+	public static void main(String[] args) {
+		/* Create and display the form */
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new CancelPurchase().setVisible(true);
+			}
+		});
 	}
 }

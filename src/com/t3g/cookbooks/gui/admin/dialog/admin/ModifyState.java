@@ -22,22 +22,6 @@ public class ModifyState extends JDialog {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModifyState frame = new ModifyState();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public ModifyState() {
@@ -95,5 +79,17 @@ public class ModifyState extends JDialog {
 	
 	private void close() {
 		this.dispose();
+	}
+	
+	/**
+	 * Launch the dialog standalone.
+	 */
+	public static void main(String[] args) {
+		/* Create and display the form */
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new ModifyState().setVisible(true);
+			}
+		});
 	}
 }

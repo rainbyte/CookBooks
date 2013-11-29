@@ -29,22 +29,6 @@ public class BuyList extends JDialog {
 	private JTable tableBuyList;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BuyList frame = new BuyList();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public BuyList() {
@@ -106,5 +90,17 @@ public class BuyList extends JDialog {
 	
 	private void close() {
 		this.dispose();
+	}
+	
+	/**
+	 * Launch the dialog standalone.
+	 */
+	public static void main(String[] args) {
+		/* Create and display the form */
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new BuyList().setVisible(true);
+			}
+		});
 	}
 }

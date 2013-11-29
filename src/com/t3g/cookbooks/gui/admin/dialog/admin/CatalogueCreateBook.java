@@ -3,6 +3,7 @@ package com.t3g.cookbooks.gui.admin.dialog.admin;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.sql.SQLException;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -20,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
@@ -56,51 +59,52 @@ public class CatalogueCreateBook extends JDialog {
 	}
 
 	private void initComponents() {
-
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		
 		internalFrame = new javax.swing.JInternalFrame();
 		internalFrame.getContentPane().setBackground(new Color(153, 153, 255));
 		internalFrame.setBounds(0, 0, 518, 578);
 
-		lblTitle = new javax.swing.JLabel("Titulo");
+		lblTitle = new JLabel("Titulo");
 		lblTitle.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTitle.setBounds(84, 14, 80, 14);
-		lblAuthor = new javax.swing.JLabel("Autor");
+		lblAuthor = new JLabel("Autor");
 		lblAuthor.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblAuthor.setBounds(85, 42, 80, 14);
-		lblIsbn = new javax.swing.JLabel("ISBN");
+		lblIsbn = new JLabel("ISBN");
 		lblIsbn.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblIsbn.setBounds(85, 72, 80, 14);
-		lblPrice = new javax.swing.JLabel("Precio");
+		lblPrice = new JLabel("Precio");
 		lblPrice.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrice.setBounds(50, 101, 115, 14);
-		lblTags = new javax.swing.JLabel("Categorias");
+		lblTags = new JLabel("Categorias");
 		lblTags.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTags.setBounds(36, 132, 130, 14);
-		lblImage = new javax.swing.JLabel("Imagen de Portada");
+		lblImage = new JLabel("Imagen de Portada");
 		lblImage.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblImage.setBounds(8, 163, 157, 14);
-		lblPages = new javax.swing.JLabel("Cantidad de Paginas");
+		lblPages = new JLabel("Cantidad de Paginas");
 		lblPages.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPages.setBounds(20, 194, 147, 14);
-		lblSummary = new javax.swing.JLabel("Resumen");
+		lblSummary = new JLabel("Resumen");
 		lblSummary.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSummary.setBounds(37, 259, 130, 14);
-		lblSample = new javax.swing.JLabel("Primeras páginas");
+		lblSample = new JLabel("Primeras páginas");
 		lblSample.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSample.setBounds(22, 386, 142, 14);
 
-		txtTitle = new javax.swing.JTextField("La Cocina Japonesa de Harumi");
+		txtTitle = new JTextField("La Cocina Japonesa de Harumi");
 		txtTitle.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		txtTitle.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		txtTitle.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtTitle.setBounds(171, 9, 242, 25);
-		txtIsbn = new javax.swing.JTextField("84-253-3882-4");
+		txtIsbn = new JTextField("84-253-3882-4");
 		txtIsbn.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtIsbn.setBounds(171, 66, 92, 25);
-		txtPrice = new javax.swing.JTextField("300");
+		txtPrice = new JTextField("300");
 		txtPrice.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtPrice.setBounds(171, 96, 40, 25);
-		txtPages = new javax.swing.JTextField("165");
+		txtPages = new JTextField("165");
 		txtPages.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtPages.setBounds(171, 189, 40, 25);
 		txtTags = new JTextField("Categorias");
@@ -112,7 +116,7 @@ public class CatalogueCreateBook extends JDialog {
 		txtAditional = new JTextArea();
 		txtAditional.setBounds(172, 381, 280, 116);
 
-		btnSave = new javax.swing.JButton("Confirmar");
+		btnSave = new JButton("Confirmar");
 		btnSave.setBounds(269, 515, 89, 23);
 		btnSave.setBackground(new java.awt.Color(255, 255, 255));
 		btnSave.addMouseListener(new MouseAdapter() {
@@ -121,7 +125,7 @@ public class CatalogueCreateBook extends JDialog {
 				actionSave();
 			}
 		});
-		btnCancel = new javax.swing.JButton("CANCELAR");
+		btnCancel = new JButton("CANCELAR");
 		btnCancel.setBackground(Color.RED);
 		btnCancel.setBounds(10, 515, 105, 23);
 		btnCancel.addActionListener(new ActionListener() {
@@ -133,8 +137,6 @@ public class CatalogueCreateBook extends JDialog {
 		btnCreateAuthor = new JButton("Nuevo Autor");
 		btnCreateAuthor.setBounds(368, 37, 105, 25);
 		internalFrame.getContentPane().add(btnCreateAuthor);
-
-		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
 		internalFrame.setTitle("Cargar libro");
@@ -171,14 +173,14 @@ public class CatalogueCreateBook extends JDialog {
 
 		cbxLanguage = new JComboBox<String>();
 		cbxLanguage.setBounds(172, 219, 150, 25);
-		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel<String>(
+		cbxLanguage.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Seleccionar Idioma" }));
 		addLanguage();
 		internalFrame.getContentPane().add(cbxLanguage);
 
 		cbxAuthor = new JComboBox<String>();
 		cbxAuthor.setBounds(171, 37, 187, 25);
-		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel<String>(
+		cbxAuthor.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Seleccionar Autor" }));
 		internalFrame.getContentPane().add(cbxAuthor);
 
@@ -193,55 +195,6 @@ public class CatalogueCreateBook extends JDialog {
 		internalFrame.getContentPane().add(btnImagePath);
 		addAuthors();
 		pack();
-	}
-
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
-		// <editor-fold defaultstate="collapsed"
-		// desc=" Look and feel setting code (optional) ">
-		/*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
-		 * default look and feel. For details see
-		 * http://download.oracle.com/javase
-		 * /tutorial/uiswing/lookandfeel/plaf.html
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-					.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(
-					CatalogueCreateBook.class.getName()).log(
-					java.util.logging.Level.SEVERE, null, ex);
-		}
-
-		/* Create and display the form */
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new CatalogueCreateBook(new ParentWindowDummy())
-						.setVisible(true);
-			}
-		});
 	}
 
 	private void actionSave() {
@@ -393,5 +346,17 @@ public class CatalogueCreateBook extends JDialog {
 	private void close() {
 		this.dispose();
 		parent.update();
+	}
+	
+	/**
+	 * Launch the dialog standalone.
+	 */
+	public static void main(String args[]) {
+		/* Create and display the form */
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new CatalogueCreateBook(new ParentWindowDummy()).setVisible(true);
+			}
+		});
 	}
 }

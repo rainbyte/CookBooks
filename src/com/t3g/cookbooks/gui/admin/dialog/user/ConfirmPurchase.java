@@ -23,22 +23,6 @@ public class ConfirmPurchase extends JDialog {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConfirmPurchase frame = new ConfirmPurchase();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public ConfirmPurchase() {
@@ -96,5 +80,17 @@ public class ConfirmPurchase extends JDialog {
 	
 	private void close() {
 		this.dispose();
+	}
+	
+	/**
+	 * Launch the dialog standalone.
+	 */
+	public static void main(String[] args) {
+		/* Create and display the form */
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new ConfirmPurchase().setVisible(true);
+			}
+		});
 	}
 }
