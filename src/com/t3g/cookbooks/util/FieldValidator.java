@@ -43,7 +43,7 @@ public class FieldValidator {
 	}
 
 	public static boolean isImagePath(String input) {
-		return input.matches("^[a-zA-Z0-9áíúéóü/\\.,_-ñ@?¿·%= ]+(.jpg|.jpeg|.png|.gif|.bpm)$");
+		return input.matches("^[a-zA-Z0-9áíúéóü/\\\\,_-ñ@?¿:·%= ]+(.jpg|.jpeg|.png|.gif|.bpm)$");
 	}
 
 	public static void main(String[] args) {
