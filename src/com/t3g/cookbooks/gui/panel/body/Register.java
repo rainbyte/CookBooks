@@ -7,7 +7,9 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -134,21 +136,21 @@ public class Register extends JPanel {
 
 		lblSecureCode.setText("Código de seguridad");
 
-		txtName.setText("Alejandro");
+		txtName.setText("");
 
-		txtSurname.setText("Martínez");
+		txtSurname.setText("");
 
-		txtEmail.setText("usuario@dominio.com");
+		txtEmail.setText("");
 
-		txtTown.setText("Domselaar");
+		txtTown.setText("");
 
-		txtStreet.setText("San Martín");
+		txtStreet.setText("");
 
-		txtNumber.setText("302");
+		txtNumber.setText("");
 
-		txtCP.setText("1984");
+		txtCP.setText("");
 
-		txtPhone.setText("02225491066");
+		txtPhone.setText("");
 
 		btnBack.setBackground(new java.awt.Color(255, 0, 0));
 		btnBack.setText("VOLVER AL INICIO");
@@ -447,7 +449,6 @@ public class Register extends JPanel {
 		if (!ready) {
 			return;
 		}
-		
 		User user = new User(
 			txtName.getText(),
 			txtSurname.getText(),
@@ -467,14 +468,12 @@ public class Register extends JPanel {
 				txtCard4.getText()),
 			txtSecureCode.getText()
 		);
-		
 		try {
 			Database.getUserDao().createIfNotExists(user);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		close();
+		JOptionPane.showMessageDialog(this, "         Usuario creado      \n Gracias por elegir CookBooks");
 	}
 
 	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
@@ -484,89 +483,149 @@ public class Register extends JPanel {
 
 	private boolean validateInput() {
 		// TODO: send validation msg
-
-		if (!FieldValidator.isAlpha(txtName.getText())) {
+		boolean correctName = FieldValidator.isAlpha(txtName.getText());
+		boolean correctSurname = FieldValidator.isAlpha(txtSurname.getText());
+		boolean correctEmail = FieldValidator.isEmail(txtEmail.getText());
+		boolean correctPass = ((txtPass.getText().equals(txtConfirmPass.getText())) && (!txtPass.getText().isEmpty()));
+		boolean correctState = (FieldValidator.isAlpha(cbxStates.getSelectedItem().toString()) && (!cbxStates.getSelectedItem().toString().equals("Seleccionar Provincia")));
+		boolean correctTown = FieldValidator.isAlpha(txtTown.getText());
+		boolean correctStreet = FieldValidator.isAlpha(txtStreet.getText());
+		boolean correctNumber = FieldValidator.isNumberInteger(txtNumber.getText());
+		boolean correctCP = FieldValidator.isNumberInteger(txtCP.getText());
+		boolean correctPhone = FieldValidator.isPhone(txtPhone.getText());
+		boolean correctCreditCardNumber = FieldValidator.isCreditCardNumber(String.format("%s%s%s%s",txtCard1.getText(), txtCard2.getText(), txtCard3.getText(),txtCard4.getText()));
+		boolean correctCreditCardCode = FieldValidator.isCreditCardCode(txtSecureCode.getText());
+		//----------------------------------------------------------------
+		if (!correctName) {
 			/* send validation msg */
-			System.out.println("txtName failed validation");
-			return false;
+				System.out.println("txtName failed validation");
+				txtName.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isAlpha(txtSurname.getText())) {
+		else {
+				txtName.setBackground(Color.WHITE);
+		}
+		//----------------------------------------------------------------
+		if (!correctSurname) {
 			/* send validation msg */
-			System.out.println("txtSurname failed validation");
-			return false;
+				System.out.println("txtSurname failed validation");
+				txtSurname.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isEmail(txtEmail.getText())) {
+		else {
+				txtSurname.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctEmail) {
 			/* send validation msg */
 			System.out.println("txtEmail failed validation");
-			return false;
+			txtEmail.setBackground(Color.RED);
 		} else {
+			txtEmail.setBackground(Color.WHITE);
 			for (User user : Database.getUserDao()) {
 				if (user.getEmail().equals(txtEmail.getText())) {
 					System.out.println("email exist!");
-					return false;
+					txtEmail.setBackground(Color.RED);
+					correctEmail = false;
 				}
 			}
 		}
-
-		if (!txtPass.getText().equals(txtConfirmPass.getText())) {
+		//---------------------------------------------------------------
+		if (!correctPass) {
 			/* send validation msg */
 			System.out.println("txtPass failed validation");
-			return false;
+			txtPass.setBackground(Color.RED);
+			txtConfirmPass.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isAlpha(cbxStates.getSelectedItem().toString())) {
+		else {
+			txtPass.setBackground(Color.WHITE);
+			txtConfirmPass.setBackground(Color.WHITE);			
+		}
+		//---------------------------------------------------------------
+		if (!correctState) {
 			/* send validation msg */
 			System.out.println("cbxStates failed validation");
-			return false;
+			cbxStates.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isAlpha(txtTown.getText())) {
+		else {
+			cbxStates.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctTown) {
 			/* send validation msg */
 			System.out.println("txtTown failed validation");
-			return false;
+			txtTown.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isAlpha(txtStreet.getText())) {
+		else {
+			txtTown.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctStreet) {
 			/* send validation msg */
 			System.out.println("txtStreet failed validation");
-			return false;
+			txtStreet.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isNumberInteger(txtNumber.getText())) {
+		else {
+			txtStreet.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctNumber) {
 			/* send validation msg */
 			System.out.println("txtNumber failed validation");
-			return false;
+			txtNumber.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isNumberInteger(txtCP.getText())) {
+		else {
+			txtNumber.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctCP) {
 			/* send validation msg */
 			System.out.println("txtCP failed validation");
-			return false;
+			txtCP.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isPhone(txtPhone.getText())) {
+		else {
+			txtCP.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctPhone) {
 			/* send validation msg */
 			System.out.println("txtPhone failed validation");
-			return false;
+			txtPhone.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isCreditCardNumber(String.format("%s%s%s%s",
-				txtCard1.getText(), txtCard2.getText(), txtCard3.getText(),
-				txtCard4.getText()))) {
+		else {
+			txtPhone.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if (!correctCreditCardNumber) {
 			/* send validation msg */
 			System.out.println("txtCard# failed validation");
-			return false;
+			txtCard1.setBackground(Color.RED);
+			txtCard2.setBackground(Color.RED);
+			txtCard3.setBackground(Color.RED);
+			txtCard4.setBackground(Color.RED);
 		}
-
-		if (!FieldValidator.isCreditCardCode(txtSecureCode.getText())) {
+		else {
+			txtCard1.setBackground(Color.WHITE);
+			txtCard2.setBackground(Color.WHITE);
+			txtCard3.setBackground(Color.WHITE);
+			txtCard4.setBackground(Color.WHITE);			
+		}
+		//---------------------------------------------------------------
+		if (!correctCreditCardCode) {
 			/* send validation msg */
 			System.out.println("txtSecureCore failed validation");
+			txtSecureCode.setBackground(Color.RED);
+		}
+		else {
+			txtSecureCode.setBackground(Color.WHITE);
+		}
+		//---------------------------------------------------------------
+		if ((correctName) && (correctSurname) && (correctEmail) && (correctPass) && (correctState) 
+				&& (correctTown) && (correctStreet) && (correctNumber) && (correctCP) && (correctPhone) 
+						&& (correctCreditCardNumber) && (correctCreditCardCode)){
+			return true;
+		}
+		else {
 			return false;
 		}
-
-		return true;
 	}
 
 	private void close() {
