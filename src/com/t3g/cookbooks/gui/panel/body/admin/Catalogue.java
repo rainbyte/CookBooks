@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
@@ -192,6 +193,11 @@ public class Catalogue extends JPanel implements ParentWindow {
 
 		tableBooks.setModel(tableBooksModel);
 
+		tableBooks.getColumnModel().getColumn(1).setMinWidth(250);
+		tableBooks.getColumnModel().getColumn(3).setMaxWidth(50);
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		tableBooks.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
 		// Hide Id column
 		tableBooks.removeColumn(tableBooks.getColumnModel().getColumn(0));
 	}
