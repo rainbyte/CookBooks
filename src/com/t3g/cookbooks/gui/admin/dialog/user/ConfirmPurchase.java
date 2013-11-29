@@ -8,9 +8,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 /**
@@ -42,7 +42,8 @@ public class ConfirmPurchase extends JDialog {
 	 * Create the frame.
 	 */
 	public ConfirmPurchase() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 153, 255));
@@ -65,7 +66,7 @@ public class ConfirmPurchase extends JDialog {
 		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Volver a la interfaz principal
+				close();
 			}
 		});
 		btnBack.setBackground(new Color(153, 153, 255));
@@ -91,5 +92,9 @@ public class ConfirmPurchase extends JDialog {
 		JLabel lblTotal = new JLabel(""); 
 		lblTotal.setBounds(239, 125, 46, 14);
 		contentPane.add(lblTotal);
+	}
+	
+	private void close() {
+		this.dispose();
 	}
 }

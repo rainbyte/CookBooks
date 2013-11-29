@@ -1,6 +1,7 @@
 package com.t3g.cookbooks.gui.panel.body;
 
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,6 @@ public class Home extends JPanel implements ParentWindow {
 	private JTable tableBookList;
 	private JTable tableBuyList;
 	private JTable tablePurchaces;
-	public static JDialog cancelarCompra;
 	private DefaultTableModel tableBooksModel;
 
 	public Home() {
@@ -89,8 +89,9 @@ public class Home extends JPanel implements ParentWindow {
 			public void mousePressed(MouseEvent e) {
 				// TODO Accion del boton No comprar, cancelar lo añadido al
 				// carrito
-				cancelarCompra = new CancelPurchase();
-				cancelarCompra.setVisible(true);
+				JDialog dialog = new CancelPurchase();
+				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+				dialog.setVisible(true);
 			}
 		});
 		btnNotBuy.addActionListener(new ActionListener() {

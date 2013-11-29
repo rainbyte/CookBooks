@@ -8,11 +8,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
-
-import com.t3g.cookbooks.gui.panel.body.admin.Order;
 
 /**
  * 
@@ -43,7 +41,8 @@ public class ModifyState extends JDialog {
 	 * Create the frame.
 	 */
 	public ModifyState() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 153, 255));
@@ -55,7 +54,7 @@ public class ModifyState extends JDialog {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Order.modificarEstado.setVisible(false);
+				close();
 			}
 		});
 		button.setBackground(new Color(153, 153, 255));
@@ -92,5 +91,9 @@ public class ModifyState extends JDialog {
 		cbxCanceled.setBackground(new Color(255, 0, 0));
 		cbxCanceled.setBounds(159, 87, 97, 23);
 		contentPane.add(cbxCanceled);
+	}
+	
+	private void close() {
+		this.dispose();
 	}
 }

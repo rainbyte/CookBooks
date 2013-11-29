@@ -1,6 +1,7 @@
 package com.t3g.cookbooks.gui.panel.body.admin;
 
 import java.awt.Color;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -24,7 +25,6 @@ public class Order extends JPanel implements ParentWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JTable tableBookList;
-	public static JDialog cancelarCompra, modificarEstado;
 	private DefaultTableModel tableBooksModel;
 
 	public Order() {
@@ -47,8 +47,9 @@ public class Order extends JPanel implements ParentWindow {
 		btnModifyState.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				modificarEstado = new ModifyState();
-				modificarEstado.setVisible(true);
+				JDialog dialog = new ModifyState();
+				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+				dialog.setVisible(true);
 			}
 		});
 		btnModifyState.setBackground(UIManager.getColor("Button.background"));

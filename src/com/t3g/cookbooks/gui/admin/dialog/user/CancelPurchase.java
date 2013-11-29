@@ -8,12 +8,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
-
-import com.t3g.cookbooks.gui.panel.body.Home;
 
 /**
  * 
@@ -44,7 +42,8 @@ public class CancelPurchase extends JDialog {
 	 * Create the frame.
 	 */
 	public CancelPurchase() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 153, 255));
@@ -67,7 +66,7 @@ public class CancelPurchase extends JDialog {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				Home.cancelarCompra.setVisible(false);
+				close();
 			}
 		});
 		button.setBackground(new Color(153, 153, 255));
@@ -78,5 +77,9 @@ public class CancelPurchase extends JDialog {
 		button_1.setBackground(new Color(153, 153, 255));
 		button_1.setBounds(217, 175, 159, 23);
 		contentPane.add(button_1);
+	}
+	
+	private void close() {
+		this.dispose();
 	}
 }

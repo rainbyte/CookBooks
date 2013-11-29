@@ -10,11 +10,11 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -48,7 +48,8 @@ public class BuyList extends JDialog {
 	 * Create the frame.
 	 */
 	public BuyList() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 153, 255));
@@ -95,11 +96,15 @@ public class BuyList extends JDialog {
 		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Volver a la interfez principal
+				close();
 			}
 		});
 		btnBack.setBackground(new Color(153, 153, 255));
 		btnBack.setBounds(26, 233, 105, 23);
 		contentPane.add(btnBack);
+	}
+	
+	private void close() {
+		this.dispose();
 	}
 }
