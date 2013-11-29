@@ -136,9 +136,10 @@ public class Catalogue extends JPanel implements ParentWindow {
 	private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {
 		// TODO Al presionarse debe abrise la ventana de "Editar libro" para
 		// modificar los datos del libro seleccionado
-		if (!(tableBooks.getSelectedRow() == -1)) {
-			JDialog dialog = new CatalogueEditBook(this,
-					tableBooks.getSelectedRow());
+		if (!(tableBooks.getSelectedRow() == -1)){
+			int selectedRow = tableBooks.getSelectedRow();
+			long id = (Long) tableBooks.getModel().getValueAt(selectedRow, 0);
+			JDialog dialog = new CatalogueEditBook(this, id);
 			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 			dialog.setVisible(true);
 
