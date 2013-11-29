@@ -10,8 +10,6 @@ Tareas con prioridad:
 -Agregar al carrito (logica): 
 -Agregar accion a la cesta de compra: (Alan)
 -Armar conexiones entre la home y las ventanas emergentes: (Alan)
--Editar CatalogueEditBook: (Martin)
 -Agregar asteriscos a la alta libro: (Alan)
--Mover decimales a la derecha: (Martin)
 -Marcar en rojo campos invalidos, en interfaz de registro: (Martin)
 -Gestionar categorias con un for: (Alvaro)  
