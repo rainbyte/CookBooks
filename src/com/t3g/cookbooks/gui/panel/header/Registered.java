@@ -95,6 +95,11 @@ public class Registered extends JPanel {
 		panelToolBar.setBackground(new Color(153, 153, 255));
 		panelToolBar.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		txtHome = new JLabel();
+		txtHome.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				txtHomeMousePressed(evt);
+			}
+		});
 		panelToolBar.add(txtHome);
 
 		txtHome.setForeground(new java.awt.Color(51, 51, 255));
@@ -169,6 +174,10 @@ public class Registered extends JPanel {
 	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
 		// TODO Evento para ir a la interfaz principal. Al hacer click en la
 		// imÃ¡gen "cookbook" voy al inicio.
+	}
+	
+	private void txtHomeMousePressed(java.awt.event.MouseEvent evt){
+		//TODO: Mover a la ventana "home" o "libros" ser�a ir a la principal
 	}
 
 	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {

@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.resources.Resources;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Unregistered extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -108,6 +110,11 @@ public class Unregistered extends JPanel {
 		panelToolBar.setBackground(new Color(153, 153, 255));
 		panelToolBar.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		txtHome = new JLabel();
+		txtHome.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				txtHomeMousePressed(evt);
+			}
+		});
 		panelToolBar.add(txtHome);
 
 		txtHome.setForeground(new java.awt.Color(51, 51, 255));
@@ -173,7 +180,7 @@ public class Unregistered extends JPanel {
 			}
 		});
 	}
-
+	
 	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
 		// TODO Evento para ingresar a la pagina, y loguearse. Abre pantalla
 		// home pero ya logueado.
@@ -192,6 +199,10 @@ public class Unregistered extends JPanel {
 	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
 		// TODO Evento para ir a la interfaz principal. Al hacer click en la
 		// imagen "cookbook" voy al inicio.
+	}
+	
+	private void txtHomeMousePressed(java.awt.event.MouseEvent evt){
+		//TODO: Mover a la ventana "home" o "libros" sería ir a la principal
 	}
 
 	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
