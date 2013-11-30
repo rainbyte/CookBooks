@@ -4,9 +4,10 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Enumeration;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -36,18 +37,31 @@ public class ModifyState extends JDialog {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton button = new JButton("Volver Atras");
-		button.addMouseListener(new MouseAdapter() {
+		JButton btnBack = new JButton("Volver Atras");
+		btnBack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
 				close();
 			}
 		});
-		button.setBackground(new Color(153, 153, 255));
-		button.setBounds(27, 140, 123, 23);
-		contentPane.add(button);
+		btnBack.setBackground(new Color(153, 153, 255));
+		btnBack.setBounds(27, 140, 123, 23);
+		contentPane.add(btnBack);
 
 		JButton btnAply = new JButton("Aplicar");
+		btnAply.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				JRadioButton rbtnSelected = getSelection(grupoBtn);
+				System.out.print(rbtnSelected.getText());
+				// TODO: Cambiar el estado del pedido según este seleccionado el botón:
+				// rbtnDispatched = ENVIADO
+				// rbtnCanceled = CANCELADO
+				// EN rbtnSelected esta el botón seleccionado
+				// Se le podría hacer un rbtnSelected.getText() y directamente aplicarlo a la base de datos...
+				// No sé bien como se maneja pero supongo que podrás escrbir así
+			}
+		});
 		btnAply.setBackground(new Color(153, 153, 255));
 		btnAply.setBounds(27, 106, 123, 23);
 		contentPane.add(btnAply);
@@ -58,13 +72,33 @@ public class ModifyState extends JDialog {
 		contentPane.add(panel);
 		
 		JRadioButton rbtnDispatched = new JRadioButton("ENVIADO");
+		rbtnDispatched.setSelected(true);
 		panel.add(rbtnDispatched);
 		
-		JRadioButton rbtnCancel = new JRadioButton("CANCELADO");
-		panel.add(rbtnCancel);
+		JRadioButton rbtnCanceled = new JRadioButton("CANCELADO");
+		panel.add(rbtnCanceled);
 		
 		grupoBtn.add(rbtnDispatched);
-		grupoBtn.add(rbtnCancel);
+		grupoBtn.add(rbtnCanceled);
+	}
+	
+	
+	/**
+	 * Método para la lógica de selección de los estados de un pedido
+	 * @return Opción seleccionada
+	 */
+	public static JRadioButton getSelection(ButtonGroup group) 
+	{
+	        for (Enumeration<AbstractButton> e=group.getElements(); e.hasMoreElements(); ) 
+	        {
+	            JRadioButton b = (JRadioButton)e.nextElement();
+	            if (b.getModel() == group.getSelection()) 
+	            {
+	                return b;
+	            }
+	        }
+
+	        return null;
 	}
 	
 	private void close() {
