@@ -19,6 +19,7 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.admin.dialog.admin.DataOfOrder;
 import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
 
 public class Order extends JPanel implements ParentWindow {
@@ -56,18 +57,32 @@ public class Order extends JPanel implements ParentWindow {
 
 		JButton btnBack = new JButton("Volver al inicio");
 		btnBack.setBackground(new Color(255, 0, 0));
+		
+		JButton btnDataView = new JButton("Ver datos del pedido");
+		btnDataView.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				JDialog dialog = new DataOfOrder();
+				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+				dialog.setVisible(true);
+				// TODO: Al ser presionado, muestra los siiguientes datos de un pedido en el JDialog DataOfOrder:
+				// Nombre, Dirección( Calle, Ciudad, Provinicia, CP), Teléfono, libro solicitado e ISBN
+			}
+		});
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
-			jPanel2Layout.createParallelGroup(Alignment.LEADING)
+			jPanel2Layout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addGap(342)
 					.addComponent(btnBack)
 					.addGap(151)
 					.addComponent(label)
-					.addContainerGap(142, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-					.addContainerGap(603, Short.MAX_VALUE)
+					.addContainerGap(12, Short.MAX_VALUE))
+				.addGroup(jPanel2Layout.createSequentialGroup()
+					.addContainerGap(512, Short.MAX_VALUE)
+					.addComponent(btnDataView)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnModifyState)
 					.addContainerGap())
 				.addGroup(jPanel2Layout.createSequentialGroup()
@@ -78,7 +93,9 @@ public class Order extends JPanel implements ParentWindow {
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
 				.addGroup(jPanel2Layout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(btnModifyState)
+					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnModifyState)
+						.addComponent(btnDataView))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(scrollPanelBookList, GroupLayout.PREFERRED_SIZE, 460, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
