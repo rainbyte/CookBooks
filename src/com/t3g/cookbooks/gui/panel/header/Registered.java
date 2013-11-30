@@ -172,27 +172,26 @@ public class Registered extends JPanel {
 	}
 
 	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz principal. Al hacer click en la
-		// imÃ¡gen "cookbook" voy al inicio.
+		com.t3g.cookbooks.gui.MainWindow.estado = "Home";
 	}
 	
 	private void txtHomeMousePressed(java.awt.event.MouseEvent evt){
-		//TODO: Mover a la ventana "home" o "libros" ser�a ir a la principal
+		com.t3g.cookbooks.gui.MainWindow.estado = "Home";
 	}
 
 	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de registro
+		// TODO Evento para ir a la interfaz de MI CUENTA
 	}
 
 	private void txtContacMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de contacto
+		com.t3g.cookbooks.gui.MainWindow.estado = "Contact";
 	}
 
 	private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de ayuda
+		com.t3g.cookbooks.gui.MainWindow.estado = "Help";
 	}
 
 	private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de pedidos
+		com.t3g.cookbooks.gui.MainWindow.estado = "Order";
 	}
 }
