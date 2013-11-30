@@ -4,16 +4,13 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Enumeration;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.border.EtchedBorder;
 
@@ -58,25 +55,6 @@ public class DataOfOrder extends JDialog {
 		btnImprimir.setBackground(new Color(153, 153, 255));
 		btnImprimir.setBounds(435, 216, 93, 23);
 		contentPane.add(btnImprimir);
-	}
-	
-	
-	/**
-	 * Método para la lógica de selección de los estados de un pedido
-	 * @return Opción seleccionada
-	 */
-	public static JRadioButton getSelection(ButtonGroup group) 
-	{
-	        for (Enumeration<AbstractButton> e=group.getElements(); e.hasMoreElements(); ) 
-	        {
-	            JRadioButton b = (JRadioButton)e.nextElement();
-	            if (b.getModel() == group.getSelection()) 
-	            {
-	                return b;
-	            }
-	        }
-
-	        return null;
 	}
 	
 	private void close() {
