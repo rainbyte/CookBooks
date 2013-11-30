@@ -11,6 +11,9 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 /**
  * 
@@ -18,7 +21,7 @@ import javax.swing.border.EmptyBorder;
  */
 public class ModifyState extends JDialog {
 	private static final long serialVersionUID = 1L;
-
+	ButtonGroup grupoBtn = new ButtonGroup();
 	private JPanel contentPane;
 
 	/**
@@ -26,8 +29,7 @@ public class ModifyState extends JDialog {
 	 */
 	public ModifyState() {
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
-		setBounds(100, 100, 450, 300);
+		setBounds(800, 200, 183, 203);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 153, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -42,39 +44,27 @@ public class ModifyState extends JDialog {
 			}
 		});
 		button.setBackground(new Color(153, 153, 255));
-		button.setBounds(51, 175, 137, 23);
+		button.setBounds(27, 140, 123, 23);
 		contentPane.add(button);
 
 		JButton btnAply = new JButton("Aplicar");
 		btnAply.setBackground(new Color(153, 153, 255));
-		btnAply.setBounds(217, 175, 159, 23);
+		btnAply.setBounds(27, 106, 123, 23);
 		contentPane.add(btnAply);
 
-		JCheckBox cbxDispatched = new JCheckBox("ENVIADO");
-		cbxDispatched.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO: Enviado seleccionado... si aplican... cambiar estado
-				// del pedido
-				// Ademas logica que si esta uno apretado el otro no
-			}
-		});
-		cbxDispatched.setBackground(new Color(0, 255, 0));
-		cbxDispatched.setBounds(159, 37, 97, 23);
-		contentPane.add(cbxDispatched);
-
-		JCheckBox cbxCanceled = new JCheckBox("CANCELADO");
-		cbxCanceled.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO: Enviado seleccionado... si aplican... cambiar estado
-				// del pedido
-				// Ademas logica que si esta apretado uno, el otro no
-			}
-		});
-		cbxCanceled.setBackground(new Color(255, 0, 0));
-		cbxCanceled.setBounds(159, 87, 97, 23);
-		contentPane.add(cbxCanceled);
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(null, "Opciones", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(27, 11, 123, 84);
+		contentPane.add(panel);
+		
+		JRadioButton rbtnDispatched = new JRadioButton("ENVIADO");
+		panel.add(rbtnDispatched);
+		
+		JRadioButton rbtnCancel = new JRadioButton("CANCELADO");
+		panel.add(rbtnCancel);
+		
+		grupoBtn.add(rbtnDispatched);
+		grupoBtn.add(rbtnCancel);
 	}
 	
 	private void close() {
