@@ -285,7 +285,6 @@ public class CatalogueCreateBook extends JDialog {
 				}
 			}
 			// ---------------------------------------------------
-			// TODO: implement support for image_path.
 			Book book = new Book(
 					txtIsbn.getText(),
 					txtTitle.getText(),

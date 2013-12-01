@@ -88,12 +88,12 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 	}
 	
 	public void goOrder() {
-		// TODO: needs user/admin detection
+		// TODO (Alvaro) apply user/admin detection (needs user state support).
 		setPanelBody(new Order(this));		
 	}
 
 	public void goRecoverPass() {
-		// TODO needs validation
+		// TODO (T3G) needs validation
 		setPanelBody(new RecoverPass(this));
 	}
 	

@@ -148,7 +148,7 @@ public class Order extends PanelBody implements ParentWindow {
 				book.getTitle(),
 				String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()),
 				book.getPrice(),
-				"???",	// TODO add categories support
+				"???",	// TODO (Alvaro) add categories support
 				book.getIsbn()
 			};
 			

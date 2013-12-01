@@ -482,7 +482,6 @@ public class Register extends PanelBody {
 	}
 
 	private boolean validateInput() {
-		// TODO: send validation msg
 		boolean correctName = FieldValidator.isAlpha(txtName.getText());
 		boolean correctSurname = FieldValidator.isAlpha(txtSurname.getText());
 		boolean correctEmail = FieldValidator.isEmail(txtEmail.getText());
@@ -626,9 +625,5 @@ public class Register extends PanelBody {
 		else {
 			return false;
 		}
-	}
-
-	private void close() {
-		// TODO: implement close method
 	}
 }
