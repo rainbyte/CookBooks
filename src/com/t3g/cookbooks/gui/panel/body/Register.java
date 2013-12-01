@@ -496,25 +496,22 @@ public class Register extends PanelBody {
 		boolean correctCreditCardCode = FieldValidator.isCreditCardCode(txtSecureCode.getText());
 		//----------------------------------------------------------------
 		if (!correctName) {
-			/* send validation msg */
-				System.out.println("txtName failed validation");
-				txtName.setBackground(Color.RED);
+			System.out.println("txtName failed validation");
+			txtName.setBackground(Color.RED);
 		}
 		else {
-				txtName.setBackground(Color.WHITE);
+			txtName.setBackground(Color.WHITE);
 		}
 		//----------------------------------------------------------------
 		if (!correctSurname) {
-			/* send validation msg */
-				System.out.println("txtSurname failed validation");
-				txtSurname.setBackground(Color.RED);
+			System.out.println("txtSurname failed validation");
+			txtSurname.setBackground(Color.RED);
 		}
 		else {
-				txtSurname.setBackground(Color.WHITE);
+			txtSurname.setBackground(Color.WHITE);
 		}
 		//---------------------------------------------------------------
 		if (!correctEmail) {
-			/* send validation msg */
 			System.out.println("txtEmail failed validation");
 			txtEmail.setBackground(Color.RED);
 		} else {
@@ -529,7 +526,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctPass) {
-			/* send validation msg */
 			System.out.println("txtPass failed validation");
 			txtPass.setBackground(Color.RED);
 			txtConfirmPass.setBackground(Color.RED);
@@ -540,7 +536,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctState) {
-			/* send validation msg */
 			System.out.println("cbxStates failed validation");
 			cbxStates.setBackground(Color.RED);
 		}
@@ -549,7 +544,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctTown) {
-			/* send validation msg */
 			System.out.println("txtTown failed validation");
 			txtTown.setBackground(Color.RED);
 		}
@@ -558,7 +552,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctStreet) {
-			/* send validation msg */
 			System.out.println("txtStreet failed validation");
 			txtStreet.setBackground(Color.RED);
 		}
@@ -567,7 +560,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctNumber) {
-			/* send validation msg */
 			System.out.println("txtNumber failed validation");
 			txtNumber.setBackground(Color.RED);
 		}
@@ -576,7 +568,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctCP) {
-			/* send validation msg */
 			System.out.println("txtCP failed validation");
 			txtCP.setBackground(Color.RED);
 		}
@@ -585,7 +576,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctPhone) {
-			/* send validation msg */
 			System.out.println("txtPhone failed validation");
 			txtPhone.setBackground(Color.RED);
 		}
@@ -594,7 +584,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctCreditCardNumber) {
-			/* send validation msg */
 			System.out.println("txtCard# failed validation");
 			txtCard1.setBackground(Color.RED);
 			txtCard2.setBackground(Color.RED);
@@ -609,7 +598,6 @@ public class Register extends PanelBody {
 		}
 		//---------------------------------------------------------------
 		if (!correctCreditCardCode) {
-			/* send validation msg */
 			System.out.println("txtSecureCore failed validation");
 			txtSecureCode.setBackground(Color.RED);
 		}
