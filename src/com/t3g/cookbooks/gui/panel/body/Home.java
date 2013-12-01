@@ -14,7 +14,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -24,10 +23,12 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
-public class Home extends JPanel implements ParentWindow {
+public class Home extends PanelBody implements ParentWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JComboBox<String> comboBoxSelectTheme;
@@ -36,12 +37,12 @@ public class Home extends JPanel implements ParentWindow {
 	private JTable tablePurchaces;
 	private DefaultTableModel tableBooksModel;
 
-	public Home() {
-		initialize();
+	public Home(MainWindowLogic mainWindow) {
+		super(mainWindow);
 		updateTableModel();
 	}
 
-	public void initialize() {
+	protected void initialize() {
 
 		setBackground(new java.awt.Color(153, 153, 255));
 		setAutoscrolls(true);

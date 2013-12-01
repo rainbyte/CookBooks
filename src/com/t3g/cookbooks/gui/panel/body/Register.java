@@ -7,19 +7,19 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.User;
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.util.FieldValidator;
 
-public class Register extends JPanel {
+public class Register extends PanelBody {
 	private static final long serialVersionUID = 1L;
 
 	private JButton btnBack, btnConfirm;
@@ -35,11 +35,11 @@ public class Register extends JPanel {
 			txtConfirmPass, txtDepto, txtEmail, txtFloor, txtName, txtNumber,
 			txtPass, txtPhone, txtSecureCode, txtStreet, txtSurname, txtTown;
 
-	public Register() {
-		initialize();
+	public Register(MainWindowLogic mainWindow) {
+		super(mainWindow);
 	}
 
-	public void initialize() {
+	protected void initialize() {
 		jLabel2 = new JLabel();
 		jSeparator1 = new JSeparator();
 		jLabel3 = new JLabel();

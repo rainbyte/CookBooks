@@ -8,12 +8,14 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
-public class Help extends JPanel {
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
+
+public class Help extends PanelBody {
 	private static final long serialVersionUID = 1L;
 
 	private JButton btnBack;
@@ -21,11 +23,11 @@ public class Help extends JPanel {
 	private JSeparator jSeparator1;
 	private JLabel lblFirmat3g;
 
-	public Help() {
-		initialize();
+	public Help(MainWindowLogic mainWindow) {
+		super(mainWindow);
 	}
 
-	public void initialize() {
+	protected void initialize() {
 		jLabel2 = new JLabel();
 		jLabel2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		jSeparator1 = new JSeparator();

@@ -8,12 +8,14 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class ModifyData extends JPanel {
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
+
+public class ModifyData extends PanelBody {
 	private static final long serialVersionUID = 1L;
 
 	private JButton btnBack, btnConfirm;
@@ -39,11 +41,11 @@ public class ModifyData extends JPanel {
 	private JLabel jlabel37;
 	private JLabel jlabel38;
 
-	public ModifyData() {
-		initialize();
+	public ModifyData(MainWindowLogic mainWindow) {
+		super(mainWindow);
 	}
 
-	public void initialize() {
+	protected void initialize() {
 		jLabel2 = new JLabel();
 		jLabel2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		jSeparator1 = new JSeparator();

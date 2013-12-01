@@ -11,9 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelHeader;
 import com.t3g.cookbooks.resources.Resources;
 
-public class Registered extends JPanel {
+public class Registered extends PanelHeader {
 	private static final long serialVersionUID = 1L;
 
 	JButton btnLogin, btnSearch;
@@ -26,11 +28,11 @@ public class Registered extends JPanel {
 	private JPanel panelMainBar;
 	private JLabel lblUsuario;
 
-	public Registered() {
-		initialize();
+	public Registered(MainWindowLogic mainWindow) {
+		super(mainWindow);
 	}
 
-	private void initialize() {
+	protected void initialize() {
 
 		setBackground(new java.awt.Color(153, 153, 255));
 
@@ -162,8 +164,7 @@ public class Registered extends JPanel {
 	}
 
 	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ingresar a la pagina, y loguearse. Abre pantalla
-		// home pero ya logueado.
+		// FIXME registered users should not need to login. Review this. 
 	}
 
 	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
@@ -172,27 +173,26 @@ public class Registered extends JPanel {
 	}
 
 	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz principal. Al hacer click en la
-		// imÃ¡gen "cookbook" voy al inicio.
+		mainWindow.goHome();
 	}
 	
 	private void txtHomeMousePressed(java.awt.event.MouseEvent evt){
-		//TODO: Mover a la ventana "home" o "libros" ser�a ir a la principal
+		mainWindow.goHome();
 	}
 
 	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de registro
+		// FIXME registered users should not need to register. Review this.
 	}
 
 	private void txtContacMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de contacto
+		mainWindow.goContact();
 	}
 
 	private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de ayuda
+		mainWindow.goHelp();
 	}
 
 	private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de pedidos
+		mainWindow.goOrder();
 	}
 }

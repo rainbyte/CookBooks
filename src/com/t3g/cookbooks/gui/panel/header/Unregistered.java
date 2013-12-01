@@ -12,11 +12,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelHeader;
 import com.t3g.cookbooks.resources.Resources;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class Unregistered extends JPanel {
+public class Unregistered extends PanelHeader {
 	private static final long serialVersionUID = 1L;
 
 	JButton btnLogin, btnSearch;
@@ -28,11 +28,11 @@ public class Unregistered extends JPanel {
 	private JPanel panelLogin2;
 	private JPanel panelMainBar;
 
-	public Unregistered() {
-		initialize();
+	public Unregistered(MainWindowLogic mainWindow) {
+		super(mainWindow);
 	}
 
-	private void initialize() {
+	protected void initialize() {
 
 		setBackground(new java.awt.Color(153, 153, 255));
 
@@ -187,8 +187,7 @@ public class Unregistered extends JPanel {
 	}
 
 	private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para recuperar contraseña, abre pantalla de
-		// "olvide contraseña"
+		mainWindow.goRecoverPass();
 	}
 
 	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
@@ -197,27 +196,26 @@ public class Unregistered extends JPanel {
 	}
 
 	private void lblPrincipalpictureMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz principal. Al hacer click en la
-		// imagen "cookbook" voy al inicio.
+		mainWindow.goHome();
 	}
 	
 	private void txtHomeMousePressed(java.awt.event.MouseEvent evt){
-		//TODO: Mover a la ventana "home" o "libros" ser�a ir a la principal
+		mainWindow.goHome();
 	}
 
 	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de registro
+		mainWindow.goRegister();
 	}
 
 	private void txtContacMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de contacto
+		mainWindow.goContact();
 	}
 
 	private void txtHelpMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de ayuda
+		mainWindow.goHelp();
 	}
 
 	private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz de pedidos
+		// FIXME unregistered users don't make orders. Review this.
 	}
 }

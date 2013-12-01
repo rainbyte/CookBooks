@@ -11,7 +11,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -19,21 +18,24 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.admin.DataOfOrder;
 import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
 
-public class Order extends JPanel implements ParentWindow {
+public class Order extends PanelBody implements ParentWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JTable tableBookList;
 	private DefaultTableModel tableBooksModel;
 
-	public Order() {
-		initialize();
+	public Order(MainWindowLogic mainWindow) {
+		super(mainWindow);
+		
 		updateTableModel();
 	}
 
-	public void initialize() {
+	protected void initialize() {
 
 		setBackground(new java.awt.Color(153, 153, 255));
 		setAutoscrolls(true);
@@ -66,7 +68,7 @@ public class Order extends JPanel implements ParentWindow {
 				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 				dialog.setVisible(true);
 				// TODO: Al ser presionado, muestra los siiguientes datos de un pedido en el JDialog DataOfOrder:
-				// Nombre, Dirección( Calle, Ciudad, Provinicia, CP), Teléfono, libro solicitado e ISBN
+				// Nombre, Direcciï¿½n( Calle, Ciudad, Provinicia, CP), Telï¿½fono, libro solicitado e ISBN
 			}
 		});
 

@@ -9,7 +9,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -19,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueCreateBook;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueEditBook;
 
@@ -26,7 +27,7 @@ import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueEditBook;
  * 
  * @author T3G
  */
-public class Catalogue extends JPanel implements ParentWindow {
+public class Catalogue extends PanelBody implements ParentWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JButton btnBack;
@@ -36,17 +37,18 @@ public class Catalogue extends JPanel implements ParentWindow {
 	/**
 	 * Creates new form Register
 	 */
-	public Catalogue() {
+	public Catalogue(MainWindowLogic mainWindow) {
+		super(mainWindow);
+		
 		setBackground(new Color(153, 153, 255));
-		initComponents();
-
+		
 		updateTableModel();
 	}
 
     /**
      * This method is called from within the constructor to initialize the form.
      */
-    private void initComponents() {
+	protected void initialize() {
     
         JScrollPane spanelBooks = new JScrollPane();
         

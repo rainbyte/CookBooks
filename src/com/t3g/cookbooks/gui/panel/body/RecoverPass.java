@@ -9,22 +9,24 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
-public class RecoverPass extends JPanel {
+import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
+import com.t3g.cookbooks.gui.abstraction.PanelBody;
+
+public class RecoverPass extends PanelBody {
 	private static final long serialVersionUID = 1L;
 
 	private JTextField textMail;
 
-	public RecoverPass() {
-		initialize();
+	public RecoverPass(MainWindowLogic mainWindow) {
+		super(mainWindow);
 	}
 
-	public void initialize() {
+	protected void initialize() {
 
 		setBackground(new java.awt.Color(153, 153, 255));
 		setAutoscrolls(true);
