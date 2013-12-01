@@ -6,17 +6,13 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.t3g.cookbooks.gui.panel.body.Contact;
-import com.t3g.cookbooks.gui.panel.body.Help;
-import com.t3g.cookbooks.gui.panel.body.Home;
 import com.t3g.cookbooks.gui.panel.body.Register;
 import com.t3g.cookbooks.gui.panel.header.Unregistered;
 
-public class MainWindow extends JFrame{
+public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public static String estado = "Home";
-	JPanel panelHeader;
-	static JPanel panelBody;
+
+	JPanel panelHeader, panelBody;
 
 	public MainWindow() {
 		getContentPane().setBackground(new Color(153, 153, 255));
@@ -32,8 +28,6 @@ public class MainWindow extends JFrame{
 		getContentPane().add(panelBody);
 
 	}
-	
-
 
 	public static void main(String[] args) {
 		/* Create and display the form */
@@ -41,7 +35,6 @@ public class MainWindow extends JFrame{
 			public void run() {
 				new MainWindow().setVisible(true);
 			}
-			
 		});
 	}
 }
