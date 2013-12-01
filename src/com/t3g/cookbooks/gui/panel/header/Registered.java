@@ -18,7 +18,7 @@ import com.t3g.cookbooks.resources.Resources;
 public class Registered extends PanelHeader {
 	private static final long serialVersionUID = 1L;
 
-	JButton btnLogin, btnSearch;
+	JButton btnLogout, btnSearch;
 	JLabel lblPrincipalpicture, txtContac, txtHelp, txtHome, txtOrder,
 			txtMyAccount;
 	JTextField txtSearch;
@@ -56,10 +56,10 @@ public class Registered extends PanelHeader {
 		panelLogin2.setBounds(497, 32, 281, 38);
 		add(panelLogin2);
 		panelLogin2.setBorder(null);
-		btnLogin = new JButton();
-		panelLogin2.add(btnLogin);
+		btnLogout = new JButton();
+		panelLogin2.add(btnLogout);
 
-		btnLogin.setText("Cerrar Sesi\u00F3n");
+		btnLogout.setText("Cerrar Sesi\u00F3n");
 
 		panelLogin1 = new JPanel();
 		panelLogin1.setBackground(new Color(153, 153, 255));
@@ -151,9 +151,9 @@ public class Registered extends PanelHeader {
 				btnSearchMousePressed(evt);
 			}
 		});
-		btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+		btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
-				btnLoginMousePressed(evt);
+				btnLogoutMousePressed(evt);
 			}
 		});
 		lblPrincipalpicture.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,8 +163,8 @@ public class Registered extends PanelHeader {
 		});
 	}
 
-	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
-		// FIXME registered users should not need to login. Review this. 
+	private void btnLogoutMousePressed(java.awt.event.MouseEvent evt) {
+		// TODO (Alvaro) implement event. Needs user state management. 
 	}
 
 	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
