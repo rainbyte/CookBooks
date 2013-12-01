@@ -15,7 +15,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 
-public class ModifyData extends PanelBody {
+public class MyAccount extends PanelBody {
 	private static final long serialVersionUID = 1L;
 
 	private JButton btnBack, btnConfirm;
@@ -41,7 +41,7 @@ public class ModifyData extends PanelBody {
 	private JLabel jlabel37;
 	private JLabel jlabel38;
 
-	public ModifyData(MainWindowLogic mainWindow) {
+	public MyAccount(MainWindowLogic mainWindow) {
 		super(mainWindow);
 	}
 
