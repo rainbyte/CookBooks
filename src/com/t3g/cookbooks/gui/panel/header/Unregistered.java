@@ -6,6 +6,7 @@ import java.awt.Font;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelHeader;
+import com.t3g.cookbooks.gui.admin.dialog.admin.AccesDenied;
 import com.t3g.cookbooks.resources.Resources;
 
 public class Unregistered extends PanelHeader {
@@ -216,6 +218,8 @@ public class Unregistered extends PanelHeader {
 	}
 
 	private void txtOrderMousePressed(java.awt.event.MouseEvent evt) {
-		// FIXME unregistered users don't make orders. Review this.
+		JDialog dialog = new AccesDenied();
+		dialog.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
 	}
 }
