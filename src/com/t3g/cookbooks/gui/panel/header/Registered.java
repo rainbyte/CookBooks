@@ -20,7 +20,7 @@ public class Registered extends PanelHeader {
 
 	JButton btnLogin, btnSearch;
 	JLabel lblPrincipalpicture, txtContac, txtHelp, txtHome, txtOrder,
-			txtRegister;
+			txtMyAccount;
 	JTextField txtSearch;
 	private JPanel panelSearchBar;
 	private JPanel panelLogin1;
@@ -121,14 +121,14 @@ public class Registered extends PanelHeader {
 
 		txtContac.setForeground(new java.awt.Color(51, 51, 255));
 		txtContac.setText("Contacto");
-		txtRegister = new JLabel();
-		panelToolBar.add(txtRegister);
+		txtMyAccount = new JLabel();
+		panelToolBar.add(txtMyAccount);
 
-		txtRegister.setForeground(new java.awt.Color(51, 51, 255));
-		txtRegister.setText("Mi Cuenta");
-		txtRegister.addMouseListener(new java.awt.event.MouseAdapter() {
+		txtMyAccount.setForeground(new java.awt.Color(51, 51, 255));
+		txtMyAccount.setText("Mi Cuenta");
+		txtMyAccount.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
-				txtRegisterMousePressed(evt);
+				txtMyAccountMousePressed(evt);
 			}
 		});
 		txtContac.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -180,8 +180,8 @@ public class Registered extends PanelHeader {
 		mainWindow.goHome();
 	}
 
-	private void txtRegisterMousePressed(java.awt.event.MouseEvent evt) {
-		// FIXME registered users should not need to register. Review this.
+	private void txtMyAccountMousePressed(java.awt.event.MouseEvent evt) {
+		mainWindow.goMyAccount();
 	}
 
 	private void txtContacMousePressed(java.awt.event.MouseEvent evt) {

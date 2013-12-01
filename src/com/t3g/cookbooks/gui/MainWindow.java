@@ -13,6 +13,7 @@ import com.t3g.cookbooks.gui.panel.body.Help;
 import com.t3g.cookbooks.gui.panel.body.Home;
 import com.t3g.cookbooks.gui.panel.body.RecoverPass;
 import com.t3g.cookbooks.gui.panel.body.Register;
+import com.t3g.cookbooks.gui.panel.body.user.ModifyData;
 import com.t3g.cookbooks.gui.panel.body.user.Order;
 import com.t3g.cookbooks.gui.panel.header.Unregistered;
 
@@ -82,6 +83,10 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 		setPanelBody(new Home(this));
 	}
 
+	public void goMyAccount() {
+		setPanelBody(new ModifyData(this));
+	}
+	
 	public void goOrder() {
 		// TODO: needs user/admin detection
 		setPanelBody(new Order(this));		
