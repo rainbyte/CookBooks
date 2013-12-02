@@ -1,4 +1,7 @@
-Tareas con prioridad:
+Tareas ordenada por prioridad:
+-Como usuario registrado quiero poder generar un pedido, copiar datos del catalogo a la lista de compras: (Alvaro)
+-Gestionar categorias con un for: (Alvaro)  
+-Verificar por ISBN que solo se suba un libro, no se permiten 2 libros iguales: (Martin)
 -Conexion de la base de datos de interfaz de pedido administrador (Purchase): (Fabrizio)
 -Conexion de la base de datos de interfaz de pedido usuario (Purchase): (Fabrizio)
 -Interfaz de alta de autor: (Martin)
@@ -7,6 +10,5 @@ Tareas con prioridad:
 -Agregar al carrito (logica): 
 -Agregar accion a la cesta de compra: (Alan)
 -Armar conexiones entre la home y las ventanas emergentes: (Alan)
--Agregar asteriscos a la alta libro: (Alan)
--Marcar en rojo campos invalidos, en interfaz de registro: (Martin)
--Gestionar categorias con un for: (Alvaro)  
+-Cambiar texto de 'lblEmailExist' por "usuario existente" si al registrarse el mail ya existe: (T3G)
+
