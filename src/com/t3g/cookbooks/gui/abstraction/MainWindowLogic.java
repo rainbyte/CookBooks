@@ -9,6 +9,7 @@ public interface MainWindowLogic {
 	public void goHome();
 	public void goMyAccount();
 	public void goOrder();
+	public void goPrevious();
 	public void goRecoverPass();
 	public void goRegister();
 }

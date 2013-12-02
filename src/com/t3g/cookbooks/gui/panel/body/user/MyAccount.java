@@ -141,7 +141,7 @@ public class MyAccount extends PanelBody {
 		txtPhone.setText("02225491066");
 
 		btnBack.setBackground(new java.awt.Color(255, 0, 0));
-		btnBack.setText("VOLVER AL INICIO");
+		btnBack.setText("VOLVER ATRAS");
 		btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
 				btnBackMousePressed(evt);
@@ -485,7 +485,6 @@ public class MyAccount extends PanelBody {
 	}
 
 	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz anterios (Principal?)
-		// Es el evento del boton "VOLVER ATRAS"
+		mainWindow.goPrevious();
 	}
 }

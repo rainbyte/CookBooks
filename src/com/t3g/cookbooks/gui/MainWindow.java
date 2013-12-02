@@ -22,7 +22,7 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 
 	private boolean hasPanelHeader = false, hasPanelBody = false;
 	private PanelHeader panelHeader;
-	private PanelBody panelBody;
+	private PanelBody panelBody, panelBodyPrev;
 	
 	public MainWindow() {
 		getContentPane().setBackground(new Color(153, 153, 255));
@@ -31,6 +31,8 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 
 		setPanelHeader(new Unregistered(this));
 		setPanelBody(new Home(this));
+		
+		panelBodyPrev = panelBody;
 	}
 
 	public void setPanelHeader(PanelHeader header) {
@@ -56,7 +58,10 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 		if (body == null) return;
 		
 		// Remove previous panel
-		if (hasPanelBody) getContentPane().remove(panelBody);
+		if (hasPanelBody) {
+			panelBodyPrev = panelBody;
+			getContentPane().remove(panelBody);
+		}
 				
 		// Instantiate new panel		
 		panelBody = body;
@@ -91,7 +96,11 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 		// TODO (Alvaro) apply user/admin detection (needs user state support).
 		setPanelBody(new Order(this));		
 	}
-
+	
+	public void goPrevious() {
+		setPanelBody(panelBodyPrev);
+	}
+	
 	public void goRecoverPass() {
 		// TODO (T3G) needs validation
 		setPanelBody(new RecoverPass(this));
