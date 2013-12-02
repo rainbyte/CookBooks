@@ -22,6 +22,8 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueCreateBook;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueEditBook;
+import com.t3g.cookbooks.gui.admin.dialog.admin.DataOfOrder;
+import com.t3g.cookbooks.gui.admin.dialog.admin.WarningDelete;
 
 /**
  * 
@@ -151,17 +153,13 @@ public class Catalogue extends PanelBody implements ParentWindow {
 	}
 
 	private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {
-		// TODO Al presionarse debe eliminar el libro seleccionado en la tabla
 		// Obtain Id from selected row
 		int selectedRow = tableBooks.getSelectedRow();
 		long id = (Long) tableBooks.getModel().getValueAt(selectedRow, 0);
+		JDialog dialog = new WarningDelete(id);
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
 
-		// Remove from db
-		try {
-			Database.getBookDao().deleteById(id);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 
 		// Update JTable and Model
 		updateTableModel();
