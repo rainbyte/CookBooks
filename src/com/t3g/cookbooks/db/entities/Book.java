@@ -12,7 +12,7 @@ public class Book {
 	@DatabaseField(generatedId = true)
 	private long id;
 	
-	@DatabaseField(canBeNull = false)
+	@DatabaseField(canBeNull = false, unique = true)
 	private String isbn;
 	
 	@DatabaseField(canBeNull = false)
