@@ -24,14 +24,14 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
+import com.t3g.cookbooks.gui.abstraction.DataWindow;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
-import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
 import com.t3g.cookbooks.gui.admin.dialog.user.BuyList;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
-public class Home extends PanelBody implements ParentWindow {
+public class Home extends PanelBody implements ParentWindow, DataWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JComboBox<String> comboBoxSelectTheme;
@@ -99,13 +99,10 @@ public class Home extends PanelBody implements ParentWindow {
 		btnNotBuy.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Accion del boton No comprar, cancelar lo añadido al
-				// carrito
-				JDialog dialog = new CancelPurchase();
-				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-				dialog.setVisible(true);
+				btnNotBuyMousePressed();
 			}
 		});
+		
 		btnNotBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -234,7 +231,9 @@ public class Home extends PanelBody implements ParentWindow {
 			// y no estar guardadas en memoria
 		tableBuyList = new JTable();
 		tableBuyList.setModel(new DefaultTableModel(
-			new Object[][] { 
+			new Object[][] {
+				{"Hola", "J"},
+				{"Juli", "g"},
 			},
 			new String[] {
 				"Mi compra actual (nombre)", "Valor ($)"
@@ -265,7 +264,13 @@ public class Home extends PanelBody implements ParentWindow {
         scrollPanelBookList.setViewportView(tableBookList);
 		setLayout(jPanel2Layout);
 	}
-
+	
+	private void btnNotBuyMousePressed() {
+		JDialog dialog = new CancelPurchase(this);
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
+	}
+	
 	private void updateTableModel() {
 		tableBooksModel = new DefaultTableModel();
 		tableBooksModel.addColumn("Id");
@@ -302,5 +307,13 @@ public class Home extends PanelBody implements ParentWindow {
 
 	public void update() {
 		updateTableModel();
+	}
+
+	@Override
+	public void deleteData() {
+		int rowCount =	tableBuyList.getModel().getRowCount();
+		for (int i=rowCount-1; i >= 0; i--) {
+			((DefaultTableModel) tableBuyList.getModel()).removeRow(i);
+		}
 	}
 }

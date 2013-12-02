@@ -1,7 +1,6 @@
 package com.t3g.cookbooks.gui.admin.dialog.user;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -13,19 +12,26 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.t3g.cookbooks.gui.abstraction.DataWindow;
+
 /**
  * 
  * @author T3G
  */
 public class CancelPurchase extends JDialog {
 	private static final long serialVersionUID = 1L;
-
+	
+	private DataWindow dataWindow;
 	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
 	 */
-	public CancelPurchase() {
+	public CancelPurchase(DataWindow dataWindow) {
+		super();
+		
+		this.dataWindow = dataWindow;
+		
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 		setBounds(100, 100, 450, 300);
@@ -58,24 +64,22 @@ public class CancelPurchase extends JDialog {
 		contentPane.add(button);
 
 		JButton button_1 = new JButton("Confirmar cancelacion");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnCancelPurchaseMousePressed();	
+			}
+		});
 		button_1.setBackground(new Color(153, 153, 255));
 		button_1.setBounds(217, 175, 159, 23);
 		contentPane.add(button_1);
 	}
 	
-	private void close() {
-		this.dispose();
+	private void btnCancelPurchaseMousePressed() {
+		dataWindow.deleteData();
 	}
 	
-	/**
-	 * Launch the dialog standalone.
-	 */
-	public static void main(String[] args) {
-		/* Create and display the form */
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new CancelPurchase().setVisible(true);
-			}
-		});
+	private void close() {
+		this.dispose();
 	}
 }
