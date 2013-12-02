@@ -24,7 +24,7 @@ public class Register extends PanelBody {
 
 	private JButton btnBack, btnConfirm;
 	private JComboBox<String> cbxStates;
-	private JLabel jLabel2, jLabel20, jLabel21, jLabel22, jLabel23, jLabel24,
+	private JLabel jLabel2, jLabel20, jLabel21, lblEmailExist, jLabel23, jLabel24,
 			jLabel25, jLabel26, jLabel27, jLabel29, jLabel3, jLabel30,
 			jLabel31, jLabel32, jLabel33, jLabel4;
 	private JSeparator jSeparator1;
@@ -81,7 +81,7 @@ public class Register extends PanelBody {
 		txtCard4 = new JTextField();
 		jLabel20 = new JLabel();
 		jLabel21 = new JLabel();
-		jLabel22 = new JLabel();
+		lblEmailExist = new JLabel();
 		jLabel23 = new JLabel();
 		jLabel24 = new JLabel();
 		jLabel25 = new JLabel();
@@ -175,8 +175,9 @@ public class Register extends PanelBody {
 		jLabel21.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel21.setText("*");
 
-		jLabel22.setForeground(new java.awt.Color(255, 0, 0));
-		jLabel22.setText("*");
+		lblEmailExist.setForeground(new java.awt.Color(255, 0, 0));
+		lblEmailExist.setText("*");
+		// TODO: Cambiar texto de 'lblEmailExist' por "usuario existente" si al registrarse el mail ya existe: (T3G)
 
 		jLabel23.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel23.setText("*");
@@ -330,7 +331,7 @@ public class Register extends PanelBody {
 											.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 												.addComponent(jLabel20)
 												.addComponent(jLabel21)
-												.addComponent(jLabel22)
+												.addComponent(lblEmailExist)
 												.addComponent(jLabel26)
 												.addComponent(jLabel25, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
 												.addGroup(jPanel2Layout.createSequentialGroup()
@@ -370,7 +371,7 @@ public class Register extends PanelBody {
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblEmail)
 						.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel22))
+						.addComponent(lblEmailExist))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblPass)
