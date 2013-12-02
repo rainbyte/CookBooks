@@ -309,7 +309,6 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		updateTableModel();
 	}
 
-	@Override
 	public void deleteData() {
 		int rowCount =	tableBuyList.getModel().getRowCount();
 		for (int i=rowCount-1; i >= 0; i--) {
