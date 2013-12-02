@@ -193,6 +193,46 @@ public class CatalogueCreateBook extends JDialog {
 		});
 		btnImagePath.setBounds(171, 158, 253, 25);
 		internalFrame.getContentPane().add(btnImagePath);
+		
+		JLabel label = new JLabel("*");
+		label.setForeground(new Color(204, 0, 0));
+		label.setBounds(423, 14, 15, 14);
+		internalFrame.getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("*");
+		label_1.setForeground(new Color(204, 0, 0));
+		label_1.setBounds(483, 42, 15, 14);
+		internalFrame.getContentPane().add(label_1);
+		
+		JLabel label_2 = new JLabel("*");
+		label_2.setForeground(new Color(204, 0, 0));
+		label_2.setBounds(221, 101, 15, 14);
+		internalFrame.getContentPane().add(label_2);
+		
+		JLabel label_3 = new JLabel("*");
+		label_3.setForeground(new Color(204, 0, 0));
+		label_3.setBounds(434, 132, 20, 14);
+		internalFrame.getContentPane().add(label_3);
+		
+		JLabel label_4 = new JLabel("*");
+		label_4.setForeground(new Color(204, 0, 0));
+		label_4.setBounds(221, 194, 15, 14);
+		internalFrame.getContentPane().add(label_4);
+		
+		JLabel label_5 = new JLabel("*");
+		label_5.setForeground(new Color(204, 0, 0));
+		label_5.setBounds(332, 223, 15, 14);
+		internalFrame.getContentPane().add(label_5);
+		
+		JLabel label_6 = new JLabel("*");
+		label_6.setForeground(new Color(204, 0, 0));
+		label_6.setBounds(434, 163, 20, 14);
+		internalFrame.getContentPane().add(label_6);
+		
+		JLabel label_7 = new JLabel("*");
+		label_7.setForeground(new Color(204, 0, 0));
+		label_7.setBounds(269, 72, 15, 14);
+		internalFrame.getContentPane().add(label_7);
 		addAuthors();
 		pack();
 	}
