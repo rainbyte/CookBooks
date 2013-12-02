@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
@@ -156,24 +157,25 @@ public class Home extends PanelBody implements ParentWindow {
 						.addComponent(scrollPanelBookList))
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 						.addGroup(jPanel2Layout.createSequentialGroup()
-							.addGap(7)
-							.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(scrollPanelBuyList, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+							.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addComponent(scrollPanelPurchaces, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.RELATED))
+									.addGap(31)
+									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
+										.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+										.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
 								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addGap(10)
-									.addComponent(label, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+									.addGap(18)
+									.addComponent(lblCarrito))
+								.addGroup(jPanel2Layout.createSequentialGroup()
+									.addGap(7)
+									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(scrollPanelBuyList, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+										.addComponent(scrollPanelPurchaces, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
+							.addGap(88))
 						.addGroup(jPanel2Layout.createSequentialGroup()
-							.addGap(31)
-							.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(jPanel2Layout.createSequentialGroup()
-							.addGap(18)
-							.addComponent(lblCarrito)))
-					.addGap(88))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(label, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addContainerGap())))
 		);
 		jPanel2Layout.setVerticalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
@@ -189,10 +191,10 @@ public class Home extends PanelBody implements ParentWindow {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(scrollPanelPurchaces, 0, 0, Short.MAX_VALUE)
+							.addComponent(scrollPanelPurchaces, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(label)
-							.addGap(24))
+							.addContainerGap())
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(comboBoxSelectTheme, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -277,7 +279,13 @@ public class Home extends PanelBody implements ParentWindow {
 		}
 
 		tableBookList.setModel(tableBooksModel);
-
+		
+		tableBookList.getColumnModel().getColumn(1).setMinWidth(200);
+		tableBookList.getColumnModel().getColumn(3).setMaxWidth(50);
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		tableBookList.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+		
 		// Hide Id column
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
