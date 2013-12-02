@@ -27,4 +27,7 @@ local.properties
 
 # ODF related
 .~lock*
+
+# Auto
 /bin
+/.checkstyle
