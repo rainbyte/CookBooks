@@ -56,6 +56,8 @@ public class BuyList extends JDialog {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Borrar del carrito el libro seleccionado de la lista
+				int selectedRow = tableBuyList.getSelectedRow();
+				((DefaultTableModel) tableBuyList.getModel()).removeRow(selectedRow);
 			}
 		});
 		btnDelete.setBackground(new Color(153, 153, 255));
@@ -70,9 +72,11 @@ public class BuyList extends JDialog {
 		tableBuyList = new JTable();
 		tableBuyList.setModel(
 			new DefaultTableModel(
-				new Object[][] {},
-				new String[] { "Mi compra actual (nombre)" }
-			)
+			new Object[][] {},
+			new String[] {
+				"Mi compra actual (nombre)"
+			}
+		)
 		);
 		scrollPanelBuyList.setViewportView(tableBuyList);
 

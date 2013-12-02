@@ -26,6 +26,8 @@ import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
+import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
+import com.t3g.cookbooks.gui.admin.dialog.user.BuyList;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
 import com.t3g.cookbooks.resources.Resources;
 
@@ -64,6 +66,14 @@ public class Home extends PanelBody implements ParentWindow {
 		JScrollPane scrollPanelBookList = new JScrollPane();
 
 		JLabel lblCarrito = new JLabel("");
+		lblCarrito.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				JDialog dialog = new BuyList();
+				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+				dialog.setVisible(true);
+			}
+		});
 		lblCarrito.setIcon(Resources.getIconCarrito());
 
 		JScrollPane scrollPanelBuyList = new JScrollPane(); // Lista de libros
