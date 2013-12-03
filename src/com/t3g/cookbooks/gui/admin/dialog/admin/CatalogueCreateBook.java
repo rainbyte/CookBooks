@@ -140,7 +140,7 @@ public class CatalogueCreateBook extends JDialog {
 		btnManagementAuthor.setBounds(362, 37, 130, 25);
 		btnManagementAuthor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				btnCreateAuthorMousePressed();
+				btnManagementAuthorMousePressed();
 			}
 		});
 		
@@ -245,7 +245,7 @@ public class CatalogueCreateBook extends JDialog {
 		pack();
 	}
 
-	private void btnCreateAuthorMousePressed() {
+	private void btnManagementAuthorMousePressed() {
 		JDialog dialog = new ManagementAuthor();
 		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setVisible(true);
