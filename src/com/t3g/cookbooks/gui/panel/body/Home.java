@@ -29,6 +29,7 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.user.BuyList;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
+import com.t3g.cookbooks.gui.admin.dialog.user.Preview;
 import com.t3g.cookbooks.gui.admin.dialog.user.ShowInfo;
 import com.t3g.cookbooks.resources.Resources;
 
@@ -134,7 +135,9 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		btnPreView.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Muestra las primas "imagenes" del libro, hojeado
+				JDialog dialogPreview = new Preview();
+				dialogPreview.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+				dialogPreview.setVisible(true);
 			}
 		});
 		btnPreView.setBackground(UIManager.getColor("Button.background"));
