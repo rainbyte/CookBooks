@@ -18,6 +18,7 @@ import com.t3g.cookbooks.db.entities.User;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.util.FieldValidator;
+import javax.swing.JPasswordField;
 
 public class Register extends PanelBody {
 	private static final long serialVersionUID = 1L;
@@ -31,9 +32,9 @@ public class Register extends PanelBody {
 	private JLabel lblCP, lblCard, lblConfirmPass, lblDepto, lblEmail,
 			lblFirmat3g, lblFloor, lblName, lblNumber, lblPass, lblPhone,
 			lblSecureCode, lblStates, lblStreet, lblSurname, lblTown;
-	private JTextField txtCP, txtCard1, txtCard2, txtCard3, txtCard4,
-			txtConfirmPass, txtDepto, txtEmail, txtFloor, txtName, txtNumber,
-			txtPass, txtPhone, txtSecureCode, txtStreet, txtSurname, txtTown;
+	private JTextField txtCP, txtCard1, txtCard2, txtCard3, txtCard4, txtDepto, txtEmail, txtFloor, txtName, txtNumber, txtPhone, txtSecureCode, txtStreet, txtSurname, txtTown;
+	private JPasswordField txtConfirmPass;
+	private JPasswordField txtPass;
 
 	public Register(MainWindowLogic mainWindow) {
 		super(mainWindow);
@@ -62,8 +63,6 @@ public class Register extends PanelBody {
 		txtName = new JTextField();
 		txtSurname = new JTextField();
 		txtEmail = new JTextField();
-		txtPass = new JTextField();
-		txtConfirmPass = new JTextField();
 		txtTown = new JTextField();
 		txtStreet = new JTextField();
 		txtNumber = new JTextField();
@@ -93,6 +92,8 @@ public class Register extends PanelBody {
 		jLabel32 = new JLabel();
 		cbxStates = new JComboBox<String>();
 		jLabel33 = new JLabel();
+		txtConfirmPass = new JPasswordField();
+		txtPass = new JPasswordField();
 
 		setBackground(new java.awt.Color(153, 153, 255));
 		setAutoscrolls(true);
@@ -153,7 +154,7 @@ public class Register extends PanelBody {
 		txtPhone.setText("");
 
 		btnBack.setBackground(new java.awt.Color(255, 0, 0));
-		btnBack.setText("VOLVER AL INICIO");
+		btnBack.setText("VOLVER ATR\u00C1S");
 		btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mousePressed(java.awt.event.MouseEvent evt) {
 				btnBackMousePressed(evt);
@@ -177,7 +178,6 @@ public class Register extends PanelBody {
 
 		lblEmailExist.setForeground(new java.awt.Color(255, 0, 0));
 		lblEmailExist.setText("*");
-		// TODO: Cambiar texto de 'lblEmailExist' por "usuario existente" si al registrarse el mail ya existe: (T3G)
 
 		jLabel23.setForeground(new java.awt.Color(255, 0, 0));
 		jLabel23.setText("*");
@@ -237,6 +237,7 @@ public class Register extends PanelBody {
 
 		jLabel33.setForeground(Color.RED);
 		jLabel33.setText("*");
+		
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
@@ -293,9 +294,9 @@ public class Register extends PanelBody {
 												.addComponent(txtName, 262, 262, Short.MAX_VALUE)
 												.addComponent(cbxStates, 0, 262, Short.MAX_VALUE)
 												.addGroup(jPanel2Layout.createSequentialGroup()
-													.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
-														.addComponent(txtConfirmPass, Alignment.LEADING)
-														.addComponent(txtPass, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+													.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING, false)
+														.addComponent(txtConfirmPass)
+														.addComponent(txtPass, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
 													.addPreferredGap(ComponentPlacement.RELATED)
 													.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 														.addComponent(jLabel23)
@@ -316,7 +317,7 @@ public class Register extends PanelBody {
 															.addGap(25)
 															.addComponent(lblFloor)
 															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(txtFloor, GroupLayout.DEFAULT_SIZE, 35, 45)
+															.addComponent(txtFloor, GroupLayout.DEFAULT_SIZE, 42, 45)
 															.addGap(25)
 															.addComponent(lblDepto)
 															.addPreferredGap(ComponentPlacement.RELATED)
@@ -375,14 +376,14 @@ public class Register extends PanelBody {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblPass)
-						.addComponent(txtPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel23))
+						.addComponent(jLabel23)
+						.addComponent(txtPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblConfirmPass)
 						.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
-							.addComponent(txtConfirmPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(jLabel24)))
+							.addComponent(lblConfirmPass)
+							.addComponent(txtConfirmPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(jLabel24))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblStates)
@@ -432,7 +433,7 @@ public class Register extends PanelBody {
 						.addComponent(jLabel32))
 					.addGap(18)
 					.addComponent(btnConfirm)
-					.addPreferredGap(ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnBack)
 						.addComponent(lblFirmat3g))
@@ -442,10 +443,6 @@ public class Register extends PanelBody {
 	}
 
 	private void btnConfirmMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento que confirma el registro de un usuario, aca tambien
-		// habri­a que validar que todos
-		// los campos fueron correctos...
-
 		boolean ready = validateInput();
 		if (!ready) {
 			return;
@@ -475,11 +472,11 @@ public class Register extends PanelBody {
 			e.printStackTrace();
 		}
 		JOptionPane.showMessageDialog(this, "         Usuario creado      \n Gracias por elegir CookBooks");
+		lblEmailExist.setText("*");
 	}
 
 	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ir a la interfaz anterios (Principal?)
-		// Es el evento del boton "VOLVER ATRAS"
+		mainWindow.goPrevious();
 	}
 
 	private boolean validateInput() {
@@ -521,6 +518,7 @@ public class Register extends PanelBody {
 				if (user.getEmail().equals(txtEmail.getText())) {
 					System.out.println("email exist!");
 					txtEmail.setBackground(Color.RED);
+					lblEmailExist.setText("Usuario existente!");
 					correctEmail = false;
 				}
 			}
