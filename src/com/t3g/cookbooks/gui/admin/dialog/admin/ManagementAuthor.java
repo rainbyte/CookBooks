@@ -1,47 +1,30 @@
 package com.t3g.cookbooks.gui.admin.dialog.admin;
 
 import java.awt.Color;
-import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.File;
+
 import java.sql.SQLException;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
-import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
-import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.gui.ParentWindow;
-import com.t3g.cookbooks.gui.ParentWindowDummy;
-import com.t3g.cookbooks.util.FieldValidator;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class ManagementAuthor extends JDialog {
 	private static final long serialVersionUID = 1L;
-
-	private ParentWindow parent;
 
 	// Variables declaration
 	private JInternalFrame internalFrame;
@@ -94,10 +77,20 @@ public class ManagementAuthor extends JDialog {
 		
 		btnAddAuthor = new JButton("Agregar Autor");
 		btnAddAuthor.setBounds(10, 11, 175, 23);
+        btnAddAuthor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+            	btnAddAuthorMouseClicked(evt);
+            }
+        });
 		internalFrame.getContentPane().add(btnAddAuthor);
 		
 		btnDeleteAuthor = new JButton("Eliminar");
 		btnDeleteAuthor.setBounds(585, 11, 89, 23);
+        btnDeleteAuthor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteAuthorMouseClicked(evt);
+            }
+        });
 		internalFrame.getContentPane().add(btnDeleteAuthor);
 		
 		btnEditAuthor = new JButton("Editar");
@@ -107,12 +100,34 @@ public class ManagementAuthor extends JDialog {
 		pack();
 	}
 
+	private void btnAddAuthorMouseClicked(java.awt.event.MouseEvent evt) {
+		JDialog dialog = new ManagementCreateAuthor();
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
+
+		updateTableModel();
+	}
+	
 	private void actionCancel() {
 		close();
 	}
 
 	private void close() {
 		this.dispose();
+	}
+	
+	private void btnDeleteAuthorMouseClicked(java.awt.event.MouseEvent evt) {
+		if (!(tableAuthors.getSelectedRow() == -1)){
+		// Obtain Id from selected row
+			int selectedRow = tableAuthors.getSelectedRow();
+			long id = (Long) tableAuthors.getModel().getValueAt(selectedRow, 0);
+			JDialog dialog = new WarningDeleteAuthor(id);
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
+
+		// Update JTable and Model
+			updateTableModel();
+		}
 	}
 	
 	private void updateTableModel() {
@@ -123,13 +138,11 @@ public class ManagementAuthor extends JDialog {
 		tableAuthorsModel.addColumn("Pais");
 		tableAuthorsModel.addColumn("Nacimiento");
 		
-		//----
-		System.out.printf("Hola");
-		//----
 		Country country = null;
 		long id;
 		for (Author author : Database.getAuthorDao()) {
 			id = author.getCountry().getId();
+			System.out.printf("%s" ,author.getCountry().getName());
 			try {
 				country = Database.getCountryDao().queryForId(id);
 			} catch (SQLException e) {
