@@ -29,6 +29,7 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.user.BuyList;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
+import com.t3g.cookbooks.gui.admin.dialog.user.ShowInfo;
 import com.t3g.cookbooks.resources.Resources;
 
 public class Home extends PanelBody implements ParentWindow, DataWindow {
@@ -118,8 +119,9 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		btnInfo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Muestra la informacion del libro seleccionado de la
-				// tabla
+				JDialog dialogInfo = new ShowInfo();
+				dialogInfo.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+				dialogInfo.setVisible(true);
 			}
 		});
 		btnInfo.addActionListener(new ActionListener() {
