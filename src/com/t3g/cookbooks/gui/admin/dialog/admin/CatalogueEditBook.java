@@ -14,6 +14,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -26,6 +27,7 @@ import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
+
 
 
 
@@ -423,14 +425,6 @@ public class CatalogueEditBook extends JDialog {
 			txtTags.setBackground(Color.WHITE);
 		}
 		//--------------------------------------------
-		if (!correctIsbn){
-			txtIsbn.setBackground(Color.RED);
-			}
-		else
-			{
-			txtIsbn.setBackground(Color.WHITE);
-		}
-		//--------------------------------------------
 
 		if (!correctImagePath) {
 			btnImagePath.setBackground(Color.RED);
@@ -438,7 +432,21 @@ public class CatalogueEditBook extends JDialog {
 			btnImagePath.setBackground(Color.WHITE);
 		}
 		// -------------------------------------------
-		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) && (correctIsbn) && (correctAuthor) && (correctLanguage) && (correctImagePath)){
+		if (!correctIsbn) {
+			txtIsbn.setBackground(Color.RED);
+		} else {
+			txtIsbn.setBackground(Color.WHITE);
+			for (Book book2 : Database.getBookDao()) {
+				if (book2.getIsbn().equals(txtIsbn.getText()) && (book2.getId() != book.getId())){
+						txtIsbn.setBackground(Color.RED);
+						correctIsbn = false;
+						JOptionPane.showMessageDialog(this, "ISBN ya existente en la Base de Datos");
+				}
+			}
+		}
+		// --------------------------------------------
+		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags) 
+				&& (correctIsbn) && (correctAuthor) && (correctLanguage) && (correctImagePath)){
 			String data;
 			for (Author author : Database.getAuthorDao()) {
 				data = String.format("%s, %s", author.getSurname(), author.getName());

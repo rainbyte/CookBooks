@@ -20,6 +20,7 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -253,8 +254,7 @@ public class CatalogueCreateBook extends JDialog {
 		// TODO: Faltaria implementar la forma en que almacena las categorias
 		// almacenadas
 		boolean correctPrice = FieldValidator.isNumberFloat(txtPrice.getText());
-		boolean correctPages = FieldValidator.isNumberInteger(txtPages
-				.getText());
+		boolean correctPages = FieldValidator.isNumberInteger(txtPages.getText());
 		boolean correctTitle = !txtTitle.getText().isEmpty();
 		boolean correctTags = !txtTags.getText().isEmpty();
 		boolean correctIsbn = FieldValidator.isIsbn(txtIsbn.getText());
@@ -306,16 +306,23 @@ public class CatalogueCreateBook extends JDialog {
 			txtTags.setBackground(Color.WHITE);
 		}
 		// --------------------------------------------
-		if (!correctIsbn) {
-			txtIsbn.setBackground(Color.RED);
-		} else {
-			txtIsbn.setBackground(Color.WHITE);
-		}
-		// --------------------------------------------
 		if (!correctImagePath) {
 			btnImagePath.setBackground(Color.RED);
 		} else {
 			btnImagePath.setBackground(Color.WHITE);
+		}
+		// --------------------------------------------
+		if (!correctIsbn) {
+			txtIsbn.setBackground(Color.RED);
+		} else {
+			txtIsbn.setBackground(Color.WHITE);
+			for (Book book2 : Database.getBookDao()) {
+				if (book2.getIsbn().equals(txtIsbn.getText())){
+					txtIsbn.setBackground(Color.RED);
+					correctIsbn = false;
+					JOptionPane.showMessageDialog(this, "ISBN ya existente en la Base de Datos");
+				}
+			}
 		}
 		// --------------------------------------------
 		if ((correctPages) && (correctPrice) && (correctTitle) && (correctTags)
