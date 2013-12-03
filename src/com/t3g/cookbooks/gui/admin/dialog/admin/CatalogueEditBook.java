@@ -29,12 +29,6 @@ import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
 
-
-
-
-
-
-
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 
