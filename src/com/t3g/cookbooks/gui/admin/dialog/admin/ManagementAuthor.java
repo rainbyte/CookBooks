@@ -95,6 +95,11 @@ public class ManagementAuthor extends JDialog {
 		
 		btnEditAuthor = new JButton("Editar");
 		btnEditAuthor.setBounds(486, 11, 89, 23);
+        btnEditAuthor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditAuthorMouseClicked(evt);
+            }
+        });
 		internalFrame.getContentPane().add(btnEditAuthor);
 		getContentPane().add(internalFrame);
 		pack();
@@ -106,6 +111,18 @@ public class ManagementAuthor extends JDialog {
 		dialog.setVisible(true);
 
 		updateTableModel();
+	}
+	
+	private void btnEditAuthorMouseClicked(java.awt.event.MouseEvent evt) {
+		if (!(tableAuthors.getSelectedRow() == -1)){
+			int selectedRow = tableAuthors.getSelectedRow();
+			long id = (Long) tableAuthors.getModel().getValueAt(selectedRow, 0);
+			JDialog dialog = new ManagementEditAuthor(id);
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
+
+			updateTableModel();
+		}
 	}
 	
 	private void actionCancel() {
