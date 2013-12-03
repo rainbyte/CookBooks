@@ -129,7 +129,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnInfo.setBackground(UIManager.getColor("Button.background"));
+		btnInfo.setBackground(new Color(153, 153, 255));
 
 		JButton btnPreView = new JButton("Hojear");
 		btnPreView.addMouseListener(new MouseAdapter() {
@@ -140,7 +140,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 				dialogPreview.setVisible(true);
 			}
 		});
-		btnPreView.setBackground(UIManager.getColor("Button.background"));
+		btnPreView.setBackground(new Color(153, 153, 255));
 
 		JButton btnAdd = new JButton("Agregar al carrito");
 		btnAdd.addMouseListener(new MouseAdapter() {
@@ -150,7 +150,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 				// la tabla
 			}
 		});
-		btnAdd.setBackground(UIManager.getColor("Button.background"));
+		btnAdd.setBackground(new Color(153, 153, 255));
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
