@@ -2,6 +2,7 @@ package com.t3g.cookbooks.gui.admin.dialog.admin;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dialog;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -54,9 +55,8 @@ public class CatalogueEditBook extends JDialog {
 			lblPages, lblSummary, lblFirstPages;
 	private JTextField txtTitle, txtIsbn, txtPrice, txtTags, txtPages;
 	private JTextArea txtSummary, txtAditional;
-	private JButton btnCancelar, btnConfirmar, btnCreateAuthor, btnImagePath;
+	private JButton btnCancelar, btnConfirmar, btnManagementAuthor, btnImagePath;
 	private JComboBox cbxAuthor, cbxLanguage;
-	private int selectBook,i;
 	private long id;
 	private Book book;
 	private String imagePath = "";
@@ -183,11 +183,6 @@ public class CatalogueEditBook extends JDialog {
 		addAuthors();
 		
 		btnCancelar = new JButton("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarMousePressed(evt);
-            }
-		});
 		btnImagePath = new JButton("Seleccionar imagen ...");
 		btnImagePath.addMouseListener(new MouseAdapter() {
 			@Override
@@ -213,14 +208,15 @@ public class CatalogueEditBook extends JDialog {
 		btnConfirmar.setBounds(269, 515, 89, 23);
 		internalFrame.getContentPane().add(btnConfirmar);
 		
-		btnCreateAuthor = new JButton("Nuevo Autor");
-        btnCreateAuthor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAuthorMousePressed(evt);
-            }
+		btnManagementAuthor = new JButton("Gestion de Autor");
+		btnManagementAuthor.setBounds(362, 37, 130, 25);
+		btnManagementAuthor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnManagementAuthorMousePressed();
+			}
 		});
-		btnCreateAuthor.setBounds(368, 37, 105, 25);
-		internalFrame.getContentPane().add(btnCreateAuthor);
+
+		internalFrame.getContentPane().add(btnManagementAuthor);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
@@ -260,7 +256,7 @@ public class CatalogueEditBook extends JDialog {
 		
 		JLabel label_1 = new JLabel("*");
 		label_1.setForeground(new Color(204, 0, 0));
-		label_1.setBounds(483, 42, 17, 14);
+		label_1.setBounds(493, 42, 17, 14);
 		internalFrame.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("*");
@@ -296,19 +292,12 @@ public class CatalogueEditBook extends JDialog {
 		addAuthors();
 		pack();
 	}
-	
-    private void btnCancelarMousePressed(ActionEvent evt) {
-        // TODO Al presionar se debe cerrar la ventana de "Editar libro" y descartar los cambios
-    }
-    
-    private void btnConfirmarMousePressed(ActionEvent evt) {
-        // TODO Al presionar se deben validar los campos y, si son todos correctos, guardar la modificacion en la base de datos
-    }
-    
-    private void btnCreateAuthorMousePressed(ActionEvent evt) {
-        // TODO Al presionar se debe abrir la ventana de "Agregar Autor"
-    }
 
+	private void btnManagementAuthorMousePressed () {
+		JDialog dialog = new ManagementAuthor();
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
+	}
 	/**
 	 * @param args
 	 *            the command line arguments
