@@ -451,7 +451,7 @@ public class Register extends PanelBody {
 			txtName.getText(),
 			txtSurname.getText(),
 			txtEmail.getText(),
-			txtPass.getText(),
+			new String(txtPass.getPassword()),
 			cbxStates.getSelectedItem().toString(),
 			txtTown.getText(),
 			txtStreet.getText(),
@@ -480,10 +480,12 @@ public class Register extends PanelBody {
 	}
 
 	private boolean validateInput() {
+		String password = new String(txtPass.getPassword());
+		String passwordValidator = new String(txtConfirmPass.getPassword());
 		boolean correctName = FieldValidator.isAlpha(txtName.getText());
 		boolean correctSurname = FieldValidator.isAlpha(txtSurname.getText());
 		boolean correctEmail = FieldValidator.isEmail(txtEmail.getText());
-		boolean correctPass = ((txtPass.getText().equals(txtConfirmPass.getText())) && (!txtPass.getText().isEmpty()));
+		boolean correctPass = ((password.equals(passwordValidator)) && (!password.isEmpty()));
 		boolean correctState = (FieldValidator.isAlpha(cbxStates.getSelectedItem().toString()) && (!cbxStates.getSelectedItem().toString().equals("Seleccionar Provincia")));
 		boolean correctTown = FieldValidator.isAlpha(txtTown.getText());
 		boolean correctStreet = FieldValidator.isAlpha(txtStreet.getText());
