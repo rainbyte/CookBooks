@@ -1,14 +1,11 @@
-Tareas ordenada por prioridad:
+Tareas ordenadas por prioridad:
 -Como usuario registrado quiero poder generar un pedido, copiar datos del catalogo a la lista de compras: (Alvaro)
 -Gestionar categorias con un for: (Alvaro)  
+-Realizar conexion de quitar del carrito, y de la lista actual de compras: (Fabrizio)
 -Verificar por ISBN que solo se suba un libro, no se permiten 2 libros iguales: (Martin)
--Conexion de la base de datos de interfaz de pedido administrador (Purchase): (Fabrizio)
--Conexion de la base de datos de interfaz de pedido usuario (Purchase): (Fabrizio)
--Interfaz de alta de autor: (Martin)
--Asignar estado de un pedido en la base de datos de pedidos, luego de que se modifica: ...
+-Modificar el estado de un pedido como administrador: (T3G)
+-Realizar interfaz para mostrar "info" y "primeras paginas": (Alan)
+-Mostrar "info" y "primeras paginas" en VER INFO y HOJEAR respectivamente desde la db: (T3G)
 -Manejo de estado de usuario: (Alvaro)
--Agregar al carrito (logica): 
--Agregar accion a la cesta de compra: (Alan)
--Armar conexiones entre la home y las ventanas emergentes: (Alan)
--Cambiar texto de 'lblEmailExist' por "usuario existente" si al registrarse el mail ya existe: (T3G)
+-Inicio y cierre de sesion: (T3G)
 
