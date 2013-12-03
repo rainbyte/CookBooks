@@ -2,6 +2,7 @@ package com.t3g.cookbooks.gui.admin.dialog.admin;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -43,7 +44,7 @@ public class CatalogueCreateBook extends JDialog {
 			lblPages, lblSummary, lblSample, lblLanguage;
 	private JTextField txtTitle, txtIsbn, txtPrice, txtTags, txtPages;
 	private JTextArea txtSummary, txtAditional;
-	private JButton btnSave, btnCancel, btnCreateAuthor, btnImagePath;
+	private JButton btnSave, btnCancel, btnManagementAuthor, btnImagePath;
 	private JComboBox<String> cbxAuthor, cbxLanguage;
 
 	private String imagePath = "";
@@ -134,9 +135,15 @@ public class CatalogueCreateBook extends JDialog {
 			}
 		});
 
-		btnCreateAuthor = new JButton("Nuevo Autor");
-		btnCreateAuthor.setBounds(368, 37, 105, 25);
-		internalFrame.getContentPane().add(btnCreateAuthor);
+		btnManagementAuthor = new JButton("Gestion de Autor");
+		btnManagementAuthor.setBounds(362, 37, 130, 25);
+		btnManagementAuthor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnCreateAuthorMousePressed();
+			}
+		});
+		
+		internalFrame.getContentPane().add(btnManagementAuthor);
 
 		internalFrame.setBackground(new Color(153, 153, 255));
 		internalFrame.setTitle("Cargar libro");
@@ -201,7 +208,7 @@ public class CatalogueCreateBook extends JDialog {
 		
 		JLabel label_1 = new JLabel("*");
 		label_1.setForeground(new Color(204, 0, 0));
-		label_1.setBounds(483, 42, 15, 14);
+		label_1.setBounds(493, 42, 15, 14);
 		internalFrame.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("*");
@@ -237,6 +244,11 @@ public class CatalogueCreateBook extends JDialog {
 		pack();
 	}
 
+	private void btnCreateAuthorMousePressed() {
+		JDialog dialog = new ManagementAuthor();
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
+	}
 	private void actionSave() {
 		// TODO: Faltaria implementar la forma en que almacena las categorias
 		// almacenadas
