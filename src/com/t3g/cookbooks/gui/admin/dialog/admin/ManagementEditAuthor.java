@@ -35,6 +35,9 @@ import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ManagementEditAuthor extends JDialog {
 	private static final long serialVersionUID = 1L;
 
@@ -49,10 +52,13 @@ public class ManagementEditAuthor extends JDialog {
     private JComboBox<String> cbxCountry;
 
 	private JTextField txtName;
-	private JTextField textField;
+	private JTextField txtBirthDate;
 	
 	private long id;
 	private Author author;
+	
+	private SimpleDateFormat dateFormat;
+	private Date date;
 	
 	//------------------------------------------------------------------
 	
@@ -67,7 +73,7 @@ public class ManagementEditAuthor extends JDialog {
 
 	public ManagementEditAuthor(long ID) {
 		id = ID;
-		getContentPane().setPreferredSize(new Dimension(518, 578));
+		getContentPane().setPreferredSize(new Dimension(518, 432));
 		getContentPane().setBackground(new Color(153, 153, 255));
 		setBackground(new Color(153, 153, 255));
 		setTitle("Gestion de Autor");
@@ -180,10 +186,15 @@ public class ManagementEditAuthor extends JDialog {
 		lblBirthdate.setBounds(27, 136, 137, 14);
 		internalFrame.getContentPane().add(lblBirthdate);
 		
-		textField = new JTextField("15/11/1958");
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		textField.setBounds(171, 129, 150, 25);
-		internalFrame.getContentPane().add(textField);
+		txtBirthDate = new JTextField("");
+		txtBirthDate.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtBirthDate.setBounds(171, 129, 150, 25);
+		internalFrame.getContentPane().add(txtBirthDate);
+		
+		JLabel lblDateFormat = new JLabel("Ejemplo: 25-12-1956");
+		lblDateFormat.setForeground(new Color(204, 0, 0));;
+		lblDateFormat.setBounds(327, 129, 125, 25);
+		internalFrame.getContentPane().add(lblDateFormat);
 		
 		addCountries();
 		//--------------------------------------------------------------
@@ -198,6 +209,14 @@ public class ManagementEditAuthor extends JDialog {
 		cbxCountry.setSelectedItem(String.format("%s",author.getCountry().getName()));
 		txtGender.setText(String.format("%s",author.getGender()));
 		txtAbout.setText(author.getAbout());
+		String date_s = "";
+		dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		try {
+			date_s = dateFormat.format(author.getBirthdate());
+		}   catch (Exception e) {
+			System.out.printf("%s Birthdate mal ingresada\n", author.getSurname());
+		}
+		txtBirthDate.setText(date_s);
 		
 		//--------------------------------------------------------------
 
@@ -250,18 +269,24 @@ public class ManagementEditAuthor extends JDialog {
 				}
 			}
 			// ---------------------------------------------------
-			Author author = new Author(
-					txtName.getText(),
-					txtSurname.getText(),
-					selectCountry);
-
+			dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			try {
+				date = dateFormat.parse(txtBirthDate.getText());
+			}   catch (Exception e) {
+				date = null; //Si la fecha es mal ingresada, no se guarda nada.
+				System.out.printf("Birthdate mal ingresada\n");
+			}
+			// ---------------------------------------------------
+			author.setSurname(txtSurname.getText());
+			author.setName(txtName.getText());
+			author.setCountry(selectCountry);
 			author.setAbout(txtAbout.getText());
 			author.setGender(txtGender.getText().charAt(0));
-			author.setBirthdate(null);
+			author.setBirthdate(date);
 			// TODO: Revisar como se puede realizar el ingreso de la fecha de nacimiento (txt, calendario, etc)
 			// ---------------------------------------------------
 			try {
-				Database.getAuthorDao().create(author);
+				Database.getAuthorDao().update(author);
 			} catch (SQLException ex) {
 				ex.printStackTrace();
 			}
