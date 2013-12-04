@@ -7,6 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -50,7 +51,7 @@ public class CatalogueEditBook extends JDialog {
 	private JTextField txtTitle, txtIsbn, txtPrice, txtTags, txtPages;
 	private JTextArea txtSummary, txtAditional;
 	private JButton btnCancelar, btnConfirmar, btnManagementAuthor, btnImagePath;
-	private JComboBox cbxAuthor, cbxLanguage;
+	private JComboBox<String> cbxAuthor, cbxLanguage;
 	private long id;
 	private Book book;
 	private String imagePath = "";
@@ -291,6 +292,11 @@ public class CatalogueEditBook extends JDialog {
 		JDialog dialog = new ManagementAuthor();
 		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setVisible(true);
+		
+		cbxAuthor.removeAllItems();
+		cbxAuthor.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Seleccionar Autor" }));
+		addAuthors();
 	}
 	/**
 	 * @param args

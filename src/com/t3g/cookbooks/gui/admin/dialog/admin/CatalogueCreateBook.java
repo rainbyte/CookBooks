@@ -249,6 +249,11 @@ public class CatalogueCreateBook extends JDialog {
 		JDialog dialog = new ManagementAuthor();
 		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setVisible(true);
+		
+		cbxAuthor.removeAllItems();
+		cbxAuthor.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Seleccionar Autor" }));
+		addAuthors();
 	}
 	private void actionSave() {
 		// TODO: Faltaria implementar la forma en que almacena las categorias
