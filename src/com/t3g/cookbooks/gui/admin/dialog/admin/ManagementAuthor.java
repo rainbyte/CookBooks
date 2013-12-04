@@ -23,6 +23,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import java.text.SimpleDateFormat;
+
 public class ManagementAuthor extends JDialog {
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +34,8 @@ public class ManagementAuthor extends JDialog {
 
 	private JTable tableAuthors;
 	private DefaultTableModel tableAuthorsModel;
+	
+	private SimpleDateFormat dateFormat;
 
 	public ManagementAuthor() {
 
@@ -156,8 +160,11 @@ public class ManagementAuthor extends JDialog {
 		tableAuthorsModel.addColumn("Nacimiento");
 		
 		Country country = null;
+		dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		long id;
+		String date;
 		for (Author author : Database.getAuthorDao()) {
+			date = "";
 			id = author.getCountry().getId();
 			System.out.printf("%s" ,author.getCountry().getName());
 			try {
@@ -165,12 +172,17 @@ public class ManagementAuthor extends JDialog {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			try {
+				date = dateFormat.format(author.getBirthdate());
+			}   catch (Exception e) {
+				System.out.printf("%s Birthdate mal ingresada\n", author.getSurname());
+			}
 			Object[] rowData = new Object[] {
 				author.getId(),
 				author.getSurname(),
 				author.getName(),
 				country.getName(),
-				String.format("%s,", author.getBirthdate()),
+				date
 			};
 			tableAuthorsModel.addRow(rowData);
 		}
