@@ -26,10 +26,13 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.user.BuyList;
 import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
+import com.t3g.cookbooks.gui.admin.dialog.user.ConfirmPurchase;
 import com.t3g.cookbooks.gui.admin.dialog.user.Preview;
 import com.t3g.cookbooks.gui.admin.dialog.user.ShowInfo;
 import com.t3g.cookbooks.resources.Resources;
+
 import java.awt.Rectangle;
+
 import javax.swing.SwingConstants;
 
 public class Home extends PanelBody implements ParentWindow, DataWindow {
@@ -80,8 +83,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		JButton btnBuy = new JButton("");
 		btnBuy.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Accion del boton comprar, para confirmar lo añadido al
-				// carrito
+				btnBuyMousePressed();
 			}
 		});
 		btnBuy.setBackground(new Color(153, 153, 255));
@@ -201,6 +203,16 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		setLayout(jPanel2Layout);
 	}
 	
+	private void btnBuyMousePressed() {
+		float total = 0;
+		int rowCount =	tableBuyList.getModel().getRowCount();
+		for (int i=rowCount-1; i >= 0; i--) {
+			total = total + Float.parseFloat(tableBuyList.getModel().getValueAt(i, 2).toString());
+		}
+		JDialog dialog = new ConfirmPurchase(total);
+		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+		dialog.setVisible(true);
+	}
 	private void btnAddMousePressed() {
 		if (!(tableBookList.getSelectedRow() == -1)){
 			int selectedRow = tableBookList.getSelectedRow();
