@@ -27,11 +27,11 @@ public class BuyList extends JDialog {
 
 	private JPanel contentPane;
 	private JTable tableBuyList;
-
 	/**
 	 * Create the frame.
 	 */
-	public BuyList() {
+	public BuyList(DefaultTableModel model) {
+		
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 		setBounds(100, 100, 450, 300);
@@ -70,14 +70,8 @@ public class BuyList extends JDialog {
 
 		// TODO Agregar los libros del carrito en la lista
 		tableBuyList = new JTable();
-		tableBuyList.setModel(
-			new DefaultTableModel(
-			new Object[][] {},
-			new String[] {
-				"Mi compra actual (nombre)"
-			}
-		)
-		);
+		tableBuyList.setModel(model);
+		tableBuyList.removeColumn(tableBuyList.getColumnModel().getColumn(0));
 		scrollPanelBuyList.setViewportView(tableBuyList);
 
 		JButton btnBack = new JButton("Volver atras");
@@ -94,17 +88,5 @@ public class BuyList extends JDialog {
 	
 	private void close() {
 		this.dispose();
-	}
-	
-	/**
-	 * Launch the dialog standalone.
-	 */
-	public static void main(String[] args) {
-		/* Create and display the form */
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new BuyList().setVisible(true);
-			}
-		});
 	}
 }

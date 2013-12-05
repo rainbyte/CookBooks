@@ -3,8 +3,6 @@ package com.t3g.cookbooks.gui.panel.body;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -17,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -71,7 +68,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		JLabel lblCarrito = new JLabel("");
 		lblCarrito.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg0) {
-				JDialog dialog = new BuyList();
+				JDialog dialog = new BuyList(tableBuyListModel);
 				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 				dialog.setVisible(true);
 			}
