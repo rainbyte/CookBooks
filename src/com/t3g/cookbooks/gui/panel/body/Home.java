@@ -204,14 +204,16 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 	}
 	
 	private void btnBuyMousePressed() {
-		float total = 0;
 		int rowCount =	tableBuyList.getModel().getRowCount();
-		for (int i=rowCount-1; i >= 0; i--) {
-			total = total + Float.parseFloat(tableBuyList.getModel().getValueAt(i, 2).toString());
+		if (rowCount > 0) {
+			float total = 0;
+			for (int i=rowCount-1; i >= 0; i--) {
+				total = total + Float.parseFloat(tableBuyList.getModel().getValueAt(i, 2).toString());
+			}
+			JDialog dialog = new ConfirmPurchase(total, tableBuyListModel, this);
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
 		}
-		JDialog dialog = new ConfirmPurchase(total);
-		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-		dialog.setVisible(true);
 	}
 	private void btnAddMousePressed() {
 		if (!(tableBookList.getSelectedRow() == -1)){
@@ -246,9 +248,12 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 	}
 	
 	private void btnNotBuyMousePressed() {
-		JDialog dialog = new CancelPurchase(this);
-		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-		dialog.setVisible(true);
+		int rowCount =	tableBuyList.getModel().getRowCount();
+		if (rowCount > 0) {
+			JDialog dialog = new CancelPurchase(this);
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
+		}
 	}
 	
 	private void updateTablePurchases() {
