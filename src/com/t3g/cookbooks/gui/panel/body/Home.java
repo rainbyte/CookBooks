@@ -37,14 +37,15 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JComboBox<String> comboBoxSelectTheme;
-	private JTable tableBookList;
-	private JTable tableBuyList;
-	private JTable tablePurchaces;
-	private DefaultTableModel tableBooksModel;
+	private JTable tableBookList, tableBuyList, tablePurchases;
+	private DefaultTableModel tableBooksModel, tableBuyListModel;
+	private JScrollPane scrollPanelBookList, scrollPanelBuyList, scrollPanelPurchases;
 
 	public Home(MainWindowLogic mainWindow) {
 		super(mainWindow);
 		updateTableModel();
+		updateTablePurchases();
+		updateTableBuyList();
 	}
 
 	protected void initialize() {
@@ -65,11 +66,10 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 								"Postres", "Otro" }));
 		comboBoxSelectTheme.setEditable(true);
 
-		JScrollPane scrollPanelBookList = new JScrollPane();
+		scrollPanelBookList = new JScrollPane();
 
 		JLabel lblCarrito = new JLabel("");
 		lblCarrito.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				JDialog dialog = new BuyList();
 				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
@@ -78,17 +78,10 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		});
 		lblCarrito.setIcon(Resources.getIconCarrito());
 
-		JScrollPane scrollPanelBuyList = new JScrollPane(); // Lista de libros
-															// agregados al
-															// carrito
-
+		scrollPanelBuyList = new JScrollPane(); // Lista de libros
+															// agregados al carrito
 		JButton btnBuy = new JButton("");
-		btnBuy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnBuy.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				// TODO Accion del boton comprar, para confirmar lo añadido al
 				// carrito
@@ -96,26 +89,22 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		});
 		btnBuy.setBackground(new Color(153, 153, 255));
 		btnBuy.setIcon(Resources.getIconBuy());
-
+		//-----------------------------------------------------
 		JButton btnNotBuy = new JButton("");
 		btnNotBuy.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent e) {
 				btnNotBuyMousePressed();
 			}
 		});
-		
-		btnNotBuy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnNotBuy.setBackground(new Color(153, 153, 255));
 		btnNotBuy.setIcon(Resources.getIconNotBuy());
+		//-----------------------------------------------------
 
-		JScrollPane scrollPanelPurchaces = new JScrollPane();
+		scrollPanelPurchases = new JScrollPane();
 
 		JLabel label = new JLabel("DESARROLLADO POR T3G");
-
+		
+		//-----------------------------------------------------
 		JButton btnInfo = new JButton("Ver Info");
 		btnInfo.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg0) {
@@ -123,7 +112,8 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 			}
 		});
 		btnInfo.setBackground(new Color(153, 153, 255));
-
+		//-----------------------------------------------------
+		
 		JButton btnPreView = new JButton("Hojear");
 		btnPreView.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -131,16 +121,15 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 			}
 		});
 		btnPreView.setBackground(new Color(153, 153, 255));
-
+		//-----------------------------------------------------
 		JButton btnAdd = new JButton("Agregar al carrito");
 		btnAdd.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Agregar a la lista del carrito, el libro seleccionado en
-				// la tabla
+				btnAddMousePressed();
 			}
 		});
 		btnAdd.setBackground(new Color(153, 153, 255));
+		//-----------------------------------------------------
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
@@ -172,7 +161,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 									.addGap(7)
 									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
 										.addComponent(scrollPanelBuyList, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-										.addComponent(scrollPanelPurchaces, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
+										.addComponent(scrollPanelPurchases, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
 							.addGap(88))
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -193,7 +182,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(scrollPanelPurchaces, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+							.addComponent(scrollPanelPurchases, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(label)
 							.addContainerGap())
@@ -206,60 +195,27 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(scrollPanelBookList, GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE))))
 		);
-		
-		tablePurchaces = new JTable();
-		tablePurchaces.setModel(new DefaultTableModel(new Object[][] {
-			// TODO Precio y nombre de la ultima compra
-			{ "Compra 5", null }, { null, null },
-			// TODO Precio y nombre de la compra 4
-			{ "Compra 4", null }, { null, null },
-			// TODO Precio y nombre de la compra 3
-			{ "Compra 3", null }, { null, null },
-			// TODO Precio y nombre de la compra 2
-			{ "Compra 2", null }, { null, null },
-			// TODO Precio y nombre de la compra 1
-			{ "Compra 1", null }, { null, null },
-		}, new String[] { "Nombre", "Precio" }));
-		scrollPanelPurchaces.setColumnHeaderView(tablePurchaces);
-
-		//TODO las compras en el carrito, tienen que ser una estructura dinamica,
-			// y no estar guardadas en memoria
-		tableBuyList = new JTable();
-		tableBuyList.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Hola", "J"},
-				{"Juli", "g"},
-			},
-			new String[] {
-				"Mi compra actual (nombre)", "Valor ($)"
-			}
-		));
-		scrollPanelBuyList.setViewportView(tableBuyList);
-		
-		
-		
         tableBookList = new JTable();
-        tableBookList.setToolTipText("");
-        /*tableBookList.setModel(new DefaultTableModel(
-        	new Object[][] { //TODO Rellenar con los libros de la db
-        	},
-        	new String[] {
-        		"Nombre", "ISBN", "Autor", "Precio", "Categoria"
-        	}
-        ) {
-        	Class[] columnTypes = new Class[] {
-        		String.class, Integer.class, String.class, Float.class, String.class, Object.class
-        	};
-        	public Class getColumnClass(int columnIndex) {
-        		return columnTypes[columnIndex];
-        	}
-        });
-        */
-        
         scrollPanelBookList.setViewportView(tableBookList);
+        tableBuyList = new JTable();
+        scrollPanelBuyList.setViewportView(tableBuyList);
+        tablePurchases = new JTable();
+        scrollPanelPurchases.setViewportView(tablePurchases);
 		setLayout(jPanel2Layout);
 	}
 	
+	private void btnAddMousePressed() {
+		if (!(tableBookList.getSelectedRow() == -1)){
+			int selectedRow = tableBookList.getSelectedRow();
+			Object[] rowData = new Object[] {
+					tableBookList.getModel().getValueAt(selectedRow, 0),
+					tableBookList.getModel().getValueAt(selectedRow, 1),
+					tableBookList.getModel().getValueAt(selectedRow, 3)
+				};
+				
+				tableBuyListModel.addRow(rowData);
+		}
+	}
 	private void btnPreviewMousePressed() {
 		if (!(tableBookList.getSelectedRow() == -1)){
 			int selectedRow = tableBookList.getSelectedRow();
@@ -284,6 +240,21 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		JDialog dialog = new CancelPurchase(this);
 		dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 		dialog.setVisible(true);
+	}
+	
+	private void updateTablePurchases() {
+		// TODO: funcion que carga en tablePurchases las ultimas 5 compras realizadas por el usuario.
+	}
+
+	private void updateTableBuyList() {
+		tableBuyListModel = new DefaultTableModel();
+		tableBuyListModel.addColumn("Id");
+		tableBuyListModel.addColumn("TItulo");
+		tableBuyListModel.addColumn("Precio");
+		
+		tableBuyList.setModel(tableBuyListModel);
+		// Hide Id column
+		tableBuyList.removeColumn(tableBuyList.getColumnModel().getColumn(0));
 	}
 	
 	private void updateTableModel() {
