@@ -1,9 +1,9 @@
 package com.t3g.cookbooks.gui.admin.dialog.user;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,9 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.ButtonGroup;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
+
+import com.t3g.cookbooks.db.Database;
+import com.t3g.cookbooks.db.entities.Book;
+
 
 /**
  * 
@@ -21,12 +24,13 @@ import javax.swing.JLabel;
  */
 public class Preview extends JDialog {
 	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
-
+	private Book book;
 	/**
 	 * Create the frame.
 	 */
-	public Preview() {
+	public Preview(long id) {
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(400, 200, 566, 225);
 		contentPane = new JPanel();
@@ -50,25 +54,19 @@ public class Preview extends JDialog {
 		panel.setBounds(27, 11, 501, 130);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
-		JLabel lblSample = new JLabel(""); //TODO Completar con el book.getSample() del libro seleccionado en la tabla 
+		//-------------------------
+		try {
+			book = Database.getBookDao().queryForId(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		//-------------------------
+		JLabel lblSample = new JLabel(book.getSample());
 		lblSample.setBounds(33, 55, 444, 27);
 		panel.add(lblSample);
 	}
 	
 	private void close() {
 		this.dispose();
-	}
-	
-	/**
-	 * Launch the dialog standalone.
-	 */
-	public static void main(String[] args) {
-		/* Create and display the form */
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new Preview().setVisible(true);
-			}
-		});
 	}
 }

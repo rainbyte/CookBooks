@@ -118,26 +118,16 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 
 		JButton btnInfo = new JButton("Ver Info");
 		btnInfo.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent arg0) {
-				JDialog dialogInfo = new ShowInfo();
-				dialogInfo.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-				dialogInfo.setVisible(true);
-			}
-		});
-		btnInfo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+				btnInfoMousePressed();
 			}
 		});
 		btnInfo.setBackground(new Color(153, 153, 255));
 
 		JButton btnPreView = new JButton("Hojear");
 		btnPreView.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent e) {
-				JDialog dialogPreview = new Preview();
-				dialogPreview.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-				dialogPreview.setVisible(true);
+				btnPreviewMousePressed();
 			}
 		});
 		btnPreView.setBackground(new Color(153, 153, 255));
@@ -268,6 +258,26 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
         
         scrollPanelBookList.setViewportView(tableBookList);
 		setLayout(jPanel2Layout);
+	}
+	
+	private void btnPreviewMousePressed() {
+		if (!(tableBookList.getSelectedRow() == -1)){
+			int selectedRow = tableBookList.getSelectedRow();
+			long id = (Long) tableBookList.getModel().getValueAt(selectedRow, 0);
+			JDialog dialogPreview = new Preview(id);
+			dialogPreview.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialogPreview.setVisible(true);
+		}
+	}
+	
+	private void btnInfoMousePressed() {
+		if (!(tableBookList.getSelectedRow() == -1)){
+			int selectedRow = tableBookList.getSelectedRow();
+			long id = (Long) tableBookList.getModel().getValueAt(selectedRow, 0);
+			JDialog dialogInfo = new ShowInfo(id);
+			dialogInfo.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialogInfo.setVisible(true);
+		}
 	}
 	
 	private void btnNotBuyMousePressed() {
