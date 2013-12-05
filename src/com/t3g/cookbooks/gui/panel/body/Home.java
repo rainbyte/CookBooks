@@ -29,6 +29,8 @@ import com.t3g.cookbooks.gui.admin.dialog.user.CancelPurchase;
 import com.t3g.cookbooks.gui.admin.dialog.user.Preview;
 import com.t3g.cookbooks.gui.admin.dialog.user.ShowInfo;
 import com.t3g.cookbooks.resources.Resources;
+import java.awt.Rectangle;
+import javax.swing.SwingConstants;
 
 public class Home extends PanelBody implements ParentWindow, DataWindow {
 	private static final long serialVersionUID = 1L;
@@ -51,7 +53,6 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		setAutoscrolls(true);
 		setName(""); // NOI18N
 		setPreferredSize(new Dimension(732, 541));
-
 		comboBoxSelectTheme = new JComboBox<String>();
 		comboBoxSelectTheme.setBounds(172, 219, 150, 25);
 		comboBoxSelectTheme
@@ -75,8 +76,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		});
 		lblCarrito.setIcon(Resources.getIconCarrito());
 
-		scrollPanelBuyList = new JScrollPane(); // Lista de libros
-															// agregados al carrito
+		scrollPanelBuyList = new JScrollPane();	
 		JButton btnBuy = new JButton("");
 		btnBuy.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg0) {
@@ -100,6 +100,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		scrollPanelPurchases = new JScrollPane();
 
 		JLabel label = new JLabel("DESARROLLADO POR T3G");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		//-----------------------------------------------------
 		JButton btnInfo = new JButton("Ver Info");
@@ -145,25 +146,24 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 						.addComponent(scrollPanelBookList))
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(7)
 							.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
-								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addGap(31)
-									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addGap(18)
-									.addComponent(lblCarrito))
-								.addGroup(jPanel2Layout.createSequentialGroup()
-									.addGap(7)
-									.addGroup(jPanel2Layout.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(scrollPanelBuyList, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-										.addComponent(scrollPanelPurchases, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
-							.addGap(88))
+								.addComponent(scrollPanelBuyList, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+								.addComponent(scrollPanelPurchases, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)))
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(label, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addContainerGap())))
+							.addComponent(label, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(68)
+							.addComponent(lblCarrito))
+						.addGroup(jPanel2Layout.createSequentialGroup()
+							.addGap(66)
+							.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
+								.addGroup(jPanel2Layout.createSequentialGroup()
+									.addGap(10)
+									.addComponent(btnNotBuy, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap())
 		);
 		jPanel2Layout.setVerticalGroup(
 			jPanel2Layout.createParallelGroup(Alignment.LEADING)
@@ -172,7 +172,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 					.addGroup(jPanel2Layout.createParallelGroup(Alignment.LEADING)
 						.addGroup(jPanel2Layout.createSequentialGroup()
 							.addComponent(lblCarrito)
-							.addGap(11)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(scrollPanelBuyList, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
 							.addGap(1)
 							.addComponent(btnBuy, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
@@ -250,6 +250,10 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		tableBuyListModel.addColumn("Precio");
 		
 		tableBuyList.setModel(tableBuyListModel);
+		tableBuyList.getColumnModel().getColumn(1).setMinWidth(180);
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		tableBuyList.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
 		// Hide Id column
 		tableBuyList.removeColumn(tableBuyList.getColumnModel().getColumn(0));
 	}

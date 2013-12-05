@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -65,14 +66,19 @@ public class BuyList extends JDialog {
 		contentPane.add(btnDelete);
 
 		JScrollPane scrollPanelBuyList = new JScrollPane();
-		scrollPanelBuyList.setBounds(26, 36, 321, 186);
+		scrollPanelBuyList.setBounds(26, 36, 380, 186);
 		contentPane.add(scrollPanelBuyList);
 
 		// TODO Agregar los libros del carrito en la lista
 		tableBuyList = new JTable();
 		tableBuyList.setModel(model);
-		tableBuyList.removeColumn(tableBuyList.getColumnModel().getColumn(0));
 		scrollPanelBuyList.setViewportView(tableBuyList);
+		tableBuyList.removeColumn(tableBuyList.getColumnModel().getColumn(0));
+		tableBuyList.getColumnModel().getColumn(0).setMinWidth(300);
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		tableBuyList.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
+
 
 		JButton btnBack = new JButton("Volver atras");
 		btnBack.addMouseListener(new MouseAdapter() {
@@ -81,7 +87,7 @@ public class BuyList extends JDialog {
 				close();
 			}
 		});
-		btnBack.setBackground(new Color(153, 153, 255));
+		btnBack.setBackground(Color.RED);
 		btnBack.setBounds(26, 233, 105, 23);
 		contentPane.add(btnBack);
 	}
