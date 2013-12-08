@@ -3,6 +3,7 @@ package com.t3g.cookbooks.gui.panel.body.admin;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
+import com.t3g.cookbooks.db.entities.BookTag;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
@@ -179,12 +181,25 @@ public class Catalogue extends PanelBody implements ParentWindow {
 		tableBooksModel.addColumn("ISBN");
 
 		for (Book book : Database.getBookDao()) {
+			StringBuilder tagListBuilder = new StringBuilder();
+			boolean firstBookTag = true;
+			for (BookTag bookTag : Database.getBookTagDao()) {
+				if (book.getId() == bookTag.getBook().getId()) {
+					if (firstBookTag) {
+						firstBookTag = false;
+					} else {
+						tagListBuilder.append(",");
+					}
+					tagListBuilder.append(bookTag.getTag().getName());
+				}
+			}
+			
 			Object[] rowData = new Object[] {
 				book.getId(),
 				book.getTitle(),
 				String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()),
 				book.getPrice(),
-				"???",	// TODO (Alvaro) add categories support
+				tagListBuilder.toString(),
 				book.getIsbn()
 			};
 			
