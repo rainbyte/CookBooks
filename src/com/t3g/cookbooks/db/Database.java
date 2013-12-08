@@ -7,6 +7,7 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
+import com.t3g.cookbooks.db.entities.BookTag;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.db.entities.Purchase;
@@ -69,7 +70,25 @@ public class Database {
 		
 		return bookDao;
 	}
+	
+	/* BookTags DAO */
 
+	private static Dao<BookTag, Long> bookTagDao;
+	private static boolean bookTagDaoReady = false;
+	
+	public static Dao<BookTag, Long> getBookTagDao() {
+		if (!bookTagDaoReady) {
+			try {
+				bookTagDao = DaoManager.createDao(getConnection(), BookTag.class);
+				bookTagDaoReady = true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return bookTagDao;
+	}
+	
 	/* Countries DAO */
 	
 	private static Dao<Country, Long> countryDao;
