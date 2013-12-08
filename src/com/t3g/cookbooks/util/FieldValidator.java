@@ -49,6 +49,11 @@ public class FieldValidator {
 	public static boolean isGender(String input) {
 		return input.matches("^[mMfF]$");
 	}
+	
+	public static boolean isTagList(String input) {
+		return input.matches("^[a-zA-Z0-9áíúéóü ]+(,[a-zA-Z0-9áíúéóü ]+)+$");
+	}
+	
 	public static void main(String[] args) {
 		String alpha = "aiueo";
 		String alphanumeric = "aiueo12345";
@@ -58,6 +63,7 @@ public class FieldValidator {
 		String numberFloat = "12345.12345";
 		String numberInteger = "12345";
 		String phone = "2216123123";
+		String tagList = "Comida Japonesa,Sushi";
 
 		System.out.printf("'%s' is alpha? %s\n", alpha, isAlpha(alpha));
 		System.out.printf("'%s' is alpha? %s\n", alphanumeric, isAlpha(alphanumeric));
@@ -130,5 +136,7 @@ public class FieldValidator {
 		System.out.printf("'%s' is phone? %s\n", numberFloat, isPhone(numberFloat));
 		System.out.printf("'%s' is phone? %s\n", numberInteger, isPhone(numberInteger));
 		System.out.printf("'%s' is phone? %s\n\n", phone, isPhone(phone));
+		
+		System.out.printf("'%s' is tagList? %s\n\n", tagList, isTagList(tagList));
 	}
 }
