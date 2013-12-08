@@ -6,6 +6,9 @@ import java.awt.Dialog;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
@@ -26,6 +29,8 @@ import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
 import com.t3g.cookbooks.db.entities.Language;
+import com.t3g.cookbooks.db.entities.BookTag;
+import com.t3g.cookbooks.db.entities.Tag;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
@@ -232,6 +237,18 @@ public class CatalogueEditBook extends JDialog {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		StringBuilder tagListBuilder = new StringBuilder();
+		boolean firstBookTag = true;
+		for (BookTag bookTag : Database.getBookTagDao()) {
+			if (book.getId() == bookTag.getBook().getId()) {
+				if (firstBookTag) {
+					firstBookTag = false;
+				} else {
+					tagListBuilder.append(",");
+				}
+				tagListBuilder.append(bookTag.getTag().getName());
+			}
+		}
 		txtTitle.setText(book.getTitle());
 		txtPrice.setText(String.format("%s", book.getPrice()));
 		cbxLanguage.setSelectedItem(String.format("%s",book.getLanguage().getName()));
@@ -240,7 +257,7 @@ public class CatalogueEditBook extends JDialog {
 		txtSummary.setText(book.getSummary());
 		txtAditional.setText(book.getSample());	
 		txtIsbn.setText(book.getIsbn());
-		//txtPages.setText(String.format("%s", selectBook));
+		txtTags.setText(tagListBuilder.toString());
 		btnImagePath.setBounds(171, 158, 253, 25);
 		internalFrame.getContentPane().add(btnImagePath);
 		
@@ -468,6 +485,52 @@ public class CatalogueEditBook extends JDialog {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
+			//---------------------------------------------------
+			String[] arrStrTags = txtTags.getText().split(",");
+			List<String> arrStrTagsNotAdd = new ArrayList<String>();
+			System.out.printf("%s\n", arrStrTagsNotAdd);
+			boolean delete = true;
+			List<Long> deleteIds = new ArrayList<Long>();
+			String notAddString = "";
+			try {
+				for (BookTag bookTag : Database.getBookTagDao()){
+					delete = true;
+					if (bookTag.getBook().getId() == (book.getId())){
+						for (String strTag : arrStrTags) {
+							if (strTag.equals(bookTag.getTag().getName())){
+								delete = false;
+								arrStrTagsNotAdd.add(strTag);
+							}	
+						}
+						if (delete){
+							deleteIds.add(bookTag.getId());
+						}
+					}
+				}
+				System.out.printf("%s\n", arrStrTagsNotAdd);
+				//------------------------------------------------------
+				for (Long ID : deleteIds) {
+					Database.getBookTagDao().deleteById(ID);
+				}
+				//------------------------------------------------------
+				for (String strTag2 : arrStrTags) {
+					if (!arrStrTagsNotAdd.contains(strTag2)){
+						Tag tag = new Tag(strTag2);
+							List<Tag> res = Database.getTagDao().queryForMatching(tag);
+							if (res.size() > 0) {
+								tag.setId(res.get(0).getId());
+							} else {
+								Database.getTagDao().create(tag);
+							}
+							BookTag bookTag = new BookTag(book, tag);					
+							Database.getBookTagDao().create(bookTag);
+					}
+				}
+				//------------------------------------------------------
+			} catch (SQLException e) {
+				e.printStackTrace();			
+			}		
+			//---------------------------------------------------
 			close();
 		}
 	}
