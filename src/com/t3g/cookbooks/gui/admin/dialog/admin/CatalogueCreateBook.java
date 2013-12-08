@@ -12,6 +12,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -29,7 +30,9 @@ import javax.swing.WindowConstants;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
+import com.t3g.cookbooks.db.entities.BookTag;
 import com.t3g.cookbooks.db.entities.Language;
+import com.t3g.cookbooks.db.entities.Tag;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
@@ -261,7 +264,7 @@ public class CatalogueCreateBook extends JDialog {
 		boolean correctPrice = FieldValidator.isNumberFloat(txtPrice.getText());
 		boolean correctPages = FieldValidator.isNumberInteger(txtPages.getText());
 		boolean correctTitle = !txtTitle.getText().isEmpty();
-		boolean correctTags = !txtTags.getText().isEmpty();
+		boolean correctTags = FieldValidator.isTagList(txtTags.getText());
 		boolean correctIsbn = FieldValidator.isIsbn(txtIsbn.getText());
 		boolean correctImagePath = FieldValidator.isImagePath(imagePath);
 		Author selectAuthor = null;
@@ -366,6 +369,25 @@ public class CatalogueCreateBook extends JDialog {
 			} catch (SQLException ex) {
 				ex.printStackTrace();
 			}
+			// ---------------------------------------------------
+			String[] arrStrTags = txtTags.getText().split(",");
+			for (String strTag : arrStrTags) {
+				Tag tag = new Tag(strTag);
+				try {
+					List<Tag> res = Database.getTagDao().queryForMatching(tag);
+					if (res.size() > 0) {
+						tag.setId(res.get(0).getId());
+					} else {
+						Database.getTagDao().create(tag);
+					}
+					
+					BookTag bookTag = new BookTag(book, tag);					
+					Database.getBookTagDao().create(bookTag);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}			
+			// ---------------------------------------------------
 
 			close();
 		}
