@@ -16,6 +16,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
 
 import com.t3g.cookbooks.db.Database;
+import com.t3g.cookbooks.db.entities.BookTag;
 
 /**
  * 
@@ -67,6 +68,11 @@ public class WarningDelete extends JDialog {
 			public void mousePressed(MouseEvent arg0) {
 				// Remove from db
 				try {
+					for (BookTag bookTag : Database.getBookTagDao()){
+						if (bookTag.getBook().getId() == (id)){
+							Database.getBookTagDao().deleteById(bookTag.getId());
+						}
+					}
 					Database.getBookDao().deleteById(id);
 				} catch (SQLException e) {
 					e.printStackTrace();
