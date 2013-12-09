@@ -1,6 +1,4 @@
 Tareas ordenadas por prioridad:
--Realizar conexion de quitar del carrito, y de la lista actual de compras: (Fabrizio)
 -Modificar el estado de un pedido como administrador: (T3G)
--Mostrar "info" y "primeras paginas" en VER INFO y HOJEAR respectivamente desde la db: (T3G)
 -Manejo de estado de usuario: (Alvaro)
 -Inicio y cierre de sesion: (T3G)
