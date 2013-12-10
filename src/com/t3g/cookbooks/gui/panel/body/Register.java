@@ -237,7 +237,6 @@ public class Register extends PanelBody {
 
 		jLabel33.setForeground(Color.RED);
 		jLabel33.setText("*");
-		
 
 		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
 		jPanel2Layout.setHorizontalGroup(
@@ -473,12 +472,34 @@ public class Register extends PanelBody {
 		}
 		JOptionPane.showMessageDialog(this, "         Usuario creado      \n Gracias por elegir CookBooks");
 		lblEmailExist.setText("*");
+		updateTxt();
 	}
 
 	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
 		mainWindow.goPrevious();
 	}
 
+	private void updateTxt() {
+		txtName.setText("");
+		txtSurname.setText("");
+		txtEmail.setText("");
+		txtTown.setText("");
+		txtStreet.setText("");
+		txtNumber.setText("");
+		txtFloor.setText("");
+		txtDepto.setText("");
+		txtCP.setText("");
+		txtPhone.setText("");
+		txtCard1.setText("");
+		txtCard2.setText("");
+		txtCard3.setText("");
+		txtCard4.setText("");
+		txtSecureCode.setText("");
+		txtConfirmPass.setText("");
+		txtPass.setText("");
+		cbxStates.getModel().setSelectedItem("Seleccionar Provincia");
+	}
+	
 	private boolean validateInput() {
 		String password = new String(txtPass.getPassword());
 		String passwordValidator = new String(txtConfirmPass.getPassword());
