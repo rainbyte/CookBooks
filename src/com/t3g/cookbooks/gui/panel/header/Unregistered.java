@@ -187,10 +187,13 @@ public class Unregistered extends PanelHeader {
 	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
 		boolean signedIn = SessionManager.signIn(txtUser.getText(), txtPassword.getText());
 		if (signedIn) {
+			txtPassword.setBackground(Color.WHITE);
+			txtUser.setBackground(Color.WHITE);
 			mainWindow.useHeaderRegistered();
 			mainWindow.goHome();
 		} else {
-			// TODO (T3G) send error msg if sign in failed
+			txtPassword.setBackground(Color.RED);
+			txtUser.setBackground(Color.RED);
 		}
 	}
 
