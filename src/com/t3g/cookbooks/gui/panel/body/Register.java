@@ -458,7 +458,7 @@ public class Register extends PanelBody {
 			Integer.parseInt(txtCP.getText()),
 			txtPhone.getText(),
 			String.format(
-				"%s%s%s%s",
+				"%s-%s-%s-%s",
 				txtCard1.getText(),
 				txtCard2.getText(),
 				txtCard3.getText(),
