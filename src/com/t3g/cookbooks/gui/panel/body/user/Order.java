@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
@@ -127,6 +128,13 @@ public class Order extends PanelBody implements ParentWindow {
 		}
 
 		tableBookList.setModel(tableBooksModel);
+		tableBookList.getColumnModel().getColumn(1).setMinWidth(90);
+		tableBookList.getColumnModel().getColumn(2).setMinWidth(300);
+		tableBookList.getColumnModel().getColumn(3).setMinWidth(200);
+		tableBookList.getColumnModel().getColumn(4).setMinWidth(30);
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		tableBookList.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
 		// Hide Id column
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
