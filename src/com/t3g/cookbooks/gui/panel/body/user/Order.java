@@ -13,9 +13,13 @@ import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
 
+import com.t3g.cookbooks.db.Database;
+import com.t3g.cookbooks.db.entities.Purchase;
+import com.t3g.cookbooks.db.entities.BookTag;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
+import com.t3g.cookbooks.session.SessionManager;
 
 public class Order extends PanelBody implements ParentWindow {
 	private static final long serialVersionUID = 1L;
@@ -89,28 +93,38 @@ public class Order extends PanelBody implements ParentWindow {
 	private void updateTableModel() {
 		tableBooksModel = new DefaultTableModel();
 		tableBooksModel.addColumn("Id");
-		tableBooksModel.addColumn("Usuario");
 		tableBooksModel.addColumn("ISBN");
 		tableBooksModel.addColumn("Libro");
 		tableBooksModel.addColumn("Categoria");
 		tableBooksModel.addColumn("Precio");
 		tableBooksModel.addColumn("Estado");
 		
-		//Logica para la base de datos de pedidos 
-		/*for (Book book : Database.getBookDao()) {
-			Object[] rowData = new Object[] {
-				book.getId(),
-				book.getTitle(),
-				String.format("%s, %s", book.getAuthor().getSurname(), book.getAuthor().getName()),
-				book.getPrice(),
-				"???",	// TODO (Alvaro) add categories support
-				book.getIsbn()
-			};
-			
-			tableBooksModel.addRow(rowData);
-		
+		for (Purchase purchase : Database.getPurchaseDao()) {
+			if (purchase.getUser().getId() == SessionManager.getUser().getId()){
+				StringBuilder tagListBuilder = new StringBuilder();
+				boolean firstBookTag = true;
+				for (BookTag bookTag : Database.getBookTagDao()) {
+					if (purchase.getBook().getId() == bookTag.getBook().getId()) {
+						if (firstBookTag) {
+							firstBookTag = false;
+						} else {
+							tagListBuilder.append(",");
+						}
+						tagListBuilder.append(bookTag.getTag().getName());
+					}
+				}
+				
+				Object[] rowData = new Object[] {
+						purchase.getId(),
+						purchase.getBook().getIsbn(),
+						purchase.getBook().getTitle(),
+						tagListBuilder.toString(),
+						purchase.getBook().getPrice(),
+						purchase.getStatus()
+				};
+				tableBooksModel.addRow(rowData);
+			}
 		}
-		*/
 
 		tableBookList.setModel(tableBooksModel);
 		// Hide Id column
