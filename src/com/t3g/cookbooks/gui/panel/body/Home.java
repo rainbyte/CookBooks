@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -21,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.BookTag;
+import com.t3g.cookbooks.db.entities.Purchase;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.abstraction.DataWindow;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
@@ -31,6 +33,7 @@ import com.t3g.cookbooks.gui.admin.dialog.user.ConfirmPurchase;
 import com.t3g.cookbooks.gui.admin.dialog.user.Preview;
 import com.t3g.cookbooks.gui.admin.dialog.user.ShowInfo;
 import com.t3g.cookbooks.resources.Resources;
+import com.t3g.cookbooks.session.SessionManager;
 
 import java.awt.Rectangle;
 
@@ -41,7 +44,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 
 	private JComboBox<String> comboBoxSelectTheme;
 	private JTable tableBookList, tableBuyList, tablePurchases;
-	private DefaultTableModel tableBooksModel, tableBuyListModel;
+	private DefaultTableModel tableBooksModel, tableBuyListModel, tablePurchasesModel;
 	private JScrollPane scrollPanelBookList, scrollPanelBuyList, scrollPanelPurchases;
 
 	public Home(MainWindowLogic mainWindow) {
@@ -73,9 +76,11 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		JLabel lblCarrito = new JLabel("");
 		lblCarrito.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg0) {
-				JDialog dialog = new BuyList(tableBuyListModel);
-				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-				dialog.setVisible(true);
+				if (tableBuyListModel.getRowCount() != 0){
+					JDialog dialog = new BuyList(tableBuyListModel);
+					dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+					dialog.setVisible(true);
+				}
 			}
 		});
 		lblCarrito.setIcon(Resources.getIconCarrito());
@@ -215,9 +220,11 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
 			dialog.setVisible(true);
 		}
+		update();
 	}
 	private void btnAddMousePressed() {
 		if (!(tableBookList.getSelectedRow() == -1)){
+			if (SessionManager.getUser() != null){
 			int selectedRow = tableBookList.getSelectedRow();
 			Object[] rowData = new Object[] {
 					tableBookList.getModel().getValueAt(selectedRow, 0),
@@ -226,6 +233,10 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 				};
 				
 				tableBuyListModel.addRow(rowData);
+			}
+			else {
+				JOptionPane.showMessageDialog(this, "   Debes estar logueado para agregar Items al carrito    ");
+			}
 		}
 	}
 	private void btnPreviewMousePressed() {
@@ -258,7 +269,27 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 	}
 	
 	private void updateTablePurchases() {
-		// TODO: funcion que carga en tablePurchases las ultimas 5 compras realizadas por el usuario.
+		tablePurchasesModel = new DefaultTableModel();
+		tablePurchasesModel.addColumn("Titulo");
+		tablePurchasesModel.addColumn("Precio");
+		
+		if (SessionManager.getUser() != null) {
+			for (Purchase purchase : Database.getPurchaseDao()) {
+				if (purchase.getUser().getId() == SessionManager.getUser().getId()){
+				
+					Object[] rowData = new Object[] {
+							purchase.getBook().getTitle(),
+							purchase.getBook().getPrice(),
+					};
+					tablePurchasesModel.insertRow(0, rowData);
+				}
+			}
+		}
+		tablePurchases.setModel(tablePurchasesModel);
+		tablePurchases.getColumnModel().getColumn(0).setMinWidth(200);
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		tablePurchases.getColumnModel().getColumn(1).setCellRenderer(rightRenderer);
 	}
 
 	private void updateTableBuyList() {
@@ -268,7 +299,7 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		tableBuyListModel.addColumn("Precio");
 		
 		tableBuyList.setModel(tableBuyListModel);
-		tableBuyList.getColumnModel().getColumn(1).setMinWidth(180);
+		tableBuyList.getColumnModel().getColumn(1).setMinWidth(200);
 		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
 		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
 		tableBuyList.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
@@ -318,13 +349,14 @@ public class Home extends PanelBody implements ParentWindow, DataWindow {
 		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
 		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
 		tableBookList.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
-		
 		// Hide Id column
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
 
 	public void update() {
 		updateTableModel();
+		updateTableBuyList();
+		updateTablePurchases();
 	}
 
 	public void deleteData() {
