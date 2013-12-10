@@ -53,11 +53,16 @@ public class Order extends PanelBody implements ParentWindow {
 
 		JButton btnModifyState = new JButton("Modificar estado");
 		btnModifyState.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent e) {
-				JDialog dialog = new ModifyState();
-				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-				dialog.setVisible(true);
+				if (!(tableBookList.getSelectedRow() == -1)){
+					int selectedRow = tableBookList.getSelectedRow();
+					long id = (Long) tableBookList.getModel().getValueAt(selectedRow, 0);
+					JDialog dialog = new ModifyState(id);
+					dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+					dialog.setVisible(true);
+					
+					update();
+				}
 			}
 		});
 		btnModifyState.setBackground(UIManager.getColor("Button.background"));
@@ -116,21 +121,6 @@ public class Order extends PanelBody implements ParentWindow {
 		
         tableBookList = new JTable();
         tableBookList.setToolTipText("");
-        /*tableBookList.setModel(new DefaultTableModel(
-        	new Object[][] { //TODO Rellenar con los libros de la db
-        	},
-        	new String[] {
-        		"Nombre", "ISBN", "Autor", "Precio", "Categoria"
-        	}
-        ) {
-        	Class[] columnTypes = new Class[] {
-        		String.class, Integer.class, String.class, Float.class, String.class, Object.class
-        	};
-        	public Class getColumnClass(int columnIndex) {
-        		return columnTypes[columnIndex];
-        	}
-        });
-        */
         
         scrollPanelBookList.setViewportView(tableBookList);
 		setLayout(jPanel2Layout);
