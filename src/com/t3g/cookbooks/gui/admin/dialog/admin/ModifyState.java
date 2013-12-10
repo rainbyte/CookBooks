@@ -60,14 +60,9 @@ public class ModifyState extends JDialog {
 		btnAply.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent arg0) {
 				btnAplyMousePressed();
-				// TODO: Cambiar el estado del pedido seg�n este seleccionado el bot�n:
-				// rbtnDispatched = ENVIADO
-				// rbtnCanceled = CANCELADO
-				// EN rbtnSelected esta el bot�n seleccionado
-				// Se le podr�a hacer un rbtnSelected.getText() y directamente aplicarlo a la base de datos...
-				// No s� bien como se maneja pero supongo que podr�s escrbir as�
 			}
 		});
+		
 		btnAply.setBackground(UIManager.getColor("Button.background"));
 		btnAply.setBounds(27, 136, 123, 23);
 		contentPane.add(btnAply);
