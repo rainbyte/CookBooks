@@ -56,9 +56,10 @@ public class BuyList extends JDialog {
 		btnDelete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Borrar del carrito el libro seleccionado de la lista
-				int selectedRow = tableBuyList.getSelectedRow();
-				((DefaultTableModel) tableBuyList.getModel()).removeRow(selectedRow);
+				if (!(tableBuyList.getSelectedRow() == -1)){
+					int selectedRow = tableBuyList.getSelectedRow();
+					((DefaultTableModel) tableBuyList.getModel()).removeRow(selectedRow);
+				}
 			}
 		});
 		btnDelete.setBackground(new Color(153, 153, 255));
