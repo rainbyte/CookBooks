@@ -473,6 +473,7 @@ public class Register extends PanelBody {
 		JOptionPane.showMessageDialog(this, "         Usuario creado      \n Gracias por elegir CookBooks");
 		lblEmailExist.setText("*");
 		updateTxt();
+		mainWindow.goHome();
 	}
 
 	private void btnBackMousePressed(java.awt.event.MouseEvent evt) {
