@@ -114,11 +114,11 @@ public class ConfirmPurchase extends JDialog {
 					book,
 					book.getPrice(),
 					"Pendiente");
-		}
-		try {
-			Database.getPurchaseDao().create(purchase);
-		} catch (SQLException ex) {
-			ex.printStackTrace();
+			try {
+				Database.getPurchaseDao().create(purchase);
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 		dataWindow.deleteData();
 		JOptionPane.showMessageDialog(this, "         Pedido realizado      \n Gracias por comprar en CookBooks");
