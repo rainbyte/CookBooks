@@ -68,8 +68,9 @@ public class Registered extends PanelHeader {
 		add(panelLogin1);
 		panelLogin1.setBorder(null);
 		panelLogin1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-
-		lblUsuario = new JLabel("Usuario");
+		
+		String userName =  SessionManager.getUser().getSurname() + " " + SessionManager.getUser().getName();
+		lblUsuario = new JLabel(userName);
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
 		panelLogin1.add(lblUsuario);
 

@@ -81,12 +81,12 @@ public class Unregistered extends PanelHeader {
 		panelLogin1.add(txtUser);
 		txtUser.setColumns(10);
 
-		txtUser.setText("Usuario");
+		txtUser.setText("");
 		txtPassword = new JPasswordField();
 		panelLogin1.add(txtPassword);
 		txtPassword.setColumns(10);
 
-		txtPassword.setText("Contraseña");
+		txtPassword.setText("");
 
 		panelSearchBar = new JPanel();
 		panelSearchBar.setBounds(0, 131, 364, 44);
