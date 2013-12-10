@@ -4,6 +4,9 @@ public interface MainWindowLogic {
 	public void setPanelHeader(PanelHeader header);
 	public void setPanelBody(PanelBody body);
 	
+	public void useHeaderRegistered();
+	public void useHeaderUnregistered();
+
 	public void goContact();
 	public void goHelp();
 	public void goHome();

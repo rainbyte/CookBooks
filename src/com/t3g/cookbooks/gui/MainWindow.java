@@ -15,6 +15,7 @@ import com.t3g.cookbooks.gui.panel.body.RecoverPass;
 import com.t3g.cookbooks.gui.panel.body.Register;
 import com.t3g.cookbooks.gui.panel.body.user.MyAccount;
 import com.t3g.cookbooks.gui.panel.body.user.Order;
+import com.t3g.cookbooks.gui.panel.header.Registered;
 import com.t3g.cookbooks.gui.panel.header.Unregistered;
 
 public class MainWindow extends JFrame implements MainWindowLogic {
@@ -108,6 +109,14 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 	
 	public void goRegister() {
 		setPanelBody(new Register(this));		
+	}
+
+	public void useHeaderRegistered() {
+		setPanelHeader(new Registered(this));
+	}
+
+	public void useHeaderUnregistered() {
+		setPanelHeader(new Unregistered(this));	
 	}
 	
 	public static void main(String[] args) {

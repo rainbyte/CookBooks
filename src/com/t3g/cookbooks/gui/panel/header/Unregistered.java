@@ -17,6 +17,7 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelHeader;
 import com.t3g.cookbooks.gui.admin.dialog.admin.AccesDenied;
 import com.t3g.cookbooks.resources.Resources;
+import com.t3g.cookbooks.session.SessionManager;
 
 public class Unregistered extends PanelHeader {
 	private static final long serialVersionUID = 1L;
@@ -184,8 +185,13 @@ public class Unregistered extends PanelHeader {
 	}
 	
 	private void btnLoginMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO Evento para ingresar a la pagina, y loguearse. Abre pantalla
-		// home pero ya logueado.
+		boolean signedIn = SessionManager.signIn(txtUser.getText(), txtPassword.getText());
+		if (signedIn) {
+			mainWindow.useHeaderRegistered();
+			mainWindow.goHome();
+		} else {
+			// TODO (T3G) send error msg if sign in failed
+		}
 	}
 
 	private void lblForgotPassMousePressed(java.awt.event.MouseEvent evt) {

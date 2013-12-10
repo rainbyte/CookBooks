@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelHeader;
 import com.t3g.cookbooks.resources.Resources;
+import com.t3g.cookbooks.session.SessionManager;
 
 public class Registered extends PanelHeader {
 	private static final long serialVersionUID = 1L;
@@ -164,7 +165,9 @@ public class Registered extends PanelHeader {
 	}
 
 	private void btnLogoutMousePressed(java.awt.event.MouseEvent evt) {
-		// TODO (Alvaro) implement event. Needs user state management. 
+		SessionManager.signOut();
+		mainWindow.useHeaderUnregistered();
+		mainWindow.goHome();
 	}
 
 	private void btnSearchMousePressed(java.awt.event.MouseEvent evt) {
