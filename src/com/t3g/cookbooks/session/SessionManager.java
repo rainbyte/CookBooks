@@ -41,9 +41,15 @@ public class SessionManager {
 			System.out.println("Database problem, repeated username.");
 			return false;
 		} else if (userList.size() == 1) {
-			user = userList.get(0);
-			signedIn = true;
-			return true;
+			if (!userList.get(0).getPassword().equals(password)){
+				System.out.println("Invalid user and password");
+				return false;
+			}
+			else {
+				user = userList.get(0);
+				signedIn = true;
+				return true;
+			}
 		}
 
 		System.out.println("Unknown sign in error.");		
