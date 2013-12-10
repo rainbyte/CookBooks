@@ -54,15 +54,7 @@ public class Order extends PanelBody implements ParentWindow {
 		JButton btnModifyState = new JButton("Modificar estado");
 		btnModifyState.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				if (!(tableBookList.getSelectedRow() == -1)){
-					int selectedRow = tableBookList.getSelectedRow();
-					long id = (Long) tableBookList.getModel().getValueAt(selectedRow, 0);
-					JDialog dialog = new ModifyState(id);
-					dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-					dialog.setVisible(true);
-					
-					update();
-				}
+				btnModifyStateMousePressed();
 			}
 		});
 		btnModifyState.setBackground(UIManager.getColor("Button.background"));
@@ -72,13 +64,8 @@ public class Order extends PanelBody implements ParentWindow {
 		
 		JButton btnDataView = new JButton("Ver datos del pedido");
 		btnDataView.addMouseListener(new MouseAdapter() {
-			@Override
 			public void mousePressed(MouseEvent arg0) {
-				JDialog dialog = new DataOfOrder();
-				dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
-				dialog.setVisible(true);
-				// TODO: Al ser presionado, muestra los siiguientes datos de un pedido en el JDialog DataOfOrder:
-				// Nombre, Direcci�n( Calle, Ciudad, Provinicia, CP), Tel�fono, libro solicitado e ISBN
+				btnDataViewMousePressed();
 			}
 		});
 
@@ -174,6 +161,28 @@ public class Order extends PanelBody implements ParentWindow {
 		tableBookList.removeColumn(tableBookList.getColumnModel().getColumn(0));
 	}
 
+	private void btnModifyStateMousePressed() {
+		if (!(tableBookList.getSelectedRow() == -1)){
+			int selectedRow = tableBookList.getSelectedRow();
+			long id = (Long) tableBookList.getModel().getValueAt(selectedRow, 0);
+			JDialog dialog = new ModifyState(id);
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
+			
+			update();
+		}
+	}
+	
+	private void btnDataViewMousePressed() {
+		if (!(tableBookList.getSelectedRow() == -1)){
+			int selectedRow = tableBookList.getSelectedRow();
+			long id = (Long) tableBookList.getModel().getValueAt(selectedRow, 0);
+			JDialog dialog = new DataOfOrder(id);
+			dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+			dialog.setVisible(true);
+		}
+	}
+	
 	public void update() {
 		updateTableModel();
 	}
