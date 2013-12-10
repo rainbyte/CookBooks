@@ -22,6 +22,7 @@ import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Purchase;
 import com.t3g.cookbooks.db.entities.User;
 import com.t3g.cookbooks.gui.abstraction.DataWindow;
+import com.t3g.cookbooks.session.SessionManager;
 
 /**
  * 
@@ -108,10 +109,8 @@ public class ConfirmPurchase extends JDialog {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			User user = new User(1);
-				// TODO: Este User debe ser reemplazado por el user que se encuentre logueado.
 			purchase = new Purchase(
-					user,
+					SessionManager.getUser(),
 					book,
 					book.getPrice(),
 					"Pendiente");
