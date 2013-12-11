@@ -26,7 +26,6 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.admin.DataOfOrder;
 import com.t3g.cookbooks.gui.admin.dialog.admin.ModifyState;
-import com.t3g.cookbooks.session.SessionManager;
 
 public class OrderAsAdmin extends PanelBody implements ParentWindow {
 	private static final long serialVersionUID = 1L;

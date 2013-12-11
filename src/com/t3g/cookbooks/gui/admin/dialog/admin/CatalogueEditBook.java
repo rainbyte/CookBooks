@@ -1,49 +1,42 @@
 package com.t3g.cookbooks.gui.admin.dialog.admin;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dialog;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Book;
-import com.t3g.cookbooks.db.entities.Country;
-import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.db.entities.BookTag;
+import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.db.entities.Tag;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
-
-import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
-
-import java.awt.Dimension;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Component;
-import java.awt.Rectangle;
-import java.io.File;
 
 public class CatalogueEditBook extends JDialog {
 	private static final long serialVersionUID = 1L;

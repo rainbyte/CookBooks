@@ -2,7 +2,6 @@ package com.t3g.cookbooks.gui.admin.dialog.admin;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -10,17 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -28,15 +25,9 @@ import javax.swing.WindowConstants;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
-import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Country;
-import com.t3g.cookbooks.db.entities.Language;
 import com.t3g.cookbooks.gui.ParentWindow;
-import com.t3g.cookbooks.gui.ParentWindowDummy;
 import com.t3g.cookbooks.util.FieldValidator;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ManagementCreateAuthor extends JDialog {
 	private static final long serialVersionUID = 1L;
@@ -161,7 +152,7 @@ public class ManagementCreateAuthor extends JDialog {
 		
 		cbxCountry = new JComboBox();
 		cbxCountry.setBounds(171, 99, 150, 25);
-		cbxCountry.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar País"}));
+		cbxCountry.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Paï¿½s"}));
 		internalFrame.getContentPane().add(cbxCountry);
 		
 		JLabel lblBirthdate = new JLabel("Fecha de Nacimiento");
@@ -191,7 +182,7 @@ public class ManagementCreateAuthor extends JDialog {
 		// -------------------------------------------
 		boolean correctCountry;
 		String selectCountry_s = (String) cbxCountry.getSelectedItem();
-		if (selectCountry_s == "Seleccionar País") {
+		if (selectCountry_s == "Seleccionar Paï¿½s") {
 			correctCountry = false;
 			cbxCountry.setBackground(Color.RED);
 		} else {

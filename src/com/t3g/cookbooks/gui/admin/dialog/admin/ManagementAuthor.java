@@ -6,24 +6,20 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JInternalFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Country;
-import com.t3g.cookbooks.gui.ParentWindow;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
-import java.text.SimpleDateFormat;
 
 public class ManagementAuthor extends JDialog {
 	private static final long serialVersionUID = 1L;

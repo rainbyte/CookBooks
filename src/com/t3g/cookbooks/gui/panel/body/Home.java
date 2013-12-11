@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,10 +35,6 @@ import com.t3g.cookbooks.gui.admin.dialog.user.Preview;
 import com.t3g.cookbooks.gui.admin.dialog.user.ShowInfo;
 import com.t3g.cookbooks.resources.Resources;
 import com.t3g.cookbooks.session.SessionManager;
-
-import java.awt.Rectangle;
-
-import javax.swing.SwingConstants;
 
 public class Home extends PanelBody implements ParentWindow, DataWindow {
 	private static final long serialVersionUID = 1L;

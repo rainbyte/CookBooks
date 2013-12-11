@@ -1,19 +1,18 @@
 package com.t3g.cookbooks.gui.admin.dialog.admin;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
-import javax.swing.JLabel;
+import javax.swing.border.TitledBorder;
 
 import com.t3g.cookbooks.db.Database;
 

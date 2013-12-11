@@ -15,8 +15,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.t3g.cookbooks.db.Database;
-import com.t3g.cookbooks.db.entities.Purchase;
 import com.t3g.cookbooks.db.entities.BookTag;
+import com.t3g.cookbooks.db.entities.Purchase;
 import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;

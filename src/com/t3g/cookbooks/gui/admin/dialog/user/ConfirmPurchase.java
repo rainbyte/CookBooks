@@ -1,7 +1,6 @@
 package com.t3g.cookbooks.gui.admin.dialog.user;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -20,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Book;
 import com.t3g.cookbooks.db.entities.Purchase;
-import com.t3g.cookbooks.db.entities.User;
 import com.t3g.cookbooks.gui.abstraction.DataWindow;
 import com.t3g.cookbooks.session.SessionManager;
 

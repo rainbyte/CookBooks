@@ -9,11 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.t3g.cookbooks.gui.abstraction.DataWindow;
-import javax.swing.SwingConstants;
 
 /**
  * 

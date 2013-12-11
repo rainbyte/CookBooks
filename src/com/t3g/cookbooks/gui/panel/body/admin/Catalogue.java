@@ -2,8 +2,6 @@ package com.t3g.cookbooks.gui.panel.body.admin;
 
 import java.awt.Color;
 import java.awt.Dialog;
-import java.sql.SQLException;
-import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -24,7 +22,6 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueCreateBook;
 import com.t3g.cookbooks.gui.admin.dialog.admin.CatalogueEditBook;
-import com.t3g.cookbooks.gui.admin.dialog.admin.DataOfOrder;
 import com.t3g.cookbooks.gui.admin.dialog.admin.WarningDelete;
 
 /**

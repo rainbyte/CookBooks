@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -18,7 +19,6 @@ import com.t3g.cookbooks.db.entities.User;
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.util.FieldValidator;
-import javax.swing.JPasswordField;
 
 public class Register extends PanelBody {
 	private static final long serialVersionUID = 1L;
