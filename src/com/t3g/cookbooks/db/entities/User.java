@@ -1,9 +1,11 @@
 package com.t3g.cookbooks.db.entities;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.t3g.cookbooks.db.Database;
 
 @DatabaseTable(tableName = "users")
 public class User {
@@ -54,6 +56,9 @@ public class User {
 
 	@DatabaseField(canBeNull = false)
 	private String card_code;
+	
+	@DatabaseField(canBeNull = false, defaultValue = "0")
+	private boolean is_admin;
 
 	public User() {
 		super();
@@ -208,5 +213,28 @@ public class User {
 
 	public void setCardCode(String cardCode) {
 		this.card_code = cardCode;
-	}	
+	}
+
+	public boolean isAdmin() {
+		return is_admin;
+	}
+
+	public void setAdmin(boolean is_admin) {
+		this.is_admin = is_admin;
+	}
+	
+	public static void main(String[] args) {
+		User user = new User("ad", "min", "admin@cookbooks.com", "admin",
+				"Buenos Aires", "La Plata", "50", 99,
+				1900, "2214895858", "1111222233334444", "0000");
+		user.setAdmin(true);
+		
+		try {
+			Database.getUserDao().create(user);
+			User userForQuery = Database.getUserDao().queryForSameId(user);
+			System.out.printf("User %s is admin? %s\n", userForQuery.getEmail(), userForQuery.isAdmin());			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
