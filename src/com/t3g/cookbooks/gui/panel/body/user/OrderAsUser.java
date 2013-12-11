@@ -22,14 +22,14 @@ import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
 import com.t3g.cookbooks.session.SessionManager;
 
-public class Order extends PanelBody implements ParentWindow {
+public class OrderAsUser extends PanelBody implements ParentWindow {
 	private static final long serialVersionUID = 1L;
 
 	private JTable tableBookList;
 	public static JFrame cancelarCompra;
 	private DefaultTableModel tableBooksModel;
 
-	public Order(MainWindowLogic mainWindow) {
+	public OrderAsUser(MainWindowLogic mainWindow) {
 		super(mainWindow);
 		
 		updateTableModel();
