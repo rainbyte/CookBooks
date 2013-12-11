@@ -23,7 +23,7 @@ public class FieldValidator {
 	}
 
 	public static boolean isEmail(String input) {
-		return input.matches("^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z][a-zA-Z0-9]+\\.[a-zA-Z]{3,4}(\\.[a-zA-Z]{2}|)$");
+		return input.matches("^[a-zA-Z][a-zA-Z0-9._-]+@[a-zA-Z][a-zA-Z0-9]+\\.[a-zA-Z]{3,4}(\\.[a-zA-Z]{2}|)$");
 	}
 
 	public static boolean isNumberFloat(String input) {
