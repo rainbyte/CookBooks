@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import com.t3g.cookbooks.gui.abstraction.MainWindowLogic;
 import com.t3g.cookbooks.gui.abstraction.PanelBody;
@@ -29,6 +30,8 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 	private PanelBody panelBody, panelBodyPrev;
 	
 	public MainWindow() {
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 		getContentPane().setBackground(new Color(153, 153, 255));
 		this.setMinimumSize(new Dimension(800, 768));
 		getContentPane().setLayout(null);
