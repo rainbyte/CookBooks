@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -26,13 +27,10 @@ import javax.swing.WindowConstants;
 import com.t3g.cookbooks.db.Database;
 import com.t3g.cookbooks.db.entities.Author;
 import com.t3g.cookbooks.db.entities.Country;
-import com.t3g.cookbooks.gui.ParentWindow;
 import com.t3g.cookbooks.util.FieldValidator;
 
 public class ManagementEditAuthor extends JDialog {
 	private static final long serialVersionUID = 1L;
-
-	private ParentWindow parent;
 
 	// Variables declaration
 	private JInternalFrame internalFrame;
@@ -167,9 +165,9 @@ public class ManagementEditAuthor extends JDialog {
 		txtName.setBounds(171, 39, 242, 25);
 		internalFrame.getContentPane().add(txtName);
 		
-		cbxCountry = new JComboBox();
+		cbxCountry = new JComboBox<String>();
 		cbxCountry.setBounds(171, 99, 150, 25);
-		cbxCountry.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Pa�s"}));
+		cbxCountry.setModel(new DefaultComboBoxModel<String>(new String[] { "Seleccionar País"}));
 		internalFrame.getContentPane().add(cbxCountry);
 		
 		JLabel lblBirthdate = new JLabel("Fecha de Nacimiento");
