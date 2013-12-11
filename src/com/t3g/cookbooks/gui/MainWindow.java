@@ -102,7 +102,10 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 	}
 
 	public void goMyAccount() {
-		setPanelBody(new MyAccount(this));
+		boolean isAdminSession = SessionManager.isAdminSession();
+		if(!isAdminSession) {
+			setPanelBody(new MyAccount(this));
+		}
 	}
 	
 	public void goOrder() {
