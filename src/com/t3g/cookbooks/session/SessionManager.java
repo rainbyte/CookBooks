@@ -68,4 +68,10 @@ public class SessionManager {
 	public static User getUser() {
 		return user;
 	}
+	
+	public static boolean isAdminSession() {
+		if (!signedIn) return false;
+		
+		return user.isAdmin();
+	}
 }
