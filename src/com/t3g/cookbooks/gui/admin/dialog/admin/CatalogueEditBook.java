@@ -163,15 +163,15 @@ public class CatalogueEditBook extends JDialog {
 		lblLanguage.setBounds(30, 223, 137, 14);
 		internalFrame.getContentPane().add(lblLanguage);
 		
-		cbxLanguage = new JComboBox();
+		cbxLanguage = new JComboBox<String>();
 		cbxLanguage.setBounds(172, 219, 150, 25);
-		cbxLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Idioma"}));
+		cbxLanguage.setModel(new DefaultComboBoxModel<String>(new String[] { "Seleccionar Idioma"}));
 		internalFrame.getContentPane().add(cbxLanguage);
 		addLanguage();
 		
-		cbxAuthor = new JComboBox();
+		cbxAuthor = new JComboBox<String>();
 		cbxAuthor.setBounds(171, 37, 187, 25);
-		cbxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Autor"}));
+		cbxAuthor.setModel(new DefaultComboBoxModel<String>(new String[] { "Seleccionar Autor"}));
 		internalFrame.getContentPane().add(cbxAuthor);
 		addAuthors();
 		
@@ -484,7 +484,6 @@ public class CatalogueEditBook extends JDialog {
 			System.out.printf("%s\n", arrStrTagsNotAdd);
 			boolean delete = true;
 			List<Long> deleteIds = new ArrayList<Long>();
-			String notAddString = "";
 			try {
 				for (BookTag bookTag : Database.getBookTagDao()){
 					delete = true;
