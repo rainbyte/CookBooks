@@ -528,7 +528,7 @@ public class MyAccount extends PanelBody {
 		txtActualPass.setBackground(Color.WHITE);
 		txtNewPass.setBackground(Color.WHITE);
 		txtConfirmPass.setBackground(Color.WHITE);
-		boolean correctPass = SessionManager.getUser().getPassword().equals(txtActualPass.getText());
+		boolean correctPass = SessionManager.getUser().getPassword().equals(txtActualPass.getPassword());
 		if (correctPass) {
 			String password = new String(txtNewPass.getPassword());
 			String passwordValidator = new String(txtConfirmPass.getPassword());
