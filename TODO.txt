@@ -1,4 +1,3 @@
 Tareas ordenadas por prioridad:
 -Modificar el estado de un pedido como administrador: (T3G)
--Manejo de estado de usuario: (Alvaro)
--Inicio y cierre de sesion: (T3G)
+-Revisar funcionamiento de botones "Volver atras": (T3G)
