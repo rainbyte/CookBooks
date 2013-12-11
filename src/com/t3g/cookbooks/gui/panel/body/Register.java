@@ -510,7 +510,7 @@ public class Register extends PanelBody {
 		boolean correctPass = ((password.equals(passwordValidator)) && (!password.isEmpty()));
 		boolean correctState = (FieldValidator.isAlpha(cbxStates.getSelectedItem().toString()) && (!cbxStates.getSelectedItem().toString().equals("Seleccionar Provincia")));
 		boolean correctTown = FieldValidator.isAlpha(txtTown.getText());
-		boolean correctStreet = FieldValidator.isAlpha(txtStreet.getText());
+		boolean correctStreet = FieldValidator.isAlphanumeric(txtStreet.getText());
 		boolean correctNumber = FieldValidator.isNumberInteger(txtNumber.getText());
 		boolean correctCP = FieldValidator.isNumberInteger(txtCP.getText());
 		boolean correctPhone = FieldValidator.isPhone(txtPhone.getText());
