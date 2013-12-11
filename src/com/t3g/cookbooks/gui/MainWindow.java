@@ -13,10 +13,12 @@ import com.t3g.cookbooks.gui.panel.body.Help;
 import com.t3g.cookbooks.gui.panel.body.Home;
 import com.t3g.cookbooks.gui.panel.body.RecoverPass;
 import com.t3g.cookbooks.gui.panel.body.Register;
+import com.t3g.cookbooks.gui.panel.body.admin.OrderAsAdmin;
 import com.t3g.cookbooks.gui.panel.body.user.MyAccount;
 import com.t3g.cookbooks.gui.panel.body.user.OrderAsUser;
 import com.t3g.cookbooks.gui.panel.header.Registered;
 import com.t3g.cookbooks.gui.panel.header.Unregistered;
+import com.t3g.cookbooks.session.SessionManager;
 
 public class MainWindow extends JFrame implements MainWindowLogic {
 	private static final long serialVersionUID = 1L;
@@ -94,8 +96,13 @@ public class MainWindow extends JFrame implements MainWindowLogic {
 	}
 	
 	public void goOrder() {
-		// TODO (Alvaro) apply user/admin detection (needs user state support).
-		setPanelBody(new OrderAsUser(this));		
+		boolean isAdminSession = SessionManager.isAdminSession();
+		
+		if (isAdminSession) {
+			setPanelBody(new OrderAsAdmin(this));
+		} else {
+			setPanelBody(new OrderAsUser(this));
+		}		
 	}
 	
 	public void goPrevious() {
